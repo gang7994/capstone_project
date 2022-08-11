@@ -32,7 +32,11 @@ public class PlayerMove : MonoBehaviour
         }
         if(CrossPlatformInputManager.GetButton("Attack"))
         {
-            print("Attack");
+            GetComponent<Animator>().SetBool("isAttack", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("isAttack", false);
         }
     }
 }
