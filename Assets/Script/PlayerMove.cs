@@ -32,7 +32,7 @@ public class PlayerMove : MonoBehaviour
         }
         if(CrossPlatformInputManager.GetButton("Attack"))
         {
-            print("attack");
+            print("Attack");
         }
     }
 }
