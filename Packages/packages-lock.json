@@ -7,12 +7,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.tripolygon.umodeler-x": {
-      "version": "file:C:\\Users\\gang7\\AppData\\Local\\Unity\\cache\\Tripolygon\\packages\\com.tripolygon.umodeler-x-1.2.0-dev.1.58.tgz",
-      "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {}
-    },
     "com.unity.collab-proxy": {
       "version": "1.17.0",
       "depth": 0,
