@@ -17,7 +17,7 @@ public class PlayerMove : MonoBehaviour
     {
         float h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
         float v = CrossPlatformInputManager.GetAxisRaw("Vertical");
-
+        float shoot = Input.GetAxis("Fire2");
         if(h != 0.0f || v != 0.0f)
         {
             Vector3 dir = h * Vector3.right + v * Vector3.forward;
@@ -37,6 +37,14 @@ public class PlayerMove : MonoBehaviour
         else
         {
             GetComponent<Animator>().SetBool("isAttack", false);
+        }
+        if(shoot != 0)
+        {
+            GetComponent<Animator>().SetBool("isShoot", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("isShoot", false);
         }
     }
 }
