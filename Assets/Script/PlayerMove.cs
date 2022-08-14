@@ -17,10 +17,12 @@ public class PlayerMove : MonoBehaviour
     {
         float h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
         float v = CrossPlatformInputManager.GetAxisRaw("Vertical");
+        float h1 = Input.GetAxisRaw("Horizontal");
+        float v1 = Input.GetAxisRaw("Vertical");
         float shoot = Input.GetAxis("Fire2");
-        if(h != 0.0f || v != 0.0f)
+        if(h != 0.0f || v != 0.0f || h1 != 0.0f || v1 != 0.0f)
         {
-            Vector3 dir = h * Vector3.right + v * Vector3.forward;
+            Vector3 dir = h * Vector3.right + v * Vector3.forward + h1 * Vector3.right + v1 * Vector3.forward;
             transform.rotation = Quaternion.LookRotation(dir);
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
