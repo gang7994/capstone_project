@@ -11,6 +11,7 @@ public class Rock : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * 0.3f);
+
     }
 
     void DestroyBullet(){
