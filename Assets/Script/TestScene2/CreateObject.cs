@@ -11,6 +11,8 @@ public class CreateObject : MonoBehaviour
     float h = Screen.height;
     float w = Screen.width;
     public GameObject go_TopCamera;
+    public float h_size;
+    public float w_size;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,7 @@ public class CreateObject : MonoBehaviour
             {
                 check = false;
                 mousePos = Input.mousePosition;
-                pos = new Vector3(82 * ((mousePos.x - w / 2) / w), 2, 70 * ((mousePos.y - h / 2) / h));
+                pos = new Vector3(2 *w_size * ((mousePos.x - w / 2) / w), 2, 2 * h_size * ((mousePos.y - h / 2) / h));
                 Instantiate(cub, pos, Quaternion.identity);
                 Invoke("Cheking", 1.0f);
             }

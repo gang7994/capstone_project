@@ -748,7 +748,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &186450588 stripped
 Transform:
@@ -955,7 +955,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 79bc42ec4a1103f448b38da3321e295a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79bc42ec4a1103f448b38da3321e295a, type: 3}
       propertyPath: m_LocalScale.x
@@ -971,7 +971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79bc42ec4a1103f448b38da3321e295a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79bc42ec4a1103f448b38da3321e295a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5783,7 +5783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22400000, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22400000, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6839,7 +6839,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!4 &1492077682 stripped
 Transform:
@@ -7183,7 +7183,7 @@ Transform:
   - {fileID: 1070819772}
   - {fileID: 1246479590}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1526508291
 MeshCollider:
@@ -7749,6 +7749,7 @@ GameObject:
   - component: {fileID: 1721208981}
   - component: {fileID: 1721208984}
   - component: {fileID: 1721208985}
+  - component: {fileID: 1721208986}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7849,6 +7850,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTopview: 0
+  go_TopCamera: {fileID: 174055555}
+--- !u!114 &1721208986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721208980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a575892a903a227419859112be09b86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cub: {fileID: 3208767873836858031, guid: 142558b617d778747879c4d29310ae9e, type: 3}
   go_TopCamera: {fileID: 174055555}
 --- !u!4 &1740292872 stripped
 Transform:
@@ -9768,7 +9783,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5221698851501197625, guid: 7694c338e1659b0439cf197c47dd92e4, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5221698851501197625, guid: 7694c338e1659b0439cf197c47dd92e4, type: 3}
       propertyPath: m_LocalPosition.x
