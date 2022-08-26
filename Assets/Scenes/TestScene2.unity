@@ -971,7 +971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79bc42ec4a1103f448b38da3321e295a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 80
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79bc42ec4a1103f448b38da3321e295a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7865,6 +7865,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cub: {fileID: 3208767873836858031, guid: 142558b617d778747879c4d29310ae9e, type: 3}
   go_TopCamera: {fileID: 174055555}
+  h_size: 70
+  w_size: 124
 --- !u!4 &1740292872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1279437348525638701, guid: e2e682b966e3f644392ffbfab511e0e2, type: 3}
