@@ -10,7 +10,7 @@ public class Fire : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1)){
+        if (Input.GetMouseButton(1)){
             Instantiate(Bullet, FirePos.transform.position, FirePos.transform.rotation);
         }
         else if(GetComponent<Animator>().GetBool("isAttack")){
