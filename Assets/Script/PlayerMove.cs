@@ -9,47 +9,48 @@ public class PlayerMove : MonoBehaviour
     public float speed = 5.0f;
     private bool is_top;
 
+    float stick_hAxis, stick_vAxis, key_hAxis, key_vAxis;
+    float shoot;
+    Vector3 moveVec;
+    Animator anim;
+
     void Start()
     {
         
     }
 
+    void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        float h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
-        float v = CrossPlatformInputManager.GetAxisRaw("Vertical");
-        float h1 = Input.GetAxisRaw("Horizontal");
-        float v1 = Input.GetAxisRaw("Vertical");
-        float shoot = Input.GetAxis("Fire2");
+        stick_hAxis = CrossPlatformInputManager.GetAxisRaw("Horizontal");
+        stick_vAxis = CrossPlatformInputManager.GetAxisRaw("Vertical");
+        key_hAxis = Input.GetAxisRaw("Horizontal");
+        key_vAxis = Input.GetAxisRaw("Vertical");
+        shoot = Input.GetAxis("Fire2");
         is_top = GameObject.Find("Main Camera").GetComponent<BuildCamera>().isTopview;
-        if ((h != 0.0f || v != 0.0f || h1 != 0.0f || v1 != 0.0f) && !is_top)
-        {
-            Vector3 dir = h * Vector3.right + v * Vector3.forward + h1 * Vector3.right + v1 * Vector3.forward;
-            transform.rotation = Quaternion.LookRotation(dir);
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        
+        if (is_top)
+            moveVec = Vector3.zero;
+        else
+            moveVec = stick_hAxis * Vector3.right + stick_vAxis * Vector3.forward + key_hAxis * Vector3.right + key_vAxis * Vector3.forward;
 
-            GetComponent<Animator>().SetBool("isMove", true);
-        }
+        transform.position += moveVec * speed * Time.deltaTime;
+        transform.LookAt(transform.position + moveVec);
+        anim.SetBool("isMove", moveVec != Vector3.zero);
+
+        if (CrossPlatformInputManager.GetButtonDown("Attack"))
+            anim.SetBool("isAttack", true);
         else
-        {
-            GetComponent<Animator>().SetBool("isMove", false);
-        }
-        if(CrossPlatformInputManager.GetButtonDown("Attack"))
-        {
-            GetComponent<Animator>().SetBool("isAttack", true);
-        }
+            anim.SetBool("isAttack", false);
+
+        if(shoot != 0)  
+            anim.SetBool("isShoot", true);
         else
-        {
-            GetComponent<Animator>().SetBool("isAttack", false);
-        }
-        if(shoot != 0)
-        {
-            GetComponent<Animator>().SetBool("isShoot", true);
-        }
-        else
-        {
-            GetComponent<Animator>().SetBool("isShoot", false);
-        }
+            anim.SetBool("isShoot", false);
     }
 }
