@@ -55,51 +55,57 @@ public class CreateObject : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Tab))
         {
-            if (check1){
-                if (wid_len)
+            
+            if (go_TopCamera.activeSelf)
+            {
+                if (check1)
                 {
-                    wid_len = false;
-                    for (int i = 0; i < 11; i++)
+                    if (wid_len)
                     {
-                        for (int z = 0; z < 7; z++)
+                        wid_len = false;
+                        for (int i = 0; i < 11; i++)
                         {
-                            arrO1[i, z].SetActive(false);
+                            for (int z = 0; z < 7; z++)
+                            {
+                                arrO1[i, z].SetActive(false);
+                            }
                         }
+                        for (int i = 0; i < 10; i++)
+                        {
+                            for (int z = 0; z < 8; z++)
+                            {
+                                arrO[i, z].SetActive(false);
+                            }
+                        }
+                        len();
+                        check1 = false;
+                        Invoke("checking1", 0.3f);
                     }
-                    for (int i = 0; i < 10; i++)
+                    else
                     {
-                        for (int z = 0; z < 8; z++)
+                        wid_len = true;
+                        for (int i = 0; i < 11; i++)
                         {
-                            arrO[i, z].SetActive(false);
+                            for (int z = 0; z < 7; z++)
+                            {
+                                arrO1[i, z].SetActive(false);
+                            }
                         }
-                    }
-                    len();
-                    check1 = false;
-                    Invoke("checking1", 0.3f);
-                }
-                else
-                {
-                    wid_len = true;
-                    for (int i = 0; i < 11; i++)
-                    {
-                        for (int z = 0; z < 7; z++)
+                        for (int i = 0; i < 10; i++)
                         {
-                            arrO1[i, z].SetActive(false);
+                            for (int z = 0; z < 8; z++)
+                            {
+                                arrO[i, z].SetActive(false);
+                            }
                         }
+                        wid();
+                        check1 = false;
+                        Invoke("checking1", 0.3f);
                     }
-                    for (int i = 0; i < 10; i++)
-                    {
-                        for (int z = 0; z < 8; z++)
-                        {
-                            arrO[i, z].SetActive(false);
-                        }
-                    }
-                    wid();
-                    check1 = false;
-                    Invoke("checking1", 0.3f);
                 }
             }
-            
+
+
         }
         mousePos = Input.mousePosition;
         pos = new Vector3(2 * w_size * ((mousePos.x - w / 2) / w), 0, 2 * h_size * ((mousePos.y - h / 2) / h));
