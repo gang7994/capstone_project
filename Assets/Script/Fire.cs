@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    public GameObject Bullet;
+    public GameObject bullet;
     public GameObject Rock;
-    public Transform FirePos;
+    public Transform bulletPos;
 
     void Update()
     {
         if (Input.GetMouseButton(1)){
-            Instantiate(Bullet, FirePos.transform.position, FirePos.transform.rotation);
+            GameObject instantBullet = Instantiate(bullet, bulletPos.position, bulletPos.rotation);
+            Rigidbody bullletRigid = instantBullet.GetComponent<Rigidbody>();
+            bullletRigid.velocity = bulletPos.forward * 1;
         }
         else if(GetComponent<Animator>().GetBool("isAttack")){
-            Instantiate(Rock, FirePos.transform.position, FirePos.transform.rotation);    
+            Instantiate(Rock, bulletPos.position, bulletPos.rotation);    
+
         }
         
     }
