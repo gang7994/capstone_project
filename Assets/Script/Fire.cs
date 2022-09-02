@@ -11,11 +11,18 @@ public class Fire : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButton(1)){
-            Instantiate(Bullet, FirePos.transform.position, FirePos.transform.rotation);
+            Shoot();
         }
         else if(GetComponent<Animator>().GetBool("isAttack")){
-            Instantiate(Rock, FirePos.transform.position, FirePos.transform.rotation);    
+            Invoke("Swing",1);
         }
         
+    }
+
+    void Shoot(){
+        Instantiate(Bullet, FirePos.transform.position, FirePos.transform.rotation);
+    }
+    void Swing(){
+            Instantiate(Rock, FirePos.transform.position, FirePos.transform.rotation);    
     }
 }

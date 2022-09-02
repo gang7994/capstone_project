@@ -14,11 +14,13 @@ public class ChangeView : MonoBehaviour
     [SerializeField]
     private GameObject go_TopCamera;
 
-    public GameObject joyStick;
+    public GameObject TopScene;
 
-    public GameObject attackBtn;
+    public GameObject FrontScene;
 
-    
+    void Start(){
+        TopScene.SetActive(false);
+    }
     /*
 
     void Update()
@@ -47,15 +49,15 @@ public class ChangeView : MonoBehaviour
     {
         isTopview = true;
         go_TopCamera.SetActive(true);
-        joyStick.SetActive(false);
-        attackBtn.SetActive(false);
+        TopScene.SetActive(true);
+        FrontScene.SetActive(false);
     }
     public void go_Isometricview()
     {
         isTopview = false;
         go_TopCamera.SetActive(false);
-        joyStick.SetActive(true);
-        attackBtn.SetActive(true);
+        TopScene.SetActive(false);
+        FrontScene.SetActive(true);
     }
 
 }
