@@ -7,11 +7,14 @@ using UnityEngine.UI;
 public class InventoryUI : MonoBehaviour
 {
     public GameObject inventoryPanel;
+    public Slot[] slots;
+    public Transform slotHolder;
     bool activeInventory = false;
 
     public Button inventoryBtn;
 
     private void Start(){
+        slots = slotHolder.GetComponentsInChildren<Slot>();
         inventoryPanel.SetActive(activeInventory);
         inventoryBtn.onClick.AddListener(Inventory);
     }
