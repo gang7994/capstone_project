@@ -9,21 +9,30 @@ public class ChangeView : MonoBehaviour
 
     public Button viewBtn;
 
+    
+
     [SerializeField]
     private GameObject go_TopCamera;
 
+    public GameObject joyStick;
+
+    public GameObject attackBtn;
+
+    
+    /*
+
     void Update()
-    {/*
+    {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             Topview();
         }
-        */
+        
         viewBtn.onClick.AddListener(Topview);
 
     }
-
-    private void Topview()
+    */
+    public void Topview()
     {
         if(!isTopview)
         {
@@ -34,14 +43,19 @@ public class ChangeView : MonoBehaviour
             go_Isometricview();
         }
     }
-    private void go_Topview()
+    public void go_Topview()
     {
         isTopview = true;
         go_TopCamera.SetActive(true);
+        joyStick.SetActive(false);
+        attackBtn.SetActive(false);
     }
-    private void go_Isometricview()
+    public void go_Isometricview()
     {
         isTopview = false;
         go_TopCamera.SetActive(false);
+        joyStick.SetActive(true);
+        attackBtn.SetActive(true);
     }
+
 }
