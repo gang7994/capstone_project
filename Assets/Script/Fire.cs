@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    public GameObject Bullet;
+    public GameObject bullet;
     public GameObject Rock;
-    public Transform FirePos;
+    public Transform bulletPos;
 
     void Update()
     {
+        /*
         if (Input.GetMouseButton(1)){
+
+            GameObject instantBullet = Instantiate(bullet, bulletPos.position, bulletPos.rotation);
+            Rigidbody bullletRigid = instantBullet.GetComponent<Rigidbody>();
+            bullletRigid.velocity = bulletPos.forward * 1;
             Shoot();
         }
         else if(GetComponent<Animator>().GetBool("isAttack")){
             Invoke("Swing",1);
         }
-        
+        */
     }
 
     void Shoot(){
