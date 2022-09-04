@@ -46,18 +46,18 @@ public class Player : MonoBehaviour
         key_vAxis = Input.GetAxisRaw("Vertical");
         isAttackKetInput = CrossPlatformInputManager.GetButtonDown("Attack");
         isShootKeyInput = Input.GetMouseButton(1);
-        is_top = GameObject.Find("Main Camera").GetComponent<BuildCamera>().isTopview;
+        //is_top = GameObject.Find("Main Camera").GetComponent<BuildCamera>().isTopview;
     }
 
     void Move()
     {
-        if (is_top)
-            moveVec = Vector3.zero;
-        else
-        {
+        //if (is_top)
+        //    moveVec = Vector3.zero;
+        //else
+        //{
             moveVec = stick_hAxis * Vector3.right + stick_vAxis * Vector3.forward + key_hAxis * Vector3.right + key_vAxis * Vector3.forward;
             moveVec = moveVec.normalized;
-        }
+        //}
 
         transform.position += moveVec * speed * Time.deltaTime;
         transform.LookAt(transform.position + moveVec);
