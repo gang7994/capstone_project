@@ -12,13 +12,22 @@ public class Fire : MonoBehaviour
     {
         /*
         if (Input.GetMouseButton(1)){
+
             GameObject instantBullet = Instantiate(bullet, bulletPos.position, bulletPos.rotation);
             Rigidbody bullletRigid = instantBullet.GetComponent<Rigidbody>();
             bullletRigid.velocity = bulletPos.forward * 1;
+            Shoot();
         }
         else if(GetComponent<Animator>().GetBool("isAttack")){
-            Instantiate(Rock, bulletPos.position, bulletPos.rotation);    
+            Invoke("Swing",1);
         }
         */
+    }
+
+    void Shoot(){
+        Instantiate(Bullet, FirePos.transform.position, FirePos.transform.rotation);
+    }
+    void Swing(){
+            Instantiate(Rock, FirePos.transform.position, FirePos.transform.rotation);    
     }
 }
