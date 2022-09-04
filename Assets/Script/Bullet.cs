@@ -11,7 +11,9 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Map")  
+        if (collision.gameObject.tag == "Map")
+            DestroyBullet();
+        else if (collision.gameObject.tag == "Monster")
             DestroyBullet();
         
     }
@@ -19,6 +21,8 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Map")
+            DestroyBullet();
+        else if (other.gameObject.tag == "Monster")
             DestroyBullet();
     }
 

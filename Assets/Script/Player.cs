@@ -7,12 +7,15 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Player : MonoBehaviour
 {
     public float speed = 5.0f;
+    public GameObject bullet, rock;
+    public Transform bulletPos;
+
     private bool is_top;
-    bool isShootKeyInput;
-    bool isFireReady;
+    bool isShootKeyInput, isAttackKetInput;
+    bool isAttackReady;
 
     float stick_hAxis, stick_vAxis, key_hAxis, key_vAxis;
-    float shoot, fireDelay;
+    float attackDelay;
 
     Vector3 moveVec;
     Animator anim;
@@ -32,16 +35,7 @@ public class Player : MonoBehaviour
     {
         GetInput();
         Move();
-
-        if (CrossPlatformInputManager.GetButtonDown("Attack"))
-            anim.SetBool("isAttack", true);
-        else
-            anim.SetBool("isAttack", false);
-
-        if(shoot != 0)  
-            anim.SetBool("isShoot", true);
-        else
-            anim.SetBool("isShoot", false);
+        Attack();
     }
     
     void GetInput()
@@ -50,8 +44,8 @@ public class Player : MonoBehaviour
         stick_vAxis = CrossPlatformInputManager.GetAxisRaw("Vertical");
         key_hAxis = Input.GetAxisRaw("Horizontal");
         key_vAxis = Input.GetAxisRaw("Vertical");
-        //shoot = Input.GetAxis("Fire2");
-        //isShootKeyInput = Input.GetButtonDown("Attack");
+        isAttackKetInput = CrossPlatformInputManager.GetButtonDown("Attack");
+        isShootKeyInput = Input.GetMouseButton(1);
         is_top = GameObject.Find("Main Camera").GetComponent<BuildCamera>().isTopview;
     }
 
@@ -70,15 +64,32 @@ public class Player : MonoBehaviour
 
         anim.SetBool("isMove", moveVec != Vector3.zero);
     }
-    /*
+    
     void Attack()
     {
-        fireDelay += Time.deltaTime;
-        isFireReady = true;
+        attackDelay += Time.deltaTime;
+        isAttackReady = 0.5f < attackDelay;
 
-        if(isShootKeyInput && isFireReady)
+        if (isShootKeyInput && isAttackReady)
         {
-
+            GameObject instantBullet = Instantiate(bullet, bulletPos.position, bulletPos.rotation);
+            Rigidbody bullletRigid = instantBullet.GetComponent<Rigidbody>();
+            bullletRigid.velocity = bulletPos.forward * 1;
+            attackDelay = 0;
+            anim.SetBool("isShoot", isShootKeyInput);
         }
-    }*/
+        else if (isAttackKetInput && isAttackReady)
+        {
+            anim.SetBool("isAttack", isAttackKetInput);
+            GameObject instantRock = Instantiate(rock, bulletPos.position, bulletPos.rotation);
+            Rigidbody rockRigid = instantRock.GetComponent<Rigidbody>();
+            rockRigid.velocity = bulletPos.forward * 0.05f;
+            attackDelay = 0;
+        }
+        else
+        {
+            anim.SetBool("isShoot", false);
+            anim.SetBool("isAttack", false);
+        }
+    }
 }

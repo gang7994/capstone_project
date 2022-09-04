@@ -10,6 +10,7 @@ public class Fire : MonoBehaviour
 
     void Update()
     {
+        /*
         if (Input.GetMouseButton(1)){
             GameObject instantBullet = Instantiate(bullet, bulletPos.position, bulletPos.rotation);
             Rigidbody bullletRigid = instantBullet.GetComponent<Rigidbody>();
@@ -17,8 +18,7 @@ public class Fire : MonoBehaviour
         }
         else if(GetComponent<Animator>().GetBool("isAttack")){
             Instantiate(Rock, bulletPos.position, bulletPos.rotation);    
-
         }
-        
+        */
     }
 }
