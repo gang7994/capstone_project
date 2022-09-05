@@ -25,9 +25,9 @@ public class Fire : MonoBehaviour
     }
 
     void Shoot(){
-        Instantiate(Bullet, FirePos.transform.position, FirePos.transform.rotation);
+        Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
     }
     void Swing(){
-            Instantiate(Rock, FirePos.transform.position, FirePos.transform.rotation);    
+            Instantiate(Rock, bulletPos.transform.position, bulletPos.transform.rotation);    
     }
 }
