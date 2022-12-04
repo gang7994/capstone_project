@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class InventoryUI : MonoBehaviour
+public class Characteristic : MonoBehaviour
 {
     public GameObject inventoryPanel;
     public Slot[] slots;
     public Transform slotHolder;
-    public bool activeInventory = false;
+    bool activeInventory = false;
 
     public Button inventoryBtn;
 
@@ -22,7 +22,7 @@ public class InventoryUI : MonoBehaviour
     
 
     void Inventory(){
-        activeInventory = !activeInventory;
+        //activeInventory = !activeInventory;
         inventoryPanel.SetActive(activeInventory);
     }
 }
