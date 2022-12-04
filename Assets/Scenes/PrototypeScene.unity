@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TechPanel: {fileID: 1823362189}
+  Script: {fileID: 470319335}
 --- !u!1001 &27412160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -323,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMin.x
@@ -331,15 +332,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_LocalPosition.x
@@ -371,11 +372,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 665
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -47.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2816,6 +2817,7 @@ MonoBehaviour:
   inventoryPanel: {fileID: 1823362189}
   slots: []
   slotHolder: {fileID: 1668416344}
+  activeInventory: 0
   inventoryBtn: {fileID: 2064385830}
 --- !u!1001 &473605578
 PrefabInstance:
@@ -3428,7 +3430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMin.x
@@ -3436,15 +3438,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3476,11 +3478,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 495
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -47.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7278,6 +7280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TechPanel: {fileID: 1823362189}
+  Script: {fileID: 470319335}
 --- !u!1001 &1155275774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7307,7 +7310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMin.x
@@ -7315,15 +7318,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7355,11 +7358,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 580
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -47.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10352,6 +10355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TechPanel: {fileID: 1823362189}
+  Script: {fileID: 470319335}
 --- !u!1001 &1638725376
 PrefabInstance:
   m_ObjectHideFlags: 0
