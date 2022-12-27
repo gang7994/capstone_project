@@ -3379,6 +3379,7 @@ MonoBehaviour:
   inventoryPanel: {fileID: 2132598995}
   slots: []
   slotHolder: {fileID: 1443703265}
+  activeInventory: 0
   inventoryBtn: {fileID: 969566357}
 --- !u!1001 &462119299
 PrefabInstance:
@@ -5263,6 +5264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TechPanel: {fileID: 1774559120}
+  Script: {fileID: 0}
 --- !u!1001 &657698081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6953,6 +6955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TechPanel: {fileID: 1774559120}
+  Script: {fileID: 0}
 --- !u!1001 &900690266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11255,6 +11258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TechPanel: {fileID: 1774559120}
+  Script: {fileID: 0}
 --- !u!1001 &1384560773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14564,9 +14568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045aacc9a2a2c204ca3a2e37bc5dc39a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 15
-  z: -25
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &1721208985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14596,12 +14599,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a575892a903a227419859112be09b86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mousePos: {x: 0, y: 0, z: 0}
+  pos: {x: 0, y: 0, z: 0}
+  check: 1
+  check1: 1
   cub: {fileID: 9097521759463521859, guid: 60984920acfe99e49bfcef095026e26f, type: 3}
+  h: 1080
+  w: 1920
   go_TopCamera: {fileID: 1074207821}
   h_size: 40
   w_size: 74
   skycube: {fileID: 9097521759463521859, guid: 60984920acfe99e49bfcef095026e26f, type: 3}
   cub1: {fileID: 9097521759463521859, guid: 60984920acfe99e49bfcef095026e26f, type: 3}
+  wid_len: 1
 --- !u!4 &1740292872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1279437348525638701, guid: e2e682b966e3f644392ffbfab511e0e2, type: 3}
@@ -15596,6 +15606,7 @@ MonoBehaviour:
   inventoryPanel: {fileID: 1774559120}
   slots: []
   slotHolder: {fileID: 486516897}
+  activeInventory: 0
   inventoryBtn: {fileID: 1692456920}
 --- !u!1001 &1843088781
 PrefabInstance:
