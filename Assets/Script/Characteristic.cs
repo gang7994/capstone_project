@@ -22,7 +22,9 @@ public class Characteristic : MonoBehaviour
     
 
     void Inventory(){
-        //activeInventory = !activeInventory;
+        activeInventory = !activeInventory;
         inventoryPanel.SetActive(activeInventory);
     }
+
+    
 }
