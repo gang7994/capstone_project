@@ -5,30 +5,48 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int damage;
+    float stack;
+    Vector3 direction;
+    public float speed;
+    bool isFire;
     void Start(){
         //Invoke("DestroyBullet", 1);
+        stack = 1.0f;
+        transform.position += new Vector3(0, 0.5f, 0);
     }
-
-    void OnCollisionEnter(Collision collision)
+    public void fire(Vector3 dir,bool gun)
     {
-        if (collision.gameObject.tag == "Map")
-            DestroyBullet();
-        else if (collision.gameObject.tag == "Monster")
-            DestroyBullet();
+        direction = new Vector3(dir.x, 0, dir.z);
+        isFire = true;
+        if (gun)
+        {
+            Destroy(gameObject, 5f);
+        }
+        else
+        {
+            Destroy(gameObject, 1f);
+        }
         
     }
 
+ 
+
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Map")
+        if (other.gameObject.tag == "Monster")
+        {
+            Destroy(other.gameObject);
             DestroyBullet();
-        else if (other.gameObject.tag == "Monster")
-            DestroyBullet();
+        }
     }
 
     void Update()
     {
-        transform.Translate(Vector3.forward * 1.0f);
+        if (isFire)
+        {
+            transform.Translate(direction * speed * Time.deltaTime);
+        }
     }
 
     void DestroyBullet(){

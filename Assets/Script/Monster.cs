@@ -31,16 +31,7 @@ public class Monster : MonoBehaviour
             navi.SetDestination(target.position);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        Bullet bullet = other.GetComponent<Bullet>();
-        curHealth -= bullet.damage;
-        Vector3 reactVec = transform.position - other.transform.position;
-        Destroy(other.gameObject);
-        StartCoroutine(OnDamage(reactVec));
-
-        Debug.Log("Bullet Attack : " + curHealth);
-    }
+   
 
     IEnumerator OnDamage(Vector3 reactVec)
     {

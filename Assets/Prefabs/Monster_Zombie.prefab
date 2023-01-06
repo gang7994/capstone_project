@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 1916311770516921298}
   - component: {fileID: 1916311770516921308}
   - component: {fileID: 1916311770516921309}
+  - component: {fileID: 2203411659196492362}
   m_Layer: 9
   m_Name: Monster_Zombie
   m_TagString: Monster
@@ -495,12 +496,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917788195327014726}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.1
+  m_Radius: 0.33532014
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: -0.015726408, y: 0.5, z: 0}
 --- !u!195 &1916311770516921308
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -539,6 +540,20 @@ MonoBehaviour:
   curHealth: 150
   target: {fileID: 0}
   isChase: 1
+--- !u!136 &2203411659196492362
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917788195327014726}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.31324825
+  m_Height: 1.222372
+  m_Direction: 1
+  m_Center: {x: -0.017196735, y: 0.52581155, z: 0}
 --- !u!1 &1917804911051736370
 GameObject:
   m_ObjectHideFlags: 0

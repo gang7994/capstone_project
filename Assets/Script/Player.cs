@@ -7,12 +7,12 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Player : MonoBehaviour
 {
     public float speed = 5.0f;
-    public GameObject bullet, rock;
-    public Transform bulletPos;
-
-    private bool is_top;
-    bool isShootKeyInput, isAttackKetInput;
-    bool isAttackReady;
+    bool isAttackKetInput;
+    public bool isAttackReady, attack_time, check;
+    public GameObject sword, gun,shotgun;
+    bool isSword, isGun, isShotgun;
+    public GameObject bullet;
+    public GameObject sw_btn, g_btn, sg_btn;
 
     float stick_hAxis, stick_vAxis, key_hAxis, key_vAxis;
     float attackDelay;
@@ -22,7 +22,15 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        
+        isSword = true;
+        isGun = false;
+        isShotgun = false;
+        anim.SetBool("isSword", true);
+        anim.SetBool("isGun", false);
+        anim.SetBool("isShotgun", false);
+        sword.SetActive(true);
+        gun.SetActive(false);
+        attackDelay = 1.0f;
     }
 
     void Awake()
@@ -33,10 +41,26 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        attackDelay += Time.deltaTime;
+        if (isSword)
+        {
+            isAttackReady = 0.5f < attackDelay;
+            attack_time = 0.7f < attackDelay;
+        }else if (isGun)
+        {
+            isAttackReady = 0.5f < attackDelay;
+            attack_time = 0.7f < attackDelay;
+        }
+        else
+        {
+            isAttackReady = 1f < attackDelay;
+            attack_time = 1.2f < attackDelay;
+        }
         GetInput();
         Move();
         Attack();
     }
+
     
     void GetInput()
     {
@@ -45,7 +69,7 @@ public class Player : MonoBehaviour
         key_hAxis = Input.GetAxisRaw("Horizontal");
         key_vAxis = Input.GetAxisRaw("Vertical");
         isAttackKetInput = CrossPlatformInputManager.GetButtonDown("Attack");
-        isShootKeyInput = Input.GetMouseButton(1);
+
         //is_top = GameObject.Find("Main Camera").GetComponent<BuildCamera>().isTopview;
     }
 
@@ -55,41 +79,167 @@ public class Player : MonoBehaviour
         //    moveVec = Vector3.zero;
         //else
         //{
+            
+        //}
+        if (attack_time){
+            transform.position += moveVec * speed * Time.deltaTime;
+            transform.LookAt(transform.position + moveVec);
             moveVec = stick_hAxis * Vector3.right + stick_vAxis * Vector3.forward + key_hAxis * Vector3.right + key_vAxis * Vector3.forward;
             moveVec = moveVec.normalized;
-        //}
 
-        transform.position += moveVec * speed * Time.deltaTime;
-        transform.LookAt(transform.position + moveVec);
-
-        anim.SetBool("isMove", moveVec != Vector3.zero);
+            anim.SetBool("isMove", moveVec != Vector3.zero);
+        }
+        
     }
     
     void Attack()
     {
-        attackDelay += Time.deltaTime;
-        isAttackReady = 0.5f < attackDelay;
+        
+        if (isSword)
+        {
+            if (isAttackKetInput && isAttackReady && attack_time)
+            {
+                attackDelay = 0;
+                anim.SetBool("isAttack", true);
+                anim.SetBool("timeout", false);    
+            }else if(attack_time){
+                anim.SetBool("timeout", true);
+            }
+            else if (isAttackReady)
+            {
+                anim.SetBool("isAttack", false);
+            }
+        }
+        else if(isGun)
+        {
+            if (isAttackKetInput && isAttackReady && attack_time)
+            {
+                attackDelay = 0;
+                anim.SetBool("isShoot", true);
+                anim.SetBool("timeout", false);
+                GameObject temp = Instantiate(bullet, transform.position, Quaternion.identity);
+                temp.GetComponent<Bullet>().fire(transform.forward,true);
+                
+            }
+            else if (attack_time)
+            {
+                anim.SetBool("timeout", true);
+            }
+            else if (isAttackReady)
+            {
+                anim.SetBool("isShoot", false);
+            }
+        }
+        else if(isShotgun)
+        {
+            if (isAttackKetInput && isAttackReady && attack_time)
+            {
+                anim.SetBool("isShot", true);
+                anim.SetBool("timeout", false);
+                attackDelay = 0;
+                Invoke("shotgunShoot", 0.3f);
+            }
+            else if (attack_time)
+            {
+                anim.SetBool("timeout", true);
+            }
+            else if (isAttackReady)
+            {
+                anim.SetBool("isShot", false);
+            }
+        }
 
-        if (isShootKeyInput && isAttackReady)
+
+    }
+    void shotgunShoot() {
+        GameObject temp1 = Instantiate(bullet, transform.position, Quaternion.identity);
+        GameObject temp2 = Instantiate(bullet, transform.position, Quaternion.Euler(0, -10f, 0));
+        GameObject temp3 = Instantiate(bullet, transform.position, Quaternion.Euler(0, 10f, 0));
+        temp1.GetComponent<Bullet>().fire(transform.forward, false);
+        temp2.GetComponent<Bullet>().fire(transform.forward, false);
+        temp3.GetComponent<Bullet>().fire(transform.forward, false);
+    }
+    public void weaponChange()
+    {
+        if (isAttackReady)
         {
-            GameObject instantBullet = Instantiate(bullet, bulletPos.position, bulletPos.rotation);
-            Rigidbody bullletRigid = instantBullet.GetComponent<Rigidbody>();
-            bullletRigid.velocity = bulletPos.forward * 1;
-            attackDelay = 0;
-            anim.SetBool("isShoot", isShootKeyInput);
+            if (isSword)
+            {
+                isSword = false;
+                anim.SetBool("isSword", false);
+                sword.SetActive(false);
+                gun.SetActive(true);
+            }
+            else
+            {
+                isSword = true;
+                anim.SetBool("isSword", true);
+                gun.SetActive(false);
+                sword.SetActive(true);
+            }
         }
-        else if (isAttackKetInput && isAttackReady)
+    }
+    public void changeSword()
+    {
+        if (!isSword)
         {
-            anim.SetBool("isAttack", isAttackKetInput);
-            GameObject instantRock = Instantiate(rock, bulletPos.position, bulletPos.rotation);
-            Rigidbody rockRigid = instantRock.GetComponent<Rigidbody>();
-            rockRigid.velocity = bulletPos.forward * 0.05f;
-            attackDelay = 0;
+            isSword = true;
+            isGun = false;
+            isShotgun = false;
+            anim.SetBool("isSword", true);
+            anim.SetBool("isGun", false);
+            anim.SetBool("isShotgun", false);
+            sword.SetActive(true);
+            gun.SetActive(false);
+            shotgun.SetActive(false);
+            sw_btn.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -400, 0);
+            g_btn.GetComponent<RectTransform>().anchoredPosition = new Vector3(-150, -450, 0);
+            sg_btn.GetComponent<RectTransform>().anchoredPosition = new Vector3(150, -450, 0);
+            sw_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(120, 120);
+            g_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
+            sg_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
         }
-        else
+    }
+    public void changeGun()
+    {
+        if (!isGun)
         {
-            anim.SetBool("isShoot", false);
-            anim.SetBool("isAttack", false);
+            isSword = false;
+            isGun = true;
+            isShotgun = false;
+            anim.SetBool("isSword", false);
+            anim.SetBool("isGun", true);
+            anim.SetBool("isShotgun", false);
+            sword.SetActive(false);
+            gun.SetActive(true);
+            shotgun.SetActive(false);
+            g_btn.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -400, 0);
+            sg_btn.GetComponent<RectTransform>().anchoredPosition = new Vector3(-150, -450, 0);
+            sw_btn.GetComponent<RectTransform>().anchoredPosition = new Vector3(150, -450, 0);
+            g_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(120, 120);
+            sg_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
+            sw_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
+        }
+    }
+    public void changeShotgun()
+    {
+        if (!isShotgun)
+        {
+            isSword = false;
+            isGun = false;
+            isShotgun = true;
+            anim.SetBool("isSword", false);
+            anim.SetBool("isGun", false);
+            anim.SetBool("isShotgun", true);
+            sword.SetActive(false);
+            gun.SetActive(false);
+            shotgun.SetActive(true);
+            sg_btn.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -400, 0);
+            sw_btn.GetComponent<RectTransform>().anchoredPosition = new Vector3(-150, -450, 0);
+            g_btn.GetComponent<RectTransform>().anchoredPosition = new Vector3(150, -450, 0);
+            sg_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(120, 120);
+            sw_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
+            g_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
         }
     }
 }
