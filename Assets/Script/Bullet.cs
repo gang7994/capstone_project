@@ -36,8 +36,10 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Monster")
         {
+            
             Destroy(other.gameObject);
             DestroyBullet();
+
         }
     }
 

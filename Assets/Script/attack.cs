@@ -17,7 +17,7 @@ public class attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!character.GetComponent<Player>().attack_time)
+        if (!character.GetComponent<Player>().attack_time && character.GetComponent<Player>().isSword)
         {
             delay += Time.deltaTime;
             if (delay > 0.1f && delay < 0.4f)

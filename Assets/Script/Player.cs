@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     bool isAttackKetInput;
     public bool isAttackReady, attack_time, check;
     public GameObject sword, gun,shotgun;
-    bool isSword, isGun, isShotgun;
+    public bool isSword, isGun, isShotgun;
     public GameObject bullet;
     public GameObject sw_btn, g_btn, sg_btn;
 
@@ -159,29 +159,10 @@ public class Player : MonoBehaviour
         temp2.GetComponent<Bullet>().fire(transform.forward, false);
         temp3.GetComponent<Bullet>().fire(transform.forward, false);
     }
-    public void weaponChange()
-    {
-        if (isAttackReady)
-        {
-            if (isSword)
-            {
-                isSword = false;
-                anim.SetBool("isSword", false);
-                sword.SetActive(false);
-                gun.SetActive(true);
-            }
-            else
-            {
-                isSword = true;
-                anim.SetBool("isSword", true);
-                gun.SetActive(false);
-                sword.SetActive(true);
-            }
-        }
-    }
+
     public void changeSword()
     {
-        if (!isSword)
+        if (!isSword && attack_time)
         {
             isSword = true;
             isGun = false;
@@ -202,7 +183,7 @@ public class Player : MonoBehaviour
     }
     public void changeGun()
     {
-        if (!isGun)
+        if (!isGun && attack_time)
         {
             isSword = false;
             isGun = true;
@@ -223,7 +204,7 @@ public class Player : MonoBehaviour
     }
     public void changeShotgun()
     {
-        if (!isShotgun)
+        if (!isShotgun && attack_time)
         {
             isSword = false;
             isGun = false;

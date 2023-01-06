@@ -1252,8 +1252,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3004851, y: 0.8039424, z: 0.77846146}
-  m_Center: {x: -0.7139425, y: -0.78524286, z: -0.092843354}
+  m_Size: {x: 1.2253461, y: 0.6041048, z: 0.77846146}
+  m_Center: {x: -0.676373, y: -0.9405463, z: -0.092843354}
 --- !u!1001 &162968132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1782,8 +1782,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.88666797, y: 1.2500707, z: 0.78193927}
-  m_Center: {x: -0.028811336, y: -0.5518475, z: 0.37083307}
+  m_Size: {x: 0.88666797, y: 0.93745863, z: 0.781942}
+  m_Center: {x: -0.028811336, y: -0.7081546, z: 0.3708317}
 --- !u!1 &330731377
 GameObject:
   m_ObjectHideFlags: 0
@@ -9754,8 +9754,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4221032, y: 0.8487765, z: 0.6442034}
-  m_Center: {x: 0.54627216, y: -1.136172, z: -0.16371047}
+  m_Size: {x: 1.2, y: 0.54754806, z: 0.77}
+  m_Center: {x: 0.54627216, y: -1.2867863, z: -0.16371047}
 --- !u!1 &1526508289
 GameObject:
   m_ObjectHideFlags: 0
@@ -13276,6 +13276,9 @@ MonoBehaviour:
   sword: {fileID: 1209094810}
   gun: {fileID: 0}
   shotgun: {fileID: 0}
+  isSword: 0
+  isGun: 0
+  isShotgun: 0
   bullet: {fileID: 7588010069925798181, guid: 9d66266d8f5fd10479c81b8215fadb35, type: 3}
   sw_btn: {fileID: 0}
   g_btn: {fileID: 0}
