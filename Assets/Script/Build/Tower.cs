@@ -56,4 +56,25 @@ public class Tower : MonoBehaviour
         fence_left.SetActive(false);
         fence_right.SetActive(false);
     }
+
+    public void SetUp(){
+        if (fence.activeSelf == true){
+            Instantiate(fence);
+            fence.transform.position = new Vector3(0, 0, 0);
+        }
+        else if (tower.activeSelf == true){
+            Instantiate(tower);
+            tower.transform.position = new Vector3(0, 5, 0);
+        }
+        fence.SetActive(false);
+        tower.SetActive(false);
+        tower_up.SetActive(false);
+        tower_down.SetActive(false);
+        tower_left.SetActive(false);
+        tower_right.SetActive(false);
+        fence_up.SetActive(false);
+        fence_down.SetActive(false);
+        fence_left.SetActive(false);
+        fence_right.SetActive(false);
+    }
 }
