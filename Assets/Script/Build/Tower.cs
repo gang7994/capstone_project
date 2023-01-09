@@ -18,6 +18,7 @@ public class Tower : MonoBehaviour
 
 
 
+
     public void onClick1(){
         tower.SetActive(true);
         fence.SetActive(false);
@@ -77,4 +78,6 @@ public class Tower : MonoBehaviour
         fence_left.SetActive(false);
         fence_right.SetActive(false);
     }
+
+
 }

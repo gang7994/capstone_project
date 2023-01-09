@@ -8,6 +8,7 @@ TagManager:
   - Map
   - Monster
   - Tower
+  - Button
   layers:
   - Default
   - TransparentFX
