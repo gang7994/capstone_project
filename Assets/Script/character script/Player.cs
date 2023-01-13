@@ -41,10 +41,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //isAttackReady 는 공격모션 시간 attack_time 은 다음공격까지 딜레이 isattackReady 이후 움직임
         attackDelay += Time.deltaTime;
         if (isSword)
         {
-            isAttackReady = 0.5f < attackDelay;
+            isAttackReady = 0.4f < attackDelay;
             attack_time = 0.7f < attackDelay;
         }else if (isGun)
         {
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            isAttackReady = 1f < attackDelay;
+            isAttackReady = 0.5f < attackDelay;
             attack_time = 1.2f < attackDelay;
         }
         GetInput();
@@ -81,7 +82,7 @@ public class Player : MonoBehaviour
         //{
             
         //}
-        if (attack_time){
+        if (isAttackReady){
             transform.position += moveVec * speed * Time.deltaTime;
             transform.LookAt(transform.position + moveVec);
             moveVec = stick_hAxis * Vector3.right + stick_vAxis * Vector3.forward + key_hAxis * Vector3.right + key_vAxis * Vector3.forward;
@@ -137,7 +138,7 @@ public class Player : MonoBehaviour
                 anim.SetBool("isShot", true);
                 anim.SetBool("timeout", false);
                 attackDelay = 0;
-                Invoke("shotgunShoot", 0.3f);
+                Invoke("shotgunShoot", 0.1f);
             }
             else if (attack_time)
             {

@@ -3224,6 +3224,9 @@ MonoBehaviour:
   sword: {fileID: 9020589099584880065}
   gun: {fileID: 9020589099586426922}
   shotgun: {fileID: 0}
+  isSword: 0
+  isGun: 0
+  isShotgun: 0
   bullet: {fileID: 7588010069925798181, guid: 9d66266d8f5fd10479c81b8215fadb35, type: 3}
   sw_btn: {fileID: 0}
   g_btn: {fileID: 0}
