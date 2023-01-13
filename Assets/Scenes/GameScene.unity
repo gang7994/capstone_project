@@ -1172,7 +1172,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95681281}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1180,8 +1180,8 @@ RectTransform:
   - {fileID: 1740110242}
   - {fileID: 1755554058}
   - {fileID: 479411293}
-  m_Father: {fileID: 1208660126}
-  m_RootOrder: 8
+  m_Father: {fileID: 1365002084}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2886,8 +2886,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b476462d334044bba5527a1349c8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 178334583}
-  fence: {fileID: 2137669559}
+  tower_prefab: {fileID: 178334583}
+  fence_prefab: {fileID: 2137669559}
   tower_up: {fileID: 1536328952}
   tower_down: {fileID: 594083708}
   tower_left: {fileID: 1691581465}
@@ -3890,7 +3890,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 479411295}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1365002088}
+        m_TargetAssemblyTypeName: Build_Manager, Assembly-CSharp
+        m_MethodName: RemoveTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &479411295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7821,8 +7833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b476462d334044bba5527a1349c8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 178334583}
-  fence: {fileID: 2137669559}
+  tower_prefab: {fileID: 3396028743295946810, guid: 4578d0faf1a3a314fad88bdc1fa53403, type: 3}
+  fence_prefab: {fileID: 2137669559}
   tower_up: {fileID: 1536328952}
   tower_down: {fileID: 594083708}
   tower_left: {fileID: 1691581465}
@@ -10035,7 +10047,6 @@ RectTransform:
   - {fileID: 1600056016}
   - {fileID: 55570146}
   - {fileID: 789633387}
-  - {fileID: 95681282}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10768,6 +10779,8 @@ GameObject:
   - component: {fileID: 1365002087}
   - component: {fileID: 1365002086}
   - component: {fileID: 1365002085}
+  - component: {fileID: 1365002088}
+  - component: {fileID: 1365002089}
   m_Layer: 5
   m_Name: BuildMod_UI
   m_TagString: Untagged
@@ -10799,6 +10812,7 @@ RectTransform:
   - {fileID: 2018422763}
   - {fileID: 519575759}
   - {fileID: 372700750}
+  - {fileID: 95681282}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10868,6 +10882,41 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1365002088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365002083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aecffb0eb2465d40850c02146ea1783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBuild_tower: 1
+  isBuild_fence: 1
+  max_number_of_Tower: 3
+  max_number_of_Fence: 3
+  current_number_of_Tower: 0
+  current_number_of_Fence: 0
+  select_tower: 0
+  select_fence: 0
+--- !u!114 &1365002089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365002083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd6d25080f72cd468ec0863979c351b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getCamera: {fileID: 850559039}
+  Building_Panel_Button: {fileID: 1755554057}
+  Destory_Button: {fileID: 479411292}
 --- !u!1001 &1376355290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13677,7 +13726,6 @@ GameObject:
   - component: {fileID: 1721208982}
   - component: {fileID: 1721208981}
   - component: {fileID: 1721208985}
-  - component: {fileID: 1721208986}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -13768,21 +13816,6 @@ MonoBehaviour:
   go_TopCamera: {fileID: 850559038}
   TopScene: {fileID: 1365002083}
   FrontScene: {fileID: 1230961214}
---- !u!114 &1721208986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1721208980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdd6d25080f72cd468ec0863979c351b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  getCamera: {fileID: 1721208982}
-  Building_Panel_Button: {fileID: 1755554057}
-  Destory_Button: {fileID: 479411292}
 --- !u!1 &1740110241
 GameObject:
   m_ObjectHideFlags: 0
@@ -14978,6 +15011,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 178334586}
+        m_TargetAssemblyTypeName: Tower_Move, Assembly-CSharp
+        m_MethodName: init_position
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2137669564}
         m_TargetAssemblyTypeName: Fence_Move, Assembly-CSharp
         m_MethodName: init_position
@@ -15040,8 +15085,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b476462d334044bba5527a1349c8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 178334583}
-  fence: {fileID: 2137669559}
+  tower_prefab: {fileID: 178334583}
+  fence_prefab: {fileID: 2137669559}
   tower_up: {fileID: 1536328952}
   tower_down: {fileID: 594083708}
   tower_left: {fileID: 1691581465}
@@ -16086,8 +16131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b476462d334044bba5527a1349c8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 178334583}
-  fence: {fileID: 2137669559}
+  tower_prefab: {fileID: 3396028743295946810, guid: 4578d0faf1a3a314fad88bdc1fa53403, type: 3}
+  fence_prefab: {fileID: 2137669559}
   tower_up: {fileID: 1536328952}
   tower_down: {fileID: 594083708}
   tower_left: {fileID: 1691581465}

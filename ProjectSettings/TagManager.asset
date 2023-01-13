@@ -9,6 +9,7 @@ TagManager:
   - Monster
   - Tower
   - Button
+  - Fence
   layers:
   - Default
   - TransparentFX

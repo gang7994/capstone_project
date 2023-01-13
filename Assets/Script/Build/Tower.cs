@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    public GameObject tower;
-    public GameObject fence;
+    public GameObject tower_prefab;
+    public GameObject fence_prefab;
     public GameObject tower_up;
     public GameObject tower_down;
     public GameObject tower_left;
@@ -20,8 +20,8 @@ public class Tower : MonoBehaviour
 
 
     public void onClick1(){
-        tower.SetActive(true);
-        fence.SetActive(false);
+        tower_prefab.SetActive(true);
+        fence_prefab.SetActive(false);
         tower_up.SetActive(true);
         tower_down.SetActive(true);
         tower_left.SetActive(true);
@@ -33,8 +33,8 @@ public class Tower : MonoBehaviour
     }
 
     public void onClick2(){
-        tower.SetActive(false);
-        fence.SetActive(true);
+        tower_prefab.SetActive(false);
+        fence_prefab.SetActive(true);
         fence_up.SetActive(true);
         fence_down.SetActive(true);
         fence_left.SetActive(true);
@@ -46,8 +46,8 @@ public class Tower : MonoBehaviour
     }
 
     public void onClick3(){
-        fence.SetActive(false);
-        tower.SetActive(false);
+        fence_prefab.SetActive(false);
+        tower_prefab.SetActive(false);
         tower_up.SetActive(false);
         tower_down.SetActive(false);
         tower_left.SetActive(false);
@@ -59,16 +59,32 @@ public class Tower : MonoBehaviour
     }
 
     public void SetUp(){
-        if (fence.activeSelf == true){
-            Instantiate(fence);
-            fence.transform.position = new Vector3(0, 0, 0);
+        if (tower_prefab.activeSelf == true)
+        {
+            print(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower);
+            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower)
+            {
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddTower();
+                GameObject tower = Instantiate(tower_prefab);
+                tower.transform.position += new Vector3(0, 5, 0);
+                tower.name = $"tower{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().current_number_of_Tower}";
+                tower.tag = "Tower";
+            }
         }
-        else if (tower.activeSelf == true){
-            Instantiate(tower);
-            tower.transform.position = new Vector3(0, 5, 0);
+        else if (fence_prefab.activeSelf == true)
+        {
+            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence)
+            {
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddFence();
+                GameObject fence = Instantiate(fence_prefab);
+                fence.transform.position += new Vector3(0, 0, 0);
+                fence.name = $"fence{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().current_number_of_Fence}";
+                fence.tag = "Fence";
+            }
         }
-        fence.SetActive(false);
-        tower.SetActive(false);
+
+        fence_prefab.SetActive(false);
+        tower_prefab.SetActive(false);
         tower_up.SetActive(false);
         tower_down.SetActive(false);
         tower_left.SetActive(false);
