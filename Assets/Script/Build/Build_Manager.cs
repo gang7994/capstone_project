@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Build_Manager : MonoBehaviour
 {
+    public Camera getCamera;
+    private RaycastHit hit;
+
     public bool isBuild_tower = true;
     public bool isBuild_fence = true;
     public int max_number_of_Tower = 3;
@@ -12,6 +15,59 @@ public class Build_Manager : MonoBehaviour
     public int current_number_of_Fence = 0;
     public int select_tower = 0;
     public int select_fence = 0;
+
+    public GameObject Building_Panel_Button;
+    public GameObject Destory_Button;
+
+    void Update()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            Ray ray = getCamera.ScreenPointToRay(Input.mousePosition);
+            print("dsdsd");
+            //print(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower);
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "tower1")
+            {
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower = 1;
+                Building_Click(true);
+                print(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower);
+
+            }
+            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "tower2")
+            {
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower = 2;
+                Building_Click(true);
+
+            }
+            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "tower3")
+            {
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower = 3;
+                Building_Click(true);
+
+            }
+            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Map")
+            {
+
+                Building_Click(false);
+
+            }
+
+        }
+    }
+
+    public void Building_Click(bool isClick)
+    {
+        if (isClick)
+        {
+            Building_Panel_Button.SetActive(true);
+            Destory_Button.SetActive(true);
+        }
+        else
+        {
+            Building_Panel_Button.SetActive(false);
+            Destory_Button.SetActive(false);
+        }
+    }
 
     public void AddTower()
     {
