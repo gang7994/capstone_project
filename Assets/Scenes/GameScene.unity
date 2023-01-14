@@ -458,7 +458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMin.x
@@ -466,15 +466,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_LocalPosition.x
@@ -506,11 +506,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 665
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -47.5
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1200,6 +1200,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5acd6e6859ec32418b097fc0b74e876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower_prefab: {fileID: 0}
+  fence_prefab: {fileID: 0}
+  tower_up: {fileID: 0}
+  tower_down: {fileID: 0}
+  tower_left: {fileID: 0}
+  tower_right: {fileID: 0}
+  fence_up: {fileID: 0}
+  fence_down: {fileID: 0}
+  fence_left: {fileID: 0}
+  fence_right: {fileID: 0}
   Build_Panel: {fileID: 1740110241}
   Build_Panel_Exit: {fileID: 491015723}
 --- !u!4 &107724249 stripped
@@ -2845,7 +2855,7 @@ GameObject:
   - component: {fileID: 372700754}
   - component: {fileID: 372700753}
   - component: {fileID: 372700752}
-  - component: {fileID: 372700751}
+  - component: {fileID: 372700755}
   m_Layer: 5
   m_Name: Setup
   m_TagString: Untagged
@@ -2874,28 +2884,6 @@ RectTransform:
   m_AnchoredPosition: {x: 630, y: 170}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &372700751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 372700749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47b476462d334044bba5527a1349c8e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tower_prefab: {fileID: 178334583}
-  fence_prefab: {fileID: 2137669559}
-  tower_up: {fileID: 1536328952}
-  tower_down: {fileID: 594083708}
-  tower_left: {fileID: 1691581465}
-  tower_right: {fileID: 15529020}
-  fence_up: {fileID: 1091940611}
-  fence_down: {fileID: 238949570}
-  fence_left: {fileID: 2018422762}
-  fence_right: {fileID: 519575758}
 --- !u!114 &372700752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2940,8 +2928,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 372700751}
-        m_TargetAssemblyTypeName: Tower, Assembly-CSharp
+      - m_Target: {fileID: 372700755}
+        m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
         m_MethodName: SetUp
         m_Mode: 1
         m_Arguments:
@@ -2990,6 +2978,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372700749}
   m_CullTransparentMesh: 1
+--- !u!114 &372700755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372700749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5acd6e6859ec32418b097fc0b74e876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower_prefab: {fileID: 178334583}
+  fence_prefab: {fileID: 2137669559}
+  tower_up: {fileID: 1536328952}
+  tower_down: {fileID: 594083708}
+  tower_left: {fileID: 1691581465}
+  tower_right: {fileID: 15529020}
+  fence_up: {fileID: 1091940611}
+  fence_down: {fileID: 238949570}
+  fence_left: {fileID: 2018422762}
+  fence_right: {fileID: 519575758}
+  Build_Panel: {fileID: 1740110241}
+  Build_Panel_Exit: {fileID: 491015723}
 --- !u!1001 &407613688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4830,7 +4842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMin.x
@@ -4838,15 +4850,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4878,11 +4890,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 495
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -47.5
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7748,7 +7760,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 912971706}
-        m_TargetAssemblyTypeName: Tower, Assembly-CSharp
+        m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
         m_MethodName: onClick3
         m_Mode: 1
         m_Arguments:
@@ -7830,10 +7842,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 912971701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47b476462d334044bba5527a1349c8e1, type: 3}
+  m_Script: {fileID: 11500000, guid: c5acd6e6859ec32418b097fc0b74e876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower_prefab: {fileID: 3396028743295946810, guid: 4578d0faf1a3a314fad88bdc1fa53403, type: 3}
+  tower_prefab: {fileID: 178334583}
   fence_prefab: {fileID: 2137669559}
   tower_up: {fileID: 1536328952}
   tower_down: {fileID: 594083708}
@@ -7843,6 +7855,8 @@ MonoBehaviour:
   fence_down: {fileID: 238949570}
   fence_left: {fileID: 2018422762}
   fence_right: {fileID: 519575758}
+  Build_Panel: {fileID: 1740110241}
+  Build_Panel_Exit: {fileID: 491015723}
 --- !u!1001 &918918180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9587,7 +9601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMin.x
@@ -9595,15 +9609,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9635,11 +9649,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 580
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -47.5
       objectReference: {fileID: 0}
     - target: {fileID: 7167433205107834472, guid: 0183e7455067b6a438ee685463dd1279, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15000,7 +15014,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1834917088}
-        m_TargetAssemblyTypeName: Tower, Assembly-CSharp
+        m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
         m_MethodName: onClick1
         m_Mode: 1
         m_Arguments:
@@ -15082,7 +15096,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1834917083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47b476462d334044bba5527a1349c8e1, type: 3}
+  m_Script: {fileID: 11500000, guid: c5acd6e6859ec32418b097fc0b74e876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tower_prefab: {fileID: 178334583}
@@ -15095,6 +15109,8 @@ MonoBehaviour:
   fence_down: {fileID: 238949570}
   fence_left: {fileID: 2018422762}
   fence_right: {fileID: 519575758}
+  Build_Panel: {fileID: 1740110241}
+  Build_Panel_Exit: {fileID: 491015723}
 --- !u!1001 &1843088781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16058,7 +16074,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1962872313}
-        m_TargetAssemblyTypeName: Tower, Assembly-CSharp
+        m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
         m_MethodName: onClick2
         m_Mode: 1
         m_Arguments:
@@ -16128,10 +16144,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1962872308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47b476462d334044bba5527a1349c8e1, type: 3}
+  m_Script: {fileID: 11500000, guid: c5acd6e6859ec32418b097fc0b74e876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower_prefab: {fileID: 3396028743295946810, guid: 4578d0faf1a3a314fad88bdc1fa53403, type: 3}
+  tower_prefab: {fileID: 178334583}
   fence_prefab: {fileID: 2137669559}
   tower_up: {fileID: 1536328952}
   tower_down: {fileID: 594083708}
@@ -16141,6 +16157,8 @@ MonoBehaviour:
   fence_down: {fileID: 238949570}
   fence_left: {fileID: 2018422762}
   fence_right: {fileID: 519575758}
+  Build_Panel: {fileID: 1740110241}
+  Build_Panel_Exit: {fileID: 491015723}
 --- !u!1 &1972448318
 GameObject:
   m_ObjectHideFlags: 0
