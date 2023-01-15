@@ -106,4 +106,10 @@ public class Build_Manager : MonoBehaviour
             isBuild_fence = true;
         }
     }
+
+    void OnCollisionEnter(Collision other){
+        if (other.collider.gameObject.CompareTag("Tower")){
+            Debug.Log("설치불가");           
+        }
+    }
 }

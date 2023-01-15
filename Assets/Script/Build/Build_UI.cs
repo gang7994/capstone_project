@@ -60,6 +60,11 @@ public class Build_UI : MonoBehaviour
         fence_right.SetActive(false);
     }
 
+    public void onClick4()
+    {
+        fence_prefab.transform.Rotate(new Vector3(0,45f,0));
+    }
+
     public void SetUp()
     {
         if (tower_prefab.activeSelf == true)
@@ -105,4 +110,7 @@ public class Build_UI : MonoBehaviour
     {
         Build_Panel.SetActive(false);
     }
+
+    
+    
 }

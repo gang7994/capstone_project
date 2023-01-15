@@ -26,4 +26,11 @@ public class Tower_Move : MonoBehaviour
         transform.Translate(new Vector3(1f, 0f, 0f));
     }
 
+    private void OnTriggerEnter(Collider other){
+        if (other.gameObject.CompareTag("Tower")){
+            GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower = false;  
+            Debug.Log("설치불가"); 
+        }
+    }
 }
+
