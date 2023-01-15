@@ -15,8 +15,7 @@ public class Build_UI : MonoBehaviour
     public GameObject fence_left;
     public GameObject fence_right;
 
-    public GameObject Build_Panel;
-    public GameObject Build_Panel_Exit;
+    
     // Start is called before the first frame update
     public void onClick1()
     {
@@ -69,7 +68,6 @@ public class Build_UI : MonoBehaviour
     {
         if (tower_prefab.activeSelf == true)
         {
-            print(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower);
             if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower)
             {
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddTower();
@@ -102,14 +100,7 @@ public class Build_UI : MonoBehaviour
         fence_left.SetActive(false);
         fence_right.SetActive(false);
     }
-    public void Building_Panel_Click()
-    {
-        Build_Panel.SetActive(true);
-    }
-    public void Building_Panel_Exit_Click()
-    {
-        Build_Panel.SetActive(false);
-    }
+    
 
     
     
