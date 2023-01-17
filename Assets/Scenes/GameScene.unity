@@ -1919,6 +1919,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &178334592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178334583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1888b329424fdae43817725b142435da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durability: 100
+  attack_val: 10
+  slot_num: 0
+  level: 0
 --- !u!4 &186450588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1279437348525638701, guid: e2e682b966e3f644392ffbfab511e0e2, type: 3}
@@ -11463,6 +11479,7 @@ MonoBehaviour:
   select_fence: 0
   Building_Panel_Button: {fileID: 1755554057}
   Destory_Button: {fileID: 479411292}
+  objectname: 
 --- !u!1001 &1376355290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14614,6 +14631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Panel: {fileID: 1740110241}
   Build_Panel_Exit: {fileID: 491015723}
+  objectname: 
 --- !u!4 &1740292872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1279437348525638701, guid: e2e682b966e3f644392ffbfab511e0e2, type: 3}

@@ -19,6 +19,8 @@ public class Build_Manager : MonoBehaviour
     public GameObject Building_Panel_Button;
     public GameObject Destory_Button;
 
+    public string objectname;
+
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
@@ -30,19 +32,21 @@ public class Build_Manager : MonoBehaviour
             {
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower = 1;
                 Building_Click(true);
-                print(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower);
+                objectname = "tower1";
 
             }
             else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "tower2")
             {
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower = 2;
                 Building_Click(true);
+                objectname = "tower2";
 
             }
             else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "tower3")
             {
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower = 3;
                 Building_Click(true);
+                objectname = "tower3";
 
             }
             else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Map")
