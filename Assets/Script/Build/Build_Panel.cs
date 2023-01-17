@@ -26,7 +26,12 @@ public class Build_Panel : MonoBehaviour
     void Update()
     {
         objectname = GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().objectname;
-        Tower_Display_Panel(objectname);
+        if (objectname == "tower1" || objectname == "tower2" || objectname == "tower3"){
+            Tower_Display_Panel(objectname);
+        }
+        else if (objectname == "fence1" || objectname == "fence2" || objectname == "fence3"){
+            Fence_Display_Panel(objectname);
+        }
     }
 
     public void Building_Panel_Click()
@@ -39,8 +44,13 @@ public class Build_Panel : MonoBehaviour
     }
     public void LevelUp_Click()
     {
-        GameObject.Find(objectname).GetComponent<Tower>().level+=1;
-        print("°­È­");
+        if (objectname == "tower1" || objectname == "tower2" || objectname == "tower3"){
+            GameObject.Find(objectname).GetComponent<Tower>().level+=1;
+        }
+        else if (objectname == "fence1" || objectname == "fence2" || objectname == "fence3"){
+            GameObject.Find(objectname).GetComponent<Fence>().level+=1;
+        }
+        print("ï¿½ï¿½È­");
     }
 
     public void Tower_Display_Panel(string ObjectName)
@@ -49,14 +59,19 @@ public class Build_Panel : MonoBehaviour
         int attack_val = GameObject.Find(ObjectName).GetComponent<Tower>().attack_val;
         int slot_num = GameObject.Find(ObjectName).GetComponent<Tower>().slot_num;
         int level = GameObject.Find(ObjectName).GetComponent<Tower>().level;
-        Info.text = "³»±¸µµ : " + durability + "\n°ø°Ý·Â : " + attack_val + "\n½½·Ô°¹¼ö : " + slot_num;
+        Info.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : " + durability + "\nï¿½ï¿½ï¿½Ý·ï¿½ : " + attack_val + "\nï¿½ï¿½ï¿½Ô°ï¿½ï¿½ï¿½ : " + slot_num;
         Level.text = level.ToString();
     }
-    /*
+    
+    
     public void Fence_Display_Panel(string ObjectName)
     {
         int durability = GameObject.Find(ObjectName).GetComponent<Fence>().durability;
         int level = GameObject.Find(ObjectName).GetComponent<Fence>().level;
+        Info.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : " + durability;
+        Level.text = level.ToString();
     }
-    */
+    
+    
 }
+

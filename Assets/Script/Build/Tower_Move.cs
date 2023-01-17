@@ -32,5 +32,12 @@ public class Tower_Move : MonoBehaviour
             Debug.Log("설치불가"); 
         }
     }
+
+    private void OnTriggerExit(Collider other){
+        if (other.gameObject.CompareTag("Tower")){
+            GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower = true;
+            Debug.Log("설치가능");  
+        }
+    }
 }
 

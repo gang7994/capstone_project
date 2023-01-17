@@ -255,7 +255,7 @@ RectTransform:
   m_Children:
   - {fileID: 1196224417}
   m_Father: {fileID: 1365002084}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1315,7 +1315,7 @@ RectTransform:
   - {fileID: 1755554058}
   - {fileID: 479411293}
   m_Father: {fileID: 1365002084}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1438,7 +1438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &126256129
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1453,7 +1453,7 @@ RectTransform:
   m_Children:
   - {fileID: 463973865}
   m_Father: {fileID: 1365002084}
-  m_RootOrder: 13
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2348,7 +2348,7 @@ RectTransform:
   m_Children:
   - {fileID: 50518712}
   m_Father: {fileID: 1365002084}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3284,7 +3284,7 @@ RectTransform:
   m_Children:
   - {fileID: 346858174}
   m_Father: {fileID: 1365002084}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4974,7 +4974,7 @@ RectTransform:
   m_Children:
   - {fileID: 194873377}
   m_Father: {fileID: 1365002084}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5781,7 +5781,7 @@ RectTransform:
   m_Children:
   - {fileID: 1153609421}
   m_Father: {fileID: 1365002084}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9533,7 +9533,7 @@ RectTransform:
   m_Children:
   - {fileID: 527823948}
   m_Father: {fileID: 1365002084}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11376,6 +11376,7 @@ RectTransform:
   - {fileID: 1834917084}
   - {fileID: 1962872309}
   - {fileID: 912971702}
+  - {fileID: 126256129}
   - {fileID: 1536328953}
   - {fileID: 594083709}
   - {fileID: 1691581466}
@@ -11386,7 +11387,6 @@ RectTransform:
   - {fileID: 519575759}
   - {fileID: 372700750}
   - {fileID: 95681282}
-  - {fileID: 126256129}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12951,7 +12951,7 @@ RectTransform:
   m_Children:
   - {fileID: 610146271}
   m_Father: {fileID: 1365002084}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14327,7 +14327,7 @@ RectTransform:
   m_Children:
   - {fileID: 1239014659}
   m_Father: {fileID: 1365002084}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17088,7 +17088,7 @@ RectTransform:
   m_Children:
   - {fileID: 1675896369}
   m_Father: {fileID: 1365002084}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17942,6 +17942,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 15, y: 8, z: 3}
   m_Center: {x: 0, y: 4.001, z: 0}
+--- !u!114 &2137669574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137669559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ee9aa64ffa4514993742882b48d10e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durability: 100
+  attack_val: 10
+  slot_num: 0
+  level: 0
 --- !u!1001 &2144774296
 PrefabInstance:
   m_ObjectHideFlags: 0

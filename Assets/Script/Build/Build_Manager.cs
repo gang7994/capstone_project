@@ -20,7 +20,6 @@ public class Build_Manager : MonoBehaviour
     public GameObject Destory_Button;
 
     public string objectname;
-
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
@@ -32,6 +31,7 @@ public class Build_Manager : MonoBehaviour
             {
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower = 1;
                 Building_Click(true);
+                print(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower);
                 objectname = "tower1";
 
             }
@@ -47,6 +47,29 @@ public class Build_Manager : MonoBehaviour
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower = 3;
                 Building_Click(true);
                 objectname = "tower3";
+
+            }
+
+            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "fence1")
+            {
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_fence = 1;
+                Building_Click(true);
+                objectname = "fence1";
+
+            }
+            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "fence2")
+            {
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_fence = 2;
+                Building_Click(true);
+                objectname = "fence2";
+
+            }
+
+            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "fence3")
+            {
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_fence = 3;
+                Building_Click(true);
+                objectname = "fence3";
 
             }
             else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Map")
@@ -111,9 +134,5 @@ public class Build_Manager : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision other){
-        if (other.collider.gameObject.CompareTag("Tower")){
-            Debug.Log("설치불가");           
-        }
-    }
+    
 }
