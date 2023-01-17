@@ -13,72 +13,38 @@ public class Build_Manager : MonoBehaviour
     public int max_number_of_Fence = 3;
     public int current_number_of_Tower = 0;
     public int current_number_of_Fence = 0;
-    public int select_tower = 0;
-    public int select_fence = 0;
+    public string select_tower;
+    public string select_fence;
+    public int build_num = 0;
 
     public GameObject Building_Panel_Button;
     public GameObject Destory_Button;
 
     public string objectname;
+
+
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
         {
             Ray ray = getCamera.ScreenPointToRay(Input.mousePosition);
-            print("dsdsd");
-            //print(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower);
-            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "tower1")
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Tower")
             {
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower = 1;
+                select_tower = hit.collider.gameObject.name;
                 Building_Click(true);
-                print(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower);
-                objectname = "tower1";
+                objectname = hit.collider.gameObject.name;
 
             }
-            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "tower2")
+            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Fence")
             {
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower = 2;
+                select_fence = hit.collider.gameObject.name;
                 Building_Click(true);
-                objectname = "tower2";
-
-            }
-            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "tower3")
-            {
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower = 3;
-                Building_Click(true);
-                objectname = "tower3";
-
-            }
-
-            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "fence1")
-            {
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_fence = 1;
-                Building_Click(true);
-                objectname = "fence1";
-
-            }
-            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "fence2")
-            {
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_fence = 2;
-                Building_Click(true);
-                objectname = "fence2";
-
-            }
-
-            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.name == "fence3")
-            {
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_fence = 3;
-                Building_Click(true);
-                objectname = "fence3";
-
+                objectname = hit.collider.gameObject.name;
             }
             else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Map")
             {
-
                 Building_Click(false);
-
             }
-
         }
     }
 
@@ -106,13 +72,8 @@ public class Build_Manager : MonoBehaviour
     }
     public void RemoveTower()
     {
-        print("current"+ current_number_of_Tower);
-        print("select" + select_tower);
-
         if (current_number_of_Tower > 0){
-            if (select_tower == 1) Destroy(GameObject.Find("tower1"));
-            else if (select_tower == 2) Destroy(GameObject.Find("tower2"));
-            else if (select_tower == 3) Destroy(GameObject.Find("tower3"));
+            Destroy(GameObject.Find(select_tower));
             current_number_of_Tower -= 1;
             isBuild_tower = true;
         }
@@ -129,6 +90,7 @@ public class Build_Manager : MonoBehaviour
     {
         if (current_number_of_Fence > 0)
         {
+            Destroy(GameObject.Find(select_fence));
             current_number_of_Fence -= 1;
             isBuild_fence = true;
         }

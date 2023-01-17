@@ -73,8 +73,9 @@ public class Build_UI : MonoBehaviour
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddTower();
                 GameObject tower = Instantiate(tower_prefab);
                 tower.transform.position += new Vector3(0, 5, 0);
-                tower.name = $"tower{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().current_number_of_Tower}";
+                tower.name = $"tower{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
                 tower.tag = "Tower";
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
             }
         }
         else if (fence_prefab.activeSelf == true)
@@ -84,8 +85,9 @@ public class Build_UI : MonoBehaviour
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddFence();
                 GameObject fence = Instantiate(fence_prefab);
                 fence.transform.position += new Vector3(0, 0, 0);
-                fence.name = $"fence{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().current_number_of_Fence}";
+                fence.name = $"fence{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
                 fence.tag = "Fence";
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
             }
         }
 

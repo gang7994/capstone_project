@@ -26,10 +26,10 @@ public class Build_Panel : MonoBehaviour
     void Update()
     {
         objectname = GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().objectname;
-        if (objectname == "tower1" || objectname == "tower2" || objectname == "tower3"){
+        if (objectname.Contains("tower")){
             Tower_Display_Panel(objectname);
         }
-        else if (objectname == "fence1" || objectname == "fence2" || objectname == "fence3"){
+        else if (objectname.Contains("fence")){
             Fence_Display_Panel(objectname);
         }
     }
@@ -44,13 +44,14 @@ public class Build_Panel : MonoBehaviour
     }
     public void LevelUp_Click()
     {
-        if (objectname == "tower1" || objectname == "tower2" || objectname == "tower3"){
+        if (objectname.Contains("tower"))
+        {
             GameObject.Find(objectname).GetComponent<Tower>().level+=1;
         }
-        else if (objectname == "fence1" || objectname == "fence2" || objectname == "fence3"){
+        else if (objectname.Contains("fence"))
+        {
             GameObject.Find(objectname).GetComponent<Fence>().level+=1;
         }
-        print("��ȭ");
     }
 
     public void Tower_Display_Panel(string ObjectName)

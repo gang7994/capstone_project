@@ -4400,6 +4400,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1365002088}
+        m_TargetAssemblyTypeName: Build_Manager, Assembly-CSharp
+        m_MethodName: RemoveFence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &479411295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11475,8 +11487,9 @@ MonoBehaviour:
   max_number_of_Fence: 3
   current_number_of_Tower: 0
   current_number_of_Fence: 0
-  select_tower: 0
-  select_fence: 0
+  select_tower: 
+  select_fence: 
+  build_num: 0
   Building_Panel_Button: {fileID: 1755554057}
   Destory_Button: {fileID: 479411292}
   objectname: 
@@ -17955,8 +17968,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 100
-  attack_val: 10
-  slot_num: 0
   level: 0
 --- !u!1001 &2144774296
 PrefabInstance:

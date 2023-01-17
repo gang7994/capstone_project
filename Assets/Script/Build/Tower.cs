@@ -20,7 +20,7 @@ public class Tower : MonoBehaviour
     }
     public void Level_Manager(int level)
     {
-        durability = 10 * level;
+        durability = 100 + 10 * level;
         attack_val = level;
         slot_num = (level / 10);
     }
