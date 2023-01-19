@@ -21,19 +21,19 @@ public class Fence_Move : MonoBehaviour
     }
     public void Up()
     {
-        transform.Translate(new Vector3(0f, 0f, 1f));
+        transform.Translate(new Vector3(0f, 0f, 1f), Space.World);
     }
     public void Down()
     {
-        transform.Translate(new Vector3(0f, 0f, -1f));
+        transform.Translate(new Vector3(0f, 0f, -1f), Space.World);
     }
     public void Left()
     {
-        transform.Translate(new Vector3(-1f, 0f, 0f));
+        transform.Translate(new Vector3(-1f, 0f, 0f), Space.World);
     }
     public void Right()
     {
-        transform.Translate(new Vector3(1f, 0f, 0f));
+        transform.Translate(new Vector3(1f, 0f, 0f), Space.World);
     }
 
     private void OnTriggerStay(Collider other){
