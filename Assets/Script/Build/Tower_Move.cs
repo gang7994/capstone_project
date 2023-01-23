@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Tower_Move : MonoBehaviour
 {
-    
+    CapsuleCollider build_Collider;
+
+    void Start(){
+        build_Collider = GetComponent<CapsuleCollider>();
+    }
+
     public void init_position()
     {
         transform.position = new Vector3(0, 0, 0);

@@ -9,17 +9,27 @@ public class Tower : MonoBehaviour
     public int      slot_num = 0;
     public int      level = 0;
 
+    public GameObject Bullet;
+
+    public Transform FirePos;
+
+
 
     private List<GameObject> collEnemys = new List<GameObject>();
     SphereCollider attack_Collider;
-    private float   attackRate = 0.5f;
+    public float coolTime = 0.5f;
     
     public float attackRange = 30.0f;
+
+    float timer;
+
 
     
     void Start()
     {
         attack_Collider = GetComponent<SphereCollider>();
+        timer = 0.0f;
+
     }
 
     // Update is called once per frame
@@ -27,6 +37,12 @@ public class Tower : MonoBehaviour
     {
         Level_Manager(level);
         attack_Collider.radius = attackRange;
+        timer += Time.deltaTime;
+        if(timer > coolTime){
+            AutoAttack(FirePos,collEnemys);
+            timer = 0.0f;
+        }
+            
     }
     public void Level_Manager(int level)
     {
@@ -41,10 +57,10 @@ public class Tower : MonoBehaviour
         if (collision.tag == "Monster")
         {
             collEnemys.Add(collision.gameObject);
-            print("°ø°İ, ¸®½ºÆ® Ãß°¡");
+            print("ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½");
         }
     }
-
+    
     private void OnTriggerExit(Collider collision)
     {
         foreach (GameObject go in collEnemys)
@@ -52,9 +68,31 @@ public class Tower : MonoBehaviour
             if (go == collision.gameObject)
             {
                 collEnemys.Remove(go);
-                print("Ãæµ¹³¡, ¸®½ºÆ® »èÁ¦");
+                print("ï¿½æµ¹ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½");
                 break;
             }
         }
+    }
+    
+    public void AutoAttack(Transform firePos, List<GameObject> collEnemy){
+        if (collEnemy.Count != 0){
+            foreach (GameObject go in collEnemy){
+                firePos.transform.LookAt(go.transform);
+                Instantiate(Bullet, firePos.transform.position, firePos.transform.rotation);
+
+            }
+        }
+        else{
+            Debug.Log("ëª¬ìŠ¤í„° ì—†ìŒ!");
+        }
+        
+        if (Input.GetMouseButtonDown(0)){
+            Instantiate(Bullet, firePos.transform.position, firePos.transform.rotation);
+        }
+    }
+    
+
+    void DestroyBullet(){
+        Destroy(Bullet);
     }
 }
