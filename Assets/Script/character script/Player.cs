@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public bool isSword, isGun, isShotgun;
     public GameObject bullet;
     public GameObject sw_btn, g_btn, sg_btn;
+    public GameObject LevelUp_UI;
 
     float stick_hAxis, stick_vAxis, key_hAxis, key_vAxis;
     float attackDelay;
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
         sword.SetActive(true);
         gun.SetActive(false);
         attackDelay = 1.0f;
+        LevelUp_UI.SetActive(false);
     }
 
     void Awake()
@@ -60,6 +62,14 @@ public class Player : MonoBehaviour
         GetInput();
         Move();
         Attack();
+    }
+    public void UpgradeOn()
+    {
+        LevelUp_UI.SetActive(true);
+    }
+    public void UpgradeOff()
+    {
+        LevelUp_UI.SetActive(false);
     }
 
     

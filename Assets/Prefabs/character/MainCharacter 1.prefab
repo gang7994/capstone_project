@@ -3231,6 +3231,7 @@ MonoBehaviour:
   sw_btn: {fileID: 0}
   g_btn: {fileID: 0}
   sg_btn: {fileID: 0}
+  LevelUp_UI: {fileID: 0}
 --- !u!1 &9020589100317189085
 GameObject:
   m_ObjectHideFlags: 0
