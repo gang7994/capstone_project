@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 
 
@@ -14,25 +15,36 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     public GameObject sw_btn, g_btn, sg_btn;
     public GameObject LevelUp_UI;
+    public GameObject TypePanel;
+    public GameObject TypeIcon1, TypeIcon2, TypeIcon3, TypeIcon4, TypeIcon5;
+    public Sprite FireImage, LightImage, IceImage, EarthImage, WhiteImage;
 
     float stick_hAxis, stick_vAxis, key_hAxis, key_vAxis;
     float attackDelay;
+    int[] Type = new int[5];
+    int selectNumber;
 
     Vector3 moveVec;
     Animator anim;
 
     void Start()
     {
-        isSword = true;
-        isGun = false;
+        Type[0] = 0;
+        Type[1] = 0;
+        Type[2] = 0;
+        Type[3] = 0;
+        Type[4] = 0;
+        isSword = false;
+        isGun = true;
         isShotgun = false;
-        anim.SetBool("isSword", true);
-        anim.SetBool("isGun", false);
+        anim.SetBool("isSword", false);
+        anim.SetBool("isGun", true);
         anim.SetBool("isShotgun", false);
-        sword.SetActive(true);
-        gun.SetActive(false);
+        sword.SetActive(false);
+        gun.SetActive(true);
         attackDelay = 1.0f;
         LevelUp_UI.SetActive(false);
+        TypePanel.SetActive(false);
     }
 
     void Awake()
@@ -232,6 +244,184 @@ public class Player : MonoBehaviour
             sg_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(120, 120);
             sw_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
             g_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
+        }
+    }
+
+    public void ExitPanel()   // 특성선택 패널관리
+    {
+        TypePanel.SetActive(false);
+        selectNumber = 0;
+    }
+
+    public void select1()
+    {
+        selectNumber = 1;
+        TypePanel.SetActive(true);
+    }
+    public void select2()
+    {
+        selectNumber = 2;
+        TypePanel.SetActive(true);
+    }
+    public void select3()
+    {
+        selectNumber = 3;
+        TypePanel.SetActive(true);
+    }
+    public void select4()
+    {
+        selectNumber = 4;
+        TypePanel.SetActive(true);
+    }
+    public void select5()
+    {
+        selectNumber = 5;
+        TypePanel.SetActive(true);
+    }
+    public void ResetBtn()
+    {
+        TypeIcon1.GetComponent<Image>().sprite = WhiteImage;
+        TypeIcon2.GetComponent<Image>().sprite = WhiteImage;
+        TypeIcon3.GetComponent<Image>().sprite = WhiteImage;
+        TypeIcon4.GetComponent<Image>().sprite = WhiteImage;
+        TypeIcon5.GetComponent<Image>().sprite = WhiteImage;
+        Type[0] = 0;
+        Type[1] = 0;
+        Type[2] = 0;
+        Type[3] = 0;
+        Type[4] = 0;
+    }
+
+    public void selectFire()
+    {
+        if(selectNumber == 1)
+        {
+            TypeIcon1.GetComponent<Image>().sprite = FireImage;
+            Type[0] = 1;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 2)
+        {
+            TypeIcon2.GetComponent<Image>().sprite = FireImage;
+            Type[1] = 1;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 3)
+        {
+            TypeIcon3.GetComponent<Image>().sprite = FireImage;
+            Type[2] = 1;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 4)
+        {
+            TypeIcon4.GetComponent<Image>().sprite = FireImage;
+            Type[3] = 1;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 5)
+        {
+            TypeIcon5.GetComponent<Image>().sprite = FireImage;
+            Type[4] = 1;
+            TypePanel.SetActive(false);
+        }
+    }
+    public void selectLight()
+    {
+        if (selectNumber == 1)
+        {
+            TypeIcon1.GetComponent<Image>().sprite = LightImage;
+            Type[0] = 2;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 2)
+        {
+            TypeIcon2.GetComponent<Image>().sprite = LightImage;
+            Type[1] = 2;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 3)
+        {
+            TypeIcon3.GetComponent<Image>().sprite = LightImage;
+            Type[2] = 2;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 4)
+        {
+            TypeIcon4.GetComponent<Image>().sprite = LightImage;
+            Type[3] = 2;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 5)
+        {
+            TypeIcon5.GetComponent<Image>().sprite = LightImage;
+            Type[4] = 2;
+            TypePanel.SetActive(false);
+        }
+    }
+    public void selectIce()
+    {
+        if (selectNumber == 1)
+        {
+            TypeIcon1.GetComponent<Image>().sprite = IceImage;
+            Type[0] = 3;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 2)
+        {
+            TypeIcon2.GetComponent<Image>().sprite = IceImage;
+            Type[1] = 3;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 3)
+        {
+            TypeIcon3.GetComponent<Image>().sprite = IceImage;
+            Type[2] = 3;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 4)
+        {
+            TypeIcon4.GetComponent<Image>().sprite = IceImage;
+            Type[3] = 3;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 5)
+        {
+            TypeIcon5.GetComponent<Image>().sprite = IceImage;
+            Type[4] = 3;
+            TypePanel.SetActive(false);
+        }
+    }
+    public void selectEarth()
+    {
+        if (selectNumber == 1)
+        {
+            TypeIcon1.GetComponent<Image>().sprite = EarthImage;
+            Type[0] = 4;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 2)
+        {
+            TypeIcon2.GetComponent<Image>().sprite = EarthImage;
+            Type[1] = 4;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 3)
+        {
+            TypeIcon3.GetComponent<Image>().sprite = EarthImage;
+            Type[2] = 4;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 4)
+        {
+            TypeIcon4.GetComponent<Image>().sprite = EarthImage;
+            Type[3] = 4;
+            TypePanel.SetActive(false);
+        }
+        else if (selectNumber == 5)
+        {
+            TypeIcon5.GetComponent<Image>().sprite = EarthImage;
+            Type[4] = 4;
+            TypePanel.SetActive(false);
         }
     }
 }
