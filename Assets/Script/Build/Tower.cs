@@ -9,11 +9,13 @@ public class Tower : MonoBehaviour
     public int      slot_num = 0;
     public int      level = 0;
 
+    public int num_of_inchant;
+
     public GameObject Bullet;
 
     public Transform FirePos;
 
-
+    public Material[] ranShoot = new Material[5];
 
     private List<GameObject> collEnemys = new List<GameObject>();
     SphereCollider attack_Collider;

@@ -113,7 +113,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5b5ed2babbef61f489c84a5c11abeac8, type: 2}
+  - {fileID: 2100000, guid: ffc76947a32ac8040a67af5770cf79d1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -209,6 +209,12 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 16d625988a0b8954ba0fbb341eaa211b, type: 2}
   - {fileID: 2100000, guid: aa552c16e4d871c49bd0ad62eec7bff3, type: 2}
   - {fileID: 2100000, guid: fa37badbc7fe96b458193151760c7bd7, type: 2}
+  ranShoot:
+  - {fileID: 2100000, guid: ffc76947a32ac8040a67af5770cf79d1, type: 2}
+  - {fileID: 2100000, guid: ffc76947a32ac8040a67af5770cf79d1, type: 2}
+  - {fileID: 2100000, guid: ffc76947a32ac8040a67af5770cf79d1, type: 2}
+  - {fileID: 2100000, guid: ffc76947a32ac8040a67af5770cf79d1, type: 2}
+  - {fileID: 2100000, guid: ffc76947a32ac8040a67af5770cf79d1, type: 2}
 --- !u!54 &6637924545126999836
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -237,7 +243,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 66362109d38707e41966aad33585e4bc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.038
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
