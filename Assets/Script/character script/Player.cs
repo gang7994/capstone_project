@@ -63,8 +63,8 @@ public class Player : MonoBehaviour
             attack_time = 0.7f < attackDelay;
         }else if (isGun)
         {
-            isAttackReady = 0.5f < attackDelay;
-            attack_time = 0.7f < attackDelay;
+            isAttackReady = 0.3f < attackDelay;
+            attack_time = 0.5f < attackDelay;
         }
         else
         {

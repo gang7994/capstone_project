@@ -29,6 +29,10 @@ public class Monster : MonoBehaviour
     {
         if (isChase)
             navi.SetDestination(target.position);
+        if(curHealth < 1)
+        {
+            Destroy(gameObject);
+        }
     }
 
    

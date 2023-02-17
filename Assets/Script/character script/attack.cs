@@ -41,19 +41,21 @@ public class attack : MonoBehaviour
         {
             if (check)
             {
-                Destroy(other.gameObject);
+                other.GetComponent<Monster>().curHealth -= 1;
             }
         }
     }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.transform.tag == "Monster")
-        {
-            if (check)
-            {
-                Destroy(other.gameObject);
-            }
-        }
-    }
+    
+    //
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.transform.tag == "Monster")
+    //    {
+    //        if (check)
+    //        {
+    //            other.GetComponent<Monster>().curHealth -= 20;
+    //        }
+    //    }
+    //}
 
 }
