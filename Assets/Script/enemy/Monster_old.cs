@@ -7,18 +7,20 @@ using UnityEngine.AI;
 public class Monster_old : MonoBehaviour
 {
     public int maxHealth, curHealth;
+    public int damage;
+
     public Transform target;
     public bool isChase;
 
     Rigidbody rigid;
-    CapsuleCollider capCollider;
+    SphereCollider collider;
     Material materi;
     NavMeshAgent navi;
     Animator anim;
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        capCollider = GetComponent<CapsuleCollider>();
+        collider = GetComponent<SphereCollider>();
         materi = GetComponentInChildren<SkinnedMeshRenderer>().material;
         navi = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
@@ -29,29 +31,35 @@ public class Monster_old : MonoBehaviour
     {
         if (isChase)
             navi.SetDestination(target.position);
+        if(curHealth < 1)
+        {
+            Debug.Log("Î™¨Ïä§ÌÑ∞ ÏÇ¨Îßù1");
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator OnDamage(Vector3 reactVec)
     {
+        Debug.Log("Îç∞ÎØ∏ÏßÄ ÏûÖÎäî Ï§ë1");
         materi.color = Color.red;
         yield return new WaitForSeconds(0.1f);
 
         if (curHealth > 0)
         {
             materi.color = Color.white;
-            //¥ı ∫∏±‚ ¡¡∞‘ ºˆ¡§ « ø‰
             reactVec = reactVec.normalized;
             reactVec += Vector3.up;
             rigid.AddForce(reactVec * 5, ForceMode.Impulse);
-            Debug.Log("BAT ATT!");
+            anim.SetBool("isDamage", true);
+            Debug.Log("Îç∞ÎØ∏ÏßÄ ÏûÖÎäî Ï§ë2");
         }
         else
         {
             materi.color = Color.gray;
-            anim.SetBool("isDeath", true);
-            Debug.Log("DIEBAT");
+            anim.SetBool("isDie", true);
             gameObject.layer = 10;
             Destroy(gameObject, 3);
+            Debug.Log("Î™¨Ïä§ÌÑ∞ ÏÇ¨Îßù2");
         }
         
     }
@@ -74,6 +82,6 @@ public class Monster_old : MonoBehaviour
     void ChaseStart()
     {
         isChase = true;
-        anim.SetBool("isWalk", true);
+        anim.SetBool("isMove", true);
     }
 }

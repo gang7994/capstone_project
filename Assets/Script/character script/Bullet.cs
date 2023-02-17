@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Monster")
         {
-            other.GetComponent<Monster>().curHealth -= 20;
+            other.GetComponent<Monster_old>().curHealth -= 20;
             DestroyBullet();
 
 

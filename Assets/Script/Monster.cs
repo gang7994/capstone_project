@@ -45,7 +45,7 @@ public class Monster : MonoBehaviour
         if (curHealth > 0)
         {
             materi.color = Color.white;
-            //´õ º¸±â ÁÁ°Ô ¼öÁ¤ ÇÊ¿ä
+            //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
             reactVec = reactVec.normalized;
             reactVec += Vector3.up;
             rigid.AddForce(reactVec * 5, ForceMode.Impulse);
@@ -75,9 +75,10 @@ public class Monster : MonoBehaviour
         FreezeVelocity();
     }
     */
+    /*
     void ChaseStart()
     {
         isChase = true;
         anim.SetBool("isWalk", true);
-    }
+    }*/
 }

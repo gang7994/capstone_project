@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Monster : MonoBehaviour
+public class MON : MonoBehaviour
 {
     public int maxHealth, curHealth;
     public Transform target;
@@ -41,7 +41,7 @@ public class Monster : MonoBehaviour
         if (curHealth > 0)
         {
             materi.color = Color.white;
-            //´õ º¸±â ÁÁ°Ô ¼öÁ¤ ÇÊ¿ä
+            //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
             reactVec = reactVec.normalized;
             reactVec += Vector3.up;
             rigid.AddForce(reactVec * 5, ForceMode.Impulse);
