@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ecf1fd6591d75e4694d2f00c473d91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coolTime: 0.5
   mat:
   - {fileID: 2100000, guid: 5b5ed2babbef61f489c84a5c11abeac8, type: 2}
   - {fileID: 2100000, guid: 7e2c78aff685b814481998ec6813b8d0, type: 2}
