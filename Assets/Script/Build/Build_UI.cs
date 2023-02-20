@@ -72,7 +72,7 @@ public class Build_UI : MonoBehaviour
             {
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddTower();
                 GameObject tower = Instantiate(tower_prefab);
-                tower.transform.position += new Vector3(0, 5, 0);
+                tower.transform.position += new Vector3(0, 0, 0);
                 tower.name = $"tower{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
                 tower.tag = "Tower";
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;

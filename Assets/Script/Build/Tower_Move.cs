@@ -12,7 +12,7 @@ public class Tower_Move : MonoBehaviour
 
     public void init_position()
     {
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = new Vector3(0, 3.5f, 0);
     }
     public void Up()
     {
