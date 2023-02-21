@@ -16,19 +16,19 @@ public class Tower_Move : MonoBehaviour
     }
     public void Up()
     {
-        transform.Translate(new Vector3(0f, 0f, 1f));
+        transform.Translate(new Vector3(0f, 0f, 3f));
     }
     public void Down()
     {
-        transform.Translate(new Vector3(0f, 0f, -1f));
+        transform.Translate(new Vector3(0f, 0f, -3f));
     }
     public void Left()
     {
-        transform.Translate(new Vector3(-1f, 0f, 0f));
+        transform.Translate(new Vector3(-3f, 0f, 0f));
     }
     public void Right()
     {
-        transform.Translate(new Vector3(1f, 0f, 0f));
+        transform.Translate(new Vector3(3f, 0f, 0f));
     }
 
     private void OnTriggerEnter(Collider other){

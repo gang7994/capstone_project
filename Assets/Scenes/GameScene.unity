@@ -2940,7 +2940,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
@@ -16677,6 +16677,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1365002088}
+        m_TargetAssemblyTypeName: Build_Manager, Assembly-CSharp
+        m_MethodName: GenerateMap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &789633389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17565,7 +17577,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 40
+  orthographic size: 25
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -18681,6 +18693,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2137669564}
         m_TargetAssemblyTypeName: Fence_Move, Assembly-CSharp
         m_MethodName: init_position
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1365002088}
+        m_TargetAssemblyTypeName: Build_Manager, Assembly-CSharp
+        m_MethodName: ExitMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24971,6 +24995,9 @@ MonoBehaviour:
   select_tower: 
   select_fence: 
   build_num: 0
+  tilePrefab: {fileID: 1453066317428766612, guid: 54cf21f01f9d43a4bb000c9759610a39, type: 3}
+  mapSize: {x: 21, y: 13}
+  outlinePercent: 0.05
   Building_Panel_Button: {fileID: 1755554057}
   Destory_Button: {fileID: 479411292}
   objectname: 

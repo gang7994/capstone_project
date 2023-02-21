@@ -22,7 +22,7 @@ public class TowerShoot : MonoBehaviour
         timer += Time.deltaTime;
         
         
-        transform.Translate(Vector3.forward * 0.1f);
+        transform.Translate(Vector3.forward * 1.0f);
     }
 
     void DestroyBullet(){
