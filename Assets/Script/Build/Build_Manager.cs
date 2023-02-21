@@ -119,7 +119,7 @@ public class Build_Manager : MonoBehaviour
     }
 
     public void ExitMap(){
-        string holderName = "Generated Map";
+        string holderName = "Generated Map";    
         if (transform.Find (holderName)) {
             DestroyImmediate(transform.Find(holderName).gameObject);
         }
