@@ -19,6 +19,7 @@ public class Build_Manager : MonoBehaviour
 
     public Transform tilePrefab;
     public Vector2 mapSize;
+    public int[,] build_Position = new int[13, 21];
 
     [Range(0,1)]
     public float outlinePercent;
@@ -28,7 +29,18 @@ public class Build_Manager : MonoBehaviour
 
     public string objectname;
 
-
+    void Start()
+    {
+        print((int)mapSize.y);
+        build_Position = new int[(int)mapSize.y, (int)mapSize.x]; //행, 열
+        for (int i = 0; i < (int)mapSize.y; i++)
+        {
+            for (int j = 0; j < (int)mapSize.x; j++)
+            {
+                build_Position[i, j] = 0; // 배열의 모든 요소를 0으로 초기화
+            }
+        }
+    }
     void Update()
     {
         if (Input.GetMouseButtonUp(0))

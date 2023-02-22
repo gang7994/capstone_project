@@ -16,6 +16,8 @@ public class Build_UI : MonoBehaviour
     public GameObject fence_right;
 
     
+
+    
     // Start is called before the first frame update
     public void onClick1()
     {
@@ -76,6 +78,9 @@ public class Build_UI : MonoBehaviour
                 tower.name = $"tower{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
                 tower.tag = "Tower";
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)tower.transform.position.z / 3) + 6,(int)tower.transform.position.x / 3 + 10] = 1;
+                
+
             }
         }
         else if (fence_prefab.activeSelf == true)
@@ -88,6 +93,7 @@ public class Build_UI : MonoBehaviour
                 fence.name = $"fence{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
                 fence.tag = "Fence";
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)fence.transform.position.z / 3) + 6, (int)fence.transform.position.x / 3 + 10] = 1;
             }
         }
 

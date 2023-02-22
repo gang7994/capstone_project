@@ -37,18 +37,13 @@ public class Fence_Move : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other){
-        if (other.gameObject.CompareTag("Tower")){
-            GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence = false;  
-            Debug.Log("설치불가"); 
-        }
-
+        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence = false;  
+        Debug.Log("설치불가"); 
     }
 
     private void OnTriggerExit(Collider other){
-        if (other.gameObject.CompareTag("Tower")){
-            GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence = true;
-            Debug.Log("설치가능");  
-        }
+        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence = true;
+        Debug.Log("설치가능");  
     }
 
 }
