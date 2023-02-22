@@ -42,10 +42,10 @@ public class enemy : MonoBehaviour
         bool isPlayerChase = true;
         if (isPlayerChase)
         {
-            //ÇÃ·¹ÀÌ¾î¸¦ µû¶ó°¨
+            //ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½
         }
         else {
-            //ÁýÀ» ÇâÇØ ÀÌµ¿
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         }
 
     }

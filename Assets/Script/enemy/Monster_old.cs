@@ -29,35 +29,45 @@ public class Monster_old : MonoBehaviour
     }
     void Update()
     {
-        if (isChase)
+        if (isChase){
             navi.SetDestination(target.position);
+            anim.SetBool("isMove", true);
+        }
+        /*
         if(curHealth < 1)
         {
             Debug.Log("몬스터 사망1");
             Destroy(gameObject);
+        }*/
+    }
+
+    void OnTriggerEnter(Collider other){
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bullet")){
+            Vector3 reactVec = transform.position;
+            anim.SetBool("isDamage", true);
+            StartCoroutine(OnDamage(reactVec));
         }
     }
 
     IEnumerator OnDamage(Vector3 reactVec)
     {
-        Debug.Log("데미지 입는 중1");
         materi.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-
-        if (curHealth > 0)
+        if (curHealth > 1)
         {
             materi.color = Color.white;
             reactVec = reactVec.normalized;
             reactVec += Vector3.up;
             rigid.AddForce(reactVec * 5, ForceMode.Impulse);
-            anim.SetBool("isDamage", true);
-            Debug.Log("데미지 입는 중2");
+            anim.SetBool("isDamage", false);
         }
         else
         {
             materi.color = Color.gray;
             anim.SetBool("isDie", true);
-            gameObject.layer = 10;
+            anim.SetBool("isDamage", false);
+            gameObject.layer = LayerMask.NameToLayer("MonsterDied");
+            isChase = false;
             Destroy(gameObject, 3);
             Debug.Log("몬스터 사망2");
         }
@@ -82,6 +92,5 @@ public class Monster_old : MonoBehaviour
     void ChaseStart()
     {
         isChase = true;
-        anim.SetBool("isMove", true);
     }
 }
