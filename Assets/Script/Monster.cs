@@ -59,6 +59,10 @@ public class Monster : MonoBehaviour
         }
         
     }
+    public void MonsterAttack()
+    {
+
+    }
 
     void FreezeVelocity()
     {

@@ -32,17 +32,7 @@ public class Bullet : MonoBehaviour
  
 
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Monster")
-        {
-            other.GetComponent<Monster_old>().curHealth -= 20;
-            DestroyBullet();
 
-
-
-        }
-    }
 
     void Update()
     {
@@ -52,7 +42,5 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    void DestroyBullet(){
-        Destroy(gameObject);
-    }
+
 }

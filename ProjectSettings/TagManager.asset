@@ -10,6 +10,7 @@ TagManager:
   - Tower
   - Button
   - Fence
+  - MonsterAttack
   layers:
   - Default
   - TransparentFX

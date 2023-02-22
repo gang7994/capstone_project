@@ -30120,6 +30120,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baker_house
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 3}
+      propertyPath: m_TagString
+      value: Tower
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -31211,6 +31215,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1279437348525638701, guid: e2e682b966e3f644392ffbfab511e0e2, type: 3}
   m_PrefabInstance: {fileID: 446165873}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1744559394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 3}
+  m_PrefabInstance: {fileID: 1667731600}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1744559399
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744559394}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.502298, y: 9.91815, z: 8.857442}
+  m_Center: {x: 0, y: 0, z: 4.4292207}
 --- !u!1001 &1745052369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36485,11 +36507,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 905590721, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
       propertyPath: curHealth
-      value: 150
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 905590721, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
       propertyPath: maxHealth
-      value: 150
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7489988819297713771, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
       propertyPath: m_RootOrder
