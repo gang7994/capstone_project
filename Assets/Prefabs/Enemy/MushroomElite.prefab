@@ -9,11 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Name
-      value: Fungi
+      value: MushroomElite
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_TagString
@@ -21,91 +21,91 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100014, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100016, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100018, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100020, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100022, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100024, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100026, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100028, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100030, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100032, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100034, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100036, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100038, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100040, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100042, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100044, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
       propertyPath: m_RootOrder
@@ -166,28 +166,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: fee5f7b5740ab0241942eb37c30ee280, type: 3}
   m_PrefabInstance: {fileID: 3645842411221993762}
   m_PrefabAsset: {fileID: 0}
---- !u!195 &4467738408267642771
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3645842411222028162}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!54 &5376310212577988232
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -231,5 +209,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   curHealth: 0
+  damage: 0
   target: {fileID: 0}
   isChase: 0
+--- !u!195 &4467738408267642771
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645842411222028162}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
