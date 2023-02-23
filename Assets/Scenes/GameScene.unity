@@ -2416,6 +2416,10 @@ MonoBehaviour:
   fence_down: {fileID: 238949570}
   fence_left: {fileID: 2018422762}
   fence_right: {fileID: 519575758}
+  tower_base:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &107364598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,6 +2718,10 @@ MonoBehaviour:
   fence_down: {fileID: 238949570}
   fence_left: {fileID: 2018422762}
   fence_right: {fileID: 519575758}
+  tower_base:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &126256131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7272,6 +7280,10 @@ MonoBehaviour:
   fence_down: {fileID: 238949570}
   fence_left: {fileID: 2018422762}
   fence_right: {fileID: 519575758}
+  tower_base:
+  - {fileID: 7555185752953191562, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
+  - {fileID: 2002842263116201729, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
+  - {fileID: -3632132094842907418, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
 --- !u!1 &373224305
 GameObject:
   m_ObjectHideFlags: 0
@@ -10677,6 +10689,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c7e2f2f8d0f134ab9c64aba2462f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  can_build:
+  - {fileID: 2100000, guid: 005674afd0f78a94e88b6663207cdb4b, type: 2}
+  - {fileID: 2100000, guid: 005674afd0f78a94e88b6663207cdb4b, type: 2}
+  - {fileID: 2100000, guid: 005674afd0f78a94e88b6663207cdb4b, type: 2}
+  cannot_build:
+  - {fileID: 2100000, guid: 47916e67bc02f0246ba919c230395498, type: 2}
+  - {fileID: 2100000, guid: 47916e67bc02f0246ba919c230395498, type: 2}
+  - {fileID: 2100000, guid: 47916e67bc02f0246ba919c230395498, type: 2}
+  BuildMod_UI: {fileID: 0}
 --- !u!1001 &509768033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18669,6 +18690,10 @@ MonoBehaviour:
   fence_down: {fileID: 238949570}
   fence_left: {fileID: 2018422762}
   fence_right: {fileID: 519575758}
+  tower_base:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &915406757
 GameObject:
   m_ObjectHideFlags: 0
@@ -33261,6 +33286,10 @@ MonoBehaviour:
   fence_down: {fileID: 238949570}
   fence_left: {fileID: 2018422762}
   fence_right: {fileID: 519575758}
+  tower_base:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &1843088781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35420,6 +35449,10 @@ MonoBehaviour:
   fence_down: {fileID: 238949570}
   fence_left: {fileID: 2018422762}
   fence_right: {fileID: 519575758}
+  tower_base:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1963564587
 GameObject:
   m_ObjectHideFlags: 0
