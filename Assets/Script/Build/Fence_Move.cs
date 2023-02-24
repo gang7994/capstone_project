@@ -5,6 +5,8 @@ using UnityEngine;
 public class Fence_Move : MonoBehaviour
 {
     Vector3 destination = new Vector3(3, 4, 5);
+
+    public GameObject BuildMod_UI;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,9 +45,12 @@ public class Fence_Move : MonoBehaviour
 
     public void IsBuild_Fence()
     {
-        if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)transform.position.z / 3) + 6, (int)transform.position.x / 3 + 10] == 1)
-            GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence = false;
-        else
-            GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence= true;
+        if (BuildMod_UI.activeSelf == true)
+        {
+            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)transform.position.z / 3) + 6, (int)transform.position.x / 3 + 10] == 1)
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence = false;
+            else
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence = true;
+        }
     }
 }
