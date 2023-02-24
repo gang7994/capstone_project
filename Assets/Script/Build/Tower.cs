@@ -53,11 +53,11 @@ public class Tower : MonoBehaviour
             AutoAttack(FirePos,collEnemys);
             timer = 0.0f;
         }
-            
+         check_tower();   
     }
     public void Level_Manager(int level)
     {
-        durability = 100 + 10 * level;
+        //durability = 100 + 10 * level;
         attack_val = level;
         slot_num = (level / 5);
     }
@@ -103,6 +103,28 @@ public class Tower : MonoBehaviour
 
     void DestroyBullet(){
         Destroy(Bullet);
+    }
+
+    public void check_tower(){
+        GameObject warning = transform.Find("SmokeBright").gameObject;
+        GameObject danger1 = transform.Find("SmokeDark").gameObject;
+        GameObject danger2 = transform.Find("RedFire").gameObject;
+
+        if(durability > 50){
+            warning.SetActive(false);
+            danger1.SetActive(false);
+            danger2.SetActive(false);
+        }
+        else if(durability <= 50 && durability > 25){
+            warning.SetActive(true);
+            danger1.SetActive(false);
+            danger2.SetActive(false);
+        }
+        else{
+            warning.SetActive(false);
+            danger1.SetActive(true);
+            danger2.SetActive(true);
+        }
     }
 
     
