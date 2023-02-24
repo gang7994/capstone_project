@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Tower_Move : MonoBehaviour
 {
+    public Material[] can_build = new Material[3];
+    public Material[] cannot_build = new Material[3];
+    public GameObject BuildMod_UI;
+
     CapsuleCollider build_Collider;
 
     void Start(){
@@ -39,10 +43,18 @@ public class Tower_Move : MonoBehaviour
        
     public void IsBuild_Tower()
     {
-        if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)transform.position.z / 3) + 6, (int)transform.position.x / 3 + 10] == 1)
-            GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower = false;
-        else
-            GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower = true;
+        if(BuildMod_UI.activeSelf==true){
+            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)transform.position.z / 3) + 6, (int)transform.position.x / 3 + 10] == 1){
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower = false;
+                Renderer rd = this.GetComponent<MeshRenderer>();
+                rd.materials = cannot_build;
+            }
+            else{
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower = true;
+                Renderer rd = this.GetComponent<MeshRenderer>();
+                rd.materials = can_build;
+            }
+        }
     }
 }
 

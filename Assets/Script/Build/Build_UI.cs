@@ -14,8 +14,8 @@ public class Build_UI : MonoBehaviour
     public GameObject fence_down;
     public GameObject fence_left;
     public GameObject fence_right;
+    public Material[] tower_base = new Material[3];
 
-    
 
     
     // Start is called before the first frame update
@@ -73,6 +73,7 @@ public class Build_UI : MonoBehaviour
             if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower)
             {
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddTower();
+                tower_prefab.GetComponent<MeshRenderer>().materials = tower_base;
                 GameObject tower = Instantiate(tower_prefab);
                 tower.transform.position += new Vector3(0, 0, 0);
                 tower.name = $"tower{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
