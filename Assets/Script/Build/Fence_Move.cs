@@ -18,32 +18,34 @@ public class Fence_Move : MonoBehaviour
     public void init_position()
     {
         transform.position = new Vector3(0, 0, 0);
+        IsBuild_Fence();
     }
     public void Up()
     {
-        transform.Translate(new Vector3(0f, 0f, 1f), Space.World);
+        transform.Translate(new Vector3(0f, 0f, 3f), Space.World);
+        IsBuild_Fence();
     }
     public void Down()
     {
-        transform.Translate(new Vector3(0f, 0f, -1f), Space.World);
+        transform.Translate(new Vector3(0f, 0f, -3f), Space.World);
+        IsBuild_Fence();
     }
     public void Left()
     {
-        transform.Translate(new Vector3(-1f, 0f, 0f), Space.World);
+        transform.Translate(new Vector3(-3f, 0f, 0f), Space.World);
+        IsBuild_Fence();
     }
     public void Right()
     {
-        transform.Translate(new Vector3(1f, 0f, 0f), Space.World);
+        transform.Translate(new Vector3(3f, 0f, 0f), Space.World);
+        IsBuild_Fence();
     }
 
-    private void OnTriggerStay(Collider other){
-        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence = false;  
-        Debug.Log("설치불가"); 
+    public void IsBuild_Fence()
+    {
+        if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)transform.position.z / 3) + 6, (int)transform.position.x / 3 + 10] == 1)
+            GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence = false;
+        else
+            GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence= true;
     }
-
-    private void OnTriggerExit(Collider other){
-        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence = true;
-        Debug.Log("설치가능");  
-    }
-
 }
