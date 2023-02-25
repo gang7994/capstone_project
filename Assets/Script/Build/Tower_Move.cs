@@ -45,12 +45,12 @@ public class Tower_Move : MonoBehaviour
     {
         if(BuildMod_UI.activeSelf==true){
             if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)transform.position.z / 3) + 6, (int)transform.position.x / 3 + 10] == 1){
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower = false;
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = false;
                 Renderer rd = this.GetComponent<MeshRenderer>();
                 rd.materials = cannot_build;
             }
             else{
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower = true;
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = true;
                 Renderer rd = this.GetComponent<MeshRenderer>();
                 rd.materials = can_build;
             }

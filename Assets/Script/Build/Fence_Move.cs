@@ -48,9 +48,9 @@ public class Fence_Move : MonoBehaviour
         if (BuildMod_UI.activeSelf == true)
         {
             if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)transform.position.z / 3) + 6, (int)transform.position.x / 3 + 10] == 1)
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence = false;
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = false;
             else
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence = true;
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = true;
         }
     }
 }

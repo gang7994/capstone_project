@@ -6,59 +6,40 @@ public class Build_UI : MonoBehaviour
 {
     public GameObject tower_prefab;
     public GameObject fence_prefab;
-    public GameObject tower_up;
-    public GameObject tower_down;
-    public GameObject tower_left;
-    public GameObject tower_right;
-    public GameObject fence_up;
-    public GameObject fence_down;
-    public GameObject fence_left;
-    public GameObject fence_right;
+    public GameObject move_button;
+    public GameObject build_button;
+
     public Material[] tower_base = new Material[3];
 
+    public void start()
+    {
+        build_button.SetActive(false);
+    }
 
-    
     // Start is called before the first frame update
     public void onClick1()
     {
         tower_prefab.SetActive(true);
         fence_prefab.SetActive(false);
-        tower_up.SetActive(true);
-        tower_down.SetActive(true);
-        tower_left.SetActive(true);
-        tower_right.SetActive(true);
-        fence_up.SetActive(false);
-        fence_down.SetActive(false);
-        fence_left.SetActive(false);
-        fence_right.SetActive(false);
+        move_button.SetActive(true);
+        build_button.SetActive(true);
+
     }
 
     public void onClick2()
     {
         tower_prefab.SetActive(false);
         fence_prefab.SetActive(true);
-        fence_up.SetActive(true);
-        fence_down.SetActive(true);
-        fence_left.SetActive(true);
-        fence_right.SetActive(true);
-        tower_up.SetActive(false);
-        tower_down.SetActive(false);
-        tower_left.SetActive(false);
-        tower_right.SetActive(false);
+        move_button.SetActive(true);
+        build_button.SetActive(true);
     }
 
     public void onClick3()
     {
         fence_prefab.SetActive(false);
         tower_prefab.SetActive(false);
-        tower_up.SetActive(false);
-        tower_down.SetActive(false);
-        tower_left.SetActive(false);
-        tower_right.SetActive(false);
-        fence_up.SetActive(false);
-        fence_down.SetActive(false);
-        fence_left.SetActive(false);
-        fence_right.SetActive(false);
+        move_button.SetActive(true);
+        build_button.SetActive(true);
     }
 
     public void onClick4()
@@ -70,7 +51,7 @@ public class Build_UI : MonoBehaviour
     {
         if (tower_prefab.activeSelf == true)
         {
-            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_tower)
+            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild)
             {
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddTower();
                 tower_prefab.GetComponent<MeshRenderer>().materials = tower_base;
@@ -86,7 +67,7 @@ public class Build_UI : MonoBehaviour
         }
         else if (fence_prefab.activeSelf == true)
         {
-            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild_fence)
+            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild)
             {
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddFence();
                 GameObject fence = Instantiate(fence_prefab);
@@ -100,14 +81,9 @@ public class Build_UI : MonoBehaviour
 
         fence_prefab.SetActive(false);
         tower_prefab.SetActive(false);
-        tower_up.SetActive(false);
-        tower_down.SetActive(false);
-        tower_left.SetActive(false);
-        tower_right.SetActive(false);
-        fence_up.SetActive(false);
-        fence_down.SetActive(false);
-        fence_left.SetActive(false);
-        fence_right.SetActive(false);
+        move_button.SetActive(false);
+        build_button.SetActive(false);
+
     }
     
 

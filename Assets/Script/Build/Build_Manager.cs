@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Build_Manager : MonoBehaviour
 {
     public Camera getCamera;
     private RaycastHit hit;
 
-    public bool isBuild_tower = true;
-    public bool isBuild_fence = true;
+    public bool isBuild = true;
+
     public int max_number_of_Tower = 3;
     public int max_number_of_Fence = 3;
     public int current_number_of_Tower = 0;
@@ -27,11 +28,16 @@ public class Build_Manager : MonoBehaviour
     public GameObject Building_Panel_Button;
     public GameObject Destory_Button;
 
+    private Text tower_num, fence_num;
+    
+
     public string objectname;
 
     void Start()
     {
-        print((int)mapSize.y);
+        tower_num = GameObject.Find("Tower_num").GetComponent<Text>(); 
+        fence_num = GameObject.Find("Fence_num").GetComponent<Text>();
+
         build_Position = new int[(int)mapSize.y, (int)mapSize.x]; //За, ї­
         for (int i = 0; i < (int)mapSize.y; i++)
         {
@@ -64,6 +70,10 @@ public class Build_Manager : MonoBehaviour
                 Building_Click(false);
             }
         }
+        tower_num.text = current_number_of_Tower.ToString() + "/" + max_number_of_Tower;
+        fence_num.text = current_number_of_Fence.ToString() + "/" + max_number_of_Fence;
+
+
     }
 
     public void Building_Click(bool isClick)
@@ -82,10 +92,10 @@ public class Build_Manager : MonoBehaviour
 
     public void AddTower()
     {
-        if (isBuild_tower)
+        if (isBuild)
         {
             current_number_of_Tower += 1;
-            if(current_number_of_Tower == max_number_of_Tower) isBuild_tower = false;
+            if(current_number_of_Tower == max_number_of_Tower) isBuild = false;
         }
     }
     public void RemoveTower()
@@ -93,7 +103,7 @@ public class Build_Manager : MonoBehaviour
         if (current_number_of_Tower > 0){
             Destroy(GameObject.Find(select_tower));
             current_number_of_Tower -= 1;
-            isBuild_tower = true;
+            isBuild = true;
         }
     }
     public void AddFence()
@@ -102,7 +112,7 @@ public class Build_Manager : MonoBehaviour
         {
             current_number_of_Fence += 1;
         }
-        else isBuild_fence = false;
+        else isBuild = false;
     }
     public void RemoveFence()
     {
@@ -110,7 +120,7 @@ public class Build_Manager : MonoBehaviour
         {
             Destroy(GameObject.Find(select_fence));
             current_number_of_Fence -= 1;
-            isBuild_fence = true;
+            isBuild = true;
         }
     }
 
