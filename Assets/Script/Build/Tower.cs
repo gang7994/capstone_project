@@ -89,15 +89,12 @@ public class Tower : MonoBehaviour
                 firePos.transform.LookAt(go.transform);
                 int type = types[Random.Range(0,5)];
                 Bullet.GetComponent<TrailRenderer>().material = ranShoot[type];
-                Instantiate(Bullet, firePos.transform.position, firePos.transform.rotation);
-
+                GameObject bullet = Instantiate(Bullet, firePos.transform.position, firePos.transform.rotation); //발사체 생성
+                TowerShoot towerShoot = bullet.GetComponent<TowerShoot>(); //발사체에 있는 스크립트 정의
+                towerShoot.target = go; //발사체에 있는 스크립트에 타켓 정보 전달
             }
         }
         
-        
-        if (Input.GetMouseButtonDown(0)){
-            Instantiate(Bullet, firePos.transform.position, firePos.transform.rotation);
-        }
     }
     
 

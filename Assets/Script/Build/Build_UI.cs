@@ -17,7 +17,7 @@ public class Build_UI : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    public void onClick1()
+    public void onClick1() //타워 프리팹 활성화
     {
         tower_prefab.SetActive(true);
         fence_prefab.SetActive(false);
@@ -26,7 +26,7 @@ public class Build_UI : MonoBehaviour
 
     }
 
-    public void onClick2()
+    public void onClick2() //펜스 프리팹 활성화
     {
         tower_prefab.SetActive(false);
         fence_prefab.SetActive(true);
@@ -34,7 +34,7 @@ public class Build_UI : MonoBehaviour
         build_button.SetActive(true);
     }
 
-    public void onClick3()
+    public void onClick3() //Exit 버튼 클릭시 실행
     {
         fence_prefab.SetActive(false);
         tower_prefab.SetActive(false);
@@ -42,7 +42,7 @@ public class Build_UI : MonoBehaviour
         build_button.SetActive(true);
     }
 
-    public void onClick4()
+    public void onClick4() //펜스 회전버튼
     {
         fence_prefab.transform.Rotate(new Vector3(0,45f,0));
     }
