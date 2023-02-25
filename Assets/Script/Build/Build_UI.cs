@@ -38,8 +38,7 @@ public class Build_UI : MonoBehaviour
     {
         fence_prefab.SetActive(false);
         tower_prefab.SetActive(false);
-        move_button.SetActive(true);
-        build_button.SetActive(true);
+
     }
 
     public void onClick4() //펜스 회전버튼
