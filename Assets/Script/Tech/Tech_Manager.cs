@@ -14,7 +14,6 @@ public class Tech_Manager : MonoBehaviour
     private Text name0, name1, name2; //테크 패널 선택지 이름
     private Text text0, text1, text2; //테크 패널 선택지 내용
     private Image image0, image1, image2; //테크 패널 선택지 이미지
-    Image icon_tower, icon_public, icon_weapon; //테크 패널 선택지 아이콘
 
     int rand_tower, rand_public, rand_weapon; //테크 패널 선택지 랜덤 변수
     string left, mid, right; //타워, 공용, 무기
@@ -55,16 +54,16 @@ public class Tech_Manager : MonoBehaviour
     {
         Tech_Panel.SetActive(true);
 
-        icon_tower = GameObject.Find("Icon0").GetComponent<Image>();
+
         image0 = GameObject.Find("Image0").GetComponent<Image>();
         name0 = GameObject.Find("Name0").GetComponent<Text>();
         text0 = GameObject.Find("Text0").GetComponent<Text>();
 
-        icon_public = GameObject.Find("Icon1").GetComponent<Image>();
+
         image1 = GameObject.Find("Image1").GetComponent<Image>();
         text1 = GameObject.Find("Text1").GetComponent<Text>();
 
-        icon_weapon = GameObject.Find("Icon2").GetComponent<Image>();
+
         image2 = GameObject.Find("Image2").GetComponent<Image>();
         name2 = GameObject.Find("Name2").GetComponent<Text>();
         text2 = GameObject.Find("Text2").GetComponent<Text>();
@@ -94,18 +93,15 @@ public class Tech_Manager : MonoBehaviour
         right = tech_weapon[rand_weapon][3];
 
         //타워
-        icon_tower.sprite = Resources.Load<Sprite>("tower");
         image0.sprite = Resources.Load<Sprite>(tech_tower[rand_tower][2]);
         name0.text = tech_tower[rand_tower][2];
         text0.text = left;
 
         //공용
-        icon_public.sprite = Resources.Load<Sprite>("tower");
         image1.sprite = Resources.Load<Sprite>(tech_tower[rand_tower][2]);
         text1.text = "공용";
 
         //무기
-        icon_weapon.sprite = Resources.Load<Sprite>("weapon");
         image2.sprite = Resources.Load<Sprite>("weapon");
         name2.text = tech_weapon[rand_weapon][2];
         text2.text = right;
