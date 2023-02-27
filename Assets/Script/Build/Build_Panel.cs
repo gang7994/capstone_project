@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class Build_Panel : MonoBehaviour
 {
-    public GameObject Panel;
+    public GameObject Tower_Panel;
+    public GameObject TechUI_Panel;
 
-    public GameObject TypeIcon1, TypeIcon2, TypeIcon3, TypeIcon4, TypeIcon5;
+    public GameObject TypeIcon1_Y, TypeIcon2_Y, TypeIcon3_Y, TypeIcon4_Y, TypeIcon5_Y;
+    public GameObject TypeIcon1_N, TypeIcon2_N, TypeIcon3_N, TypeIcon4_N, TypeIcon5_N;
     public Sprite FireImage, LightImage, IceImage, EarthImage, WhiteImage;
 
     public Sprite[] typeImages = new Sprite[5]; 
@@ -36,7 +38,8 @@ public class Build_Panel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        objectname = GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().objectname;
+        objectname = GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower;
+        print(objectname);
         if (objectname.Contains("tower")){
             Tower_Display_Panel(objectname);
         }
@@ -47,16 +50,23 @@ public class Build_Panel : MonoBehaviour
 
     public void Building_Panel_Click()
     {
-        Panel.SetActive(true);
+        Tower_Panel.SetActive(true);
+        TypeIcon1_N.SetActive(true);
+        TypeIcon2_N.SetActive(true);
+        TypeIcon3_N.SetActive(true);
+        TypeIcon4_N.SetActive(true);
+        TypeIcon5_N.SetActive(true);
     }
     public void Building_Panel_Exit_Click()
     {
-        Panel.SetActive(false);
-        TypeIcon1.SetActive(false);
-        TypeIcon2.SetActive(false);
-        TypeIcon3.SetActive(false);
-        TypeIcon4.SetActive(false);
-        TypeIcon5.SetActive(false);
+        Tower_Panel.SetActive(false);
+
+
+    }
+
+    public void TechUI_Panel_Exit_Click()
+    {
+        TechUI_Panel.SetActive(false);
     }
     public void LevelUp_Click()
     {
@@ -76,19 +86,19 @@ public class Build_Panel : MonoBehaviour
         int[] types = GameObject.Find(ObjectName).GetComponent<Tower>().types;
         for (int i=0; i<5; i++){
             if(types[0] == i){
-                TypeIcon1.GetComponent<Image>().sprite = typeImages[i];
+                TypeIcon1_Y.GetComponent<Image>().sprite = typeImages[i];
             }
             if(types[1] == i){
-                TypeIcon2.GetComponent<Image>().sprite = typeImages[i];
+                TypeIcon2_Y.GetComponent<Image>().sprite = typeImages[i];
             }
             if(types[2] == i){
-                TypeIcon3.GetComponent<Image>().sprite = typeImages[i];
+                TypeIcon3_Y.GetComponent<Image>().sprite = typeImages[i];
             }
             if(types[3] == i){
-                TypeIcon4.GetComponent<Image>().sprite = typeImages[i];
+                TypeIcon4_Y.GetComponent<Image>().sprite = typeImages[i];
             }
             if(types[4] == i){
-                TypeIcon5.GetComponent<Image>().sprite = typeImages[i];
+                TypeIcon5_Y.GetComponent<Image>().sprite = typeImages[i];
             }
         }
     }
@@ -102,28 +112,48 @@ public class Build_Panel : MonoBehaviour
         int slot_num = GameObject.Find(ObjectName).GetComponent<Tower>().slot_num;
         int level = GameObject.Find(ObjectName).GetComponent<Tower>().level;
         int[] types = GameObject.Find(ObjectName).GetComponent<Tower>().types;
-        Info.text = "Durability : " + durability + System.Environment.NewLine + "atk : " + attack_val + System.Environment.NewLine + "slot: " + slot_num;
+        Info.text = "타워 정보" + "내구도 : " + durability + System.Environment.NewLine + "공격력 : " + attack_val + System.Environment.NewLine + "속성 수 : " + slot_num;
         Level.text = level.ToString();
         Name.text = ObjectName;
 
         if(level > 4)
         {
-            TypeIcon1.SetActive(true);
+            TypeIcon1_N.SetActive(false);
+            TypeIcon2_N.SetActive(true);
+            TypeIcon3_N.SetActive(true);
+            TypeIcon4_N.SetActive(true);
+            TypeIcon5_N.SetActive(true);
         }
         if (level > 9)
         {
-            TypeIcon2.SetActive(true);
+            TypeIcon1_N.SetActive(false);
+            TypeIcon2_N.SetActive(false);
+            TypeIcon3_N.SetActive(true);
+            TypeIcon4_N.SetActive(true);
+            TypeIcon5_N.SetActive(true);
         }
         if(level > 14)
         {
-            TypeIcon3.SetActive(true);
+            TypeIcon1_N.SetActive(false);
+            TypeIcon2_N.SetActive(false);
+            TypeIcon3_N.SetActive(false);
+            TypeIcon4_N.SetActive(true);
+            TypeIcon5_N.SetActive(true);
         }
         if(level > 19)
         {
-            TypeIcon4.SetActive(true);
+            TypeIcon1_N.SetActive(false);
+            TypeIcon2_N.SetActive(false);
+            TypeIcon3_N.SetActive(false);
+            TypeIcon4_N.SetActive(false);
+            TypeIcon5_N.SetActive(true);
         }
         if(level > 24){
-            TypeIcon5.SetActive(true);
+            TypeIcon1_N.SetActive(false);
+            TypeIcon2_N.SetActive(false);
+            TypeIcon3_N.SetActive(false);
+            TypeIcon4_N.SetActive(false);
+            TypeIcon5_N.SetActive(false);
             Level.text += " (max)";
         }
         check_type(ObjectName);
@@ -141,11 +171,11 @@ public class Build_Panel : MonoBehaviour
     
     public void ResetBtn()
     {
-        TypeIcon1.GetComponent<Image>().sprite = WhiteImage;
-        TypeIcon2.GetComponent<Image>().sprite = WhiteImage;
-        TypeIcon3.GetComponent<Image>().sprite = WhiteImage;
-        TypeIcon4.GetComponent<Image>().sprite = WhiteImage;
-        TypeIcon5.GetComponent<Image>().sprite = WhiteImage;
+        TypeIcon1_Y.GetComponent<Image>().sprite = WhiteImage;
+        TypeIcon2_Y.GetComponent<Image>().sprite = WhiteImage;
+        TypeIcon3_Y.GetComponent<Image>().sprite = WhiteImage;
+        TypeIcon4_Y.GetComponent<Image>().sprite = WhiteImage;
+        TypeIcon5_Y.GetComponent<Image>().sprite = WhiteImage;
         for(int i=0; i<5; i++){
             GameObject.Find(objectname).GetComponent<Tower>().types[i] = 0;
         }

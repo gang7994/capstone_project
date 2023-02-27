@@ -56,14 +56,12 @@ public class Build_Manager : MonoBehaviour
             {
                 select_tower = hit.collider.gameObject.name;
                 Building_Click(true);
-                objectname = hit.collider.gameObject.name;
-
             }
             else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Fence")
             {
                 select_fence = hit.collider.gameObject.name;
                 Building_Click(true);
-                objectname = hit.collider.gameObject.name;
+
             }
             else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Map")
             {
