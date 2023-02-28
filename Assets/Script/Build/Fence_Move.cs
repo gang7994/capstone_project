@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Fence_Move : MonoBehaviour
 {
+    public Material[] can_build = new Material[3];
+    public Material[] cannot_build = new Material[3];
     Vector3 destination = new Vector3(3, 4, 5);
 
     public GameObject BuildMod_UI;
@@ -20,6 +22,7 @@ public class Fence_Move : MonoBehaviour
     public void init_position()
     {
         transform.position = new Vector3(0, 0, 0);
+        transform.localEulerAngles = new Vector3(0,0,0);
         IsBuild_Fence();
     }
     public void Up()
@@ -47,10 +50,16 @@ public class Fence_Move : MonoBehaviour
     {
         if (BuildMod_UI.activeSelf == true)
         {
-            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)transform.position.z / 3) + 6, (int)transform.position.x / 3 + 10] == 1)
+            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)transform.position.z / 3) + 6, (int)transform.position.x / 3 + 10] == 1){
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = false;
-            else
+                Renderer rd = this.GetComponent<MeshRenderer>();
+                rd.material = cannot_build[0];
+            }
+            else{
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = true;
+                Renderer rd = this.GetComponent<MeshRenderer>();
+                rd.material = can_build[0];
+            }
         }
     }
 }

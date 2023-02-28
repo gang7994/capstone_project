@@ -10,6 +10,7 @@ public class Build_UI : MonoBehaviour
     public GameObject build_button;
 
     public Material[] tower_base = new Material[3];
+    public Material fence_base;
 
     public void start()
     {
@@ -17,7 +18,7 @@ public class Build_UI : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    public void onClick1() //Å¸¿ö ÇÁ¸®ÆÕ È°¼ºÈ­
+    public void onClick1() //Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
     {
         tower_prefab.SetActive(true);
         fence_prefab.SetActive(false);
@@ -26,7 +27,7 @@ public class Build_UI : MonoBehaviour
 
     }
 
-    public void onClick2() //Ææ½º ÇÁ¸®ÆÕ È°¼ºÈ­
+    public void onClick2() //ï¿½æ½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
     {
         tower_prefab.SetActive(false);
         fence_prefab.SetActive(true);
@@ -34,14 +35,14 @@ public class Build_UI : MonoBehaviour
         build_button.SetActive(true);
     }
 
-    public void onClick3() //Exit ¹öÆ° Å¬¸¯½Ã ½ÇÇà
+    public void onClick3() //Exit ï¿½ï¿½Æ° Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         fence_prefab.SetActive(false);
         tower_prefab.SetActive(false);
 
     }
 
-    public void onClick4() //Ææ½º È¸Àü¹öÆ°
+    public void onClick4() //ï¿½æ½º È¸ï¿½ï¿½ï¿½ï¿½Æ°
     {
         fence_prefab.transform.Rotate(new Vector3(0,45f,0));
     }
@@ -69,6 +70,7 @@ public class Build_UI : MonoBehaviour
             if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild)
             {
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddFence();
+                fence_prefab.GetComponent<MeshRenderer>().material = fence_base;
                 GameObject fence = Instantiate(fence_prefab);
                 fence.transform.position += new Vector3(0, 0, 0);
                 fence.name = $"fence{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
