@@ -23,7 +23,7 @@ public class Build_Panel : MonoBehaviour
     public Material[] mat = new Material[5]; 
 
 
-    public string objectname;
+    string objectname;
 
     public GameObject TypePanel;
 
@@ -38,18 +38,18 @@ public class Build_Panel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        objectname = GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_tower;
-        print(objectname);
+        objectname = GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_Build;
+        //print(objectname);
         if (objectname.Contains("tower")){
             Tower_Display_Panel(objectname);
         }
-        else if (objectname.Contains("fence")){
-            Fence_Display_Panel(objectname);
-        }
+        
     }
 
     public void Building_Panel_Click()
     {
+        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().Tower_Click(false);
+        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().BackGround.SetActive(true);
         Tower_Panel.SetActive(true);
         TypeIcon1_N.SetActive(true);
         TypeIcon2_N.SetActive(true);
@@ -60,8 +60,7 @@ public class Build_Panel : MonoBehaviour
     public void Building_Panel_Exit_Click()
     {
         Tower_Panel.SetActive(false);
-
-
+        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().BackGround.SetActive(false);
     }
 
     public void TechUI_Panel_Exit_Click()
@@ -70,16 +69,19 @@ public class Build_Panel : MonoBehaviour
     }
     public void LevelUp_Click()
     {
+        print(objectname);
         if (objectname.Contains("tower"))
         {
-            if (GameObject.Find(objectname).GetComponent<Tower>().level<25){
-                GameObject.Find(objectname).GetComponent<Tower>().level+=1;
+            if (GameObject.Find(objectname).GetComponent<Tower>().level < 25)
+            {
+                GameObject.Find(objectname).GetComponent<Tower>().level += 1;
             }
         }
         else if (objectname.Contains("fence"))
         {
-            GameObject.Find(objectname).GetComponent<Fence>().level+=1;
+            GameObject.Find(objectname).GetComponent<Fence>().level += 1;
         }
+        else return;
     }
 
     public void check_type(string ObjectName){
@@ -160,7 +162,7 @@ public class Build_Panel : MonoBehaviour
         //check_inchant();
     }
     
-    
+    /*
     public void Fence_Display_Panel(string ObjectName)
     {
         int durability = GameObject.Find(ObjectName).GetComponent<Fence>().durability;
@@ -168,7 +170,7 @@ public class Build_Panel : MonoBehaviour
         Info.text = "������ : " + durability;
         Level.text = level.ToString();
     }
-    
+    */
     public void ResetBtn()
     {
         TypeIcon1_Y.GetComponent<Image>().sprite = WhiteImage;

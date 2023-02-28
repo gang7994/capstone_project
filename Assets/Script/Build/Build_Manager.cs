@@ -14,8 +14,10 @@ public class Build_Manager : MonoBehaviour
     public int max_number_of_Fence = 3;
     public int current_number_of_Tower = 0;
     public int current_number_of_Fence = 0;
-    public string select_tower;
-    public string select_fence;
+
+    public string select_Build;
+    public Vector3 select_Build_Position;
+
     public int build_num = 0;
 
     public Transform tilePrefab;
@@ -25,13 +27,13 @@ public class Build_Manager : MonoBehaviour
     [Range(0,1)]
     public float outlinePercent;
 
-    public GameObject Building_Panel_Button;
-    public GameObject Destory_Button;
+
+    public GameObject Btn_Tower_Panel;
+    public GameObject Btn_Fence_Panel;
+    public GameObject BackGround;
+
 
     private Text tower_num, fence_num;
-    
-
-    public string objectname;
 
     void Start()
     {
@@ -49,23 +51,29 @@ public class Build_Manager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if(!Btn_Tower_Panel.activeSelf && !Btn_Fence_Panel.activeSelf) //두개 패널 모두 비활성일 때
         {
-            Ray ray = getCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Tower")
+            if (Input.GetMouseButtonDown(0))
             {
-                select_tower = hit.collider.gameObject.name;
-                Building_Click(true);
-            }
-            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Fence")
-            {
-                select_fence = hit.collider.gameObject.name;
-                Building_Click(true);
+                Ray ray = getCamera.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.CompareTag("Tower"))
+                {
+                    select_Build = hit.collider.gameObject.name;
+                    select_Build_Position = hit.collider.gameObject.transform.position;
+                    Tower_Click(true);
+                }
+                else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.CompareTag("Fence"))
+                {
+                    select_Build = hit.collider.gameObject.name;
+                    select_Build_Position = hit.collider.gameObject.transform.position;
+                    Fence_Click(true);
 
-            }
-            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Map")
-            {
-                Building_Click(false);
+                }
+                else if(Physics.Raycast(ray, out hit)&& hit.collider.gameObject.CompareTag("Map"))
+                {
+                    Tower_Click(false);
+                    Fence_Click(false);
+                }
             }
         }
         tower_num.text = current_number_of_Tower.ToString() + "/" + max_number_of_Tower;
@@ -74,20 +82,40 @@ public class Build_Manager : MonoBehaviour
 
     }
 
-    public void Building_Click(bool isClick)
+    public void Tower_Click(bool isClick)
     {
         if (isClick)
         {
-            Building_Panel_Button.SetActive(true);
-            Destory_Button.SetActive(true);
+            Btn_Tower_Panel.transform.position =new Vector3(960f + select_Build_Position.x*21.5f, 540f + select_Build_Position.z*21f, 0f);
+            Btn_Tower_Panel.SetActive(true);
+            
         }
         else
         {
-            Building_Panel_Button.SetActive(false);
-            Destory_Button.SetActive(false);
+            Btn_Tower_Panel.SetActive(false);
+            print("ddddd");
         }
     }
 
+    public void Fence_Click(bool isClick)
+    {
+        if (isClick)
+        {
+            Btn_Fence_Panel.transform.position = new Vector3(960f + select_Build_Position.x * 21.5f, 540f + select_Build_Position.z * 21f, 0f);
+            Btn_Fence_Panel.SetActive(true);
+        }
+        else
+        {
+            Btn_Fence_Panel.SetActive(false);
+        }
+    }
+    public void Fence_LevelUp_Click()
+    { 
+        if (select_Build.Contains("fence"))
+        {
+            GameObject.Find(select_Build).GetComponent<Fence>().level += 1;
+        }
+    }
     public void AddTower()
     {
         if (isBuild)
@@ -99,7 +127,7 @@ public class Build_Manager : MonoBehaviour
     public void RemoveTower()
     {
         if (current_number_of_Tower > 0){
-            Destroy(GameObject.Find(select_tower));
+            Destroy(GameObject.Find(select_Build));
             current_number_of_Tower -= 1;
             isBuild = true;
         }
@@ -116,7 +144,7 @@ public class Build_Manager : MonoBehaviour
     {
         if (current_number_of_Fence > 0)
         {
-            Destroy(GameObject.Find(select_fence));
+            Destroy(GameObject.Find(select_Build));
             current_number_of_Fence -= 1;
             isBuild = true;
         }
