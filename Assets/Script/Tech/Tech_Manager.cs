@@ -9,6 +9,7 @@ public class Tech_Manager : MonoBehaviour
 {
     public GameObject Tech_Panel;
     public GameObject TechManager_Panel;
+    public GameObject BackGround;
     public Button content0, content1, content2;
     
     private Text name0, name1, name2; //테크 패널 선택지 이름
@@ -65,7 +66,7 @@ public class Tech_Manager : MonoBehaviour
     public void Tech_Button_Click()
     {
         Tech_Panel.SetActive(true);
-
+        BackGround.SetActive(true);
 
         image0 = GameObject.Find("Image0").GetComponent<Image>();
         name0 = GameObject.Find("Name0").GetComponent<Text>();
@@ -86,6 +87,7 @@ public class Tech_Manager : MonoBehaviour
     public void Tech_Exit_Button_Click()
     {
         Tech_Panel.SetActive(false);
+        BackGround.SetActive(false);
     }
 
     public void TechManager_Button_Click()

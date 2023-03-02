@@ -7,6 +7,7 @@ using UnityEngine;
 public class Build_Panel : MonoBehaviour
 {
     public GameObject Tower_Panel;
+    public GameObject Fence_Panel;
     public GameObject TechUI_Panel;
 
     public GameObject TypeIcon1_Y, TypeIcon2_Y, TypeIcon3_Y, TypeIcon4_Y, TypeIcon5_Y;
@@ -43,12 +44,15 @@ public class Build_Panel : MonoBehaviour
         if (objectname.Contains("tower")){
             Tower_Display_Panel(objectname);
         }
-        
+        else if (objectname.Contains("fence"))
+        {
+            Fence_Display_Panel(objectname);
+        }
+
     }
 
-    public void Building_Panel_Click()
+    public void Tower_Panel_Click()
     {
-        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().Tower_Click(false);
         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().BackGround.SetActive(true);
         Tower_Panel.SetActive(true);
         TypeIcon1_N.SetActive(true);
@@ -57,11 +61,25 @@ public class Build_Panel : MonoBehaviour
         TypeIcon4_N.SetActive(true);
         TypeIcon5_N.SetActive(true);
     }
-    public void Building_Panel_Exit_Click()
+    public void Tower_Panel_Exit_Click()
     {
         Tower_Panel.SetActive(false);
+        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().Btn_Tower_Panel.SetActive(false);
         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().BackGround.SetActive(false);
     }
+
+    public void Fence_Panel_Click()
+    {
+        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().BackGround.SetActive(true);
+        Fence_Panel.SetActive(true);
+    }
+    public void Fence_Panel_Exit_Click()
+    {
+        Fence_Panel.SetActive(false);
+        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().Btn_Fence_Panel.SetActive(false);
+        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().BackGround.SetActive(false);
+    }
+
 
     public void TechUI_Panel_Exit_Click()
     {
@@ -162,7 +180,7 @@ public class Build_Panel : MonoBehaviour
         //check_inchant();
     }
     
-    /*
+    
     public void Fence_Display_Panel(string ObjectName)
     {
         int durability = GameObject.Find(ObjectName).GetComponent<Fence>().durability;
@@ -170,7 +188,7 @@ public class Build_Panel : MonoBehaviour
         Info.text = "������ : " + durability;
         Level.text = level.ToString();
     }
-    */
+    
     public void ResetBtn()
     {
         TypeIcon1_Y.GetComponent<Image>().sprite = WhiteImage;
