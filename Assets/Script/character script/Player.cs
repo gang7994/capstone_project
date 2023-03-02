@@ -8,6 +8,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Player : MonoBehaviour
 {
     public float speed = 5.0f;
+    public int Health;
     bool isAttackKetInput;
     public bool isAttackReady, attack_time, check;
     public GameObject sword, gun,shotgun;
@@ -18,6 +19,8 @@ public class Player : MonoBehaviour
     public GameObject TypePanel;
     public GameObject TypeIcon1, TypeIcon2, TypeIcon3, TypeIcon4, TypeIcon5;
     public Sprite FireImage, LightImage, IceImage, EarthImage, WhiteImage;
+    public GameObject health_bar;
+    public GameObject health_text;
 
     float stick_hAxis, stick_vAxis, key_hAxis, key_vAxis;
     float attackDelay;
@@ -29,6 +32,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Health = 100;
         Type[0] = 0;
         Type[1] = 0;
         Type[2] = 0;
@@ -55,6 +59,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        health_bar.GetComponent<Slider>().value = Health;
+        health_text.GetComponent<Text>().text = Health.ToString();
         //isAttackReady 는 공격모션 시간 attack_time 은 다음공격까지 딜레이 isattackReady 이후 움직임
         attackDelay += Time.deltaTime;
         if (isSword)
