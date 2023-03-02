@@ -9,11 +9,15 @@ public class Monster_old : MonoBehaviour
     public int maxHealth, curHealth;
     public int damage;
     public GameObject house;
+    public GameObject Attack_range;
 
     public Transform target;
     public bool isChase;
     public bool isAttack;
-    float Delay;
+    public float Delay;
+    bool isAttackDelay;
+    float RoSpeed = 5;
+    public float attack_time;
 
     Rigidbody rigid;
     SphereCollider collider;
@@ -29,6 +33,7 @@ public class Monster_old : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         isAttack = false;
         Delay = 0;
+        isAttackDelay = false;
 
         
 
@@ -43,44 +48,68 @@ public class Monster_old : MonoBehaviour
     void Update()
     {
         Delay += Time.deltaTime;
+        if (isAttackDelay)
+        {
+            navi.isStopped = true;
+        }
+        else
+        {
+            navi.isStopped = false;
+        }
         if (isAttack)
         {
-            if(Delay > 2.0f)
+            if (Delay > 2.0f)
             {
                 MonsterAttack();
                 Delay = 0;
-            }
-            else if(Delay > 0.5f)
+                }
+            else if (Delay > attack_time)
             {
                 AttackDelay();
+            }
 
+        }
+        else
+        {
+            if (Delay > attack_time)
+            {
+                AttackDelay();
             }
         }
         if (isChase){
-            navi.SetDestination(target.position);
-            anim.SetBool("isMove", true);
-            if (!isAttack)
+            if (!isAttackDelay)
             {
-                transform.LookAt(target);
+                navi.SetDestination(target.position);
+                anim.SetBool("isMove", true);
+                if (Delay > 0.7f)
+                {
+                    Vector3 Pos = target.position - transform.position;
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Pos), Time.deltaTime * RoSpeed);
+                    /*transform.LookAt(target);*/
+                }
             }
             
+            
         }
-        /*
-        if(curHealth < 1)
+        if (anim.GetBool("isDamage"))
         {
-            Debug.Log("몬스터 사망1");
-            Destroy(gameObject);
-        }*/
+            navi.isStopped = true;
+        }
+        else
+        {
+            navi.isStopped = false;
+        }
+
     }
 
     void OnTriggerEnter(Collider other){
-        
         if (other.transform.tag == "Player")
         {
             target = other.transform;
             navi.velocity = Vector3.zero;
             navi.stoppingDistance = 2;
         }
+
     }
     private void OnTriggerStay(Collider other)
     {
@@ -89,6 +118,7 @@ public class Monster_old : MonoBehaviour
             target = other.transform;
             navi.stoppingDistance = 2;
         }
+
     }
     private void OnTriggerExit(Collider other)
     {
@@ -129,12 +159,26 @@ public class Monster_old : MonoBehaviour
     public void MonsterAttack()
     {
         anim.SetBool("isAttack", true);
+        isAttackDelay = true;
+        Attack_range.GetComponent<Attack_range>().attack = true;
         Debug.Log("몬스터 공격");
+               
     }
     void AttackDelay()
     {
         anim.SetBool("isAttack", false);
-        isAttack = false;
+        Attack_range.GetComponent<Attack_range>().attack = false;
+        isAttackDelay = false;
+    }
+
+    public void AttackOn()
+    {
+        if (isChase)
+        {
+            target.GetComponent<Player>().Health -= damage;
+            Debug.Log("데미지 10");
+        }
+        
     }
 
     void FreezeVelocity()

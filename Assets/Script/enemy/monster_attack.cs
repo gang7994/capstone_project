@@ -17,7 +17,7 @@ public class monster_attack : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other) // 접촉시 공격(현재 삭제로 해둠)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
@@ -27,6 +27,7 @@ public class monster_attack : MonoBehaviour
                 anims.SetBool("isDamage", true);
                 GetComponentInParent<Monster_old>().curHealth -= 20;
                 StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
+                GetComponentInParent<Monster_old>().Delay = 1.0f;
                 Destroy(other.gameObject);
             }
             
