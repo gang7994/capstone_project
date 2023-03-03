@@ -21,22 +21,30 @@ public class Tower_Move : MonoBehaviour
     }
     public void Up()
     {
-        transform.Translate(new Vector3(0f, 0f, 3f));
+        if(gameObject.transform.position.z <18){
+            transform.Translate(new Vector3(0f, 0f, 3f), Space.World);
+        }
         IsBuild_Tower();
     }
     public void Down()
     {
-        transform.Translate(new Vector3(0f, 0f, -3f));
+        if(gameObject.transform.position.z > -18){
+            transform.Translate(new Vector3(0f, 0f, -3f), Space.World);
+        }
         IsBuild_Tower();
     }
     public void Left()
     {
-        transform.Translate(new Vector3(-3f, 0f, 0f));
+        if(gameObject.transform.position.x > -30){
+            transform.Translate(new Vector3(-3f, 0f, 0f), Space.World);
+        }
         IsBuild_Tower();
     }
     public void Right()
     {
-        transform.Translate(new Vector3(3f, 0f, 0f));
+        if(gameObject.transform.position.x < 30){
+            transform.Translate(new Vector3(3f, 0f, 0f), Space.World);
+        }
         IsBuild_Tower();
     }
 

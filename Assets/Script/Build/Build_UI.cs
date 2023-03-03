@@ -76,7 +76,7 @@ public class Build_UI : MonoBehaviour
                 fence.name = $"fence{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
                 fence.tag = "Fence";
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)fence.transform.position.z / 3) + 6, (int)fence.transform.position.x / 3 + 10] = 1;
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[(int)fence.transform.position.z / 3 + 6, (int)fence.transform.position.x / 3 + 10] = 1;
             }
         }
 

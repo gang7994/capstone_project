@@ -765,7 +765,6 @@ GameObject:
   - component: {fileID: 27591462}
   - component: {fileID: 27591461}
   - component: {fileID: 27591460}
-  - component: {fileID: 27591463}
   m_Layer: 5
   m_Name: Down
   m_TagString: Untagged
@@ -849,6 +848,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1032890876}
+        m_TargetAssemblyTypeName: Fence_Move, Assembly-CSharp
+        m_MethodName: Down
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &27591461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -887,51 +898,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27591458}
   m_CullTransparentMesh: 1
---- !u!114 &27591463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27591458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1032890883}
-          m_TargetAssemblyTypeName: BtnCtrl, Assembly-CSharp
-          m_MethodName: DownDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1032890883}
-          m_TargetAssemblyTypeName: BtnCtrl, Assembly-CSharp
-          m_MethodName: DownUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &34666415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,7 +1946,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 442653620}
-  - {fileID: 2110112940}
   - {fileID: 1262781490}
   m_Father: {fileID: 186131327}
   m_RootOrder: 2
@@ -8845,8 +8810,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1590, y: 940}
-  m_SizeDelta: {x: 399.09845, y: 145}
+  m_AnchoredPosition: {x: 1774, y: 995.3694}
+  m_SizeDelta: {x: 321.6258, y: 94.7981}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &432238135
 MonoBehaviour:
@@ -10427,7 +10392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5177895029496917741, guid: d5ad137ba4085324a8dbd8dddb4e560f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5ad137ba4085324a8dbd8dddb4e560f, type: 3}
@@ -10529,7 +10494,6 @@ GameObject:
   - component: {fileID: 498718812}
   - component: {fileID: 498718811}
   - component: {fileID: 498718810}
-  - component: {fileID: 498718813}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -10613,6 +10577,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1032890876}
+        m_TargetAssemblyTypeName: Fence_Move, Assembly-CSharp
+        m_MethodName: Right
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &498718811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10651,51 +10627,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498718808}
   m_CullTransparentMesh: 1
---- !u!114 &498718813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 498718808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1032890883}
-          m_TargetAssemblyTypeName: BtnCtrl, Assembly-CSharp
-          m_MethodName: RightDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1032890883}
-          m_TargetAssemblyTypeName: BtnCtrl, Assembly-CSharp
-          m_MethodName: RightUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &499575169
 GameObject:
   m_ObjectHideFlags: 0
@@ -10867,7 +10798,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506174169}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 5.5568833
   m_Height: 18.578007
@@ -12562,7 +12493,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1622069229}
+  - {fileID: 107364599}
   m_Father: {fileID: 1359279675}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14041,7 +13972,6 @@ GameObject:
   - component: {fileID: 638296707}
   - component: {fileID: 638296706}
   - component: {fileID: 638296705}
-  - component: {fileID: 638296708}
   m_Layer: 5
   m_Name: Up
   m_TagString: Untagged
@@ -14125,6 +14055,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1032890876}
+        m_TargetAssemblyTypeName: Fence_Move, Assembly-CSharp
+        m_MethodName: Up
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &638296706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14163,51 +14105,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638296703}
   m_CullTransparentMesh: 1
---- !u!114 &638296708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638296703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1032890883}
-          m_TargetAssemblyTypeName: BtnCtrl, Assembly-CSharp
-          m_MethodName: UpUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1032890883}
-          m_TargetAssemblyTypeName: BtnCtrl, Assembly-CSharp
-          m_MethodName: UpDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &640902664
 GameObject:
   m_ObjectHideFlags: 0
@@ -15543,8 +15440,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1590, y: 710}
-  m_SizeDelta: {x: 399.09845, y: 145}
+  m_AnchoredPosition: {x: 1774, y: 845}
+  m_SizeDelta: {x: 321.6258, y: 94.7981}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &695121976
 MonoBehaviour:
@@ -23269,7 +23166,6 @@ GameObject:
   - component: {fileID: 1150731698}
   - component: {fileID: 1150731697}
   - component: {fileID: 1150731696}
-  - component: {fileID: 1150731699}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -23353,6 +23249,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1032890876}
+        m_TargetAssemblyTypeName: Fence_Move, Assembly-CSharp
+        m_MethodName: Left
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1150731697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23391,51 +23299,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150731694}
   m_CullTransparentMesh: 1
---- !u!114 &1150731699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150731694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1032890883}
-          m_TargetAssemblyTypeName: BtnCtrl, Assembly-CSharp
-          m_MethodName: LeftDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1032890883}
-          m_TargetAssemblyTypeName: BtnCtrl, Assembly-CSharp
-          m_MethodName: LeftUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1169437001
 GameObject:
   m_ObjectHideFlags: 0
@@ -24692,7 +24555,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 66372723}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -36760,8 +36623,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1590, y: 480}
-  m_SizeDelta: {x: 399.09845, y: 145}
+  m_AnchoredPosition: {x: 1774, y: 694.6306}
+  m_SizeDelta: {x: 321.6258, y: 94.7981}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1974775900
 MonoBehaviour:

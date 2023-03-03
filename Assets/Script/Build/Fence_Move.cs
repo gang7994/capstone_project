@@ -27,22 +27,30 @@ public class Fence_Move : MonoBehaviour
     }
     public void Up()
     {
-        transform.Translate(new Vector3(0f, 0f, 3f), Space.World);
+        if(gameObject.transform.position.z <18){
+            transform.Translate(new Vector3(0f, 0f, 3f), Space.World);
+        }
         IsBuild_Fence();
     }
     public void Down()
     {
-        transform.Translate(new Vector3(0f, 0f, -3f), Space.World);
+        if(gameObject.transform.position.z > -18){
+            transform.Translate(new Vector3(0f, 0f, -3f), Space.World);
+        }
         IsBuild_Fence();
     }
     public void Left()
     {
-        transform.Translate(new Vector3(-3f, 0f, 0f), Space.World);
+        if(gameObject.transform.position.x > -30){
+            transform.Translate(new Vector3(-3f, 0f, 0f), Space.World);
+        }
         IsBuild_Fence();
     }
     public void Right()
     {
-        transform.Translate(new Vector3(3f, 0f, 0f), Space.World);
+        if(gameObject.transform.position.x < 30){
+            transform.Translate(new Vector3(3f, 0f, 0f), Space.World);
+        }
         IsBuild_Fence();
     }
 
@@ -50,7 +58,7 @@ public class Fence_Move : MonoBehaviour
     {
         if (BuildMod_UI.activeSelf == true)
         {
-            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)transform.position.z / 3) + 6, (int)transform.position.x / 3 + 10] == 1){
+            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[(int)transform.position.z / 3 + 6, (int)transform.position.x / 3 + 10] == 1){
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = false;
                 Renderer rd = this.GetComponent<MeshRenderer>();
                 rd.material = cannot_build[0];
