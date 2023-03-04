@@ -24,19 +24,27 @@ public class Tech_Manager : MonoBehaviour
     List<List<string>> tech_weapon = new List<List<string>>();
 
     public List<List<string>> select_tech_tower = new List<List<string>>();
+    bool ulock_tower_tech_2 = false, unlock_tower_tech_3 = false;
+    int tower_tech_tier1 = 0, tower_tech_tier2 = 0;
+
     public List<List<string>> select_tech_public = new List<List<string>>();
+    bool ulock_public_tech_2 = false, unlock_public_tech_3 = false;
+    int public_tech_tier1 = 0, public_tech_tier2 = 0;
+
     public List<List<string>> select_tech_weapon = new List<List<string>>();
+    bool ulock_weapon_tech_2 = false, unlock_weapon_tech_3 = false;
+    int weapon_tech_tier1 = 0, weapon_tech_tier2 = 0;
 
     public Image panel_Image0, panel_Image1, panel_Image2;
 
     void Start()
     {
         //테크트리.txt를 받아와 리스트에 넣어줌
-        TextAsset towerTech = Resources.Load<TextAsset>("TowerTech");
+        TextAsset towerTech = Resources.Load<TextAsset>("TowerTech1");
         string[] lines_tower = towerTech.text.Split('\n');
-        TextAsset publicTech = Resources.Load<TextAsset>("PublicTech");
+        TextAsset publicTech = Resources.Load<TextAsset>("PublicTech1");
         string[] lines_public = publicTech.text.Split('\n');
-        TextAsset weaponTech = Resources.Load<TextAsset>("WeaponTech");
+        TextAsset weaponTech = Resources.Load<TextAsset>("WeaponTech1");
         string[] lines_weapon = weaponTech.text.Split('\n');
 
         foreach (string line_tower in lines_tower)
@@ -61,6 +69,38 @@ public class Tech_Manager : MonoBehaviour
         content0.onClick.AddListener(() => display("left"));
         content1.onClick.AddListener(() => display("mid"));
         content2.onClick.AddListener(() => display("right"));
+    }
+    void Update()
+    {
+        if (tower_tech_tier1 >= 10 && !ulock_tower_tech_2) { //타워테크 티어2의 해금 조건(티어 1이 10개 이상 선택이 되면 해금)
+            Unlock_TowerTech_2();
+            ulock_tower_tech_2 = true;
+        }
+        if (tower_tech_tier2 >= 3 && !unlock_tower_tech_3) //타워테크 티어3의 해금 조건(티어 2가 3개 이상 선택이 되면 해금)
+        {
+            Unlock_TowerTech_3();
+            unlock_tower_tech_3 = true;
+        }
+        if (public_tech_tier1 >= 10 && !ulock_public_tech_2) //공용테크 티어2의 해금 조건(티어 1이 10개 이상 선택이 되면 해금)
+        {
+            Unlock_PublicTech_2();
+            ulock_public_tech_2 = true;
+        }
+        if (public_tech_tier2 >= 3 && !unlock_public_tech_3) //공용테크 티어3의 해금 조건(티어 2가 3개 이상 선택이 되면 해금)
+        {
+            Unlock_PublicTech_3();
+            unlock_public_tech_3 = true;
+        }
+        if (weapon_tech_tier1 >= 10 && !ulock_weapon_tech_2) //무기테크 티어2의 해금 조건(티어 1이 10개 이상 선택이 되면 해금)
+        {
+            Unlock_WeaponTech_2();
+            ulock_weapon_tech_2 = true;
+        }
+        if (weapon_tech_tier2 >= 3 && !unlock_weapon_tech_3) //무기테크 티어3의 해금 조건(티어 2가 3개 이상 선택이 되면 해금)
+        {
+            Unlock_WeaponTech_3();
+            unlock_weapon_tech_3 = true;
+        }
     }
 
     public void Tech_Button_Click()
@@ -97,6 +137,82 @@ public class Tech_Manager : MonoBehaviour
     public void TechManager_Exit_Button_Click()
     {
         TechManager_Panel.SetActive(false);
+    }
+
+    public void Unlock_TowerTech_2() //타워 테크 티어 2 해금
+    {
+        print("해금2");
+        TextAsset towerTech2 = Resources.Load<TextAsset>("TowerTech2");
+        string[] lines_tower2 = towerTech2.text.Split('\n');
+
+        foreach (string line_tower in lines_tower2)
+        {
+            string[] words = line_tower.Split('\t');
+            print(words);
+            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "2" }); //티어, 속성, 이름, 설명, 레벨
+        }
+    }
+    public void Unlock_TowerTech_3() //타워 테크 티어 3 해금
+    {
+        print("해금3");
+        TextAsset towerTech3 = Resources.Load<TextAsset>("TowerTech3");
+        string[] lines_tower3 = towerTech3.text.Split('\n');
+
+        foreach (string line_tower in lines_tower3)
+        {
+            string[] words = line_tower.Split('\t');
+            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3" }); //티어, 속성, 이름, 설명, 레벨
+        }
+    }
+
+    public void Unlock_PublicTech_2() //공용 테크 티어 2 해금
+    {
+        print("해금2");
+        TextAsset publicTech2 = Resources.Load<TextAsset>("PublicTech2");
+        string[] lines_public2 = publicTech2.text.Split('\n');
+
+        foreach (string line_public in lines_public2)
+        {
+            string[] words = line_public.Split('\t');
+            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "2" }); //티어, 속성, 이름, 설명, 레벨
+        }
+    }
+    public void Unlock_PublicTech_3() //공용 테크 티어 3 해금
+    {
+        print("해금3");
+        TextAsset publicTech3 = Resources.Load<TextAsset>("PublicTech3");
+        string[] lines_public3 = publicTech3.text.Split('\n');
+
+        foreach (string line_public in lines_public3)
+        {
+            string[] words = line_public.Split('\t');
+            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "3" }); //티어, 속성, 이름, 설명, 레벨
+        }
+    }
+
+    public void Unlock_WeaponTech_2() //무기 테크 티어 2 해금
+    {
+        print("해금2");
+        TextAsset weaponTech2 = Resources.Load<TextAsset>("WeaponTech2");
+        string[] lines_weapon2 = weaponTech2.text.Split('\n');
+
+        foreach (string line_weapon in lines_weapon2)
+        {
+            string[] words = line_weapon.Split('\t');
+            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "2" }); //티어, 속성, 이름, 설명, 레벨
+        }
+    }
+    public void Unlock_WeaponTech_3() //무기 테크 티어 3 해금
+    {
+        print("해금3");
+        TextAsset weaponTech3 = Resources.Load<TextAsset>("WeaponTech3");
+        string[] lines_weapon3 = weaponTech3.text.Split('\n');
+
+        foreach (string line_weapon in lines_weapon3)
+        {
+            string[] words = line_weapon.Split('\t');
+            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3" }); //티어, 속성, 이름, 설명, 레벨
+        }
     }
 
     public void Tech_Display_Panel()
@@ -145,14 +261,20 @@ public class Tech_Manager : MonoBehaviour
     {
         if (type == "T") {
             select_tech_tower.Add(new List<string> { tier, property, name, text}); //티어, 속성, 이름, 설명
+            if (tier == "1") tower_tech_tier1 += 1;
+            else if(tier == "2") tower_tech_tier2 += 1;
         }
         else if (type == "P")
         {
             select_tech_public.Add(new List<string> { tier, property, name, text }); //티어, 속성, 이름, 설명
+            if (tier == "1") public_tech_tier1 += 1;
+            else if (tier == "2") public_tech_tier2 += 1;
         }
         else if(type == "W")
         {
             select_tech_weapon.Add(new List<string> { tier, property, name, text }); //티어, 속성, 이름, 설명
+            if (tier == "1") weapon_tech_tier1 += 1;
+            else if (tier == "2") weapon_tech_tier2 += 1;
         }
     }
 

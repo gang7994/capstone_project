@@ -40,12 +40,12 @@ public class Build_Manager : MonoBehaviour
         tower_num = GameObject.Find("Tower_num").GetComponent<Text>(); 
         fence_num = GameObject.Find("Fence_num").GetComponent<Text>();
 
-        build_Position = new int[(int)mapSize.y, (int)mapSize.x]; //��, ��
+        build_Position = new int[(int)mapSize.y, (int)mapSize.x];
         for (int i = 0; i < (int)mapSize.y; i++)
         {
             for (int j = 0; j < (int)mapSize.x; j++)
             {
-                build_Position[i, j] = 0; // �迭�� ��� ��Ҹ� 0���� �ʱ�ȭ
+                build_Position[i, j] = 0;
             }
         }
     }
