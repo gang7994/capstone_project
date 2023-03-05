@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Build_Panel : MonoBehaviour
 {
+    public Slider hpBar;
     public GameObject Tower_Panel;
     public GameObject Fence_Panel;
     public GameObject TechUI_Panel;
@@ -93,11 +94,28 @@ public class Build_Panel : MonoBehaviour
             if (GameObject.Find(objectname).GetComponent<Tower>().level < 25)
             {
                 GameObject.Find(objectname).GetComponent<Tower>().level += 1;
+                GameObject.Find(objectname).GetComponent<Tower>().durability += 10;
+                GameObject.Find(objectname).GetComponent<Tower>().hp += 10;
+
             }
         }
         else if (objectname.Contains("fence"))
         {
             GameObject.Find(objectname).GetComponent<Fence>().level += 1;
+            GameObject.Find(objectname).GetComponent<Fence>().durability += 10;
+            GameObject.Find(objectname).GetComponent<Fence>().hp += 10;
+        }
+        else return;
+    }
+
+    public void repair(){
+        if (objectname.Contains("tower"))
+        {
+            GameObject.Find(objectname).GetComponent<Tower>().hp = GameObject.Find(objectname).GetComponent<Tower>().durability; 
+        }
+        else if (objectname.Contains("fence"))
+        {
+            GameObject.Find(objectname).GetComponent<Fence>().hp = GameObject.Find(objectname).GetComponent<Fence>().durability;  
         }
         else return;
     }
@@ -128,13 +146,15 @@ public class Build_Panel : MonoBehaviour
     public void Tower_Display_Panel(string ObjectName)
     {
         int durability = GameObject.Find(ObjectName).GetComponent<Tower>().durability;
+        int hp = GameObject.Find(ObjectName).GetComponent<Tower>().hp;
         int attack_val = GameObject.Find(ObjectName).GetComponent<Tower>().attack_val;
         int slot_num = GameObject.Find(ObjectName).GetComponent<Tower>().slot_num;
         int level = GameObject.Find(ObjectName).GetComponent<Tower>().level;
         int[] types = GameObject.Find(ObjectName).GetComponent<Tower>().types;
-        Info.text = "타워 정보" + "내구도 : " + durability + System.Environment.NewLine + "공격력 : " + attack_val + System.Environment.NewLine + "속성 수 : " + slot_num;
-        Level.text = level.ToString();
+        Info.text = "타워 정보" + System.Environment.NewLine + "최대 내구도 : " + durability + System.Environment.NewLine + "현재 내구도 : " + hp + System.Environment.NewLine + "공격력 : " + attack_val + System.Environment.NewLine + "속성 수 : " + slot_num;
+        Level.text = "LV : " + level.ToString();
         Name.text = ObjectName;
+        hpBar.value = (float) hp / (float) durability;
 
         if(level > 4)
         {
@@ -184,9 +204,12 @@ public class Build_Panel : MonoBehaviour
     public void Fence_Display_Panel(string ObjectName)
     {
         int durability = GameObject.Find(ObjectName).GetComponent<Fence>().durability;
+        int hp = GameObject.Find(ObjectName).GetComponent<Fence>().hp;
         int level = GameObject.Find(ObjectName).GetComponent<Fence>().level;
-        Info.text = "������ : " + durability;
-        Level.text = level.ToString();
+        Info.text = "펜스 정보" + System.Environment.NewLine + "최대 내구도 : " + durability + System.Environment.NewLine + "현재 내구도 : " + hp;
+        Level.text = "LV : " + level.ToString();
+        Name.text = ObjectName;
+        hpBar.value = (float) hp / (float) durability;
     }
     
     public void ResetBtn()

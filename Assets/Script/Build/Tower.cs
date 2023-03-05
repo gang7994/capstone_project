@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Tower : MonoBehaviour
 {
     public int      durability = 100;
+    public int      hp = 100;
     public int      attack_val = 10;
     public int      slot_num = 0;
     public int      level = 0;
@@ -88,9 +89,9 @@ public class Tower : MonoBehaviour
                 firePos.transform.LookAt(go.transform);
                 int type = types[Random.Range(0,5)];
                 Bullet.GetComponent<TrailRenderer>().material = ranShoot[type];
-                GameObject bullet = Instantiate(Bullet, firePos.transform.position, firePos.transform.rotation); //¹ß»çÃ¼ »ý¼º
-                TowerShoot towerShoot = bullet.GetComponent<TowerShoot>(); //¹ß»çÃ¼¿¡ ÀÖ´Â ½ºÅ©¸³Æ® Á¤ÀÇ
-                towerShoot.target = go; //¹ß»çÃ¼¿¡ ÀÖ´Â ½ºÅ©¸³Æ®¿¡ Å¸ÄÏ Á¤º¸ Àü´Þ
+                GameObject bullet = Instantiate(Bullet, firePos.transform.position, firePos.transform.rotation); //ï¿½ß»ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+                TowerShoot towerShoot = bullet.GetComponent<TowerShoot>(); //ï¿½ß»ï¿½Ã¼ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+                towerShoot.target = go; //ï¿½ß»ï¿½Ã¼ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
         }
         
@@ -106,12 +107,12 @@ public class Tower : MonoBehaviour
         GameObject danger1 = transform.Find("SmokeDark").gameObject;
         GameObject danger2 = transform.Find("RedFire").gameObject;
 
-        if(durability > 50){
+        if(hp > durability/2){
             warning.SetActive(false);
             danger1.SetActive(false);
             danger2.SetActive(false);
         }
-        else if(durability <= 50 && durability > 25){
+        else if(hp <= durability/2 && hp > durability/4){
             warning.SetActive(true);
             danger1.SetActive(false);
             danger2.SetActive(false);

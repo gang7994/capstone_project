@@ -5,20 +5,24 @@ using UnityEngine;
 public class Fence : MonoBehaviour
 {
     public int durability = 100;
+    public int hp = 100;
     
     public int level = 0;
     void Start()
     {
         
     }
-
+/*
     // Update is called once per frame
     void Update()
     {
         Level_Manager(level);
     }
+    
     public void Level_Manager(int level)
     {
         durability = 10 * level;
     }
+    */
+
 }
