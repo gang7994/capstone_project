@@ -17696,6 +17696,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7e2c78aff685b814481998ec6813b8d0, type: 2}
   coolTime: 0.5
   attackRange: 30
+  tier: 0
+  property: 
+  index: 0
 --- !u!114 &506174174
 MonoBehaviour:
   m_ObjectHideFlags: 0

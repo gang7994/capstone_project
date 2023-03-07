@@ -7,11 +7,12 @@ using System.IO;
 
 public class Tech_Manager : MonoBehaviour
 {
+    Tower towerscript = new Tower();
     public GameObject Tech_Panel;
     public GameObject TechManager_Panel;
     public GameObject BackGround;
     public Button content0, content1, content2;
-    
+
     private Text name0, name1, name2; //테크 패널 선택지 이름
     private Text text0, text1, text2; //테크 패널 선택지 내용
     private Image image0, image1, image2; //테크 패널 선택지 이미지
@@ -50,19 +51,19 @@ public class Tech_Manager : MonoBehaviour
         foreach (string line_tower in lines_tower)
         {
             string[] words = line_tower.Split('\t');
-            tech_tower.Add(new List<string> {words[0], words[1], words[2], words[3], "1" }); //티어, 속성, 이름, 설명, 레벨
+            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "1", words[4] }); //티어, 속성, 이름, 설명, 레벨, 인덱스
         }
 
         foreach (string line_public in lines_public)
         {
             string[] words = line_public.Split('\t');
-            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "1" }); //티어, 속성, 이름, 설명, 레벨
+            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "1", words[4] }); //티어, 속성, 이름, 설명, 레벨, 인덱스
         }
 
         foreach (string line_weapon in lines_weapon)
         {
             string[] words = line_weapon.Split('\t');
-            tech_weapon.Add(new List<string> {words[0], words[1], words[2], words[3], "1" }); //티어, 속성, 이름, 설명, 레벨
+            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "1", words[4] }); //티어, 속성, 이름, 설명, 레벨, 인덱스
         }
 
         //눌렀을 때 함수 작동
@@ -72,7 +73,8 @@ public class Tech_Manager : MonoBehaviour
     }
     void Update()
     {
-        if (tower_tech_tier1 >= 10 && !ulock_tower_tech_2) { //타워테크 티어2의 해금 조건(티어 1이 10개 이상 선택이 되면 해금)
+        if (tower_tech_tier1 >= 10 && !ulock_tower_tech_2)
+        { //타워테크 티어2의 해금 조건(티어 1이 10개 이상 선택이 되면 해금)
             Unlock_TowerTech_2();
             ulock_tower_tech_2 = true;
         }
@@ -149,7 +151,7 @@ public class Tech_Manager : MonoBehaviour
         {
             string[] words = line_tower.Split('\t');
             print(words);
-            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "2" }); //티어, 속성, 이름, 설명, 레벨
+            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //티어, 속성, 이름, 설명, 레벨, 인덱스
         }
     }
     public void Unlock_TowerTech_3() //타워 테크 티어 3 해금
@@ -161,7 +163,7 @@ public class Tech_Manager : MonoBehaviour
         foreach (string line_tower in lines_tower3)
         {
             string[] words = line_tower.Split('\t');
-            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3" }); //티어, 속성, 이름, 설명, 레벨
+            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //티어, 속성, 이름, 설명, 레벨, 인덱스
         }
     }
 
@@ -174,7 +176,7 @@ public class Tech_Manager : MonoBehaviour
         foreach (string line_public in lines_public2)
         {
             string[] words = line_public.Split('\t');
-            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "2" }); //티어, 속성, 이름, 설명, 레벨
+            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //티어, 속성, 이름, 설명, 레벨, 인덱스
         }
     }
     public void Unlock_PublicTech_3() //공용 테크 티어 3 해금
@@ -186,7 +188,7 @@ public class Tech_Manager : MonoBehaviour
         foreach (string line_public in lines_public3)
         {
             string[] words = line_public.Split('\t');
-            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "3" }); //티어, 속성, 이름, 설명, 레벨
+            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //티어, 속성, 이름, 설명, 레벨, 인덱스
         }
     }
 
@@ -199,7 +201,7 @@ public class Tech_Manager : MonoBehaviour
         foreach (string line_weapon in lines_weapon2)
         {
             string[] words = line_weapon.Split('\t');
-            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "2" }); //티어, 속성, 이름, 설명, 레벨
+            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //티어, 속성, 이름, 설명, 레벨, 인덱스
         }
     }
     public void Unlock_WeaponTech_3() //무기 테크 티어 3 해금
@@ -211,7 +213,7 @@ public class Tech_Manager : MonoBehaviour
         foreach (string line_weapon in lines_weapon3)
         {
             string[] words = line_weapon.Split('\t');
-            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3" }); //티어, 속성, 이름, 설명, 레벨
+            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //티어, 속성, 이름, 설명, 레벨, 인덱스
         }
     }
 
@@ -220,14 +222,14 @@ public class Tech_Manager : MonoBehaviour
         rand_tower = Random.Range(0, tech_tower.Count);
         rand_public = Random.Range(0, tech_public.Count);
         rand_weapon = Random.Range(0, tech_weapon.Count);
-        
-        left = tech_tower[rand_tower][3];
+
+        left = tech_tower[rand_tower][3]; //설명
         mid = tech_public[rand_public][3];
         right = tech_weapon[rand_weapon][3];
 
         //타워
         //티어에 따른 카드 테두리색 변경
-        if (tech_tower[rand_tower][0] == "1") panel_Image0.color = new Color(0.2f, 0.3f, 0.6f, 1.0f); 
+        if (tech_tower[rand_tower][0] == "1") panel_Image0.color = new Color(0.2f, 0.3f, 0.6f, 1.0f);
         else if (tech_tower[rand_tower][0] == "2") panel_Image0.color = new Color(0.3f, 0.65f, 0.4f, 1.0f);
         else panel_Image0.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
@@ -251,28 +253,29 @@ public class Tech_Manager : MonoBehaviour
         else if (tech_weapon[rand_weapon][0] == "2") panel_Image2.color = new Color(0.3f, 0.65f, 0.4f, 1.0f);
         else panel_Image2.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
-        image2.sprite = Resources.Load<Sprite>("weapon"); 
+        image2.sprite = Resources.Load<Sprite>("weapon");
         name2.text = tech_weapon[rand_weapon][2];
         text2.text = right;
-        
+
 
     }
-    void Select_Tech(string type, string tier, string property, string name, string text)
+    void Select_Tech(string type, string tier, string property, string name, string text, string index)
     {
-        if (type == "T") {
-            select_tech_tower.Add(new List<string> { tier, property, name, text}); //티어, 속성, 이름, 설명
+        if (type == "T")
+        {
+            select_tech_tower.Add(new List<string> { tier, property, name, text, index }); //티어, 속성, 이름, 설명, 인덱스
             if (tier == "1") tower_tech_tier1 += 1;
-            else if(tier == "2") tower_tech_tier2 += 1;
+            else if (tier == "2") tower_tech_tier2 += 1;
         }
         else if (type == "P")
         {
-            select_tech_public.Add(new List<string> { tier, property, name, text }); //티어, 속성, 이름, 설명
+            select_tech_public.Add(new List<string> { tier, property, name, text, index }); //티어, 속성, 이름, 설명, 인덱스
             if (tier == "1") public_tech_tier1 += 1;
             else if (tier == "2") public_tech_tier2 += 1;
         }
-        else if(type == "W")
+        else if (type == "W")
         {
-            select_tech_weapon.Add(new List<string> { tier, property, name, text }); //티어, 속성, 이름, 설명
+            select_tech_weapon.Add(new List<string> { tier, property, name, text, index }); //티어, 속성, 이름, 설명, 인덱스
             if (tier == "1") weapon_tech_tier1 += 1;
             else if (tier == "2") weapon_tech_tier2 += 1;
         }
@@ -283,7 +286,7 @@ public class Tech_Manager : MonoBehaviour
         if (i == "left")
         {
             print(left);
-            Select_Tech("T", tech_tower[rand_tower][0], tech_tower[rand_tower][1], tech_tower[rand_tower][2], tech_tower[rand_tower][3]);
+            Select_Tech("T", tech_tower[rand_tower][0], tech_tower[rand_tower][1], tech_tower[rand_tower][2], tech_tower[rand_tower][3], tech_tower[rand_tower][5]);
             if (tech_tower[rand_tower][4] == "1")
             {
                 tech_tower[rand_tower][4] = "2";
@@ -296,11 +299,12 @@ public class Tech_Manager : MonoBehaviour
             {
                 tech_tower.Remove(tech_tower[rand_tower]);
             }
+            SendSelectedAttributeToTower(tech_tower[rand_tower][0], tech_tower[rand_tower][1], tech_tower[rand_tower][5]);
         }
         else if (i == "mid")
         {
             print(mid);
-            Select_Tech("P", tech_public[rand_public][0], tech_public[rand_public][1], tech_public[rand_public][2], tech_public[rand_public][3]);
+            Select_Tech("P", tech_public[rand_public][0], tech_public[rand_public][1], tech_public[rand_public][2], tech_public[rand_public][3], tech_public[rand_public][5]);
             if (tech_public[rand_public][4] == "1")
             {
                 tech_public[rand_public][4] = "2";
@@ -317,7 +321,7 @@ public class Tech_Manager : MonoBehaviour
         else
         {
             print(right);
-            Select_Tech("W", tech_weapon[rand_weapon][0], tech_weapon[rand_weapon][1], tech_weapon[rand_weapon][2], tech_weapon[rand_weapon][3]);
+            Select_Tech("W", tech_weapon[rand_weapon][0], tech_weapon[rand_weapon][1], tech_weapon[rand_weapon][2], tech_weapon[rand_weapon][3], tech_weapon[rand_weapon][5]);
             if (tech_weapon[rand_weapon][4] == "1")
             {
                 tech_weapon[rand_weapon][4] = "2";
@@ -332,5 +336,14 @@ public class Tech_Manager : MonoBehaviour
             }
         }
         Tech_Exit_Button_Click();
+    }
+
+    public void SendSelectedAttributeToTower(string tier, string property, string index)
+    {
+        towerscript.tier = int.Parse(tier);
+        towerscript.property = property;
+        towerscript.index = int.Parse(index);
+        
+
     }
 }

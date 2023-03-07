@@ -30,6 +30,9 @@ public class Tower : MonoBehaviour
 
     float timer;
 
+    public int tier;
+    public string property= null;
+    public int index;
 
     
     void Start()
@@ -38,7 +41,7 @@ public class Tower : MonoBehaviour
         types[1] = 0;
         types[2] = 0;
         types[3] = 0;
-        types[4] = 0;
+        types[4] = 0;   
         attack_Collider = GetComponent<SphereCollider>();
         timer = 0.0f;
 
@@ -53,7 +56,7 @@ public class Tower : MonoBehaviour
             AutoAttack(FirePos,collEnemys);
             timer = 0.0f;
         }
-         check_tower();   
+         check_tower();
     }
     public void Level_Manager(int level)
     {
