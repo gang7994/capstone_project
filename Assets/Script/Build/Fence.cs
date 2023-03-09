@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Fence : MonoBehaviour
 {
-    public int durability = 100;
-    public int hp = 100;
+    public float durability = 100;
+    public float hp = 100;
     
     public int level = 0;
     void Start()

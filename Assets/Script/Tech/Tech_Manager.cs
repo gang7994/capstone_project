@@ -7,18 +7,18 @@ using System.IO;
 
 public class Tech_Manager : MonoBehaviour
 {
-    Tower towerscript = new Tower();
+    
     public GameObject Tech_Panel;
     public GameObject TechManager_Panel;
     public GameObject BackGround;
     public Button content0, content1, content2;
 
-    private Text name0, name1, name2; //Å×Å© ÆÐ³Î ¼±ÅÃÁö ÀÌ¸§
-    private Text text0, text1, text2; //Å×Å© ÆÐ³Î ¼±ÅÃÁö ³»¿ë
-    private Image image0, image1, image2; //Å×Å© ÆÐ³Î ¼±ÅÃÁö ÀÌ¹ÌÁö
+    private Text name0, name1, name2; //ï¿½ï¿½Å© ï¿½Ð³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+    private Text text0, text1, text2; //ï¿½ï¿½Å© ï¿½Ð³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    private Image image0, image1, image2; //ï¿½ï¿½Å© ï¿½Ð³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
 
-    int rand_tower, rand_public, rand_weapon; //Å×Å© ÆÐ³Î ¼±ÅÃÁö ·£´ý º¯¼ö
-    string left, mid, right; //Å¸¿ö, °ø¿ë, ¹«±â
+    int rand_tower, rand_public, rand_weapon; //ï¿½ï¿½Å© ï¿½Ð³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    string left, mid, right; //Å¸ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
 
     List<List<string>> tech_tower = new List<List<string>>();
     List<List<string>> tech_public = new List<List<string>>();
@@ -40,7 +40,7 @@ public class Tech_Manager : MonoBehaviour
 
     void Start()
     {
-        //Å×Å©Æ®¸®.txt¸¦ ¹Þ¾Æ¿Í ¸®½ºÆ®¿¡ ³Ö¾îÁÜ
+        //ï¿½ï¿½Å©Æ®ï¿½ï¿½.txtï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½
         TextAsset towerTech = Resources.Load<TextAsset>("TowerTech1");
         string[] lines_tower = towerTech.text.Split('\n');
         TextAsset publicTech = Resources.Load<TextAsset>("PublicTech1");
@@ -51,22 +51,22 @@ public class Tech_Manager : MonoBehaviour
         foreach (string line_tower in lines_tower)
         {
             string[] words = line_tower.Split('\t');
-            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "1", words[4] }); //Æ¼¾î, ¼Ó¼º, ÀÌ¸§, ¼³¸í, ·¹º§, ÀÎµ¦½º
+            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "1", words[4] }); //Æ¼ï¿½ï¿½, ï¿½Ó¼ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Îµï¿½ï¿½ï¿½
         }
 
         foreach (string line_public in lines_public)
         {
             string[] words = line_public.Split('\t');
-            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "1", words[4] }); //Æ¼¾î, ¼Ó¼º, ÀÌ¸§, ¼³¸í, ·¹º§, ÀÎµ¦½º
+            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "1", words[4] }); //Æ¼ï¿½ï¿½, ï¿½Ó¼ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Îµï¿½ï¿½ï¿½
         }
 
         foreach (string line_weapon in lines_weapon)
         {
             string[] words = line_weapon.Split('\t');
-            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "1", words[4] }); //Æ¼¾î, ¼Ó¼º, ÀÌ¸§, ¼³¸í, ·¹º§, ÀÎµ¦½º
+            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "1", words[4] }); //Æ¼ï¿½ï¿½, ï¿½Ó¼ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Îµï¿½ï¿½ï¿½
         }
 
-        //´­·¶À» ¶§ ÇÔ¼ö ÀÛµ¿
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½Ûµï¿½
         content0.onClick.AddListener(() => display("left"));
         content1.onClick.AddListener(() => display("mid"));
         content2.onClick.AddListener(() => display("right"));
@@ -74,31 +74,31 @@ public class Tech_Manager : MonoBehaviour
     void Update()
     {
         if (tower_tech_tier1 >= 10 && !ulock_tower_tech_2)
-        { //Å¸¿öÅ×Å© Æ¼¾î2ÀÇ ÇØ±Ý Á¶°Ç(Æ¼¾î 1ÀÌ 10°³ ÀÌ»ó ¼±ÅÃÀÌ µÇ¸é ÇØ±Ý)
+        { //Å¸ï¿½ï¿½ï¿½ï¿½Å© Æ¼ï¿½ï¿½2ï¿½ï¿½ ï¿½Ø±ï¿½ ï¿½ï¿½ï¿½ï¿½(Æ¼ï¿½ï¿½ 1ï¿½ï¿½ 10ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½Ø±ï¿½)
             Unlock_TowerTech_2();
             ulock_tower_tech_2 = true;
         }
-        if (tower_tech_tier2 >= 3 && !unlock_tower_tech_3) //Å¸¿öÅ×Å© Æ¼¾î3ÀÇ ÇØ±Ý Á¶°Ç(Æ¼¾î 2°¡ 3°³ ÀÌ»ó ¼±ÅÃÀÌ µÇ¸é ÇØ±Ý)
+        if (tower_tech_tier2 >= 3 && !unlock_tower_tech_3) //Å¸ï¿½ï¿½ï¿½ï¿½Å© Æ¼ï¿½ï¿½3ï¿½ï¿½ ï¿½Ø±ï¿½ ï¿½ï¿½ï¿½ï¿½(Æ¼ï¿½ï¿½ 2ï¿½ï¿½ 3ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½Ø±ï¿½)
         {
             Unlock_TowerTech_3();
             unlock_tower_tech_3 = true;
         }
-        if (public_tech_tier1 >= 10 && !ulock_public_tech_2) //°ø¿ëÅ×Å© Æ¼¾î2ÀÇ ÇØ±Ý Á¶°Ç(Æ¼¾î 1ÀÌ 10°³ ÀÌ»ó ¼±ÅÃÀÌ µÇ¸é ÇØ±Ý)
+        if (public_tech_tier1 >= 10 && !ulock_public_tech_2) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å© Æ¼ï¿½ï¿½2ï¿½ï¿½ ï¿½Ø±ï¿½ ï¿½ï¿½ï¿½ï¿½(Æ¼ï¿½ï¿½ 1ï¿½ï¿½ 10ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½Ø±ï¿½)
         {
             Unlock_PublicTech_2();
             ulock_public_tech_2 = true;
         }
-        if (public_tech_tier2 >= 3 && !unlock_public_tech_3) //°ø¿ëÅ×Å© Æ¼¾î3ÀÇ ÇØ±Ý Á¶°Ç(Æ¼¾î 2°¡ 3°³ ÀÌ»ó ¼±ÅÃÀÌ µÇ¸é ÇØ±Ý)
+        if (public_tech_tier2 >= 3 && !unlock_public_tech_3) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å© Æ¼ï¿½ï¿½3ï¿½ï¿½ ï¿½Ø±ï¿½ ï¿½ï¿½ï¿½ï¿½(Æ¼ï¿½ï¿½ 2ï¿½ï¿½ 3ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½Ø±ï¿½)
         {
             Unlock_PublicTech_3();
             unlock_public_tech_3 = true;
         }
-        if (weapon_tech_tier1 >= 10 && !ulock_weapon_tech_2) //¹«±âÅ×Å© Æ¼¾î2ÀÇ ÇØ±Ý Á¶°Ç(Æ¼¾î 1ÀÌ 10°³ ÀÌ»ó ¼±ÅÃÀÌ µÇ¸é ÇØ±Ý)
+        if (weapon_tech_tier1 >= 10 && !ulock_weapon_tech_2) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å© Æ¼ï¿½ï¿½2ï¿½ï¿½ ï¿½Ø±ï¿½ ï¿½ï¿½ï¿½ï¿½(Æ¼ï¿½ï¿½ 1ï¿½ï¿½ 10ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½Ø±ï¿½)
         {
             Unlock_WeaponTech_2();
             ulock_weapon_tech_2 = true;
         }
-        if (weapon_tech_tier2 >= 3 && !unlock_weapon_tech_3) //¹«±âÅ×Å© Æ¼¾î3ÀÇ ÇØ±Ý Á¶°Ç(Æ¼¾î 2°¡ 3°³ ÀÌ»ó ¼±ÅÃÀÌ µÇ¸é ÇØ±Ý)
+        if (weapon_tech_tier2 >= 3 && !unlock_weapon_tech_3) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å© Æ¼ï¿½ï¿½3ï¿½ï¿½ ï¿½Ø±ï¿½ ï¿½ï¿½ï¿½ï¿½(Æ¼ï¿½ï¿½ 2ï¿½ï¿½ 3ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½Ø±ï¿½)
         {
             Unlock_WeaponTech_3();
             unlock_weapon_tech_3 = true;
@@ -141,9 +141,9 @@ public class Tech_Manager : MonoBehaviour
         TechManager_Panel.SetActive(false);
     }
 
-    public void Unlock_TowerTech_2() //Å¸¿ö Å×Å© Æ¼¾î 2 ÇØ±Ý
+    public void Unlock_TowerTech_2() //Å¸ï¿½ï¿½ ï¿½ï¿½Å© Æ¼ï¿½ï¿½ 2 ï¿½Ø±ï¿½
     {
-        print("ÇØ±Ý2");
+        print("ï¿½Ø±ï¿½2");
         TextAsset towerTech2 = Resources.Load<TextAsset>("TowerTech2");
         string[] lines_tower2 = towerTech2.text.Split('\n');
 
@@ -151,69 +151,69 @@ public class Tech_Manager : MonoBehaviour
         {
             string[] words = line_tower.Split('\t');
             print(words);
-            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Æ¼¾î, ¼Ó¼º, ÀÌ¸§, ¼³¸í, ·¹º§, ÀÎµ¦½º
+            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Æ¼ï¿½ï¿½, ï¿½Ó¼ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Îµï¿½ï¿½ï¿½
         }
     }
-    public void Unlock_TowerTech_3() //Å¸¿ö Å×Å© Æ¼¾î 3 ÇØ±Ý
+    public void Unlock_TowerTech_3() //Å¸ï¿½ï¿½ ï¿½ï¿½Å© Æ¼ï¿½ï¿½ 3 ï¿½Ø±ï¿½
     {
-        print("ÇØ±Ý3");
+        print("ï¿½Ø±ï¿½3");
         TextAsset towerTech3 = Resources.Load<TextAsset>("TowerTech3");
         string[] lines_tower3 = towerTech3.text.Split('\n');
 
         foreach (string line_tower in lines_tower3)
         {
             string[] words = line_tower.Split('\t');
-            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Æ¼¾î, ¼Ó¼º, ÀÌ¸§, ¼³¸í, ·¹º§, ÀÎµ¦½º
+            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Æ¼ï¿½ï¿½, ï¿½Ó¼ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Îµï¿½ï¿½ï¿½
         }
     }
 
-    public void Unlock_PublicTech_2() //°ø¿ë Å×Å© Æ¼¾î 2 ÇØ±Ý
+    public void Unlock_PublicTech_2() //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© Æ¼ï¿½ï¿½ 2 ï¿½Ø±ï¿½
     {
-        print("ÇØ±Ý2");
+        print("ï¿½Ø±ï¿½2");
         TextAsset publicTech2 = Resources.Load<TextAsset>("PublicTech2");
         string[] lines_public2 = publicTech2.text.Split('\n');
 
         foreach (string line_public in lines_public2)
         {
             string[] words = line_public.Split('\t');
-            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Æ¼¾î, ¼Ó¼º, ÀÌ¸§, ¼³¸í, ·¹º§, ÀÎµ¦½º
+            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Æ¼ï¿½ï¿½, ï¿½Ó¼ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Îµï¿½ï¿½ï¿½
         }
     }
-    public void Unlock_PublicTech_3() //°ø¿ë Å×Å© Æ¼¾î 3 ÇØ±Ý
+    public void Unlock_PublicTech_3() //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© Æ¼ï¿½ï¿½ 3 ï¿½Ø±ï¿½
     {
-        print("ÇØ±Ý3");
+        print("ï¿½Ø±ï¿½3");
         TextAsset publicTech3 = Resources.Load<TextAsset>("PublicTech3");
         string[] lines_public3 = publicTech3.text.Split('\n');
 
         foreach (string line_public in lines_public3)
         {
             string[] words = line_public.Split('\t');
-            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Æ¼¾î, ¼Ó¼º, ÀÌ¸§, ¼³¸í, ·¹º§, ÀÎµ¦½º
+            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Æ¼ï¿½ï¿½, ï¿½Ó¼ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Îµï¿½ï¿½ï¿½
         }
     }
 
-    public void Unlock_WeaponTech_2() //¹«±â Å×Å© Æ¼¾î 2 ÇØ±Ý
+    public void Unlock_WeaponTech_2() //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© Æ¼ï¿½ï¿½ 2 ï¿½Ø±ï¿½
     {
-        print("ÇØ±Ý2");
+        print("ï¿½Ø±ï¿½2");
         TextAsset weaponTech2 = Resources.Load<TextAsset>("WeaponTech2");
         string[] lines_weapon2 = weaponTech2.text.Split('\n');
 
         foreach (string line_weapon in lines_weapon2)
         {
             string[] words = line_weapon.Split('\t');
-            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Æ¼¾î, ¼Ó¼º, ÀÌ¸§, ¼³¸í, ·¹º§, ÀÎµ¦½º
+            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Æ¼ï¿½ï¿½, ï¿½Ó¼ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Îµï¿½ï¿½ï¿½
         }
     }
-    public void Unlock_WeaponTech_3() //¹«±â Å×Å© Æ¼¾î 3 ÇØ±Ý
+    public void Unlock_WeaponTech_3() //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© Æ¼ï¿½ï¿½ 3 ï¿½Ø±ï¿½
     {
-        print("ÇØ±Ý3");
+        print("ï¿½Ø±ï¿½3");
         TextAsset weaponTech3 = Resources.Load<TextAsset>("WeaponTech3");
         string[] lines_weapon3 = weaponTech3.text.Split('\n');
 
         foreach (string line_weapon in lines_weapon3)
         {
             string[] words = line_weapon.Split('\t');
-            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Æ¼¾î, ¼Ó¼º, ÀÌ¸§, ¼³¸í, ·¹º§, ÀÎµ¦½º
+            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Æ¼ï¿½ï¿½, ï¿½Ó¼ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Îµï¿½ï¿½ï¿½
         }
     }
 
@@ -223,12 +223,12 @@ public class Tech_Manager : MonoBehaviour
         rand_public = Random.Range(0, tech_public.Count);
         rand_weapon = Random.Range(0, tech_weapon.Count);
 
-        left = tech_tower[rand_tower][3]; //¼³¸í
+        left = tech_tower[rand_tower][3]; //ï¿½ï¿½ï¿½ï¿½
         mid = tech_public[rand_public][3];
         right = tech_weapon[rand_weapon][3];
 
-        //Å¸¿ö
-        //Æ¼¾î¿¡ µû¸¥ Ä«µå Å×µÎ¸®»ö º¯°æ
+        //Å¸ï¿½ï¿½
+        //Æ¼ï¿½î¿¡ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½×µÎ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (tech_tower[rand_tower][0] == "1") panel_Image0.color = new Color(0.2f, 0.3f, 0.6f, 1.0f);
         else if (tech_tower[rand_tower][0] == "2") panel_Image0.color = new Color(0.3f, 0.65f, 0.4f, 1.0f);
         else panel_Image0.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
@@ -237,8 +237,8 @@ public class Tech_Manager : MonoBehaviour
         name0.text = tech_tower[rand_tower][2];
         text0.text = left;
 
-        //°ø¿ë
-        //Æ¼¾î¿¡ µû¸¥ Ä«µå Å×µÎ¸®»ö º¯°æ
+        //ï¿½ï¿½ï¿½ï¿½
+        //Æ¼ï¿½î¿¡ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½×µÎ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (tech_public[rand_public][0] == "1") panel_Image1.color = new Color(0.2f, 0.3f, 0.6f, 1.0f);
         else if (tech_public[rand_public][0] == "2") panel_Image1.color = new Color(0.3f, 0.65f, 0.4f, 1.0f);
         else panel_Image1.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
@@ -247,8 +247,8 @@ public class Tech_Manager : MonoBehaviour
         name1.text = tech_public[rand_public][2];
         text1.text = mid;
 
-        //¹«±â
-        //Æ¼¾î¿¡ µû¸¥ Ä«µå Å×µÎ¸®»ö º¯°æ
+        //ï¿½ï¿½ï¿½ï¿½
+        //Æ¼ï¿½î¿¡ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½×µÎ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (tech_weapon[rand_weapon][0] == "1") panel_Image2.color = new Color(0.2f, 0.3f, 0.6f, 1.0f);
         else if (tech_weapon[rand_weapon][0] == "2") panel_Image2.color = new Color(0.3f, 0.65f, 0.4f, 1.0f);
         else panel_Image2.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
@@ -263,19 +263,19 @@ public class Tech_Manager : MonoBehaviour
     {
         if (type == "T")
         {
-            select_tech_tower.Add(new List<string> { tier, property, name, text, index }); //Æ¼¾î, ¼Ó¼º, ÀÌ¸§, ¼³¸í, ÀÎµ¦½º
+            select_tech_tower.Add(new List<string> { tier, property, name, text, index }); //Æ¼ï¿½ï¿½, ï¿½Ó¼ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Îµï¿½ï¿½ï¿½
             if (tier == "1") tower_tech_tier1 += 1;
             else if (tier == "2") tower_tech_tier2 += 1;
         }
         else if (type == "P")
         {
-            select_tech_public.Add(new List<string> { tier, property, name, text, index }); //Æ¼¾î, ¼Ó¼º, ÀÌ¸§, ¼³¸í, ÀÎµ¦½º
+            select_tech_public.Add(new List<string> { tier, property, name, text, index }); //Æ¼ï¿½ï¿½, ï¿½Ó¼ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Îµï¿½ï¿½ï¿½
             if (tier == "1") public_tech_tier1 += 1;
             else if (tier == "2") public_tech_tier2 += 1;
         }
         else if (type == "W")
         {
-            select_tech_weapon.Add(new List<string> { tier, property, name, text, index }); //Æ¼¾î, ¼Ó¼º, ÀÌ¸§, ¼³¸í, ÀÎµ¦½º
+            select_tech_weapon.Add(new List<string> { tier, property, name, text, index }); //Æ¼ï¿½ï¿½, ï¿½Ó¼ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Îµï¿½ï¿½ï¿½
             if (tier == "1") weapon_tech_tier1 += 1;
             else if (tier == "2") weapon_tech_tier2 += 1;
         }
@@ -340,10 +340,6 @@ public class Tech_Manager : MonoBehaviour
 
     public void SendSelectedAttributeToTower(string tier, string property, string index)
     {
-        towerscript.tier = int.Parse(tier);
-        towerscript.property = property;
-        towerscript.index = int.Parse(index);
-        
-
+        Tower.property_memory.Add(tier+property+index);        
     }
 }

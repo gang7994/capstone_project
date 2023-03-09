@@ -121,7 +121,7 @@ public class Build_Panel : MonoBehaviour
     }
 
     public void check_type(string ObjectName){
-        int[] types = GameObject.Find(ObjectName).GetComponent<Tower>().types;
+        List<int> types = GameObject.Find(ObjectName).GetComponent<Tower>().types;
         for (int i=0; i<5; i++){
             if(types[0] == i){
                 TypeIcon1_Y.GetComponent<Image>().sprite = typeImages[i];
@@ -145,12 +145,12 @@ public class Build_Panel : MonoBehaviour
 
     public void Tower_Display_Panel(string ObjectName)
     {
-        int durability = GameObject.Find(ObjectName).GetComponent<Tower>().durability;
-        int hp = GameObject.Find(ObjectName).GetComponent<Tower>().hp;
-        int attack_val = GameObject.Find(ObjectName).GetComponent<Tower>().attack_val;
+        float durability = GameObject.Find(ObjectName).GetComponent<Tower>().durability;
+        float hp = GameObject.Find(ObjectName).GetComponent<Tower>().hp;
+        float attack_val = GameObject.Find(ObjectName).GetComponent<Tower>().attack_val;
         int slot_num = GameObject.Find(ObjectName).GetComponent<Tower>().slot_num;
         int level = GameObject.Find(ObjectName).GetComponent<Tower>().level;
-        int[] types = GameObject.Find(ObjectName).GetComponent<Tower>().types;
+        List<int> types = GameObject.Find(ObjectName).GetComponent<Tower>().types;
         Info.text = "타워 정보" + System.Environment.NewLine + "최대 내구도 : " + durability + System.Environment.NewLine + "현재 내구도 : " + hp + System.Environment.NewLine + "공격력 : " + attack_val + System.Environment.NewLine + "속성 수 : " + slot_num;
         Level.text = "LV : " + level.ToString();
         Name.text = ObjectName;
@@ -203,8 +203,8 @@ public class Build_Panel : MonoBehaviour
     
     public void Fence_Display_Panel(string ObjectName)
     {
-        int durability = GameObject.Find(ObjectName).GetComponent<Fence>().durability;
-        int hp = GameObject.Find(ObjectName).GetComponent<Fence>().hp;
+        float durability = GameObject.Find(ObjectName).GetComponent<Fence>().durability;
+        float hp = GameObject.Find(ObjectName).GetComponent<Fence>().hp;
         int level = GameObject.Find(ObjectName).GetComponent<Fence>().level;
         Info.text = "펜스 정보" + System.Environment.NewLine + "최대 내구도 : " + durability + System.Environment.NewLine + "현재 내구도 : " + hp;
         Level.text = "LV : " + level.ToString();

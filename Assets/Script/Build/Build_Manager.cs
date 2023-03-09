@@ -119,6 +119,7 @@ public class Build_Manager : MonoBehaviour
     {
         if (current_number_of_Tower > 0){
             Destroy(GameObject.Find(select_Build));
+            build_Position[(int)GameObject.Find(select_Build).transform.position.z / 3 + 6, (int)GameObject.Find(select_Build).transform.position.x / 3 + 10] = 0;
             current_number_of_Tower -= 1;
             isBuild = true;
             Btn_Tower_Panel.SetActive(false);
@@ -137,6 +138,7 @@ public class Build_Manager : MonoBehaviour
         if (current_number_of_Fence > 0)
         {
             Destroy(GameObject.Find(select_Build));
+            build_Position[(int)GameObject.Find(select_Build).transform.position.z / 3 + 6, (int)GameObject.Find(select_Build).transform.position.x / 3 + 10] = 0;
             current_number_of_Fence -= 1;
             isBuild = true;
             Btn_Fence_Panel.SetActive(false);
