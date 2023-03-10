@@ -7,7 +7,7 @@ using System.IO;
 
 public class Tech_Manager : MonoBehaviour
 {
-    
+    public List<string> properties = new List<string>{"F","L","I","E"};
     public GameObject Tech_Panel;
     public GameObject TechManager_Panel;
     public GameObject BackGround;
@@ -340,6 +340,14 @@ public class Tech_Manager : MonoBehaviour
 
     public void SendSelectedAttributeToTower(string tier, string property, string index)
     {
-        Tower.property_memory.Add(tier+property+index);        
+        if(tier.Equals("1")){
+            Tower.property_memory.Add(properties.IndexOf(property)*4+int.Parse(index));
+        }
+        else if(tier.Equals("2")){
+            Tower.property_memory.Add(properties.IndexOf(property)*3+int.Parse(index)+16);
+        }
+        else if(tier.Equals("3")){
+            Tower.property_memory.Add(properties.IndexOf(property)*2+int.Parse(index)+28);
+        }
     }
 }

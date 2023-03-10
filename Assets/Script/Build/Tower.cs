@@ -38,7 +38,9 @@ public class Tower : MonoBehaviour
 
     float timer;
 
-    public static List<string> property_memory = new List<string>();
+    
+    public static List<int> property_memory = new List<int>();
+
 
     
     public List<string> all_property = new List<string> {"1F0","1F1","1F2","1F3",
@@ -179,7 +181,7 @@ public class Tower : MonoBehaviour
     }
 
     public void Apply_Characteristic(){
-        
+       /* 
         for(int i = 0; i<property_memory.Count;i++){
             string tmp = property_memory[i];
             print(tmp);
@@ -187,9 +189,10 @@ public class Tower : MonoBehaviour
             print("index"+index);
             //all_function[index]();
         }
-        for(int i = 0; i<all_property.Count;i++){
-            string tmp = all_property[i];
-            print(tmp);
+        */
+        for(int i = 0; i<property_memory.Count;i++){
+            int index = property_memory[i];
+            print(index);
         }
     }
     
