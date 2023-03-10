@@ -5,7 +5,8 @@ public class TowerShoot : MonoBehaviour
 {
     float timer;
     public GameObject target;
-    public float coolTime = 0.5f;
+
+
     public Material[] mat = new Material[5]; 
 
     public Material[] ranShoot = new Material[5];
@@ -21,8 +22,8 @@ public class TowerShoot : MonoBehaviour
     void Update(){
         timer += Time.deltaTime;
 
-        Vector3 direction = target.transform.position - transform.position; //tower.cs¿¡¼­ ³Ñ¾î¿Â Å¸ÄÏ Á¤º¸ Áß À§Ä¡°ªÀ» °è»ê
-        transform.Translate(direction.normalized * 10f * Time.deltaTime, Space.World); //¾÷µ¥ÀÌÆ®·Î ÅëÇØ ÀÌµ¿ÇÏ´Â ÀûÀÇ À§Ä¡¸¦ ½Ç½Ã°£À¸·Î °»½Å
+        Vector3 direction = target.transform.position - transform.position; //tower.csï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+        transform.Translate(direction.normalized * 10f * Time.deltaTime, Space.World); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ç½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     void DestroyBullet(){

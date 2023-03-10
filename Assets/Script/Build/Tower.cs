@@ -6,7 +6,7 @@ using System;
 
 public class Tower : MonoBehaviour
 {
-    public float    durability = 100.0f;
+    public float    max_hp = 100.0f;
     public float    hp = 100f;
     public float    attack_val = 10.0f;
     public float    defence_val = 0.0f;
@@ -17,9 +17,13 @@ public class Tower : MonoBehaviour
     public List<int> types = new List<int>();
     public float empty_type_num;
     public float fire_type_num;
-    public float lighting_type_num;
+    public float lightning_type_num;
     public float ice_type_num;
     public float earth_type_num;
+    public float fire_weight = 0; 
+    public float lightning_weight = 0;
+    public float ice_weight = 0;
+    public float earth_weight = 0;
 
     public int select_number;
 
@@ -40,7 +44,7 @@ public class Tower : MonoBehaviour
 
     
     public static List<int> property_memory = new List<int>();
-
+    public List<bool> property_memory_run = new List<bool>(); 
 
     
     public List<string> all_property = new List<string> {"1F0","1F1","1F2","1F3",
@@ -55,20 +59,6 @@ public class Tower : MonoBehaviour
     public List<Action> all_function = new List<Action>();
 
     
-    /*
-    {Testprint,Testprint,Testprint,Testprint,
-                                                Testprint,Testprint,Testprint,Testprint,
-                                                Testprint,Testprint,Testprint,Testprint, 
-                                                Testprint,Testprint,Testprint,Testprint, 
-                                                Testprint,Testprint,Testprint,
-                                                Testprint,Testprint,Testprint,
-                                                Testprint,Testprint,Testprint,
-                                                Testprint,Testprint,Testprint,
-                                                Testprint,Testprint,
-                                                Testprint,Testprint,
-                                                Testprint,Testprint,
-                                                Testprint,Testprint};
-                                                */
     void Start()
     { 
         types[0] = 0;
@@ -78,19 +68,21 @@ public class Tower : MonoBehaviour
         types[4] = 0;   
         attack_Collider = GetComponent<SphereCollider>();
         timer = 0.0f;
+
+        for(int i = 0; i < 80;i++) property_memory_run.Add(false);
+        all_function.Add(Fire_Tower_Weight); //Function 0
         all_function.Add(TestPrint);
         all_function.Add(TestPrint);
         all_function.Add(TestPrint);
+        all_function.Add(Lightning_Tower_Weight); //Funciotn 4 
         all_function.Add(TestPrint);
         all_function.Add(TestPrint);
         all_function.Add(TestPrint);
+        all_function.Add(Ice_Tower_Weight); //Function 8
         all_function.Add(TestPrint);
         all_function.Add(TestPrint);
         all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
+        all_function.Add(Earth_Tower_Weight); // Function 12
         all_function.Add(TestPrint);
         all_function.Add(TestPrint);
         all_function.Add(TestPrint);
@@ -121,12 +113,7 @@ public class Tower : MonoBehaviour
     {
         Level_Manager(level);
 
-        empty_type_num = (float)types.FindAll(n => n == 0).Count;
-        fire_type_num = (float)types.FindAll(n => n == 1).Count;
-        lighting_type_num = (float)types.FindAll(n => n == 2).Count;
-        ice_type_num = (float)types.FindAll(n => n == 3).Count;
-        earth_type_num = (float)types.FindAll(n => n == 4).Count;
-
+        
         attack_Collider.radius = attackRange;
         timer += Time.deltaTime;
         if(timer > coolTime){
@@ -136,12 +123,13 @@ public class Tower : MonoBehaviour
         check_tower();
         Apply_Characteristic();
         
-        
+        //string numbersString = string.Join(", ", property_memory_run);
+        //Debug.Log(numbersString);
     }
 
     public void Level_Manager(int level)
     {
-        //durability = 100 + 10 * level;
+        //max_hp = 100 + 10 * level;
         attack_val = level;
         slot_num = (level / 5);
     }
@@ -171,8 +159,12 @@ public class Tower : MonoBehaviour
         if (collEnemy.Count != 0){
             foreach (GameObject go in collEnemy){
                 firePos.transform.LookAt(go.transform);
-                int type = types[Random_type_attack()];
-                Bullet.GetComponent<TrailRenderer>().material = ranShoot[type];
+                empty_type_num = (float)types.FindAll(n => n == 0).Count;
+                fire_type_num = (float)types.FindAll(n => n == 1).Count;
+                lightning_type_num = (float)types.FindAll(n => n == 2).Count;
+                ice_type_num = (float)types.FindAll(n => n == 3).Count;
+                earth_type_num = (float)types.FindAll(n => n == 4).Count;
+                Bullet.GetComponent<TrailRenderer>().material = ranShoot[Random_type_attack()];
                 GameObject bullet = Instantiate(Bullet, firePos.transform.position, firePos.transform.rotation);
                 TowerShoot towerShoot = bullet.GetComponent<TowerShoot>(); 
                 towerShoot.target = go; 
@@ -191,8 +183,10 @@ public class Tower : MonoBehaviour
         }
         */
         for(int i = 0; i<property_memory.Count;i++){
-            int index = property_memory[i];
-            print(index);
+            if(!property_memory_run[i]) {
+                all_function[property_memory[i]]();
+                property_memory_run[i] = true;
+            }
         }
     }
     
@@ -202,8 +196,14 @@ public class Tower : MonoBehaviour
     
     
     int Random_type_attack() {
-        float[] weights = {empty_type_num, fire_type_num, lighting_type_num, ice_type_num, earth_type_num};  
-
+        
+        if(fire_type_num != 0) fire_type_num += fire_weight;
+        print("fire"+fire_type_num);
+        if(lightning_type_num != 0) lightning_type_num += lightning_weight;
+        if(ice_type_num != 0) ice_type_num += ice_weight;
+        if(earth_type_num != 0) earth_type_num += earth_weight;
+        float[] weights = {empty_type_num, fire_type_num, lightning_type_num, ice_type_num, earth_type_num};
+        print(fire_type_num+" "+  lightning_type_num+" "+ice_type_num+" "+earth_type_num);
         float total_weight = 0;
         for(int i = 0; i<weights.Length; i++) {
             total_weight += weights[i];
@@ -230,12 +230,12 @@ public class Tower : MonoBehaviour
         GameObject danger1 = transform.Find("SmokeDark").gameObject;
         GameObject danger2 = transform.Find("RedFire").gameObject;
 
-        if(hp > durability/2){
+        if(hp > max_hp/2){
             warning.SetActive(false);
             danger1.SetActive(false);
             danger2.SetActive(false);
         }
-        else if(hp <= durability/2 && hp > durability/4){
+        else if(hp <= max_hp/2 && hp > max_hp/4){
             warning.SetActive(true);
             danger1.SetActive(false);
             danger2.SetActive(false);
@@ -246,6 +246,23 @@ public class Tower : MonoBehaviour
             danger2.SetActive(true);
         }
     }
+
+    public void Fire_Tower_Weight() { //Function 0
+        fire_weight += 0.5f;
+    }
+
+    public void Lightning_Tower_Weight() { //Function 4
+        lightning_weight += 0.5f;
+    }
+
+    public void Ice_Tower_Weight() { //Function 8
+        ice_weight += 0.5f;
+    }   
+
+    public void Earth_Tower_Weight() { //Function 12
+        earth_weight += 0.5f;
+    }
+
 }
 
 public class Fire : MonoBehaviour {

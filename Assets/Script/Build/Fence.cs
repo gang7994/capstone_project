@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fence : MonoBehaviour
 {
-    public float durability = 100;
+    public float max_hp = 100;
     public float hp = 100;
     
     public int level = 0;
@@ -21,7 +21,7 @@ public class Fence : MonoBehaviour
     
     public void Level_Manager(int level)
     {
-        durability = 10 * level;
+        max_hp = 10 * level;
     }
     */
 
