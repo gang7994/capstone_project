@@ -21,6 +21,8 @@ public class Build_Panel : MonoBehaviour
     private Text Level;
 
     private Text Name;
+    private Text Upgrade_Gold, Repair_Gold;
+    
 
     public Material[] mat = new Material[5]; 
 
@@ -35,6 +37,8 @@ public class Build_Panel : MonoBehaviour
         Info = GameObject.Find("Info_Text").GetComponent<Text>();
         Level = GameObject.Find("Level_Text").GetComponent<Text>();
         Name = GameObject.Find("Name_Text").GetComponent<Text>();
+        Upgrade_Gold = GameObject.Find("Upgrade_Gold").GetComponent<Text>();
+        Repair_Gold = GameObject.Find("Repair_Gold").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -88,14 +92,17 @@ public class Build_Panel : MonoBehaviour
     }
     public void LevelUp_Click()
     {
-        print(objectname);
         if (objectname.Contains("tower"))
         {
             if (GameObject.Find(objectname).GetComponent<Tower>().level < 25)
             {
                 GameObject.Find(objectname).GetComponent<Tower>().level += 1;
                 GameObject.Find(objectname).GetComponent<Tower>().max_hp += 10;
+                GameObject.Find(objectname).GetComponent<Tower>().basic_max_hp += 10;
                 GameObject.Find(objectname).GetComponent<Tower>().hp += 10;
+                GameObject.Find(objectname).GetComponent<Tower>().attack_val += 1;
+                GameObject.Find(objectname).GetComponent<Tower>().basic_attack_val += 1;
+                Upgrade_Gold.text = (100 + GameObject.Find(objectname).GetComponent<Tower>().level *100).ToString();
 
             }
         }
@@ -112,6 +119,7 @@ public class Build_Panel : MonoBehaviour
         if (objectname.Contains("tower"))
         {
             GameObject.Find(objectname).GetComponent<Tower>().hp = GameObject.Find(objectname).GetComponent<Tower>().max_hp; 
+
         }
         else if (objectname.Contains("fence"))
         {
@@ -154,6 +162,9 @@ public class Build_Panel : MonoBehaviour
         Info.text = "타워 정보" + System.Environment.NewLine + "최대 내구도 : " + max_hp + System.Environment.NewLine + "현재 내구도 : " + hp + System.Environment.NewLine + "공격력 : " + attack_val + System.Environment.NewLine + "속성 수 : " + slot_num;
         Level.text = "LV : " + level.ToString();
         Name.text = ObjectName;
+        Upgrade_Gold.text = (level*500+100).ToString();
+        int repair_gold = Mathf.RoundToInt((1-(hp / max_hp)) * 10000);
+        Repair_Gold.text = repair_gold.ToString();
         hpBar.value = (float) hp / (float) max_hp;
 
         if(level > 4)
@@ -210,6 +221,9 @@ public class Build_Panel : MonoBehaviour
         Level.text = "LV : " + level.ToString();
         Name.text = ObjectName;
         hpBar.value = (float) hp / (float) max_hp;
+        Upgrade_Gold.text = (level*300+100).ToString();
+        int repair_gold = Mathf.RoundToInt((1-(hp / max_hp)) * 5000);
+        Repair_Gold.text = repair_gold.ToString();
     }
     
     public void ResetBtn()

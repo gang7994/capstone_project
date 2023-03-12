@@ -213,7 +213,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  coolTime: 0.5
+  type: 0
+  towerAtk: 0
+  property_type: 
+  propertyAtk: 0
+  property_duration: 0
+  property_exhaust: 0
+  fireAtk: 2
+  lightningAtk: 1
+  iceAtk: 0
+  earthAtk: 0
+  fire_duration: 2
+  lightning_duration: 1
+  ice_duration: 2
+  earth_duration: 1
+  fire_exhaust: 0
+  lightning_exhaust: 0
+  ice_exhaust: 2
+  earth_exhaust: 0
   mat:
   - {fileID: 2100000, guid: 5b5ed2babbef61f489c84a5c11abeac8, type: 2}
   - {fileID: 2100000, guid: 7e2c78aff685b814481998ec6813b8d0, type: 2}
