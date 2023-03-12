@@ -11,9 +11,9 @@ public class Tower : MonoBehaviour
     public float    hp = 100f;
     public float    basic_attack_val = 10.0f;
     public float    attack_val = 0;
-    public float    basic_defence_val = 10.0;
+    public float    basic_defence_val = 10.0f;
     public float    defence_val = 0;
-    public float    basic_coolTime = 0.5f;
+    public float    basic_coolTime = 0.5f;  
     public float    coolTime = 0;
 
     public int      slot_num = 0;
@@ -189,7 +189,7 @@ public class Tower : MonoBehaviour
                 }
 
                 if(isFunction7) {
-                    coolTime = basic_coolTime + (basic_coolTime/10)*lightning_type_num;
+                    coolTime = basic_coolTime - (basic_coolTime/10)*lightning_type_num;
                 }
 
                 if(isFunction11) {
