@@ -16940,7 +16940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5177895029496917741, guid: d5ad137ba4085324a8dbd8dddb4e560f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5ad137ba4085324a8dbd8dddb4e560f, type: 3}
@@ -17546,7 +17546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
@@ -68373,6 +68373,22 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6186001389970025556, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
+      propertyPath: m_Height
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186001389970025556, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
+      propertyPath: m_Direction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334180578734362218, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
+      propertyPath: m_Radius
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334180578734362218, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7489988819297713771, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -68424,6 +68440,10 @@ PrefabInstance:
     - target: {fileID: 7489988819297804875, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489988819297804877, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
+      propertyPath: m_TagString
+      value: MonsterAttack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}

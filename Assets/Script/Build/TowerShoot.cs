@@ -35,7 +35,7 @@ public class TowerShoot : MonoBehaviour
    
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "Monster")
+        if (collision.tag == "MonsterAttack")
         {
 
             print("발사체 정보 " + towerAtk +"/"+ property_type +"/"+propertyAtk+"/"+ property_duration +"/"+ property_exhaust);
