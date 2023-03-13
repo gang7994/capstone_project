@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public int Health;
     bool isAttackKetInput;
     public bool isAttackReady, attack_time, check;
-    public GameObject sword, gun,shotgun;
+    /*public GameObject sword, gun,shotgun;*/
     public bool isSword, isGun, isShotgun;
     public GameObject bullet;
     public GameObject sw_btn, g_btn, sg_btn;
@@ -21,6 +21,12 @@ public class Player : MonoBehaviour
     public Sprite FireImage, LightImage, IceImage, EarthImage, WhiteImage;
     public GameObject health_bar;
     public GameObject health_text;
+    public Material Fire;
+    public Material Lightning;
+    public Material Ice;
+    public Material Earth;
+    public Material Normal;
+    public AudioSource audioSource;
 
     float stick_hAxis, stick_vAxis, key_hAxis, key_vAxis;
     float attackDelay;
@@ -44,15 +50,15 @@ public class Player : MonoBehaviour
         anim.SetBool("isSword", false);
         anim.SetBool("isGun", true);
         anim.SetBool("isShotgun", false);
-        sword.SetActive(false);
-        gun.SetActive(true);
         attackDelay = 1.0f;
         LevelUp_UI.SetActive(false);
         TypePanel.SetActive(false);
+        
     }
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         anim = GetComponentInChildren<Animator>();
     }
 
@@ -143,11 +149,34 @@ public class Player : MonoBehaviour
         {
             if (isAttackKetInput && isAttackReady && attack_time)
             {
+                int ran = Random.Range(0, 5);
+                if (Type[ran] == 0)
+                {
+                    bullet.GetComponent<MeshRenderer>().material = Normal;
+                }
+                else if (Type[ran] == 1)
+                {
+                    bullet.GetComponent<MeshRenderer>().material = Fire;
+                }
+                else if (Type[ran] == 2)
+                {
+                    bullet.GetComponent<MeshRenderer>().material = Lightning;
+                }
+                else if (Type[ran] == 3)
+                {
+                    bullet.GetComponent<MeshRenderer>().material = Ice;
+                }
+                else
+                {
+                    bullet.GetComponent<MeshRenderer>().material = Earth;
+                }
+
                 attackDelay = 0;
                 anim.SetBool("isShoot", true);
                 anim.SetBool("timeout", false);
                 GameObject temp = Instantiate(bullet, transform.position, Quaternion.identity);
                 temp.GetComponent<Bullet>().fire(transform.forward,true);
+                audioSource.Play();
                 
             }
             else if (attack_time)
@@ -189,7 +218,7 @@ public class Player : MonoBehaviour
         temp3.GetComponent<Bullet>().fire(transform.forward, false);
     }
 
-    public void changeSword()
+    /*public void changeSword()
     {
         if (!isSword && attack_time)
         {
@@ -251,7 +280,7 @@ public class Player : MonoBehaviour
             sw_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
             g_btn.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
         }
-    }
+    }*/
 
     public void ExitPanel()   // 특성선택 패널관리
     {

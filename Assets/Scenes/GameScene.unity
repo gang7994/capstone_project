@@ -16940,7 +16940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5177895029496917741, guid: d5ad137ba4085324a8dbd8dddb4e560f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5ad137ba4085324a8dbd8dddb4e560f, type: 3}
@@ -17615,10 +17615,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1888b329424fdae43817725b142435da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basic_max_hp: 100
   max_hp: 100
   hp: 100
+  basic_attack_val: 10
   attack_val: 10
+  basic_defence_val: 10
   defence_val: 0
+  basic_coolTime: 0.5
+  coolTime: 0.5
   slot_num: 0
   level: 0
   types: 0000000000000000000000000000000000000000
@@ -17640,7 +17645,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: aa552c16e4d871c49bd0ad62eec7bff3, type: 2}
   - {fileID: 2100000, guid: 16d625988a0b8954ba0fbb341eaa211b, type: 2}
   - {fileID: 2100000, guid: 7e2c78aff685b814481998ec6813b8d0, type: 2}
-  coolTime: 0.5
   attackRange: 30
   property_memory_run: 
   all_property:
@@ -36159,6 +36163,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1046604740990519548, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1046604740990519548, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5085128654992022193, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
       propertyPath: m_Name
       value: MainCharacter

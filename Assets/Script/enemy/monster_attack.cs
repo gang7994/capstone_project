@@ -17,22 +17,7 @@ public class monster_attack : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
-        {
-            if (GetComponentInParent<Monster_old>().isChase)
-            {
-                Vector3 reactVec = transform.parent.position;
-                anims.SetBool("isDamage", true);
-                GetComponentInParent<Monster_old>().curHealth -= 20;
-                StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                GetComponentInParent<Monster_old>().Delay = 1.0f;
-                Destroy(other.gameObject);
-            }
-            
-        }
-    }
+    
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
