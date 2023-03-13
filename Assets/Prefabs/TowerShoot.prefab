@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5884900616200047013}
   - component: {fileID: 6637924545126999836}
   - component: {fileID: -2340463959673984421}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TowerShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

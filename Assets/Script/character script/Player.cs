@@ -209,14 +209,14 @@ public class Player : MonoBehaviour
 
 
     }
-    void shotgunShoot() {
+    /*void shotgunShoot() {
         GameObject temp1 = Instantiate(bullet, transform.position, Quaternion.identity);
         GameObject temp2 = Instantiate(bullet, transform.position, Quaternion.Euler(0, -10f, 0));
         GameObject temp3 = Instantiate(bullet, transform.position, Quaternion.Euler(0, 10f, 0));
         temp1.GetComponent<Bullet>().fire(transform.forward, false);
         temp2.GetComponent<Bullet>().fire(transform.forward, false);
         temp3.GetComponent<Bullet>().fire(transform.forward, false);
-    }
+    }*/
 
     /*public void changeSword()
     {
