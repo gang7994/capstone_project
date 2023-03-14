@@ -6,6 +6,7 @@ public class UI : MonoBehaviour
 {
     public GameObject Option_Panel;
 
+
     public void Option_Button_Click()
     {
         Option_Panel.SetActive(true);
@@ -15,4 +16,12 @@ public class UI : MonoBehaviour
     {
         Option_Panel.SetActive(false);
     }
+
+    public void Paused() {
+        Time.timeScale = 0f;
+    }
+    public void Resumed() {
+        Time.timeScale = 1f;
+    }
+    
 }
