@@ -4,6 +4,7 @@ using UnityEngine;
 public class TowerShoot : MonoBehaviour
 {
     public GameObject target;
+    public Tower towerScript;
     public int type;
 
     public float towerAtk;
@@ -39,7 +40,7 @@ public class TowerShoot : MonoBehaviour
         {
 
             print("발사체 정보 " + towerAtk +"/"+ property_type +"/"+propertyAtk+"/"+ property_duration +"/"+ property_exhaust);
-            DestroyBullet();
+             DestroyBullet();
         }
     }
 
@@ -49,7 +50,13 @@ public class TowerShoot : MonoBehaviour
     }
 
     void DestroyBullet(){
-        Destroy(gameObject, 1f*Time.deltaTime);
+        try {
+            towerScript.ReturnObject(this.gameObject);
+        }
+        catch (System.NullReferenceException ex) {
+            Destroy(this.gameObject);
+        }
+        
     }
 
 }

@@ -34,6 +34,8 @@ public class Tower : MonoBehaviour
     
 
     public GameObject Bullet;
+    public int poolSize = 50;
+    public Queue<GameObject> bulletPool;
 
     public Transform FirePos;
 
@@ -74,6 +76,10 @@ public class Tower : MonoBehaviour
     
     void Start()
     { 
+        bulletPool = new Queue<GameObject>();
+        InitalizePool(poolSize);
+        
+
         types[0] = 0;
         types[1] = 0;
         types[2] = 0;
@@ -135,7 +141,7 @@ public class Tower : MonoBehaviour
         timer += Time.deltaTime;
         
         if(timer > coolTime){
-            AutoAttack(FirePos,collEnemys);
+            AutoAttack(FirePos, collEnemys);
             timer = 0.0f;
         }
         check_tower();
@@ -144,6 +150,20 @@ public class Tower : MonoBehaviour
         
         //string numbersString = string.Join(", ", property_memory_run);
         //Debug.Log(numbersString);
+    }
+
+    public void InitalizePool(int poolSize) {
+        
+        for(int i = 0; i < poolSize; i++){
+            GameObject bullet = Instantiate(Bullet);
+            bullet.SetActive(false);
+            bulletPool.Enqueue(bullet);
+        }
+    }
+
+    public void ReturnObject(GameObject bullet){
+        bullet.SetActive(false);
+        bulletPool.Enqueue(bullet);
     }
 
     public void Level_Manager(int level)
@@ -201,8 +221,19 @@ public class Tower : MonoBehaviour
                 }
                 
                 int type_num = Random_type_attack();
-                Bullet.GetComponent<TrailRenderer>().material = ranShoot[type_num];
-                GameObject bullet = Instantiate(Bullet, firePos.transform.position, firePos.transform.rotation);
+
+                if (bulletPool.Count == 0)
+                {
+                    GameObject bulletObj = Instantiate(Bullet);
+                    bulletObj.SetActive(false);
+                    bulletPool.Enqueue(bulletObj);
+                }
+                GameObject bullet = bulletPool.Dequeue();
+                bullet.transform.position = firePos.transform.position;
+                bullet.transform.rotation = firePos.transform.rotation;
+                bullet.SetActive(true);
+                
+                bullet.GetComponent<TrailRenderer>().material = ranShoot[type_num];
                 TowerShoot towerShoot = bullet.GetComponent<TowerShoot>(); 
                 towerShoot.target = go; 
                 if(type_num == 0) {
