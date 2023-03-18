@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 public Text gameTime;
 
 // 전체 제한 시간을 설정해준다. 여기서는 180초.
-float setTime = 180;
+public float setTime = 180;
 
 // 분단위와 초단위를 담당할 변수를 만들어준다.
 int min;

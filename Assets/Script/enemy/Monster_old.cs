@@ -18,6 +18,7 @@ public class Monster_old : MonoBehaviour
     bool isAttackDelay;
     float RoSpeed = 5;
     public float attack_time;
+    public bool target_check;
 
     Rigidbody rigid;
     SphereCollider collider;
@@ -34,7 +35,7 @@ public class Monster_old : MonoBehaviour
         isAttack = false;
         Delay = 0;
         isAttackDelay = false;
-
+        target_check = false;
         
 
         Invoke("ChaseStart", 2);
@@ -103,31 +104,61 @@ public class Monster_old : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other){
-        if (other.transform.tag == "Player")
+        if (!target_check)
         {
-            target = other.transform;
-            navi.velocity = Vector3.zero;
-            navi.stoppingDistance = 2;
+            if (other.transform.tag == "Player")
+            {
+                target = other.transform;
+                navi.velocity = Vector3.zero;
+                navi.stoppingDistance = 2;
+                target_check = true;
+            }
+            if (other.transform.tag == "Tower")
+            {
+                target = other.transform;
+                navi.velocity = Vector3.zero;
+                navi.stoppingDistance = 2;
+                target_check = true;
+            }
         }
+        
 
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.tag == "Player")
+        if (!target_check)
         {
-            target = other.transform;
-            navi.stoppingDistance = 2;
+            if (other.transform.tag == "Player")
+            {
+                target = other.transform;
+                navi.velocity = Vector3.zero;
+                navi.stoppingDistance = 2;
+                target_check = true;
+            }
+            if (other.transform.tag == "Tower")
+            {
+                target = other.transform;
+                navi.velocity = Vector3.zero;
+                navi.stoppingDistance = 2;
+                target_check = true;
+            }
         }
 
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.tag == "Player")
+        if (target_check)
         {
-            target = house.transform;
-            navi.velocity = Vector3.zero;
-            navi.stoppingDistance = 4f;
+            if(other.gameObject == target.gameObject)
+            {
+                target = house.transform;
+                navi.velocity = Vector3.zero;
+                navi.stoppingDistance = 4f;
+                target_check = false;
+            }
+
         }
+        
     }
 
     public IEnumerator OnDamage(Vector3 reactVec)
@@ -150,7 +181,9 @@ public class Monster_old : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("MonsterDied");
             navi.isStopped = true;
             navi.velocity = Vector3.zero;
+            navi.speed = 0;
             isChase = false;
+            target = null;
             Destroy(gameObject, 3);
             Debug.Log("몬스터 사망2");
         }
@@ -159,6 +192,9 @@ public class Monster_old : MonoBehaviour
     public void MonsterAttack()
     {
         anim.SetBool("isAttack", true);
+        navi.isStopped = true;
+        navi.velocity = Vector3.zero;
+        navi.speed = 0;
         isAttackDelay = true;
         Attack_range.GetComponent<Attack_range>().attack = true;
         Debug.Log("몬스터 공격");
@@ -166,6 +202,8 @@ public class Monster_old : MonoBehaviour
     }
     void AttackDelay()
     {
+        navi.isStopped = false;
+        navi.speed = 2;
         anim.SetBool("isAttack", false);
         Attack_range.GetComponent<Attack_range>().attack = false;
         isAttackDelay = false;
