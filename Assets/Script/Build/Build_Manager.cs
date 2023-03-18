@@ -23,7 +23,9 @@ public class Build_Manager : MonoBehaviour
     public Transform tilePrefab;
     public Vector2 mapSize;
     public int[,] build_Position = new int[13, 21];
-
+    public int[,] fence_vertical_position = new int[13,22];
+    
+    public int[,] fence_horizontal_position = new int[14,21];
     [Range(0,1)]
     public float outlinePercent;
 
@@ -46,6 +48,22 @@ public class Build_Manager : MonoBehaviour
             for (int j = 0; j < (int)mapSize.x; j++)
             {
                 build_Position[i, j] = 0;
+            }
+        }
+
+        for (int i = 0; i < (int)mapSize.y+1; i++)
+        {
+            for (int j = 0; j < (int)mapSize.x; j++)
+            {
+                fence_horizontal_position[i, j] = 0;
+            }
+        }
+
+        for (int i = 0; i < (int)mapSize.y; i++)
+        {
+            for (int j = 0; j < (int)mapSize.x; j++)
+            {
+                fence_vertical_position[i, j] = 0;
             }
         }
     }

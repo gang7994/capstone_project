@@ -21,7 +21,7 @@ public class Fence_Move : MonoBehaviour
     }
     public void init_position()
     {
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = new Vector3(0, 0, 1.5f);
         transform.localEulerAngles = new Vector3(0,0,0);
         IsBuild_Fence();
     }
@@ -58,15 +58,45 @@ public class Fence_Move : MonoBehaviour
     {
         if (BuildMod_UI.activeSelf == true)
         {
-            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[(int)transform.position.z / 3 + 6, (int)transform.position.x / 3 + 10] == 1){
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = false;
-                Renderer rd = this.GetComponent<MeshRenderer>();
-                rd.material = cannot_build[0];
+            if(GameObject.Find("Rotate").GetComponent<Build_UI>().inclined){
+                if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[(int)transform.position.z / 3 + 6, (int)transform.position.x / 3 + 10] == 1 || 
+                Mathf.Abs(gameObject.transform.position.x)>=32 ||Mathf.Abs(gameObject.transform.position.z)>=20 ){
+                    GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = false;
+                    Renderer rd = this.GetComponent<MeshRenderer>();
+                    rd.material = cannot_build[0];
+                
+            }
+                else{
+                    GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = true;
+                    Renderer rd = this.GetComponent<MeshRenderer>();
+                    rd.material = can_build[0];
+                }
             }
             else{
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = true;
-                Renderer rd = this.GetComponent<MeshRenderer>();
-                rd.material = can_build[0];
+                if(GameObject.Find("Rotate").GetComponent<Build_UI>().horizontal){
+                    if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().fence_horizontal_position[(int)(transform.position.z+3/2) / 3 + 6, (int)transform.position.x / 3 + 10] == 1){
+                        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = false;
+                        Renderer rd = this.GetComponent<MeshRenderer>();
+                        rd.material = cannot_build[0];
+                    }
+                    else{
+                        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = true;
+                        Renderer rd = this.GetComponent<MeshRenderer>();
+                        rd.material = can_build[0];
+                    }
+                }
+                else{
+                    if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().fence_vertical_position[(int)transform.position.z / 3 + 6, (int)(transform.position.x+3/2) / 3 + 10] == 1){
+                        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = false;
+                        Renderer rd = this.GetComponent<MeshRenderer>();
+                        rd.material = cannot_build[0];
+                    }
+                    else{
+                        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = true;
+                        Renderer rd = this.GetComponent<MeshRenderer>();
+                        rd.material = can_build[0];
+                    }
+                }
             }
         }
     }

@@ -3451,11 +3451,15 @@ MonoBehaviour:
   fence_prefab: {fileID: 1032890875}
   move_button: {fileID: 527337711}
   build_button: {fileID: 695121974}
+  rotate_button: {fileID: 1974775898}
   tower_base:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   fence_base: {fileID: 0}
+  inclined: 0
+  horizontal: 1
+  rotate_count: 0
 --- !u!1 &98101903
 GameObject:
   m_ObjectHideFlags: 0
@@ -14391,6 +14395,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 432238138}
+        m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
+        m_MethodName: onClick3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &432238136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14445,11 +14461,15 @@ MonoBehaviour:
   fence_prefab: {fileID: 1032890875}
   move_button: {fileID: 527337711}
   build_button: {fileID: 695121974}
+  rotate_button: {fileID: 1974775898}
   tower_base:
   - {fileID: 7555185752953191562, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
   - {fileID: 2002842263116201729, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
   - {fileID: -3632132094842907418, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
   fence_base: {fileID: 0}
+  inclined: 0
+  horizontal: 1
+  rotate_count: 0
 --- !u!1 &433650642
 GameObject:
   m_ObjectHideFlags: 0
@@ -17650,6 +17670,7 @@ MonoBehaviour:
   earth_weight: 0
   select_number: 0
   Bullet: {fileID: 106171586205478491, guid: daa5276980872a14e80e0fb78c6f49ca, type: 3}
+  poolSize: 50
   FirePos: {fileID: 786160017}
   ranShoot:
   - {fileID: 2100000, guid: ffc76947a32ac8040a67af5770cf79d1, type: 2}
@@ -19924,11 +19945,15 @@ MonoBehaviour:
   fence_prefab: {fileID: 1032890875}
   move_button: {fileID: 527337711}
   build_button: {fileID: 695121974}
+  rotate_button: {fileID: 1974775898}
   tower_base:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   fence_base: {fileID: 0}
+  inclined: 0
+  horizontal: 1
+  rotate_count: 0
 --- !u!1 &577313821
 GameObject:
   m_ObjectHideFlags: 0
@@ -24649,11 +24674,15 @@ MonoBehaviour:
   fence_prefab: {fileID: 1032890875}
   move_button: {fileID: 527337711}
   build_button: {fileID: 695121974}
+  rotate_button: {fileID: 1974775898}
   tower_base:
   - {fileID: 7555185752953191562, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
   - {fileID: 2002842263116201729, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
   - {fileID: -3632132094842907418, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
   fence_base: {fileID: 2100000, guid: 9287528150253d643bab4454d33ac3e7, type: 2}
+  inclined: 0
+  horizontal: 1
+  rotate_count: 0
 --- !u!1 &697332164
 GameObject:
   m_ObjectHideFlags: 0
@@ -40017,11 +40046,15 @@ MonoBehaviour:
   fence_prefab: {fileID: 1032890875}
   move_button: {fileID: 527337711}
   build_button: {fileID: 695121974}
+  rotate_button: {fileID: 1974775898}
   tower_base:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   fence_base: {fileID: 0}
+  inclined: 0
+  horizontal: 1
+  rotate_count: 0
 --- !u!1 &1148190680 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2099174123423218066, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
@@ -67166,11 +67199,15 @@ MonoBehaviour:
   fence_prefab: {fileID: 1032890875}
   move_button: {fileID: 527337711}
   build_button: {fileID: 695121974}
+  rotate_button: {fileID: 1974775898}
   tower_base:
   - {fileID: 7555185752953191562, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
   - {fileID: 2002842263116201729, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
   - {fileID: -3632132094842907418, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
   fence_base: {fileID: 0}
+  inclined: 0
+  horizontal: 1
+  rotate_count: 0
 --- !u!114 &1974775901
 MonoBehaviour:
   m_ObjectHideFlags: 0
