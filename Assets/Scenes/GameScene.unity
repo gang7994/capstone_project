@@ -2202,7 +2202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2099174123526248704, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
       propertyPath: m_Text
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2099174123526248704, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
       propertyPath: m_FontData.m_Font
@@ -2310,12 +2310,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 55570147}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04a0c3673b152e3428eb3cf3443bc37f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TargetImage: {fileID: 55570148}
+--- !u!224 &55570150 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2099174123526248705, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
+  m_PrefabInstance: {fileID: 55570145}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &56936039
 GameObject:
   m_ObjectHideFlags: 0
@@ -17650,6 +17655,7 @@ MonoBehaviour:
   earth_weight: 0
   select_number: 0
   Bullet: {fileID: 106171586205478491, guid: daa5276980872a14e80e0fb78c6f49ca, type: 3}
+  poolSize: 50
   FirePos: {fileID: 786160017}
   ranShoot:
   - {fileID: 2100000, guid: ffc76947a32ac8040a67af5770cf79d1, type: 2}
@@ -40040,6 +40046,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Daylight: {fileID: 1453881650}
+  Number: {fileID: 55570150}
+  roundTime: 180
+  isStop: 0
 --- !u!1 &1148300918
 GameObject:
   m_ObjectHideFlags: 0
