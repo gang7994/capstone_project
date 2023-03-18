@@ -18,7 +18,7 @@ public class Monster_hit : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+        /*if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
@@ -26,10 +26,10 @@ public class Monster_hit : MonoBehaviour
                 anims.SetBool("isDamage", true);
                 GetComponentInParent<Monster_old>().curHealth -= 20;
                 StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                GetComponentInParent<Monster_old>().Delay = 1.0f;
+                GetComponentInParent<Monster_old>().Delay = 1.8f;
                 Destroy(other.gameObject);
             }
 
-        }
+        }*/
     }
 }
