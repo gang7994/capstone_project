@@ -61,7 +61,7 @@ public class Build_Manager : MonoBehaviour
 
         for (int i = 0; i < (int)mapSize.y; i++)
         {
-            for (int j = 0; j < (int)mapSize.x; j++)
+            for (int j = 0; j < (int)mapSize.x+1; j++)
             {
                 fence_vertical_position[i, j] = 0;
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Build_UI : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class Build_UI : MonoBehaviour
         fence_prefab.SetActive(false);
         move_button.SetActive(true);
         build_button.SetActive(true);
+        rotate_button.SetActive(false);
         inclined = false;
         rotate_count = 0;
         horizontal = true;
@@ -43,9 +45,9 @@ public class Build_UI : MonoBehaviour
         move_button.SetActive(true);
         build_button.SetActive(true);
         rotate_button.SetActive(true);
-        GameObject.Find("Rotate").GetComponent<Build_UI>().rotate_count = 0;
-        GameObject.Find("Rotate").GetComponent<Build_UI>().inclined = false;
-        GameObject.Find("Rotate").GetComponent<Build_UI>().horizontal = true;
+        GameObject.Find("Building_Inspector").GetComponent<Build_UI>().rotate_count = 0;
+        GameObject.Find("Building_Inspector").GetComponent<Build_UI>().inclined = false;
+        GameObject.Find("Building_Inspector").GetComponent<Build_UI>().horizontal = true;
     }
 
     public void onClick3() //Exit ��ư Ŭ���� ����
@@ -69,8 +71,14 @@ public class Build_UI : MonoBehaviour
             inclined = !inclined;
             rotate_count += 1;
             if(rotate_count%2 == 0) horizontal = !horizontal;
-            if(rotate_count == 4) rotate_count = 0;
+            if(rotate_count == 4) {
+        //        fence_prefab.transform.Rotate(new Vector3(0,-180f,0));
+         //       fence_prefab.transform.Translate(new Vector3(3,0,0));
+                rotate_count = 0;
+            }
         }
+        fence_prefab.GetComponent<Fence_Move>().IsBuild_Fence();
+        
     }
 
     public void SetUp()
@@ -95,7 +103,7 @@ public class Build_UI : MonoBehaviour
         {
             if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild)
             {
-                if(inclined){
+                if(GameObject.Find("Building_Inspector").GetComponent<Build_UI>().inclined){
                     GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddFence();
                     fence_prefab.GetComponent<MeshRenderer>().material = fence_base;
                     GameObject fence = Instantiate(fence_prefab);
@@ -103,10 +111,11 @@ public class Build_UI : MonoBehaviour
                     fence.name = $"fence{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
                     fence.tag = "Fence";
                     GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
-                    GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[(int)fence.transform.position.z / 3 + 6, (int)fence.transform.position.x / 3 + 10] = 1;
+                    GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Convert.ToInt32(fence.transform.position.z) / 3 + 6, Convert.ToInt32(fence.transform.position.x) / 3 + 10] = 1;
                 }
+                
                 else {
-                    if(horizontal){
+                    if(GameObject.Find("Building_Inspector").GetComponent<Build_UI>().horizontal){
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddFence();
                         fence_prefab.GetComponent<MeshRenderer>().material = fence_base;
                         GameObject fence = Instantiate(fence_prefab);
@@ -114,7 +123,7 @@ public class Build_UI : MonoBehaviour
                         fence.name = $"fence{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
                         fence.tag = "Fence";
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
-                        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().fence_horizontal_position[((int)fence.transform.position.z+3/2) / 3 + 6, (int)fence.transform.position.x / 3 + 10] = 1;
+                        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().fence_horizontal_position[Convert.ToInt32(fence.transform.position.z+1.5) / 3 + 6, Convert.ToInt32(fence.transform.position.x) / 3 + 10] = 1;
                     }
                     else{
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddFence();
@@ -124,7 +133,7 @@ public class Build_UI : MonoBehaviour
                         fence.name = $"fence{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
                         fence.tag = "Fence";
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
-                        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().fence_vertical_position[(int)fence.transform.position.z / 3 + 6, ((int)fence.transform.position.x+3/2) / 3 + 10] = 1;
+                        GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().fence_vertical_position[Convert.ToInt32(fence.transform.position.z / 3) + 6, Convert.ToInt32(fence.transform.position.x+1.5) / 3 + 10] = 1;
                     }
                 }
             }
@@ -135,6 +144,7 @@ public class Build_UI : MonoBehaviour
         tower_prefab.SetActive(false);
         move_button.SetActive(false);
         build_button.SetActive(false);
+        rotate_button.SetActive(false);
     }
     
 
