@@ -17719,7 +17719,11 @@ MonoBehaviour:
   - {fileID: 2100000, guid: aa552c16e4d871c49bd0ad62eec7bff3, type: 2}
   - {fileID: 2100000, guid: 16d625988a0b8954ba0fbb341eaa211b, type: 2}
   - {fileID: 2100000, guid: 7e2c78aff685b814481998ec6813b8d0, type: 2}
+  - {fileID: 2100000, guid: ebda0ea799a1edb4abc23eabf2adfc9d, type: 2}
+  - {fileID: 2100000, guid: 6b118820e83244040bd5ac81ed500bac, type: 2}
   attackRange: 30
+  fireCriticalNum: 0
+  lightningCriticalNum: 0
   property_memory_run: 
   all_property:
   - 1F0

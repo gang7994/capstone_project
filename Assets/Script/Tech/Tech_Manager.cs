@@ -50,19 +50,19 @@ public class Tech_Manager : MonoBehaviour
 
         foreach (string line_tower in lines_tower)
         {
-            string[] words = line_tower.Split('\t');
+            string[] words = line_tower.Split('|');
             tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "1", words[4] }); //Ƽ��, �Ӽ�, �̸�, ����, ����, �ε���
         }
 
         foreach (string line_public in lines_public)
         {
-            string[] words = line_public.Split('\t');
+            string[] words = line_public.Split('|');
             tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "1", words[4] }); //Ƽ��, �Ӽ�, �̸�, ����, ����, �ε���
         }
 
         foreach (string line_weapon in lines_weapon)
         {
-            string[] words = line_weapon.Split('\t');
+            string[] words = line_weapon.Split('|');
             tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "1", words[4] }); //Ƽ��, �Ӽ�, �̸�, ����, ����, �ε���
         }
 
@@ -78,6 +78,7 @@ public class Tech_Manager : MonoBehaviour
             Unlock_TowerTech_2();
             ulock_tower_tech_2 = true;
         }
+        /*
         if (tower_tech_fire >= 3 && !unlock_tower_tech_3_fire) //타워 특성 1,2티어 10개 선택하면 3단계 특성해금
         {
             Unlock_TowerTech_3_Fire();
@@ -98,7 +99,7 @@ public class Tech_Manager : MonoBehaviour
             Unlock_TowerTech_3_Earth();
             unlock_tower_tech_3_earth = true;
         }
-
+*/
         if (public_tech_tier1 >= 10 && !ulock_public_tech_2)
         {
             Unlock_PublicTech_2();
@@ -181,7 +182,7 @@ public class Tech_Manager : MonoBehaviour
 
         foreach (string line_tower in lines_tower2)
         {
-            string[] words = line_tower.Split('\t');
+            string[] words = line_tower.Split('|');
             print(words);
             tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
@@ -194,7 +195,7 @@ public class Tech_Manager : MonoBehaviour
 
         foreach (string line_tower in lines_tower3)
         {
-            string[] words = line_tower.Split('\t');
+            string[] words = line_tower.Split('|');
             tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
@@ -205,7 +206,7 @@ public class Tech_Manager : MonoBehaviour
 
         foreach (string line_tower in lines_tower3)
         {
-            string[] words = line_tower.Split('\t');
+            string[] words = line_tower.Split('|');
             tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
@@ -216,7 +217,7 @@ public class Tech_Manager : MonoBehaviour
 
         foreach (string line_tower in lines_tower3)
         {
-            string[] words = line_tower.Split('\t');
+            string[] words = line_tower.Split('|');
             tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
@@ -227,7 +228,7 @@ public class Tech_Manager : MonoBehaviour
 
         foreach (string line_tower in lines_tower3)
         {
-            string[] words = line_tower.Split('\t');
+            string[] words = line_tower.Split('|');
             tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
@@ -239,7 +240,7 @@ public class Tech_Manager : MonoBehaviour
 
         foreach (string line_public in lines_public2)
         {
-            string[] words = line_public.Split('\t');
+            string[] words = line_public.Split('|');
             tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
@@ -250,7 +251,7 @@ public class Tech_Manager : MonoBehaviour
 
         foreach (string line_public in lines_public3)
         {
-            string[] words = line_public.Split('\t');
+            string[] words = line_public.Split('|');
             tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
@@ -262,7 +263,7 @@ public class Tech_Manager : MonoBehaviour
 
         foreach (string line_weapon in lines_weapon2)
         {
-            string[] words = line_weapon.Split('\t');
+            string[] words = line_weapon.Split('|');
             tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
@@ -273,7 +274,7 @@ public class Tech_Manager : MonoBehaviour
 
         foreach (string line_weapon in lines_weapon3)
         {
-            string[] words = line_weapon.Split('\t');
+            string[] words = line_weapon.Split('|');
             tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
@@ -284,7 +285,7 @@ public class Tech_Manager : MonoBehaviour
 
         foreach (string line_weapon in lines_weapon3)
         {
-            string[] words = line_weapon.Split('\t');
+            string[] words = line_weapon.Split('|');
             tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
@@ -295,7 +296,7 @@ public class Tech_Manager : MonoBehaviour
 
         foreach (string line_weapon in lines_weapon3)
         {
-            string[] words = line_weapon.Split('\t');
+            string[] words = line_weapon.Split('|');
             tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
@@ -306,7 +307,7 @@ public class Tech_Manager : MonoBehaviour
 
         foreach (string line_weapon in lines_weapon3)
         {
-            string[] words = line_weapon.Split('\t');
+            string[] words = line_weapon.Split('|');
             tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }

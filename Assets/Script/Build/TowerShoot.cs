@@ -40,7 +40,7 @@ public class TowerShoot : MonoBehaviour
         {
 
             print("발사체 정보 " + towerAtk +"/"+ property_type +"/"+propertyAtk+"/"+ property_duration +"/"+ property_exhaust);
-             DestroyBullet();
+            DestroyBullet();
         }
     }
 
