@@ -25,16 +25,16 @@ public class Tech_Manager : MonoBehaviour
     List<List<string>> tech_weapon = new List<List<string>>();
 
     public List<List<string>> select_tech_tower = new List<List<string>>();
-    bool ulock_tower_tech_2 = false, unlock_tower_tech_3 = false;
-    int tower_tech_tier1 = 0, tower_tech_tier2 = 0;
+    bool ulock_tower_tech_2 = false, unlock_tower_tech_3_fire = false, unlock_tower_tech_3_lightning = false, unlock_tower_tech_3_ice = false, unlock_tower_tech_3_earth = false;
+    int tower_tech_tier1 = 0, tower_tech_fire = 0, tower_tech_lightning = 0, tower_tech_ice = 0, tower_tech_earth = 0;
 
     public List<List<string>> select_tech_public = new List<List<string>>();
     bool ulock_public_tech_2 = false, unlock_public_tech_3 = false;
     int public_tech_tier1 = 0, public_tech_tier2 = 0;
 
     public List<List<string>> select_tech_weapon = new List<List<string>>();
-    bool ulock_weapon_tech_2 = false, unlock_weapon_tech_3 = false;
-    int weapon_tech_tier1 = 0, weapon_tech_tier2 = 0;
+    bool ulock_weapon_tech_2 = false, unlock_weapon_tech_3_fire = false, unlock_weapon_tech_3_lightning = false, unlock_weapon_tech_3_ice = false, unlock_weapon_tech_3_earth = false;
+    int weapon_tech_tier1 = 0, weapon_tech_fire = 0, weapon_tech_lightning = 0, weapon_tech_ice = 0, weapon_tech_earth = 0;
 
     public Image panel_Image0, panel_Image1, panel_Image2;
 
@@ -66,42 +66,74 @@ public class Tech_Manager : MonoBehaviour
             tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "1", words[4] }); //Ƽ��, �Ӽ�, �̸�, ����, ����, �ε���
         }
 
-        //������ �� �Լ� �۵�
+
         content0.onClick.AddListener(() => display("left"));
         content1.onClick.AddListener(() => display("mid"));
         content2.onClick.AddListener(() => display("right"));
     }
     void Update()
     {
-        if (tower_tech_tier1 >= 10 && !ulock_tower_tech_2)
-        { //Ÿ����ũ Ƽ��2�� �ر� ����(Ƽ�� 1�� 10�� �̻� ������ �Ǹ� �ر�)
+        if (tower_tech_tier1 >= 10 && !ulock_tower_tech_2) //타워 특성 1티어 10개 선택하면 2단계 특성해금
+        { 
             Unlock_TowerTech_2();
             ulock_tower_tech_2 = true;
         }
-        if (tower_tech_tier2 >= 3 && !unlock_tower_tech_3) //Ÿ����ũ Ƽ��3�� �ر� ����(Ƽ�� 2�� 3�� �̻� ������ �Ǹ� �ر�)
+        if (tower_tech_fire >= 3 && !unlock_tower_tech_3_fire) //타워 특성 1,2티어 10개 선택하면 3단계 특성해금
         {
-            Unlock_TowerTech_3();
-            unlock_tower_tech_3 = true;
+            Unlock_TowerTech_3_Fire();
+            unlock_tower_tech_3_fire = true;
         }
-        if (public_tech_tier1 >= 10 && !ulock_public_tech_2) //������ũ Ƽ��2�� �ر� ����(Ƽ�� 1�� 10�� �̻� ������ �Ǹ� �ر�)
+        if (tower_tech_lightning >= 10 && !unlock_tower_tech_3_lightning) 
+        {
+            Unlock_TowerTech_3_Lightning();
+            unlock_tower_tech_3_lightning = true;
+        }
+        if (tower_tech_ice >= 10 && !unlock_tower_tech_3_ice) 
+        {
+            Unlock_TowerTech_3_Ice();
+            unlock_tower_tech_3_ice = true;
+        }
+        if (tower_tech_earth >= 10 && !unlock_tower_tech_3_earth) 
+        {
+            Unlock_TowerTech_3_Earth();
+            unlock_tower_tech_3_earth = true;
+        }
+
+        if (public_tech_tier1 >= 10 && !ulock_public_tech_2)
         {
             Unlock_PublicTech_2();
             ulock_public_tech_2 = true;
         }
-        if (public_tech_tier2 >= 3 && !unlock_public_tech_3) //������ũ Ƽ��3�� �ر� ����(Ƽ�� 2�� 3�� �̻� ������ �Ǹ� �ر�)
+        if (public_tech_tier2 >= 3 && !unlock_public_tech_3)
         {
             Unlock_PublicTech_3();
             unlock_public_tech_3 = true;
         }
-        if (weapon_tech_tier1 >= 10 && !ulock_weapon_tech_2) //������ũ Ƽ��2�� �ر� ����(Ƽ�� 1�� 10�� �̻� ������ �Ǹ� �ر�)
+
+        if (weapon_tech_tier1 >= 10 && !ulock_weapon_tech_2) //무기 특성 1티어 10개 선택하면 2단계 특성해금
         {
             Unlock_WeaponTech_2();
             ulock_weapon_tech_2 = true;
         }
-        if (weapon_tech_tier2 >= 3 && !unlock_weapon_tech_3) //������ũ Ƽ��3�� �ر� ����(Ƽ�� 2�� 3�� �̻� ������ �Ǹ� �ر�)
+        if (weapon_tech_fire >= 10 && !unlock_weapon_tech_3_fire) //타워 특성 1,2티어 10개 선택하면 3단계 특성해금
         {
-            Unlock_WeaponTech_3();
-            unlock_weapon_tech_3 = true;
+            Unlock_WeaponTech_3_Fire();
+            unlock_weapon_tech_3_fire = true;
+        }
+        if (weapon_tech_lightning >= 10 && !unlock_weapon_tech_3_lightning)
+        {
+            Unlock_WeaponTech_3_Lightning();
+            unlock_weapon_tech_3_lightning = true;
+        }
+        if (weapon_tech_ice >= 10 && !unlock_weapon_tech_3_ice)
+        {
+            Unlock_WeaponTech_3_Ice();
+            unlock_weapon_tech_3_ice = true;
+        }
+        if (weapon_tech_earth >= 10 && !unlock_weapon_tech_3_earth)
+        {
+            Unlock_WeaponTech_3_Earth();
+            unlock_weapon_tech_3_earth = true;
         }
     }
 
@@ -141,9 +173,9 @@ public class Tech_Manager : MonoBehaviour
         TechManager_Panel.SetActive(false);
     }
 
-    public void Unlock_TowerTech_2() //Ÿ�� ��ũ Ƽ�� 2 �ر�
+
+    public void Unlock_TowerTech_2() //타워 테크 2티어 해금 함수
     {
-        print("�ر�2");
         TextAsset towerTech2 = Resources.Load<TextAsset>("TowerTech2");
         string[] lines_tower2 = towerTech2.text.Split('\n');
 
@@ -151,71 +183,135 @@ public class Tech_Manager : MonoBehaviour
         {
             string[] words = line_tower.Split('\t');
             print(words);
-            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Ƽ��, �Ӽ�, �̸�, ����, ����, �ε���
+            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
-    public void Unlock_TowerTech_3() //Ÿ�� ��ũ Ƽ�� 3 �ر�
+    public void Unlock_TowerTech_3_Fire() //타워 테크 3티어 불속성 해금 함수
     {
-        print("�ر�3");
-        TextAsset towerTech3 = Resources.Load<TextAsset>("TowerTech3");
+        print("타워 불속성 3티어 해금");
+        TextAsset towerTech3 = Resources.Load<TextAsset>("TowerTech3_F");
         string[] lines_tower3 = towerTech3.text.Split('\n');
 
         foreach (string line_tower in lines_tower3)
         {
             string[] words = line_tower.Split('\t');
-            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Ƽ��, �Ӽ�, �̸�, ����, ����, �ε���
+            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
-
-    public void Unlock_PublicTech_2() //���� ��ũ Ƽ�� 2 �ر�
+    public void Unlock_TowerTech_3_Lightning() //타워 테크 3티어 전기속성 해금 함수
     {
-        print("�ر�2");
+        TextAsset towerTech3 = Resources.Load<TextAsset>("TowerTech3_L");
+        string[] lines_tower3 = towerTech3.text.Split('\n');
+
+        foreach (string line_tower in lines_tower3)
+        {
+            string[] words = line_tower.Split('\t');
+            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
+        }
+    }
+    public void Unlock_TowerTech_3_Ice()  //타워 테크 3티어 얼음속성 해금 함수
+    {
+        TextAsset towerTech3 = Resources.Load<TextAsset>("TowerTech3_I");
+        string[] lines_tower3 = towerTech3.text.Split('\n');
+
+        foreach (string line_tower in lines_tower3)
+        {
+            string[] words = line_tower.Split('\t');
+            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
+        }
+    }
+    public void Unlock_TowerTech_3_Earth() //타워 테크 3티어 대지속성 해금 함수
+    {
+        TextAsset towerTech3 = Resources.Load<TextAsset>("TowerTech3_E");
+        string[] lines_tower3 = towerTech3.text.Split('\n');
+
+        foreach (string line_tower in lines_tower3)
+        {
+            string[] words = line_tower.Split('\t');
+            tech_tower.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
+        }
+    }
+    
+    public void Unlock_PublicTech_2() //공용 테크 2티어 해금 함수
+    {
         TextAsset publicTech2 = Resources.Load<TextAsset>("PublicTech2");
         string[] lines_public2 = publicTech2.text.Split('\n');
 
         foreach (string line_public in lines_public2)
         {
             string[] words = line_public.Split('\t');
-            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Ƽ��, �Ӽ�, �̸�, ����, ����, �ε���
+            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
-    public void Unlock_PublicTech_3() //���� ��ũ Ƽ�� 3 �ر�
+    public void Unlock_PublicTech_3() //공용 테크 3티어 해금 함수
     {
-        print("�ر�3");
         TextAsset publicTech3 = Resources.Load<TextAsset>("PublicTech3");
         string[] lines_public3 = publicTech3.text.Split('\n');
 
         foreach (string line_public in lines_public3)
         {
             string[] words = line_public.Split('\t');
-            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Ƽ��, �Ӽ�, �̸�, ����, ����, �ε���
+            tech_public.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
 
-    public void Unlock_WeaponTech_2() //���� ��ũ Ƽ�� 2 �ر�
+    public void Unlock_WeaponTech_2() //무기 테크 2티어 해금 함수
     {
-        print("�ر�2");
         TextAsset weaponTech2 = Resources.Load<TextAsset>("WeaponTech2");
         string[] lines_weapon2 = weaponTech2.text.Split('\n');
 
         foreach (string line_weapon in lines_weapon2)
         {
             string[] words = line_weapon.Split('\t');
-            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Ƽ��, �Ӽ�, �̸�, ����, ����, �ε���
+            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "2", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
-    public void Unlock_WeaponTech_3() //���� ��ũ Ƽ�� 3 �ر�
+    public void Unlock_WeaponTech_3_Fire() //무기 테크 3티어 불속성 해금 함수
     {
-        print("�ر�3");
-        TextAsset weaponTech3 = Resources.Load<TextAsset>("WeaponTech3");
+        TextAsset weaponTech3 = Resources.Load<TextAsset>("WeaponTech3_F");
         string[] lines_weapon3 = weaponTech3.text.Split('\n');
 
         foreach (string line_weapon in lines_weapon3)
         {
             string[] words = line_weapon.Split('\t');
-            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Ƽ��, �Ӽ�, �̸�, ����, ����, �ε���
+            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
         }
     }
+    public void Unlock_WeaponTech_3_Lightning() //무기 테크 3티어 전기속성 해금 함수
+    {
+        TextAsset weaponTech3 = Resources.Load<TextAsset>("WeaponTech3_L");
+        string[] lines_weapon3 = weaponTech3.text.Split('\n');
+
+        foreach (string line_weapon in lines_weapon3)
+        {
+            string[] words = line_weapon.Split('\t');
+            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
+        }
+    }
+    public void Unlock_WeaponTech_3_Ice() //무기 테크 3티어 얼음속성 해금 함수
+    {
+        TextAsset weaponTech3 = Resources.Load<TextAsset>("WeaponTech3_I");
+        string[] lines_weapon3 = weaponTech3.text.Split('\n');
+
+        foreach (string line_weapon in lines_weapon3)
+        {
+            string[] words = line_weapon.Split('\t');
+            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
+        }
+    }
+    public void Unlock_WeaponTech_3_Earth() //무기 테크 3티어 대지속성 해금 함수
+    {
+        TextAsset weaponTech3 = Resources.Load<TextAsset>("WeaponTech3_E");
+        string[] lines_weapon3 = weaponTech3.text.Split('\n');
+
+        foreach (string line_weapon in lines_weapon3)
+        {
+            string[] words = line_weapon.Split('\t');
+            tech_weapon.Add(new List<string> { words[0], words[1], words[2], words[3], "3", words[4] }); //Tier, Property, Name, Content, Number, Index
+        }
+    }
+
+
 
     public void Tech_Display_Panel()
     {
@@ -223,12 +319,11 @@ public class Tech_Manager : MonoBehaviour
         rand_public = Random.Range(0, tech_public.Count);
         rand_weapon = Random.Range(0, tech_weapon.Count);
 
-        left = tech_tower[rand_tower][3]; //����
+        left = tech_tower[rand_tower][3]; 
         mid = tech_public[rand_public][3];
         right = tech_weapon[rand_weapon][3];
 
-        //Ÿ��
-        //Ƽ� ���� ī�� �׵θ��� ����
+        //Tower
         if (tech_tower[rand_tower][0] == "1") panel_Image0.color = new Color(0.2f, 0.3f, 0.6f, 1.0f);
         else if (tech_tower[rand_tower][0] == "2") panel_Image0.color = new Color(0.3f, 0.65f, 0.4f, 1.0f);
         else panel_Image0.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
@@ -237,8 +332,7 @@ public class Tech_Manager : MonoBehaviour
         name0.text = tech_tower[rand_tower][2];
         text0.text = left;
 
-        //����
-        //Ƽ� ���� ī�� �׵θ��� ����
+        //Public
         if (tech_public[rand_public][0] == "1") panel_Image1.color = new Color(0.2f, 0.3f, 0.6f, 1.0f);
         else if (tech_public[rand_public][0] == "2") panel_Image1.color = new Color(0.3f, 0.65f, 0.4f, 1.0f);
         else panel_Image1.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
@@ -247,13 +341,12 @@ public class Tech_Manager : MonoBehaviour
         name1.text = tech_public[rand_public][2];
         text1.text = mid;
 
-        //����
-        //Ƽ� ���� ī�� �׵θ��� ����
+        //Weapon
         if (tech_weapon[rand_weapon][0] == "1") panel_Image2.color = new Color(0.2f, 0.3f, 0.6f, 1.0f);
         else if (tech_weapon[rand_weapon][0] == "2") panel_Image2.color = new Color(0.3f, 0.65f, 0.4f, 1.0f);
         else panel_Image2.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
-        image2.sprite = Resources.Load<Sprite>("weapon");
+        image2.sprite = Resources.Load<Sprite>(tech_weapon[rand_weapon][2]);
         name2.text = tech_weapon[rand_weapon][2];
         text2.text = right;
 
@@ -263,21 +356,47 @@ public class Tech_Manager : MonoBehaviour
     {
         if (type == "T")
         {
-            select_tech_tower.Add(new List<string> { tier, property, name, text, index }); //Ƽ��, �Ӽ�, �̸�, ����, �ε���
+            select_tech_tower.Add(new List<string> { tier, property, name, text, index });
             if (tier == "1") tower_tech_tier1 += 1;
-            else if (tier == "2") tower_tech_tier2 += 1;
+            switch(property) {
+                case "F":
+                    tower_tech_fire+=1;
+                    break;
+                case "L":
+                    tower_tech_lightning+=1;
+                    break;
+                case "I":
+                    tower_tech_ice+=1;
+                    break;
+                case "E":
+                    tower_tech_earth+=1;
+                    break;
+            }
         }
         else if (type == "P")
         {
-            select_tech_public.Add(new List<string> { tier, property, name, text, index }); //Ƽ��, �Ӽ�, �̸�, ����, �ε���
+            select_tech_public.Add(new List<string> { tier, property, name, text, index });
             if (tier == "1") public_tech_tier1 += 1;
             else if (tier == "2") public_tech_tier2 += 1;
         }
         else if (type == "W")
         {
-            select_tech_weapon.Add(new List<string> { tier, property, name, text, index }); //Ƽ��, �Ӽ�, �̸�, ����, �ε���
+            select_tech_weapon.Add(new List<string> { tier, property, name, text, index });
             if (tier == "1") weapon_tech_tier1 += 1;
-            else if (tier == "2") weapon_tech_tier2 += 1;
+            switch(property) {
+                case "F":
+                    weapon_tech_fire+=1;
+                    break;
+                case "L":
+                    weapon_tech_lightning+=1;
+                    break;
+                case "I":
+                    weapon_tech_ice+=1;
+                    break;
+                case "E":
+                    weapon_tech_earth+=1;
+                    break;
+            }
         }
     }
 
