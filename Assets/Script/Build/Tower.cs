@@ -9,6 +9,7 @@ public class Tower : MonoBehaviour
     public float    basic_max_hp = 100.0f;
     public float    max_hp = 100.0f;
     public float    hp = 100f;
+    public float    afterHp = hp;
     public float    basic_attack_val = 10.0f;
     public float    attack_val = 0;
     public float    basic_defence_val = 10.0f;
@@ -55,10 +56,9 @@ public class Tower : MonoBehaviour
     int armourNum = 0; //Function 11 value
     int healNum = 0; //Function 14 value
     int maxHpNum = 0; //Function 15 
-    [SerializeField]
     int fireCriticalNum = 0; //Function 18 value
-    [SerializeField]
     int lightningCriticalNum = 0; //Function 21 value
+
     
 
     bool isFunction3 = false;
@@ -66,7 +66,7 @@ public class Tower : MonoBehaviour
     bool isFunction11 = false;
     bool isFunction14 = false;
     bool isFunction15 = false;
-
+    bool isFunction27 = false;
 
 
     
@@ -158,6 +158,7 @@ public class Tower : MonoBehaviour
         }
         check_tower();
         Apply_Characteristic();
+
         
         
         //string numbersString = string.Join(", ", property_memory_run);
@@ -490,7 +491,7 @@ public class Tower : MonoBehaviour
     }
 
     public void Earth_Tower_Reflex(){ //Function 27
-        
+        isFunction27 = true;
     }
 
     public void Earth_Tower_Hole(){ //Function 28
