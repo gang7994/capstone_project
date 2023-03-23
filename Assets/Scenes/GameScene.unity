@@ -17722,8 +17722,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ebda0ea799a1edb4abc23eabf2adfc9d, type: 2}
   - {fileID: 2100000, guid: 6b118820e83244040bd5ac81ed500bac, type: 2}
   attackRange: 30
-  fireCriticalNum: 0
-  lightningCriticalNum: 0
   property_memory_run: 
   all_property:
   - 1F0
@@ -36261,6 +36259,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 407711742963525247, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1475632683}
     - target: {fileID: 1046604740990519548, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
       propertyPath: m_Volume
       value: 0.5
