@@ -65,9 +65,9 @@ public class Tech_View : MonoBehaviour
         weapon_scroll.SetActive(false);
         card_info.SetActive(false);
 
-        select_tech_tower = GameObject.Find("TechUI").GetComponent<Tech_Manager>().select_tech_tower;
-        select_tech_public = GameObject.Find("TechUI").GetComponent<Tech_Manager>().select_tech_public;
-        select_tech_weapon = GameObject.Find("TechUI").GetComponent<Tech_Manager>().select_tech_weapon;
+        select_tech_tower = GameObject.Find("TechUI").GetComponent<Tech_Manager>().select_tech_list;
+        select_tech_public = GameObject.Find("TechUI").GetComponent<Tech_Manager>().select_tech_list;
+        select_tech_weapon = GameObject.Find("TechUI").GetComponent<Tech_Manager>().select_tech_list;
 
         tower_name_1.AddRange(new List<Button> {tower_name0, tower_name1, tower_name2, tower_name3, tower_name4, tower_name5, tower_name6, tower_name7, tower_name8, tower_name9, tower_name10,
                             tower_name11, tower_name12, tower_name13, tower_name14, tower_name15});
