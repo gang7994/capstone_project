@@ -15,6 +15,8 @@ public class Tech_Manager : MonoBehaviour
 
     private Text name0, name1, name2; //��ũ �г� ������ �̸�
     private Text text0, text1, text2; //��ũ �г� ������ ����
+    private Text current0, current1, current2;
+    private Text max0, max1, max2;
     private Image image0, image1, image2; //특성 이미지
     private Image icon0, icon1, icon2; //타입 아이콘
 
@@ -71,18 +73,23 @@ public class Tech_Manager : MonoBehaviour
         icon0 = GameObject.Find("Icon0").GetComponent<Image>();
         name0 = GameObject.Find("Name0").GetComponent<Text>();
         text0 = GameObject.Find("Text0").GetComponent<Text>();
-
+        current0 = GameObject.Find("Current0").GetComponent<Text>();
+        max0 = GameObject.Find("Max0").GetComponent<Text>();
 
         image1 = GameObject.Find("Image1").GetComponent<Image>();
         icon1 = GameObject.Find("Icon1").GetComponent<Image>();
         name1 = GameObject.Find("Name1").GetComponent<Text>();
         text1 = GameObject.Find("Text1").GetComponent<Text>();
+        current1 = GameObject.Find("Current1").GetComponent<Text>();
+        max1 = GameObject.Find("Max1").GetComponent<Text>();
 
 
         image2 = GameObject.Find("Image2").GetComponent<Image>();
         icon2 = GameObject.Find("Icon2").GetComponent<Image>();
         name2 = GameObject.Find("Name2").GetComponent<Text>();
         text2 = GameObject.Find("Text2").GetComponent<Text>();
+        current2 = GameObject.Find("Current2").GetComponent<Text>();
+        max2 = GameObject.Find("Max2").GetComponent<Text>();
 
         Tech_Display_Panel();
     }
@@ -143,9 +150,11 @@ public class Tech_Manager : MonoBehaviour
         else panel_Image0.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
         image0.sprite = Resources.Load<Sprite>(tech_list[rand_left][3]);
-        icon0.sprite = Resources.Load<Sprite>(tech_list[rand_left][1]);
+        icon0.sprite = Resources.Load<Sprite>($"Icon/{tech_list[rand_left][1]}");
         name0.text = tech_list[rand_left][3];
         text0.text = tech_list[rand_left][4];
+        current0.text = tech_list[rand_left][5];
+        max0.text = tech_list[rand_left][6];
 
         //Mid
         if (tech_list[rand_mid][0] == "1") panel_Image1.color = new Color(0.2f, 0.3f, 0.6f, 1.0f);
@@ -153,9 +162,11 @@ public class Tech_Manager : MonoBehaviour
         else panel_Image1.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
         image1.sprite = Resources.Load<Sprite>(tech_list[rand_mid][3]);
-        icon1.sprite = Resources.Load<Sprite>(tech_list[rand_mid][1]);
+        icon1.sprite = Resources.Load<Sprite>($"Icon/{tech_list[rand_mid][1]}");
         name1.text = tech_list[rand_mid][3];
         text1.text = tech_list[rand_mid][4];
+        current1.text = tech_list[rand_mid][5];
+        max1.text = tech_list[rand_mid][6];
 
         //Right
         if (tech_list[rand_right][0] == "1") panel_Image2.color = new Color(0.2f, 0.3f, 0.6f, 1.0f);
@@ -163,9 +174,11 @@ public class Tech_Manager : MonoBehaviour
         else panel_Image2.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
         image2.sprite = Resources.Load<Sprite>(tech_list[rand_right][3]);
-        icon2.sprite = Resources.Load<Sprite>(tech_list[rand_right][1]);
+        icon2.sprite = Resources.Load<Sprite>($"Icon/{tech_list[rand_right][1]}");
         name2.text = tech_list[rand_right][3];
         text2.text = tech_list[rand_right][4];
+        current2.text = tech_list[rand_right][5];
+        max2.text = tech_list[rand_right][6];
 
 
     }
