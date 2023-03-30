@@ -33,6 +33,24 @@ public class Player : MonoBehaviour
     int[] Type = new int[5];
     int selectNumber;
 
+    /*특성 전용 변수*/
+    public float fire_weight;
+    public float fire_duration;
+    public float fire_Atk;
+    public float fire_DamageNum;
+    public float lightning_weight;
+    public float lightning_duration;
+    public float lightning_Atk;
+    public float lightning_AtkSpeed;
+    public float ice_weight;
+    public float ice_duration;
+    public float ice_exhaust;
+    public float Character_armour;
+    public float earth_weight;
+    public float earth_duration;
+    public float Character_heal;
+    public float Character_MaxHp;
+
     Vector3 moveVec;
     Animator anim;
 
@@ -53,6 +71,9 @@ public class Player : MonoBehaviour
         attackDelay = 1.0f;
         LevelUp_UI.SetActive(false);
         TypePanel.SetActive(false);
+
+        /*특성 전용 변수 기본값*/
+       
         
     }
 

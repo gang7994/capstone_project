@@ -5,6 +5,7 @@ using UnityEngine;
 public class Monster_hit : MonoBehaviour
 {
     Animator anims;
+    Material materi;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class Monster_hit : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        /*if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
@@ -30,6 +31,6 @@ public class Monster_hit : MonoBehaviour
                 Destroy(other.gameObject);
             }
 
-        }*/
+        }
     }
 }

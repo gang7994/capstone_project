@@ -44,7 +44,7 @@ public class Monster : MonoBehaviour
 
         if (curHealth > 0)
         {
-            materi.color = Color.white;
+            materi.color = Color.red;
             //�� ���� ���� ���� �ʿ�
             reactVec = reactVec.normalized;
             reactVec += Vector3.up;

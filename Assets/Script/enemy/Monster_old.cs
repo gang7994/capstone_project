@@ -19,16 +19,17 @@ public class Monster_old : MonoBehaviour
     float RoSpeed = 5;
     public float attack_time;
     public bool target_check;
+    Color meshColor;
 
     Rigidbody rigid;
-    SphereCollider collider;
+    CapsuleCollider collider;
     Material materi;
     NavMeshAgent navi;
     public Animator anim;
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        collider = GetComponent<SphereCollider>();
+        collider = GetComponent<CapsuleCollider>();
         materi = GetComponentInChildren<SkinnedMeshRenderer>().material;
         navi = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
@@ -36,8 +37,8 @@ public class Monster_old : MonoBehaviour
         Delay = 0;
         isAttackDelay = false;
         target_check = false;
+        meshColor = materi.color;
         
-
         Invoke("ChaseStart", 2);
     }
     private void Start()
@@ -167,11 +168,12 @@ public class Monster_old : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (curHealth > 1)
         {
-            materi.color = Color.white;
             reactVec = reactVec.normalized;
             reactVec += Vector3.up;
             rigid.AddForce(reactVec * 5, ForceMode.Impulse);
             anim.SetBool("isDamage", false);
+            Debug.Log("damaged");
+            materi.color = meshColor;
         }
         else
         {

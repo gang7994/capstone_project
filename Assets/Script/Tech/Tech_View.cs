@@ -10,7 +10,7 @@ public class Tech_View : MonoBehaviour
     public GameObject card_info;
     public Image tech_image;
     public Text tech_name, tech_text;
-    List<List<string>> select_tech_tower, select_tech_public, select_tech_weapon;
+    List<List<string>> select_tech_list;
 
     Button tower_name0, tower_name1, tower_name2, tower_name3, tower_name4, tower_name5, tower_name6, tower_name7, tower_name8, tower_name9, tower_name10,
         tower_name11, tower_name12, tower_name13, tower_name14, tower_name15, tower_name16, tower_name17, tower_name18, tower_name19, tower_name20, tower_name21, 
@@ -65,9 +65,7 @@ public class Tech_View : MonoBehaviour
         weapon_scroll.SetActive(false);
         card_info.SetActive(false);
 
-        select_tech_tower = GameObject.Find("TechUI").GetComponent<Tech_Manager>().select_tech_tower;
-        select_tech_public = GameObject.Find("TechUI").GetComponent<Tech_Manager>().select_tech_public;
-        select_tech_weapon = GameObject.Find("TechUI").GetComponent<Tech_Manager>().select_tech_weapon;
+        select_tech_list = GameObject.Find("TechUI").GetComponent<Tech_Manager>().select_tech_list;
 
         tower_name_1.AddRange(new List<Button> {tower_name0, tower_name1, tower_name2, tower_name3, tower_name4, tower_name5, tower_name6, tower_name7, tower_name8, tower_name9, tower_name10,
                             tower_name11, tower_name12, tower_name13, tower_name14, tower_name15});
@@ -133,68 +131,60 @@ public class Tech_View : MonoBehaviour
         card_info.SetActive(false);
     }
 
-    public void Display_Select() //TechManagerUI_Panel¿¡¼­ ¼±ÅÃÇÑ Æ¯¼º Ãâ·Â ÇÔ¼ö
+    public void Display_Select() //TechManagerUI_Panelï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     {
         int t1 = 0, t2 = 0, t3 = 0;
         int p1 = 0, p2 = 0, p3 = 0;
         int w1 = 0, w2 = 0, w3 = 0;
-        for (int i = 0; i<select_tech_tower.Count; i++)
+        
+        for (int i = 0; i<select_tech_list.Count; i++)
         {
-            if(select_tech_tower[i][0] == "1"){
-                tower_text_1[t1].GetComponent<Text>().text = select_tech_tower[i][2];
-                t1 += 1;
+            if(select_tech_list[i][1] == "T"){ //ì¢…ë¥˜
+                if(select_tech_list[i][0] == "1") {
+                    tower_text_1[t1].GetComponent<Text>().text = select_tech_list[i][3];
+                    t1 += 1;
+                }
+                else if(select_tech_list[i][0] == "2"){
+                    tower_text_2[t2].GetComponent<Text>().text = select_tech_list[i][3];
+                    t2 += 1;
+                }
+                else if(select_tech_list[i][0] == "3"){
+                    tower_text_3[t3].GetComponent<Text>().text = select_tech_list[i][3];
+                    t3 += 1;
+                }
             }
-            else if (select_tech_tower[i][0] == "2"){
-                tower_text_2[t2].GetComponent<Text>().text = select_tech_tower[i][2];
-                t2 += 1;
+            else if (select_tech_list[i][1] == "W"){
+                if(select_tech_list[i][0] == "1") {
+                    weapon_text_1[w1].GetComponent<Text>().text = select_tech_list[i][3];
+                    w1 += 1;
+                }
+                else if(select_tech_list[i][0] == "2"){
+                    weapon_text_2[w2].GetComponent<Text>().text = select_tech_list[i][3];
+                    w2 += 1;
+                }
+                else if(select_tech_list[i][0] == "3"){
+                    weapon_text_3[w3].GetComponent<Text>().text = select_tech_list[i][3];
+                    w3 += 1;
+                }
             }
-            else{
-                tower_text_3[t3].GetComponent<Text>().text = select_tech_tower[i][2];
-                t3 += 1;
+            else if (select_tech_list[i][1] == "P"){
+                if(select_tech_list[i][0] == "1") {
+                    public_text_1[p1].GetComponent<Text>().text = select_tech_list[i][3];
+                    p1 += 1;
+                }
+                else if(select_tech_list[i][0] == "2"){
+                    public_text_2[p2].GetComponent<Text>().text = select_tech_list[i][3];
+                    p2 += 1;
+                }
+                else if(select_tech_list[i][0] == "3"){
+                    public_text_3[p3].GetComponent<Text>().text = select_tech_list[i][3];
+                    p3 += 1;
+                }
             }
-        }
-        for (int i = 0; i < select_tech_public.Count; i++)
-        {
-            int tmp;
-            if (select_tech_public[i][0] == "1")
-            {
-                tmp = p1;
-                p1 += 1;
-            }
-            else if (select_tech_public[i][0] == "2")
-            {
-                tmp = p2 + 16;
-                p2 += 1;
-            }
-            else
-            {
-                tmp = p3 + 28;
-                p3 += 1;
-            }
-            public_text_1[tmp].GetComponent<Text>().text = select_tech_public[i][2];
-        }
-        for (int i = 0; i < select_tech_weapon.Count; i++)
-        {
-            int tmp;
-            if (select_tech_weapon[i][0] == "1")
-            {
-                tmp = w1;
-                w1 += 1;
-            }
-            else if (select_tech_weapon[i][0] == "2")
-            {
-                tmp = w2 + 16;
-                w2 += 1;
-            }
-            else
-            {
-                tmp = w3 + 28;
-                w3 += 1;
-            }
-            weapon_text_1[tmp].GetComponent<Text>().text = select_tech_weapon[i][2];
+
         }
     }
-    public void Display_Info(int i) //TechManagerUI_PanelÀÇ Card_Info Ãâ·Â ÇÔ¼ö
+    public void Display_Info(int i) //TechManagerUI_Panelï¿½ï¿½ Card_Info ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     {
         if (tower_scroll.activeSelf)
         {
@@ -342,25 +332,26 @@ public class Tech_View : MonoBehaviour
 
     string Find_TowerTech(string tmp)
     {
-        for(int i=0; i < select_tech_tower.Count; i++)
+        for(int i=0; i < select_tech_list.Count; i++)
         {
-            if (select_tech_tower[i][2] == tmp) return select_tech_tower[i][3];
+            if (select_tech_list[i][3] == tmp) return select_tech_list[i][4];
+            
         }
         return null;
     }
     string Find_PublicTech(string tmp)
     {
-        for (int i = 0; i < select_tech_public.Count; i++)
+        for (int i = 0; i < select_tech_list.Count; i++)
         {
-            if (select_tech_public[i][2] == tmp) return select_tech_public[i][3];
+            if (select_tech_list[i][3] == tmp) return select_tech_list[i][4];
         }
         return null;
     }
     string Find_WeaponTech(string tmp)
     {
-        for (int i = 0; i < select_tech_weapon.Count; i++)
+        for (int i = 0; i < select_tech_list.Count; i++)
         {
-            if (select_tech_weapon[i][2] == tmp) return select_tech_weapon[i][3];
+            if (select_tech_list[i][3] == tmp) return select_tech_list[i][4];
         }
         return null;
     }
