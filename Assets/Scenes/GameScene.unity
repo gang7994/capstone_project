@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18152016, g: 0.2271501, b: 0.3073661, a: 1}
+  m_IndirectSpecularColor: {r: 0.18154399, g: 0.22718655, b: 0.30740604, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2316,11 +2316,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetImage: {fileID: 55570148}
---- !u!224 &55570150 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2099174123526248705, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
+--- !u!114 &55570151 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2099174123526248704, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
   m_PrefabInstance: {fileID: 55570145}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55570147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &56936039
 GameObject:
   m_ObjectHideFlags: 0
@@ -40439,13 +40445,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1148190680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f417dbd7ee19ae1449a512e506398f56, type: 3}
+  m_Script: {fileID: 11500000, guid: 909ca2c314a5d064084d472978d59e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Daylight: {fileID: 1453881650}
-  Number: {fileID: 55570150}
-  roundTime: 180
-  isStop: 0
+  secondPerRealTimeSecond: 0
+  day: {fileID: 55570151}
+  monsterPrefab: {fileID: 0}
+  spawnPosition: {fileID: 0}
+  nightFogDensity: 0
+  fogDensityCalc: 0
 --- !u!1 &1148300918
 GameObject:
   m_ObjectHideFlags: 0
