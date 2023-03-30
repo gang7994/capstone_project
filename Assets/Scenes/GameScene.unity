@@ -17889,43 +17889,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 6b118820e83244040bd5ac81ed500bac, type: 2}
   attackRange: 30
   property_memory_run: 
-  all_property:
-  - 1F0
-  - 1F1
-  - 1F2
-  - 1F3
-  - 1L0
-  - 1L1
-  - 1L2
-  - 1L3
-  - 1I0
-  - 1I1
-  - 1I2
-  - 1I3
-  - 1E0
-  - 1E1
-  - 1E2
-  - 1E3
-  - 2F0
-  - 2F1
-  - 2F2
-  - 2L0
-  - 2L1
-  - 2L2
-  - 2I0
-  - 2I1
-  - 2I2
-  - 2E0
-  - 2E1
-  - 2E2
-  - 3F0
-  - 3F1
-  - 3L0
-  - 3L1
-  - 3I0
-  - 3I1
-  - 3E0
-  - 3E1
 --- !u!114 &506174174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34681,9 +34644,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1148190681}
+      - m_Target: {fileID: 969566355}
         m_TargetAssemblyTypeName: NightAndDay, Assembly-CSharp
-        m_MethodName: ChangeDay
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

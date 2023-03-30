@@ -18,10 +18,6 @@ public class TowerShoot : MonoBehaviour
     public float iceAtk = 0f; //attack speed decrease
     public float earthAtk = 0f; // tower durability recover
 
-    public float fire_duration = 1.0f;
-    public float lightning_duration = 1.0f;
-    public float ice_duration = 1.0f;
-    public float earth_duration = 1.0f;
 
     public float fire_exhaust = 0f;
     public float lightning_exhaust = 0f;

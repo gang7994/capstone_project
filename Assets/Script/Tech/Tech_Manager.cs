@@ -41,7 +41,7 @@ public class Tech_Manager : MonoBehaviour
         foreach (string line_tier1 in lines_tier1)
         {
             string[] words = line_tier1.Split('|');
-            tech_list.Add(new List<string> { words[0], words[1], words[2], words[3], words[4], words[5], words[6] }); //티어, 종류, 특성, 이름, 내용, 초기값, 최대값
+            tech_list.Add(new List<string> { words[0], words[1], words[2], words[3], words[4], words[5], words[6], words[7] }); //티어, 종류, 특성, 인덱스, 이름, 내용, 초기값, 최대값
         }
 
 
@@ -117,7 +117,7 @@ public class Tech_Manager : MonoBehaviour
         foreach (string line_tier2 in lines_tier2)
         {
             string[] words = line_tier2.Split('|');
-            tech_list.Add(new List<string> { words[0], words[1], words[2], words[3], words[4], words[5], words[6] }); //티어, 종류, 특성, 이름, 내용, 초기값, 최대값
+            tech_list.Add(new List<string> { words[0], words[1], words[2], words[3], words[4], words[5], words[6], words[7] }); //티어, 종류, 특성, 인덱스, 이름, 내용, 초기값, 최대값
         }
     }
     public void Unlock_Tech_3() //3티어 해금 함수
@@ -128,7 +128,7 @@ public class Tech_Manager : MonoBehaviour
         foreach (string line_tier3 in lines_tier3)
         {
             string[] words = line_tier3.Split('|');
-            tech_list.Add(new List<string> { words[0], words[1], words[2], words[3], words[4], words[5], words[6] }); //티어, 종류, 특성, 이름, 내용, 초기값, 최대값
+            tech_list.Add(new List<string> { words[0], words[1], words[2], words[3], words[4], words[5], words[6], words[7] }); //티어, 종류, 특성, 인덱스, 이름, 내용, 초기값, 최대값
         }
     }
 
@@ -140,63 +140,72 @@ public class Tech_Manager : MonoBehaviour
         rand_mid = Random.Range(0, tech_list.Count);
         rand_right = Random.Range(0, tech_list.Count);
 
-        left = tech_list[rand_left][3]; 
-        mid = tech_list[rand_mid][3];
-        right = tech_list[rand_right][3];
+        left = tech_list[rand_left][4]; 
+        mid = tech_list[rand_mid][4];
+        right = tech_list[rand_right][4];
 
         //Left
         if (tech_list[rand_left][0] == "1") panel_Image0.color = new Color(0.2f, 0.3f, 0.6f, 1.0f);
         else if (tech_list[rand_left][0] == "2") panel_Image0.color = new Color(0.3f, 0.65f, 0.4f, 1.0f);
         else panel_Image0.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
-        image0.sprite = Resources.Load<Sprite>(tech_list[rand_left][3]);
+        image0.sprite = Resources.Load<Sprite>(tech_list[rand_left][4]);
         icon0.sprite = Resources.Load<Sprite>($"Icon/{tech_list[rand_left][1]}");
-        name0.text = tech_list[rand_left][3];
-        text0.text = tech_list[rand_left][4];
-        current0.text = tech_list[rand_left][5];
-        max0.text = tech_list[rand_left][6];
+        name0.text = tech_list[rand_left][4];
+        text0.text = tech_list[rand_left][5];
+        current0.text = tech_list[rand_left][6];
+        max0.text = tech_list[rand_left][7];
 
         //Mid
         if (tech_list[rand_mid][0] == "1") panel_Image1.color = new Color(0.2f, 0.3f, 0.6f, 1.0f);
         else if (tech_list[rand_mid][0] == "2") panel_Image1.color = new Color(0.3f, 0.65f, 0.4f, 1.0f);
         else panel_Image1.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
-        image1.sprite = Resources.Load<Sprite>(tech_list[rand_mid][3]);
+        image1.sprite = Resources.Load<Sprite>(tech_list[rand_mid][4]);
         icon1.sprite = Resources.Load<Sprite>($"Icon/{tech_list[rand_mid][1]}");
-        name1.text = tech_list[rand_mid][3];
-        text1.text = tech_list[rand_mid][4];
-        current1.text = tech_list[rand_mid][5];
-        max1.text = tech_list[rand_mid][6];
+        name1.text = tech_list[rand_mid][4];
+        text1.text = tech_list[rand_mid][5];
+        current1.text = tech_list[rand_mid][6];
+        max1.text = tech_list[rand_mid][7];
 
         //Right
         if (tech_list[rand_right][0] == "1") panel_Image2.color = new Color(0.2f, 0.3f, 0.6f, 1.0f);
         else if (tech_list[rand_right][0] == "2") panel_Image2.color = new Color(0.3f, 0.65f, 0.4f, 1.0f);
         else panel_Image2.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
-        image2.sprite = Resources.Load<Sprite>(tech_list[rand_right][3]);
+        image2.sprite = Resources.Load<Sprite>(tech_list[rand_right][4]);
         icon2.sprite = Resources.Load<Sprite>($"Icon/{tech_list[rand_right][1]}");
-        name2.text = tech_list[rand_right][3];
-        text2.text = tech_list[rand_right][4];
-        current2.text = tech_list[rand_right][5];
-        max2.text = tech_list[rand_right][6];
+        name2.text = tech_list[rand_right][4];
+        text2.text = tech_list[rand_right][5];
+        current2.text = tech_list[rand_right][6];
+        max2.text = tech_list[rand_right][7];
 
 
     }
-    void Select_Tech(string tier, string type, string property, string name, string text, string init_val, string max_val) //티어, 종류, 특성, 이름, 내용, 초기값, 최대값
+    void Select_Tech(string tier, string type, string property, string index, string name, string text, string init_val, string max_val) //티어, 종류, 특성, 인덱스, 이름, 내용, 초기값, 최대값
     {
-        if (tier == "1")
+        if (type == "T") //타워
         {
-            select_tech_list.Add(new List<string> { tier, type, property, name, text, init_val, max_val });
-            tech_tier1+=1;
+            if(tier=="1") tech_tier1+=1;
+            else if(tier=="2") tech_tier2+=1;
+            select_tech_list.Add(new List<string> { tier, type, property, index, name, text, init_val, max_val });
+            SendSelectedAttributeToTower(tier, type, property, index);
+            
         }
-        else if (tier == "2")
+        else if (type == "W") //무기
         {
-            select_tech_list.Add(new List<string> { tier, type, property, name, text, init_val, max_val });
-            tech_tier2+=1;
+            if(tier=="1") tech_tier1+=1;
+            else if(tier=="2") tech_tier2+=1;
+            select_tech_list.Add(new List<string> { tier, type, property, index, name, text, init_val, max_val });
+            
+            
         }
-        else
+        else //공용
         {
-            select_tech_list.Add(new List<string> { tier, type, property, name, text, init_val, max_val });
+            if(tier=="1") tech_tier1+=1;
+            else if(tier=="2") tech_tier2+=1;
+            select_tech_list.Add(new List<string> { tier, type, property, index, name, text, init_val, max_val });
+
         }
     }
 
@@ -205,34 +214,34 @@ public class Tech_Manager : MonoBehaviour
         if (i == "left")
         {
             print(left);
-            Select_Tech(tech_list[rand_left][0], tech_list[rand_left][1], tech_list[rand_left][2],tech_list[rand_left][3],tech_list[rand_left][4],tech_list[rand_left][5], tech_list[rand_left][6]);
-            //티어, 종류, 특성, 이름, 내용, 초기값, 최대값
+            Select_Tech(tech_list[rand_left][0], tech_list[rand_left][1], tech_list[rand_left][2],tech_list[rand_left][3],tech_list[rand_left][4],tech_list[rand_left][5], tech_list[rand_left][6], tech_list[rand_left][7]);
+            //티어, 종류, 특성, 인덱스, 이름, 내용, 초기값, 최대값
             if(tech_list[rand_left][0] == "1") {
-                if (tech_list[rand_left][5] == "1")
+                if (tech_list[rand_left][6] == "1")
                 {
-                    tech_list[rand_left][5] = "2";
+                    tech_list[rand_left][6] = "2";
                 }
-                else if (tech_list[rand_left][5] == "2")
+                else if (tech_list[rand_left][6] == "2")
                 {
-                    tech_list[rand_left][5] = "3";
+                    tech_list[rand_left][6] = "3";
                 }
-                else if (tech_list[rand_left][5] == "3")
+                else if (tech_list[rand_left][6] == "3")
                 {
                     tech_list.Remove(tech_list[rand_left]);
                 }
             }
             else if(tech_list[rand_left][0] == "2") {
-                if (tech_list[rand_left][5] == "1")
+                if (tech_list[rand_left][6] == "1")
                 {
-                    tech_list[rand_left][5] = "2";
+                    tech_list[rand_left][6] = "2";
                 }
-                else if (tech_list[rand_left][5] == "2")
+                else if (tech_list[rand_left][6] == "2")
                 {
                     tech_list.Remove(tech_list[rand_left]);
                 }
             }
             else {
-                if (tech_list[rand_left][5] == "1")
+                if (tech_list[rand_left][6] == "1")
                 {
                     tech_list.Remove(tech_list[rand_left]);
                 }
@@ -241,34 +250,34 @@ public class Tech_Manager : MonoBehaviour
         else if (i == "mid")
         {
             print(mid);
-            Select_Tech(tech_list[rand_mid][0], tech_list[rand_mid][1], tech_list[rand_mid][2],tech_list[rand_mid][3],tech_list[rand_mid][4],tech_list[rand_mid][5], tech_list[rand_mid][6]);
-            //티어, 종류, 특성, 이름, 내용, 초기값, 최대값
+            Select_Tech(tech_list[rand_mid][0], tech_list[rand_mid][1], tech_list[rand_mid][2],tech_list[rand_mid][3],tech_list[rand_mid][4],tech_list[rand_mid][5], tech_list[rand_mid][6], tech_list[rand_mid][7]);
+            //티어, 종류, 특성, 인덱스, 이름, 내용, 초기값, 최대값
             if(tech_list[rand_mid][0] == "1") {
-                if (tech_list[rand_mid][5] == "1")
+                if (tech_list[rand_mid][6] == "1")
                 {
-                    tech_list[rand_mid][5] = "2";
+                    tech_list[rand_mid][6] = "2";
                 }
-                else if (tech_list[rand_mid][5] == "2")
+                else if (tech_list[rand_mid][6] == "2")
                 {
-                    tech_list[rand_mid][5] = "3";
+                    tech_list[rand_mid][6] = "3";
                 }
-                else if (tech_list[rand_mid][5] == "3")
+                else if (tech_list[rand_mid][6] == "3")
                 {
                     tech_list.Remove(tech_list[rand_mid]);
                 }
             }
             else if(tech_list[rand_mid][0] == "2") {
-                if (tech_list[rand_mid][5] == "1")
+                if (tech_list[rand_mid][6] == "1")
                 {
-                    tech_list[rand_mid][5] = "2";
+                    tech_list[rand_mid][6] = "2";
                 }
-                else if (tech_list[rand_mid][5] == "2")
+                else if (tech_list[rand_mid][6] == "2")
                 {
                     tech_list.Remove(tech_list[rand_mid]);
                 }
             }
             else {
-                if (tech_list[rand_mid][5] == "1")
+                if (tech_list[rand_mid][6] == "1")
                 {
                     tech_list.Remove(tech_list[rand_mid]);
                 }
@@ -277,34 +286,34 @@ public class Tech_Manager : MonoBehaviour
         else
         {
             print(right);
-            Select_Tech(tech_list[rand_right][0], tech_list[rand_right][1], tech_list[rand_right][2],tech_list[rand_right][3],tech_list[rand_right][4],tech_list[rand_right][5], tech_list[rand_right][6]);
-            //티어, 종류, 특성, 이름, 내용, 초기값, 최대값
+            Select_Tech(tech_list[rand_right][0], tech_list[rand_right][1], tech_list[rand_right][2],tech_list[rand_right][3],tech_list[rand_right][4],tech_list[rand_right][5], tech_list[rand_right][6], tech_list[rand_right][7]);
+            //티어, 종류, 특성, 인덱스, 이름, 내용, 초기값, 최대값
             if(tech_list[rand_right][0] == "1") {
-                if (tech_list[rand_right][5] == "1")
+                if (tech_list[rand_right][6] == "1")
                 {
-                    tech_list[rand_right][5] = "2";
+                    tech_list[rand_right][6] = "2";
                 }
-                else if (tech_list[rand_right][5] == "2")
+                else if (tech_list[rand_right][6] == "2")
                 {
-                    tech_list[rand_right][5] = "3";
+                    tech_list[rand_right][6] = "3";
                 }
-                else if (tech_list[rand_right][5] == "3")
+                else if (tech_list[rand_right][6] == "3")
                 {
                     tech_list.Remove(tech_list[rand_right]);
                 }
             }
             else if(tech_list[rand_right][0] == "2") {
-                if (tech_list[rand_right][5] == "1")
+                if (tech_list[rand_right][6] == "1")
                 {
-                    tech_list[rand_right][5] = "2";
+                    tech_list[rand_right][6] = "2";
                 }
-                else if (tech_list[rand_right][5] == "2")
+                else if (tech_list[rand_right][6] == "2")
                 {
                     tech_list.Remove(tech_list[rand_right]);
                 }
             }
             else {
-                if (tech_list[rand_right][5] == "1")
+                if (tech_list[rand_right][6] == "1")
                 {
                     tech_list.Remove(tech_list[rand_right]);
                 }
@@ -312,19 +321,11 @@ public class Tech_Manager : MonoBehaviour
         }
         Tech_Exit_Button_Click();
     }
-    /*
-    public void SendSelectedAttributeToTower(string tier, string property, string index)
+    
+    public void SendSelectedAttributeToTower(string tier, string type, string property, string index) //티어, 종류, 속성, 인덱스
     {
-        if(tier.Equals("1")){
-            Tower.property_memory.Add(properties.IndexOf(property)*4+int.Parse(index));
-        }
-        else if(tier.Equals("2")){
-            Tower.property_memory.Add(properties.IndexOf(property)*3+int.Parse(index)+16);
-        }
-        else if(tier.Equals("3")){
-            Tower.property_memory.Add(properties.IndexOf(property)*2+int.Parse(index)+28);
-        }
+        Tower.property_memory.Add(tier+type+property+index);
     }
-    */
+    
 
 }

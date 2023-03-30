@@ -10,8 +10,7 @@ public class Tower : MonoBehaviour
     public float    max_hp = 100.0f;
     public float    hp = 100f;
     public float    basic_attack_val = 10.0f;
-    public float    attack_val = 0;
-    public float    basic_defence_val = 10.0f;
+                                                                    public float   Q0f;
     public float    defence_val = 0;
     public float    basic_coolTime = 0.5f;  
     public float    coolTime = 0;
@@ -50,38 +49,26 @@ public class Tower : MonoBehaviour
     float timer;
 
     
-    int damageNum = 0; //Function 3 value
-    int speedNum = 0; //Function 7 value
-    int armourNum = 0; //Function 11 value
-    int healNum = 0; //Function 14 value
-    int maxHpNum = 0; //Function 15 
-    int fireCriticalNum = 0; //Function 18 value
-    int lightningCriticalNum = 0; //Function 21 value
+    int damageNum = 0; //Function 1 value
+    int speedNum = 0; //Function 3 value
+    int armourNum = 0; //Function 5 value
+    int maxHpNum = 0; //Function 7 value
+    int fireCriticalNum = 0; //Function 8 value
+    int lightningCriticalNum = 0; //Function 9 value
 
     
 
+    bool isFunction1 = false;
     bool isFunction3 = false;
+    bool isFunction5 = false;
     bool isFunction7 = false;
     bool isFunction11 = false;
-    bool isFunction14 = false;
-    bool isFunction15 = false;
-    bool isFunction27 = false;
 
 
     
-    public static List<int> property_memory = new List<int>();
+    public static List<string> property_memory = new List<string>();
     public List<bool> property_memory_run = new List<bool>(); 
 
-    
-    public List<string> all_property = new List<string> {"1F0","1F1","1F2","1F3",
-                                                    "1L0","1L1","1L2","1L3",
-                                                    "1I0","1I1","1I2","1I3",
-                                                    "1E0","1E1","1E2","1E3",
-                                                    "2F0","2F1","2F2",
-                                                    "2L0","2L1","2L2",
-                                                    "2I0","2I1","2I2",
-                                                    "2E0","2E1","2E2",
-                                                    "3F0","3F1", "3L0","3L1", "3I0","3I1", "3E0","3E1"};
     public List<Action> all_function = new List<Action>();
 
     
@@ -102,45 +89,36 @@ public class Tower : MonoBehaviour
         for(int i = 0; i < 80;i++) property_memory_run.Add(false);
         //Tier 1
         all_function.Add(Fire_Tower_Weight); //Function 0
-        all_function.Add(Fire_Send_Duration); //Function 1
-        all_function.Add(Fire_Send_Damage); //Function 2
-        all_function.Add(Fire_Tower_Damage); //Function 3
-        all_function.Add(Lightning_Tower_Weight); //Funciotn 4 
-        all_function.Add(Lightning_Send_Duration); //Function 5
-        all_function.Add(Lightning_Send_Damage); //Function 6
-        all_function.Add(Lightning_Tower_AtkSpeed); //Function 7
-        all_function.Add(Ice_Tower_Weight); //Function 8
-        all_function.Add(Ice_Send_Duration); // Function 9
-        all_function.Add(Ice_Send_Exhaust); // Function 10
-        all_function.Add(Ice_Tower_Armour); // Function 11
-        all_function.Add(Earth_Tower_Weight); // Function 12
-        all_function.Add(Earth_Send_Duration);// Function 13
-        all_function.Add(Earth_Tower_Heal); //Function 14
-        all_function.Add(Earth_Tower_MaxHp);//Functon 15
+        all_function.Add(Fire_Tower_Damage); //Function 1
+        all_function.Add(Lightning_Tower_Weight); //Funciotn 2
+        all_function.Add(Lightning_Tower_AtkSpeed); //Function 3
+        all_function.Add(Ice_Tower_Weight); //Function 4
+        all_function.Add(Ice_Tower_Armour); // Function 5
+        all_function.Add(Earth_Tower_Weight); // Function 6
+        all_function.Add(Earth_Tower_MaxHp);//Functon 7
+
+        //all_function.Add(Fire_Send_Duration); //Function 178
+        //all_function.Add(Fire_Send_Damage); //Function 2
+        //all_function.Add(Lightning_Send_Duration); //Function 5
+        //all_function.Add(Lightning_Send_Damage); //Function 6
+        //all_function.Add(Ice_Send_Duration); // Function 9
+        //all_function.Add(Ice_Send_Exhaust); // Function 10
+        //all_function.Add(Earth_Send_Duration);// Function 13
+        //all_function.Add(Earth_Tower_Heal); //Function 14
+        
 
         //Tier 2
-        all_function.Add(TestPrint); 
-        all_function.Add(TestPrint);
-        all_function.Add(Fire_Tower_Critical);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(Lightning_Tower_Critical);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
+        all_function.Add(Fire_Tower_Critical); // Function 8
+        all_function.Add(Lightning_Tower_Critical); // Function 9
+        all_function.Add(TestPrint); // Function 10
+        all_function.Add(TestPrint); // Function 11
+
         
         //Tier 3
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
-        all_function.Add(TestPrint);
+        all_function.Add(TestPrint); // Function 12
+        all_function.Add(TestPrint); // Function 13
+        all_function.Add(TestPrint); // Function 14
+        all_function.Add(TestPrint); // Function 15
     }
 
     void Update()
@@ -155,13 +133,13 @@ public class Tower : MonoBehaviour
             AutoAttack(FirePos, collEnemys);
             timer = 0.0f;
         }
-        check_tower();
+        check_tower();  
         Apply_Characteristic();
 
         
         
-        //string numbersString = string.Join(", ", property_memory_run);
-        //Debug.Log(numbersString);
+        string numbersString = string.Join(", ", property_memory_run);
+        Debug.Log(numbersString);
     }
 
     public void InitalizePool(int poolSize) {
@@ -216,19 +194,19 @@ public class Tower : MonoBehaviour
                 ice_type_num = (float)types.FindAll(n => n == 3).Count;
                 earth_type_num = (float)types.FindAll(n => n == 4).Count;
 
-                if(isFunction3) {
+                if(isFunction1) {
                     attack_val = basic_attack_val + (basic_attack_val/10)*fire_type_num;
                 }
 
-                if(isFunction7) {
+                if(isFunction3) {
                     coolTime = basic_coolTime - (basic_coolTime/10)*lightning_type_num;
                 }
 
-                if(isFunction11) {
+                if(isFunction5) {
                     defence_val = basic_defence_val + (basic_defence_val/10)*ice_type_num;
                 }
                 
-                if(isFunction15) {
+                if(isFunction7) {
                     max_hp = basic_max_hp + (basic_attack_val/10)*earth_type_num;
                 }
                 int type_num = Random_type_attack();
@@ -247,9 +225,6 @@ public class Tower : MonoBehaviour
                 
                 if(type_num == 0) {
                     towerShoot.property_type = "None";
-                    towerShoot.propertyAtk = 0;
-                    towerShoot.property_duration = 0;
-                    towerShoot.property_exhaust = 0;
                 }
                 else if(type_num == 1) {
                     towerShoot.property_type = "F";
@@ -258,14 +233,13 @@ public class Tower : MonoBehaviour
                     for(int i=0; i<fireCriticalNum;i++) fireCritical[i] = 1;
                     if(fireCritical[UnityEngine.Random.Range(0,5)]==1) {
                         type_num = 5;
-                        towerShoot.propertyAtk = towerShoot.fireAtk*2;
+                        towerShoot.towerAtk = attack_val*2;
                         print("화염치명타");
 
                     }
                     else{  
-                        towerShoot.propertyAtk = towerShoot.fireAtk;
+                        towerShoot.towerAtk = attack_val;
                     }
-                    towerShoot.property_duration = towerShoot.fire_duration;
                     towerShoot.property_exhaust = towerShoot.fire_exhaust;
                 }
                 else if(type_num == 2) {
@@ -275,34 +249,26 @@ public class Tower : MonoBehaviour
                     for(int i=0; i<lightningCriticalNum;i++) lightningCritical[i] = 1;
                     if(lightningCritical[UnityEngine.Random.Range(0,5)]==1) {
                         type_num = 6;
-                        towerShoot.propertyAtk = towerShoot.lightningAtk*2;
+                        towerShoot.towerAtk = attack_val*2;
                         print("전기치명타");
 
 
                     }
                     else{  
-                        towerShoot.propertyAtk = towerShoot.lightningAtk;
+                        towerShoot.towerAtk = attack_val;
                     }
 
-                    towerShoot.property_duration = towerShoot.lightning_duration;
                     towerShoot.property_exhaust = towerShoot.lightning_exhaust;
                 }
                 else if(type_num == 3) {
                     towerShoot.property_type = "I";
-                    towerShoot.propertyAtk = towerShoot.iceAtk;
-                    towerShoot.property_duration = towerShoot.ice_duration;
-                    towerShoot.property_exhaust = towerShoot.ice_exhaust;
+                    towerShoot.towerAtk = attack_val;
+  
+
                 }
                 else if(type_num == 4){
                     towerShoot.property_type = "E";
-                    towerShoot.propertyAtk = towerShoot.earthAtk;
-                    towerShoot.property_duration = towerShoot.earth_duration;
-                    towerShoot.property_exhaust = towerShoot.earth_exhaust;
-                    if(isFunction14 && hp < max_hp) {
-                        float healhp = (max_hp / 100)*healNum;
-                        if(hp + healhp >= max_hp) hp = max_hp;
-                        else hp += healhp;
-                    }
+                    towerShoot.towerAtk = attack_val;
                 }
 
                 bullet.GetComponent<TrailRenderer>().material = ranShoot[type_num];
@@ -313,21 +279,13 @@ public class Tower : MonoBehaviour
     }
 
     public void Apply_Characteristic(){
-       /*   
-        for(int i = 0; i<property_memory.Count;i++){
-            string tmp = property_memory[i];
-            print(tmp);
-            int index = all_property.IndexOf(tmp);
-            print("index"+index);
-            //all_function[index]();
-        }
-        */
         for(int i = 0; i<property_memory.Count;i++){
             if(!property_memory_run[i]) {
-                all_function[property_memory[i]]();
+                all_function[int.Parse(property_memory[i].Substring(3,1))]();
                 property_memory_run[i] = true;
             }
         }
+        
     }
     
     public void TestPrint(){
@@ -390,37 +348,68 @@ public class Tower : MonoBehaviour
     public void Fire_Tower_Weight() { //Function 0
         fire_weight += 0.5f;
     }
-    public void Fire_Send_Duration(){  //Function 1
+    public void Fire_Tower_Damage(){  //Function 1
+        isFunction1 = true;
+        damageNum += 1;
+    }
+    public void Lightning_Tower_Weight() { //Function 2
+        lightning_weight += 0.5f;
+    }
+    public void Lightning_Tower_AtkSpeed(){  //Function 3
+        isFunction3 = true;
+        speedNum += 1;
+    }
+    public void Ice_Tower_Weight() { //Function 4
+        ice_weight += 0.5f;
+    }   
+    public void Ice_Tower_Armour(){  //Function 5
+        isFunction5 = true;
+        armourNum += 1;
+    }
+    public void Earth_Tower_Weight() { //Function 6
+        earth_weight += 0.5f;
+    }
+
+    public void Earth_Tower_MaxHp(){ //Function 7
+        isFunction7 = true;
+        maxHpNum += 1;
+    } 
+
+    //Tier. 2
+    public void Fire_Tower_Critical(){ //Function 8
+        fireCriticalNum+=1;
+    }
+
+    public void Lightning_Tower_Critical(){ //Function 9
+        lightningCriticalNum+=1;
+    }
+
+
+
+    public void Earth_Tower_Reflex(){ //Function 11
+        isFunction11 = true;
+    }
+
+    /*
+        public void Fire_Send_Duration(){  //Function 1
         TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
         towerShoot.fire_duration += 1.0f;
     }
-    public void Fire_Send_Damage(){  //Function 2
+
+     public void Fire_Send_Damage(){  //Function 2
         TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
         towerShoot.fireAtk += 1.0f;
-    }
-    public void Fire_Tower_Damage(){  //Function 3
-        isFunction3 = true;
-        damageNum += 1;
-        
-    }
-    public void Lightning_Tower_Weight() { //Function 4
-        lightning_weight += 0.5f;
     }
     public void Lightning_Send_Duration(){ //Function 5
         TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
         towerShoot.lightning_duration += 1.0f;
     }
+
     public void Lightning_Send_Damage(){ //Function 6
         TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
         towerShoot.lightningAtk += 1.0f;
     }
-    public void Lightning_Tower_AtkSpeed(){  //Function 7
-        isFunction7 = true;
-        speedNum += 1;
-    }
-    public void Ice_Tower_Weight() { //Function 8
-        ice_weight += 0.5f;
-    }   
+
     public void Ice_Send_Duration(){ //Function 9
         TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
         towerShoot.ice_duration += 1.0f;
@@ -428,13 +417,6 @@ public class Tower : MonoBehaviour
     public void Ice_Send_Exhaust(){ //Function 10
         TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
         towerShoot.ice_exhaust += 1.0f;
-    }
-    public void Ice_Tower_Armour(){  //Function 11
-        isFunction11 = true;
-        armourNum += 1;
-    }
-    public void Earth_Tower_Weight() { //Function 12
-        earth_weight += 0.5f;
     }
     public void Earth_Send_Duration(){ //Function 13
         TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
@@ -444,69 +426,7 @@ public class Tower : MonoBehaviour
         isFunction14 = true;
         healNum += 1;
     }
-    public void Earth_Tower_MaxHp(){ //Function 15
-        isFunction15 = true;
-        maxHpNum += 1;
-    } 
-
-    //Tier. 2
-    public void Fire_Send_Spread() { //Function 16
-
-    }
-    public void Fire_Send_Explosion(){ //Function 17
-
-    }
-    public void Fire_Tower_Critical(){ //Function 18
-        fireCriticalNum+=1;
-    }
-    public void Lightning_Send_CrowdControl(){ //Function 19
-        
-    }
-    public void Lightning_Send_WideAtk() { //Function 20
-
-    }
-    public void Lightning_Tower_Critical(){ //Function 21
-        lightningCriticalNum+=1;
-    }
-
-    public void Ice_Send_DefDecrease(){ //Function 22
-
-    }
-
-    public void Ice_Send_AtkDecrease(){ //Function 23
-
-    }
-
-    public void Ice_Send_Freeze(){ //Function 24
-
-    }
-
-    public void Ice_Send_Excution(){ //Function 25
-
-    }
-
-    public void Ice_Tower_AllAtk(){ //Function 26
-
-    }
-
-    public void Earth_Tower_Reflex(){ //Function 27
-        isFunction27 = true;
-    }
-
-    public void Earth_Tower_Hole(){ //Function 28
-        
-    }
-
-    public void Earth_Tower_Unbreakable(){ //Function 29
-        
-    }
-
-    public void Earth_Tower_AllMaxHp(){ //Function 30
-
-    }
-    public void Earth_Tower_All_Bind(){ //Function 31
-
-    }
+    */
 }
 
 public class Fire : MonoBehaviour {
