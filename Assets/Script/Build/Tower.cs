@@ -10,7 +10,8 @@ public class Tower : MonoBehaviour
     public float    max_hp = 100.0f;
     public float    hp = 100f;
     public float    basic_attack_val = 10.0f;
-                                                                    public float   Q0f;
+    public float    attack_val = 0;
+    public float    basic_defence_val = 10.0f;
     public float    defence_val = 0;
     public float    basic_coolTime = 0.5f;  
     public float    coolTime = 0;
