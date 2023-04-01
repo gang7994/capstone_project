@@ -50,7 +50,6 @@ public class Build_Manager : MonoBehaviour
                 build_Position[i, j] = 0;
             }
         }
-
         for (int i = 0; i < (int)mapSize.y+1; i++)
         {
             for (int j = 0; j < (int)mapSize.x; j++)
@@ -58,12 +57,27 @@ public class Build_Manager : MonoBehaviour
                 fence_horizontal_position[i, j] = 0;
             }
         }
-
         for (int i = 0; i < (int)mapSize.y; i++)
         {
             for (int j = 0; j < (int)mapSize.x+1; j++)
             {
                 fence_vertical_position[i, j] = 0;
+            }
+        }
+
+        for(int i = 5; i< 8;i++){
+            for(int j = 9;j < 12;j++) {
+                build_Position[i, j] = 1;
+            }
+        }
+        for(int i = 5; i< 8;i++){
+            for(int j = 10;j < 12;j++) {
+                fence_vertical_position[i, j] = 1;
+            }
+        }
+        for(int i = 6; i< 8;i++){
+            for(int j = 9;j < 12;j++) {
+                fence_horizontal_position[i, j] = 1;
             }
         }
     }
@@ -170,10 +184,12 @@ public class Build_Manager : MonoBehaviour
 
          for (int x = 0; x < mapSize.x; x ++) {
             for (int y = 0; y < mapSize.y; y ++) {
-                Vector3 tilePosition = new Vector3(-mapSize.x/2 +1.5f + x*3-mapSize.x, 1, -mapSize.y/2 + 1.5f + y*3-mapSize.y);
-                Transform newTile = Instantiate(tilePrefab, tilePosition, Quaternion.Euler(Vector3.right*90)) as Transform;
-                newTile.localScale = Vector3.one *(1-outlinePercent)*3;
-                newTile.parent = mapHolder;
+                if(!((x==9 || x==10 || x==11)&&(y==5 || y==6 || y==7))) {
+                    Vector3 tilePosition = new Vector3(-mapSize.x/2 +1.5f + x*3-mapSize.x, 1, -mapSize.y/2 + 1.5f + y*3-mapSize.y);
+                    Transform newTile = Instantiate(tilePrefab, tilePosition, Quaternion.Euler(Vector3.right*90)) as Transform;
+                    newTile.localScale = Vector3.one *(1-outlinePercent)*3;
+                    newTile.parent = mapHolder;
+                }
             }
         }
 

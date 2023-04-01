@@ -398,7 +398,6 @@ GameObject:
   - component: {fileID: 5085128653942440835}
   - component: {fileID: 5085128653942440844}
   - component: {fileID: 5085128654532782645}
-  - component: {fileID: 5085128654532782644}
   m_Layer: 3
   m_Name: Cloak02
   m_TagString: Untagged
@@ -530,19 +529,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 0.54754806, z: 0.77}
   m_Center: {x: 0.54627216, y: -1.2867863, z: -0.16371047}
---- !u!114 &5085128654532782644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5085128653942440834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 427c5456e60de2f44a33bc80efc98082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5085128654992022193}
 --- !u!1 &5085128653964776288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2962,6 +2948,22 @@ MonoBehaviour:
   Earth: {fileID: 2100000, guid: c92d8f0d57db4ca4db2269c6d561af6d, type: 2}
   Normal: {fileID: 2100000, guid: 301ac81f8cccc0a48b46789bd364ebcf, type: 2}
   audioSource: {fileID: 0}
+  fire_weight: 0
+  fire_duration: 0
+  fire_Atk: 0
+  fire_DamageNum: 0
+  lightning_weight: 0
+  lightning_duration: 0
+  lightning_Atk: 0
+  lightning_AtkSpeed: 0
+  ice_weight: 0
+  ice_duration: 0
+  ice_exhaust: 0
+  Character_armour: 0
+  earth_weight: 0
+  earth_duration: 0
+  Character_heal: 0
+  Character_MaxHp: 0
 --- !u!54 &9127657126477934394
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3086,6 +3088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f75c50f00c550b4c8a0a488f752c05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!1 &5085128655017236582
 GameObject:
   m_ObjectHideFlags: 0
