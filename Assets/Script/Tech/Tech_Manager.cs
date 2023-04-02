@@ -189,7 +189,7 @@ public class Tech_Manager : MonoBehaviour
             if(tier=="1") tech_tier1+=1;
             else if(tier=="2") tech_tier2+=1;
             select_tech_list.Add(new List<string> { tier, type, property, index, name, text, init_val, max_val });
-            SendSelectedAttributeToTower(tier, type, property, index);
+            
             
         }
         else if (type == "W") //무기
@@ -207,6 +207,7 @@ public class Tech_Manager : MonoBehaviour
             select_tech_list.Add(new List<string> { tier, type, property, index, name, text, init_val, max_val });
 
         }
+        SendSelectedAttributeToElemental(tier, type, property, index);
     }
 
     void display(string i)
@@ -322,9 +323,9 @@ public class Tech_Manager : MonoBehaviour
         Tech_Exit_Button_Click();
     }
     
-    public void SendSelectedAttributeToTower(string tier, string type, string property, string index) //티어, 종류, 속성, 인덱스
+    public void SendSelectedAttributeToElemental(string tier, string type, string property, string index) //티어, 종류, 속성, 인덱스
     {
-        Tower.property_memory.Add(tier+type+property+index);
+        Elemental.property_memory.Add(tier+type+property+index);
     }
     
 

@@ -19,7 +19,7 @@ public class Monster_hit : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player_Bullet"))
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
@@ -30,7 +30,21 @@ public class Monster_hit : MonoBehaviour
                 GetComponentInParent<Monster_old>().Delay = 1.8f;
                 Destroy(other.gameObject);
             }
+        }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Tower_Bullet"))
+        {
+            if (GetComponentInParent<Monster_old>().isChase)
+            {
+                Vector3 reactVec = transform.parent.position;
+                anims.SetBool("isDamage", true);
+                print("towerATK"+ other.gameObject.GetComponent<TowerShoot>().towerAtk);
+                GetComponentInParent<Monster_old>().curHealth -= 20;
+                StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
+                GetComponentInParent<Monster_old>().Delay = 1.8f;
+                Destroy(other.gameObject);
+            }
 
         }
+
     }
 }

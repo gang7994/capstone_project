@@ -133,6 +133,9 @@ public class Tech_View : MonoBehaviour
 
     public void Display_Select() //TechManagerUI_Panel���� ������ Ư�� ��� �Լ�
     {
+        List<string> t_list = new List<string>();
+        List<string> p_list = new List<string>();
+        List<string> w_list = new List<string>();
         int t1 = 0, t2 = 0, t3 = 0;
         int p1 = 0, p2 = 0, p3 = 0;
         int w1 = 0, w2 = 0, w3 = 0;
@@ -141,45 +144,66 @@ public class Tech_View : MonoBehaviour
         {
             if(select_tech_list[i][1] == "T"){ //종류
                 if(select_tech_list[i][0] == "1") {
-                    tower_text_1[t1].GetComponent<Text>().text = select_tech_list[i][3];
+                    if(!t_list.Contains(select_tech_list[i][4])){
+                    tower_text_1[t1].GetComponent<Text>().text = select_tech_list[i][4];
                     t1 += 1;
+                    }
                 }
                 else if(select_tech_list[i][0] == "2"){
-                    tower_text_2[t2].GetComponent<Text>().text = select_tech_list[i][3];
+                    if(!t_list.Contains(select_tech_list[i][4])){
+                    tower_text_2[t2].GetComponent<Text>().text = select_tech_list[i][4];
                     t2 += 1;
+                    }
                 }
                 else if(select_tech_list[i][0] == "3"){
-                    tower_text_3[t3].GetComponent<Text>().text = select_tech_list[i][3];
+                    if(!t_list.Contains(select_tech_list[i][4])){
+                    tower_text_3[t3].GetComponent<Text>().text = select_tech_list[i][4];
                     t3 += 1;
+                    }
                 }
+                t_list.Add(select_tech_list[i][4]);
             }
             else if (select_tech_list[i][1] == "W"){
                 if(select_tech_list[i][0] == "1") {
-                    weapon_text_1[w1].GetComponent<Text>().text = select_tech_list[i][3];
+                    if(!w_list.Contains(select_tech_list[i][4])){
+                    weapon_text_1[w1].GetComponent<Text>().text = select_tech_list[i][4];
                     w1 += 1;
+                    }
                 }
                 else if(select_tech_list[i][0] == "2"){
-                    weapon_text_2[w2].GetComponent<Text>().text = select_tech_list[i][3];
+                    if(!w_list.Contains(select_tech_list[i][4])){
+                    weapon_text_2[w2].GetComponent<Text>().text = select_tech_list[i][4];
                     w2 += 1;
+                    }
                 }
                 else if(select_tech_list[i][0] == "3"){
-                    weapon_text_3[w3].GetComponent<Text>().text = select_tech_list[i][3];
+                    if(!w_list.Contains(select_tech_list[i][4])){
+                    weapon_text_3[w3].GetComponent<Text>().text = select_tech_list[i][4];
                     w3 += 1;
+                    }
                 }
+                w_list.Add(select_tech_list[i][4]);
             }
             else if (select_tech_list[i][1] == "P"){
                 if(select_tech_list[i][0] == "1") {
-                    public_text_1[p1].GetComponent<Text>().text = select_tech_list[i][3];
+                    if(!p_list.Contains(select_tech_list[i][4])){
+                    public_text_1[p1].GetComponent<Text>().text = select_tech_list[i][4];
                     p1 += 1;
+                    }
                 }
                 else if(select_tech_list[i][0] == "2"){
-                    public_text_2[p2].GetComponent<Text>().text = select_tech_list[i][3];
+                    if(!p_list.Contains(select_tech_list[i][4])){
+                    public_text_2[p2].GetComponent<Text>().text = select_tech_list[i][4];
                     p2 += 1;
+                    }
                 }
                 else if(select_tech_list[i][0] == "3"){
-                    public_text_3[p3].GetComponent<Text>().text = select_tech_list[i][3];
+                    if(!p_list.Contains(select_tech_list[i][4])){
+                    public_text_3[p3].GetComponent<Text>().text = select_tech_list[i][4];
                     p3 += 1;
+                    }
                 }
+                p_list.Add(select_tech_list[i][4]);
             }
 
         }

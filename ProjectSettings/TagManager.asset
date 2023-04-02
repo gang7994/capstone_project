@@ -20,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Map
-  - Bullet
+  - Player_Bullet
   - Rock
   - Monster
   - MonsterDied
@@ -28,7 +28,7 @@ TagManager:
   - Fence
   - MonsterElite
   - MonsterBoss
-  - 
+  - Tower_Bullet
   - 
   - 
   - 

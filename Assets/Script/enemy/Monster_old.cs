@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Monster_old : MonoBehaviour
 {
-    public int maxHealth, curHealth;
+    public float maxHealth, curHealth;
     public int damage;
     public GameObject house;
     public GameObject Attack_range;
@@ -49,6 +49,10 @@ public class Monster_old : MonoBehaviour
     }
     void Update()
     {
+        if(target == null)
+        {
+            target = house.transform;
+        }
         Delay += Time.deltaTime;
         if (isAttackDelay)
         {
@@ -215,7 +219,7 @@ public class Monster_old : MonoBehaviour
     {
         if (isChase)
         {
-            target.GetComponent<Player>().Health -= damage;
+            //target.GetComponent<Player>().Health -= damage;
             Debug.Log("데미지 10");
         }
         
