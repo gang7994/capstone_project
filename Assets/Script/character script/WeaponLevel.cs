@@ -8,6 +8,7 @@ public class WeaponLevel : MonoBehaviour
     // Start is called before the first frame update
     public Text SwordLevel;
     public GameObject TypeIcon1, TypeIcon2, TypeIcon3, TypeIcon4, TypeIcon5;
+    public GameObject TypeIcon1_N, TypeIcon2_N, TypeIcon3_N, TypeIcon4_N, TypeIcon5_N;
 
     public int SL;
 
@@ -16,10 +17,8 @@ public class WeaponLevel : MonoBehaviour
         SwordLevel.GetComponent<Text>().text = "Level : 1";
 
         SL = 1;
-        TypeIcon2.SetActive(false);
-        TypeIcon3.SetActive(false);
-        TypeIcon4.SetActive(false);
-        TypeIcon5.SetActive(false);
+
+        TypeIcon1_N.SetActive(false);
 
     }
 
@@ -28,19 +27,31 @@ public class WeaponLevel : MonoBehaviour
     {
         if(SL > 4)
         {
-            TypeIcon2.SetActive(true);
+            TypeIcon2_N.SetActive(false);
+            TypeIcon3_N.SetActive(true);
+            TypeIcon4_N.SetActive(true);
+            TypeIcon5_N.SetActive(true);
         }
         if (SL > 9)
         {
-            TypeIcon3.SetActive(true);
+            TypeIcon2_N.SetActive(false);
+            TypeIcon3_N.SetActive(false);
+            TypeIcon4_N.SetActive(true);
+            TypeIcon5_N.SetActive(true);
         }
         if(SL > 14)
         {
-            TypeIcon4.SetActive(true);
+            TypeIcon2_N.SetActive(false);
+            TypeIcon3_N.SetActive(false);
+            TypeIcon4_N.SetActive(false);
+            TypeIcon5_N.SetActive(true);
         }
         if(SL > 19)
         {
-            TypeIcon5.SetActive(true);
+            TypeIcon2_N.SetActive(false);
+            TypeIcon3_N.SetActive(false);
+            TypeIcon4_N.SetActive(false);
+            TypeIcon5_N.SetActive(false);
         }
     }
     public void LevelUp_Sword()

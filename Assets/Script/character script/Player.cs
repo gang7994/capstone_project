@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     int[] Type = new int[5];
     int selectNumber;
 
-    /*Æ¯¼º Àü¿ë º¯¼ö*/
+    /*Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/
     public float fire_weight;
     public float fire_duration;
     public float fire_Atk;
@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
         LevelUp_UI.SetActive(false);
         TypePanel.SetActive(false);
 
-        /*Æ¯¼º Àü¿ë º¯¼ö ±âº»°ª*/
+        /*Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½âº»ï¿½ï¿½*/
        
         
     }
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
     {
         health_bar.GetComponent<Slider>().value = Health;
         health_text.GetComponent<Text>().text = Health.ToString();
-        //isAttackReady ´Â °ø°Ý¸ð¼Ç ½Ã°£ attack_time Àº ´ÙÀ½°ø°Ý±îÁö µô·¹ÀÌ isattackReady ÀÌÈÄ ¿òÁ÷ÀÓ
+        //isAttackReady ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¸ï¿½ï¿½ ï¿½Ã°ï¿½ attack_time ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ isattackReady ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         attackDelay += Time.deltaTime;
         if (isSword)
         {
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
         Move();
         Attack();
 
-        if(Health <= 0) { //Ã¼·ÂÀÌ 0ÀÌÇÏ°¡ µÇ¸é °ÔÀÓ¿À¹ö ÆË¾÷Ã¢ÀÌ ¶ä
+        if(Health <= 0) { //Ã¼ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½
             Health = 0;
             //GameObject.Find("UI").GetComponent<UI>().Gameover_Panel_active();
             print("Game Over");
@@ -309,7 +309,7 @@ public class Player : MonoBehaviour
         }
     }*/
 
-    public void ExitPanel()   // Æ¯¼º¼±ÅÃ ÆÐ³Î°ü¸®
+    public void ExitPanel()   // Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³Î°ï¿½ï¿½ï¿½
     {
         TypePanel.SetActive(false);
         selectNumber = 0;
@@ -358,30 +358,35 @@ public class Player : MonoBehaviour
     {
         if(selectNumber == 1)
         {
+            TypeIcon1.SetActive(true);
             TypeIcon1.GetComponent<Image>().sprite = FireImage;
             Type[0] = 1;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 2)
         {
+            TypeIcon2.SetActive(true);
             TypeIcon2.GetComponent<Image>().sprite = FireImage;
             Type[1] = 1;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 3)
         {
+            TypeIcon3.SetActive(true);
             TypeIcon3.GetComponent<Image>().sprite = FireImage;
             Type[2] = 1;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 4)
         {
+            TypeIcon4.SetActive(true);
             TypeIcon4.GetComponent<Image>().sprite = FireImage;
             Type[3] = 1;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 5)
         {
+            TypeIcon5.SetActive(true);
             TypeIcon5.GetComponent<Image>().sprite = FireImage;
             Type[4] = 1;
             TypePanel.SetActive(false);
@@ -391,30 +396,35 @@ public class Player : MonoBehaviour
     {
         if (selectNumber == 1)
         {
+            TypeIcon1.SetActive(true);
             TypeIcon1.GetComponent<Image>().sprite = LightImage;
             Type[0] = 2;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 2)
         {
+            TypeIcon2.SetActive(true);
             TypeIcon2.GetComponent<Image>().sprite = LightImage;
             Type[1] = 2;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 3)
         {
+            TypeIcon3.SetActive(true);
             TypeIcon3.GetComponent<Image>().sprite = LightImage;
             Type[2] = 2;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 4)
         {
+            TypeIcon4.SetActive(true);
             TypeIcon4.GetComponent<Image>().sprite = LightImage;
             Type[3] = 2;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 5)
         {
+            TypeIcon5.SetActive(true);
             TypeIcon5.GetComponent<Image>().sprite = LightImage;
             Type[4] = 2;
             TypePanel.SetActive(false);
@@ -424,30 +434,35 @@ public class Player : MonoBehaviour
     {
         if (selectNumber == 1)
         {
+            TypeIcon1.SetActive(true);
             TypeIcon1.GetComponent<Image>().sprite = IceImage;
             Type[0] = 3;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 2)
         {
+            TypeIcon2.SetActive(true);
             TypeIcon2.GetComponent<Image>().sprite = IceImage;
             Type[1] = 3;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 3)
         {
+            TypeIcon3.SetActive(true);
             TypeIcon3.GetComponent<Image>().sprite = IceImage;
             Type[2] = 3;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 4)
         {
+            TypeIcon4.SetActive(true);
             TypeIcon4.GetComponent<Image>().sprite = IceImage;
             Type[3] = 3;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 5)
         {
+            TypeIcon5.SetActive(true);
             TypeIcon5.GetComponent<Image>().sprite = IceImage;
             Type[4] = 3;
             TypePanel.SetActive(false);
@@ -457,30 +472,35 @@ public class Player : MonoBehaviour
     {
         if (selectNumber == 1)
         {
+            TypeIcon1.SetActive(true);
             TypeIcon1.GetComponent<Image>().sprite = EarthImage;
             Type[0] = 4;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 2)
         {
+            TypeIcon2.SetActive(true);
             TypeIcon2.GetComponent<Image>().sprite = EarthImage;
             Type[1] = 4;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 3)
         {
+            TypeIcon3.SetActive(true);
             TypeIcon3.GetComponent<Image>().sprite = EarthImage;
             Type[2] = 4;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 4)
         {
+            TypeIcon4.SetActive(true);
             TypeIcon4.GetComponent<Image>().sprite = EarthImage;
             Type[3] = 4;
             TypePanel.SetActive(false);
         }
         else if (selectNumber == 5)
         {
+            TypeIcon5.SetActive(true);
             TypeIcon5.GetComponent<Image>().sprite = EarthImage;
             Type[4] = 4;
             TypePanel.SetActive(false);

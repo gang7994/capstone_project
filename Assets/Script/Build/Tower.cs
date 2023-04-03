@@ -97,7 +97,7 @@ public class Tower : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "MonsterAttack")
+        if (collision.tag == "MonsterAttack" && collEnemys.Count < 5)
         {
             collEnemys.Add(collision.transform.parent.gameObject);
         }
