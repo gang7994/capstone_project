@@ -12,6 +12,16 @@ public class Elemental : MonoBehaviour
     public bool isFunction10 = false;
     public bool isFunction11 = false;
 
+    //Function Count
+    public int function0 = 0, function1 = 0, function2 = 0, function3 = 0, function4 = 0, function5 = 0, 
+            function6 = 0, function7 = 0, function8 = 0, function9 = 0, function10 = 0, function11 = 0, 
+            function12 = 0, function13 = 0, function14 = 0, function15 = 0, function16 = 0, function17 = 0, 
+            function18 = 0, function19 = 0, function20 = 0, function21 = 0, function22 = 0, function23 = 0, 
+            function24 = 0, function25 = 0, function26 = 0, function27 = 0, function28 = 0, function29 = 0, 
+            function30 = 0, function31 = 0, function32 = 0, function33 = 0, function34 = 0, function35 = 0, 
+            function36 = 0, function37 = 0, function38 = 0, function39 = 0, function40 = 0, function41 = 0, 
+            function42 = 0, function43 = 0, function44 = 0, function45 = 0, function46 = 0, function47 = 0, function48 = 0, function49 = 0;
+
     //Tier.1
     //tower
     public float fire_tower_weight = 0; //Function 0 value
@@ -138,33 +148,57 @@ public class Elemental : MonoBehaviour
 
 
     public void Fire_Tower_Weight() { //Function 0
-        fire_tower_weight += 0.5f;
+        function0 += 1;
+        if(function0 == 1) fire_tower_weight += 0.5f;
+        else if(function0 == 2) fire_tower_weight += 0.5f;
+        else if(function0 == 3) fire_tower_weight += 0.5f;
     }
     public void Fire_Tower_Damage(){  //Function 1
+        function1 += 1;
         isFunction1 = true;
-        fire_tower_damage += 1;
+        if(function1 == 1) fire_tower_damage += 1.0f;
+        else if(function1 == 2) fire_tower_damage += 1.0f;
+        else if(function1 == 3) fire_tower_damage += 1.0f;
     }
     public void Lightning_Tower_Weight() { //Function 2
-        lightning_tower_weight += 0.5f;
+        function2 += 1;
+        if(function2 == 1) lightning_tower_weight += 0.5f;
+        else if(function2 == 2) lightning_tower_weight += 0.5f;
+        else if(function2 == 3) lightning_tower_weight += 0.5f;
     }
     public void Lightning_Tower_AtkSpeed(){  //Function 3
+        function3 += 1;
+        if(function3 == 1) lightning_tower_atkSpeed += 1.0f;
+        else if(function3 == 2) lightning_tower_atkSpeed += 1.0f;
+        else if(function3 == 3) lightning_tower_atkSpeed += 1.0f;
         isFunction3 = true;
-        lightning_tower_atkSpeed += 1;
     }
     public void Ice_Tower_Weight() { //Function 4
-        ice_tower_weight += 0.5f;
+        function4 += 1;
+        if(function4 == 1) ice_tower_weight += 1.0f;
+        else if(function4 == 2) ice_tower_weight += 1.0f;
+        else if(function4 == 3) ice_tower_weight += 1.0f;
     }   
     public void Ice_Tower_Armour(){  //Function 5
+        function5+=1;
         isFunction5 = true;
-        ice_tower_armour += 1;
+        if(function5 == 1) ice_tower_armour += 1;
+        else if(function5 == 2) ice_tower_armour += 1;
+        else if(function5 == 3) ice_tower_armour += 1;
     }
     public void Earth_Tower_Weight() { //Function 6
-        earth_tower_weight += 0.5f;
+        function6+=1;
+        if(function6 == 1) earth_tower_weight += 0.5f;
+        else if(function6 == 2) earth_tower_weight += 0.5f;
+        else if(function6 == 3) earth_tower_weight += 0.5f;
     }
-
     public void Earth_Tower_MaxHp(){ //Function 7
+        function7+=1;
         isFunction7 = true;
-        earth_tower_MaxHp += 1;
+        if(function7 == 1) earth_tower_MaxHp += 1;
+        else if(function7 == 2) earth_tower_MaxHp += 1;
+        else if(function7 == 3) earth_tower_MaxHp += 1;
+
     } 
 
     
@@ -238,11 +272,16 @@ public class Elemental : MonoBehaviour
 
     //Tier. 2
     public void Fire_Tower_Critical(){ //Function 26
-        fire_tower_critical+=1;
+        function26 +=1;
+        if (function26 == 1) fire_tower_critical+=1;
+        else if(function26 == 2) fire_tower_critical+=1;
+        
     }
 
     public void Lightning_Tower_Critical(){ //Function 27
-        lightning_tower_critical+=1;
+        function27+=1;
+        if (function27 == 1) lightning_tower_critical+=1;
+        else if(function27 == 2) lightning_tower_critical+=1;
     }
 
     public void Ice_Tower_frostbite(){ //Function 28

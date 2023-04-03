@@ -64414,6 +64414,7 @@ GameObject:
   - component: {fileID: 1721208981}
   - component: {fileID: 1721208985}
   - component: {fileID: 1721208986}
+  - component: {fileID: 1721208987}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -64518,6 +64519,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1014680514}
   offset: {x: 0, y: 15, z: -10}
+--- !u!114 &1721208987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721208980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca2a03900629a641932f3b840bfd917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFunction1: 0
+  isFunction3: 0
+  isFunction5: 0
+  isFunction7: 0
+  isFunction10: 0
+  isFunction11: 0
+  fire_tower_weight: 0
+  lightning_tower_weight: 0
+  ice_tower_weight: 0
+  earth_tower_weight: 0
+  fire_tower_damage: 0
+  lightning_tower_atkSpeed: 0
+  ice_tower_armour: 0
+  earth_tower_MaxHp: 0
+  fire_character_damage: 0
+  lightning_character_atkSpeed: 0
+  ice_character_armour: 0
+  earth_character_MaxHp: 0
+  fire_character_weight: 0
+  lightning_character_weight: 0
+  ice_character_weight: 0
+  earth_character_weight: 0
+  fire_duration: 1
+  lightning_duration: 1
+  ice_duration: 1
+  earth_duration: 1
+  tower_Max: 0
+  fence_Max: 0
+  tower_atkRange: 0
+  character_speed: 0
+  character_atkRange: 0
+  character_MoneyLuck: 0
+  fire_tower_critical: 0
+  lightning_tower_critical: 0
+  property_memory_run: 
 --- !u!1 &1732457461
 GameObject:
   m_ObjectHideFlags: 0

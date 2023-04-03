@@ -99,6 +99,7 @@ public class Tower : MonoBehaviour
     {
         if (collision.tag == "MonsterAttack")
         {
+            print("사거리 진입");
             collEnemys.Add(collision.transform.parent.gameObject);
         }
     }
@@ -109,6 +110,7 @@ public class Tower : MonoBehaviour
         {
             if (go == collision.gameObject)
             {
+                print("사거리 진출함");
                 collEnemys.Remove(go);
                 break;
             }
@@ -124,7 +126,8 @@ public class Tower : MonoBehaviour
                 lightning_type_num = (float)types.FindAll(n => n == 2).Count;
                 ice_type_num = (float)types.FindAll(n => n == 3).Count;
                 earth_type_num = (float)types.FindAll(n => n == 4).Count;
-
+                
+                print("------"+GameObject.Find("Main Camera").GetComponent<Elemental>().isFunction1);
                 if(GameObject.Find("Main Camera").GetComponent<Elemental>().isFunction1) {
                     attack_val = basic_attack_val + (basic_attack_val/20)*fire_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_damage;
                 }
@@ -140,6 +143,7 @@ public class Tower : MonoBehaviour
                 if(GameObject.Find("Main Camera").GetComponent<Elemental>().isFunction7) {
                     max_hp = basic_max_hp + (basic_attack_val/20)*earth_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().earth_tower_MaxHp;
                 }
+                
                 int type_num = Random_type_attack();
 
                 if (bulletPool.Count == 0)
