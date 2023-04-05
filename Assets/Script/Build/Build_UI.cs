@@ -28,14 +28,16 @@ public class Build_UI : MonoBehaviour
     // Start is called before the first frame update
     public void onClick1() //Ÿ�� ������ Ȱ��ȭ
     {
-        tower_prefab.SetActive(true);
-        fence_prefab.SetActive(false);
-        move_button.SetActive(true);
-        build_button.SetActive(true);
-        rotate_button.SetActive(false);
-        inclined = false;
-        rotate_count = 0;
-        horizontal = true;
+        if(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().current_number_of_Tower < GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().max_number_of_Tower){
+            tower_prefab.SetActive(true);
+            fence_prefab.SetActive(false);
+            move_button.SetActive(true);
+            build_button.SetActive(true);
+            rotate_button.SetActive(false);
+            inclined = false;
+            rotate_count = 0;
+            horizontal = true;
+        }
     }
 
     public void onClick2() //�潺 ������ Ȱ��ȭ

@@ -144,7 +144,6 @@ public class Build_Manager : MonoBehaviour
         if (isBuild)
         {
             current_number_of_Tower += 1;
-            if(current_number_of_Tower == max_number_of_Tower) isBuild = false;
         }
     }
     public void RemoveTower()

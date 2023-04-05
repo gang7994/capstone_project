@@ -15859,7 +15859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5177895029496917741, guid: d5ad137ba4085324a8dbd8dddb4e560f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5177895029496917741, guid: d5ad137ba4085324a8dbd8dddb4e560f, type: 3}
       propertyPath: m_TagString
@@ -23490,7 +23490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &712355442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -54359,6 +54359,56 @@ MonoBehaviour:
   isFunction7: 0
   isFunction10: 0
   isFunction11: 0
+  function0: 0
+  function1: 0
+  function2: 0
+  function3: 0
+  function4: 0
+  function5: 0
+  function6: 0
+  function7: 0
+  function8: 0
+  function9: 0
+  function10: 0
+  function11: 0
+  function12: 0
+  function13: 0
+  function14: 0
+  function15: 0
+  function16: 0
+  function17: 0
+  function18: 0
+  function19: 0
+  function20: 0
+  function21: 0
+  function22: 0
+  function23: 0
+  function24: 0
+  function25: 0
+  function26: 0
+  function27: 0
+  function28: 0
+  function29: 0
+  function30: 0
+  function31: 0
+  function32: 0
+  function33: 0
+  function34: 0
+  function35: 0
+  function36: 0
+  function37: 0
+  function38: 0
+  function39: 0
+  function40: 0
+  function41: 0
+  function42: 0
+  function43: 0
+  function44: 0
+  function45: 0
+  function46: 0
+  function47: 0
+  function48: 0
+  function49: 0
   fire_tower_weight: 0
   lightning_tower_weight: 0
   ice_tower_weight: 0
