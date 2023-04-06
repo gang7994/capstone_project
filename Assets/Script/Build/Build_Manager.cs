@@ -10,8 +10,6 @@ public class Build_Manager : MonoBehaviour
 
     public bool isBuild = true;
 
-    public int max_number_of_Tower = 3;
-    public int max_number_of_Fence = 3;
     public int current_number_of_Tower = 0;
     public int current_number_of_Fence = 0;
 
@@ -103,8 +101,8 @@ public class Build_Manager : MonoBehaviour
             }
         }
 
-        tower_num.text = current_number_of_Tower.ToString() + "/" + max_number_of_Tower;
-        fence_num.text = current_number_of_Fence.ToString() + "/" + max_number_of_Fence;
+        tower_num.text = current_number_of_Tower.ToString() + "/" + GameObject.Find("Main Camera").GetComponent<Elemental>().tower_max;
+        fence_num.text = current_number_of_Fence.ToString() + "/" + GameObject.Find("Main Camera").GetComponent<Elemental>().fence_max;
 
 
     }
@@ -158,11 +156,7 @@ public class Build_Manager : MonoBehaviour
     }
     public void AddFence()
     {
-        if (current_number_of_Fence < max_number_of_Fence)
-        {
-            current_number_of_Fence += 1;
-        }
-        else isBuild = false;
+        current_number_of_Fence += 1;
     }
     public void RemoveFence()
     {

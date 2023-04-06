@@ -48,12 +48,12 @@ public class Elemental : MonoBehaviour
     public float ice_duration       = 1.0f;
     public float earth_duration     = 1.0f;
     //public
-    public float tower_Max;
-    public float fence_Max;
+    public int tower_max = 3;
+    public int fence_max = 5;
     public float tower_atkRange;
     public float character_speed;
     public float character_atkRange;
-    public float character_MoneyLuck;
+    public float character_moneyLuck;
 
 
     //Tier.1
@@ -135,12 +135,12 @@ public class Elemental : MonoBehaviour
     {
         Apply_Characteristic();
     }
-    
     public void Apply_Characteristic(){
         for(int i = 0; i<property_memory.Count;i++){
             if(!property_memory_run[i]) {
-                all_function[int.Parse(property_memory[i].Substring(3,1))]();
+                all_function[int.Parse(property_memory[i].Substring(3))]();
                 property_memory_run[i] = true;
+
             }
         }
         
@@ -244,11 +244,30 @@ public class Elemental : MonoBehaviour
     }
     
     public void Public_Increase_Tower(){ //Function 20
+        function20++;
+        if(function20 == 1) {
+            tower_max += 1;
+        }
+        else if(function20 == 2) {
+            tower_max += 2;
+        }
+        else if(function20 == 3) {
+            tower_max += 3;
+        }
 
     }
 
     public void Public_Increase_Fence(){ //Function 21
-        
+        function21++;
+        if(function21 == 1) {
+            fence_max += 1;
+        }
+        else if(function21 == 2) {
+            fence_max += 2;
+        }
+        else if(function21 == 3) {
+            fence_max += 3;
+        }
     }
 
     public void Public_Increase_TowerRange(){ //Function 22
