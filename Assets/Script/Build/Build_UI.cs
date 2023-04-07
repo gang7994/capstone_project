@@ -28,26 +28,30 @@ public class Build_UI : MonoBehaviour
     // Start is called before the first frame update
     public void onClick1() //Ÿ�� ������ Ȱ��ȭ
     {
-        tower_prefab.SetActive(true);
-        fence_prefab.SetActive(false);
-        move_button.SetActive(true);
-        build_button.SetActive(true);
-        rotate_button.SetActive(false);
-        inclined = false;
-        rotate_count = 0;
-        horizontal = true;
+        if(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().current_number_of_Tower < GameObject.Find("Main Camera").GetComponent<Elemental>().tower_max){
+            tower_prefab.SetActive(true);
+            fence_prefab.SetActive(false);
+            move_button.SetActive(true);
+            build_button.SetActive(true);
+            rotate_button.SetActive(false);
+            inclined = false;
+            rotate_count = 0;
+            horizontal = true;
+        }
     }
 
     public void onClick2() //�潺 ������ Ȱ��ȭ
     {
-        tower_prefab.SetActive(false);
-        fence_prefab.SetActive(true);
-        move_button.SetActive(true);
-        build_button.SetActive(true);
-        rotate_button.SetActive(true);
-        GameObject.Find("Building_Inspector").GetComponent<Build_UI>().rotate_count = 0;
-        GameObject.Find("Building_Inspector").GetComponent<Build_UI>().inclined = false;
-        GameObject.Find("Building_Inspector").GetComponent<Build_UI>().horizontal = true;
+        if(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().current_number_of_Fence < GameObject.Find("Main Camera").GetComponent<Elemental>().fence_max){
+            tower_prefab.SetActive(false);
+            fence_prefab.SetActive(true);
+            move_button.SetActive(true);
+            build_button.SetActive(true);
+            rotate_button.SetActive(true);
+            GameObject.Find("Building_Inspector").GetComponent<Build_UI>().rotate_count = 0;
+            GameObject.Find("Building_Inspector").GetComponent<Build_UI>().inclined = false;
+            GameObject.Find("Building_Inspector").GetComponent<Build_UI>().horizontal = true;
+        }
     }
 
     public void onClick3() //Exit ��ư Ŭ���� ����
