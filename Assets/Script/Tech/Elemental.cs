@@ -204,43 +204,80 @@ public class Elemental : MonoBehaviour
     
 
     public void Fire_Weapon_weight() { //Function 8
-
+        function8 += 1;
+        if (function8 == 1) fire_character_weight += 0.5f;
+        else if (function8 == 2) fire_character_weight += 0.5f;
+        else if (function8 == 3) fire_character_weight += 0.5f;
     }
     public void Fire_Weapon_Damage(){  //Function 9
+        function9 += 1;
+        if (function9 == 1) fire_character_damage += 1.0f;
+        else if (function9 == 2) fire_character_damage += 1.0f;
+        else if (function9 == 3) fire_character_damage += 1.0f;
     }
     public void Lightning_Weapon_Weight() { //Function 10
-
+        function10 += 1;
+        if (function10 == 1) lightning_character_weight += 0.5f;
+        else if (function10 == 2) lightning_character_weight += 0.5f;
+        else if (function10 == 3) lightning_character_weight += 0.5f;
     }
     public void Lightning_Weapon_AtkSpeed(){  //Function 11
-
+        function11 += 1;
+        if (function11 == 1) lightning_character_atkSpeed += 1.0f;
+        else if (function11 == 2) lightning_character_atkSpeed += 1.0f;
+        else if (function11 == 3) lightning_character_atkSpeed += 1.0f;
     }
     public void Ice_Weapon_Weight() { //Function 12
-
+        function12 += 1;
+        if (function12 == 1) ice_character_weight += 0.5f;
+        else if (function12 == 2) ice_character_weight += 0.5f;
+        else if (function12 == 3) ice_character_weight += 0.5f;
     }   
     public void Ice_Weapon_Armour(){  //Function 13
-
+        function13 += 1;
+        if (function13 == 1) ice_character_armour += 1;
+        else if (function13 == 2) ice_character_armour += 1;
+        else if (function13 == 3) ice_character_armour += 1;
     }
     public void Earth_Weapon_Weight() { //Function 14
-
+        function14 += 1;
+        if (function14 == 1) earth_character_weight += 0.5f;
+        else if (function14 == 2) earth_character_weight += 0.5f;
+        else if (function14 == 3) earth_character_weight += 0.5f;
     }
 
     public void Earth_Weapon_MaxHp(){ //Function 15
-
+        function15 += 1;
+        if (function15 == 1) earth_character_MaxHp += 1;
+        else if (function15 == 2) earth_character_MaxHp += 1;
+        else if (function15 == 3) earth_character_MaxHp += 1;
     } 
 
     public void Fire_Duration() { //Function 16
-
+        function16 += 1;
+        if (function16 == 1) fire_duration += 1.0f;
+        else if (function16 == 2) fire_duration += 1.0f;
+        else if (function16 == 3) fire_duration += 1.0f;
     }
     public void Lightning_Duration() { //Function 17
-        
+        function17 += 1;
+        if (function17 == 1) lightning_duration += 1.0f;
+        else if (function17 == 2) lightning_duration += 1.0f;
+        else if (function17 == 3) lightning_duration += 1.0f;
     }
 
     public void Ice_Duration(){ //Function 18
-
+        function18 += 1;
+        if (function18 == 1) ice_duration += 1.0f;
+        else if (function18 == 2) ice_duration += 1.0f;
+        else if (function18 == 3) ice_duration += 1.0f;
     }
 
     public void Earth_Duration(){ //Function 19
-        
+        function19 += 1;
+        if (function19 == 1) earth_duration += 1.0f;
+        else if (function19 == 2) earth_duration += 1.0f;
+        else if (function19 == 3) earth_duration += 1.0f;
     }
     
     public void Public_Increase_Tower(){ //Function 20

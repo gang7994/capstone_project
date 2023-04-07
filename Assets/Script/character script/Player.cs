@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public Material Earth;
     public Material Normal;
     public AudioSource audioSource;
+    public GameObject MainCamera;
 
     float stick_hAxis, stick_vAxis, key_hAxis, key_vAxis;
     float attackDelay;
@@ -36,20 +37,16 @@ public class Player : MonoBehaviour
     /*Ư�� ���� ����*/
     public float fire_weight;
     public float fire_duration;
-    public float fire_Atk;
-    public float fire_DamageNum;
+    public float fire_damage;
     public float lightning_weight;
     public float lightning_duration;
-    public float lightning_Atk;
     public float lightning_AtkSpeed;
     public float ice_weight;
     public float ice_duration;
-    public float ice_exhaust;
-    public float Character_armour;
+    public float ice_Character_armour;
     public float earth_weight;
     public float earth_duration;
-    public float Character_heal;
-    public float Character_MaxHp;
+    public float earth_Character_MaxHp;
 
     Vector3 moveVec;
     Animator anim;
@@ -114,6 +111,26 @@ public class Player : MonoBehaviour
             print("Game Over");
         }
     }
+
+    public void SetValue()   // setting value
+    {
+        fire_weight = MainCamera.GetComponent<Elemental>().fire_character_weight;
+        lightning_weight = MainCamera.GetComponent<Elemental>().lightning_character_weight;
+        ice_weight = MainCamera.GetComponent<Elemental>().ice_character_weight;
+        earth_weight = MainCamera.GetComponent<Elemental>().earth_character_weight;
+
+        fire_duration = MainCamera.GetComponent<Elemental>().fire_duration;
+        lightning_duration = MainCamera.GetComponent<Elemental>().lightning_duration;
+        ice_duration = MainCamera.GetComponent<Elemental>().ice_duration;
+        earth_duration = MainCamera.GetComponent<Elemental>().earth_duration;
+
+        fire_damage = MainCamera.GetComponent<Elemental>().fire_character_damage;
+        lightning_AtkSpeed = MainCamera.GetComponent<Elemental>().lightning_character_atkSpeed;
+        ice_Character_armour = MainCamera.GetComponent<Elemental>().ice_character_armour;
+        earth_Character_MaxHp = MainCamera.GetComponent<Elemental>().earth_character_MaxHp;
+
+    }
+
     public void UpgradeOn()
     {
         LevelUp_UI.SetActive(true);

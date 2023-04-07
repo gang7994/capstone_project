@@ -34222,6 +34222,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: af046ff5a9b3d44b79be18e97354c5c4, type: 3}
     - target: {fileID: 5085128654992022194, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
+      propertyPath: MainCamera
+      value: 
+      objectReference: {fileID: 1721208980}
+    - target: {fileID: 5085128654992022194, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
       propertyPath: WhiteImage
       value: 
       objectReference: {fileID: 21300000, guid: d804212612e3d6a4d90a6786a05f8871, type: 3}
@@ -44277,8 +44281,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getCamera: {fileID: 850559039}
   isBuild: 1
-  max_number_of_Tower: 3
-  max_number_of_Fence: 3
   current_number_of_Tower: 0
   current_number_of_Fence: 0
   select_Build: 
@@ -54429,12 +54431,12 @@ MonoBehaviour:
   lightning_duration: 1
   ice_duration: 1
   earth_duration: 1
-  tower_Max: 0
-  fence_Max: 0
+  tower_max: 3
+  fence_max: 5
   tower_atkRange: 0
   character_speed: 0
   character_atkRange: 0
-  character_MoneyLuck: 0
+  character_moneyLuck: 0
   fire_tower_critical: 0
   lightning_tower_critical: 0
   property_memory_run: 
