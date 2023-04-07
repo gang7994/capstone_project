@@ -40,7 +40,6 @@ public class Tower : MonoBehaviour
     public float ice_type_num;
     public float earth_type_num;
     
-    public float attackRange = 30.0f;
 
     float timer;
 
@@ -63,7 +62,7 @@ public class Tower : MonoBehaviour
         Level_Manager(level);
 
         
-        attack_Collider.radius = attackRange;
+        attack_Collider.radius = GameObject.Find("Main Camera").GetComponent<Elemental>().tower_atkRange;
         timer += Time.deltaTime;
         
         if(timer > coolTime){
