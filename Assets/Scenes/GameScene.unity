@@ -16834,11 +16834,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4680757731159730826, guid: 0fde05fa0f3321942a21896ff4f0856f, type: 3}
   m_PrefabInstance: {fileID: 509768033}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &512721277 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2099174124110514111, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
-  m_PrefabInstance: {fileID: 55570145}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &513448787
 GameObject:
   m_ObjectHideFlags: 0
@@ -37846,7 +37841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8a0c1c44e77a648b01c9d20c27c2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Daylight: {fileID: 512721277}
+  Daylight: {fileID: 1453881650}
   Number: {fileID: 55570152}
   roundTime: 200
   isStop: 0
