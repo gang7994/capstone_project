@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class create_enemy : MonoBehaviour
+public class MonsterSpawnManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject enemy;
