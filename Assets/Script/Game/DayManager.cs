@@ -54,4 +54,8 @@ public class DayManager : MonoBehaviour
         }     
         
     }
+
+    void BecomeNight(){
+        // send "isNighit=ture" to MonsterSpawnManager.cs 
+    }
 }

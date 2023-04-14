@@ -5,8 +5,9 @@ using UnityEngine;
 public class MonsterSpawnManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject enemy;
-    int count;
+    public GameObject Monster; //prefab으로 받는 형태, 나중에 리스트나 표로 받아와야 함
+    public bool enableSpwan = false;
+    int count; //나중엔 리스트나 표로 몬스터 수도 받아와야 함
     public Transform player;
     void Start()
     {
@@ -17,30 +18,18 @@ public class MonsterSpawnManager : MonoBehaviour
     void Update()
     {
         count++;
-        if(count > 60)
+        if(count <= 60)
         {
-            count = 0;
-            int tempR = Random.Range(0, 4);
-            if(tempR == 0)
-            {
-                GameObject temp = Instantiate(enemy, new Vector3(50, 0.5f, Random.Range(-50,50)), Quaternion.identity);
-                temp.GetComponent<Monster>().target = player;
-            }else if(tempR == 1)
-            {
-                GameObject temp = Instantiate(enemy, new Vector3(-50, 0.5f, Random.Range(-50, 50)), Quaternion.identity);
-                temp.GetComponent<Monster>().target = player;
-            }
-            else if(tempR == 2)
-            {
-                GameObject temp = Instantiate(enemy, new Vector3(Random.Range(-50, 50), 0.5f,50 ), Quaternion.identity);
-                temp.GetComponent<Monster>().target = player;
-            }
-            else
-            {
-                GameObject temp = Instantiate(enemy, new Vector3(Random.Range(-50, 50), 0.5f, -50), Quaternion.identity);
-                temp.GetComponent<Monster>().target = player;
-            }
-            
+            SpawnMonster();
+        }
+    }
+
+    void SpawnMonster()
+    {
+        Vector3 spawnPosition = new Vector3(Random.Range(-50, 50), 0.5f, Random.Range(-50, 50));
+        if (enableSpwan){
+            GameObject enemy = Instantiate(Monster, spawnPosition, Quaternion.identity);
+            enemy.GetComponent<Monster>().target = player;
         }
     }
 }
