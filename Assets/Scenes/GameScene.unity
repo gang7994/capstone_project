@@ -2083,6 +2083,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &55570152 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2099174123526248705, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
+  m_PrefabInstance: {fileID: 55570145}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &57889969
 GameObject:
   m_ObjectHideFlags: 0
@@ -16662,7 +16667,6 @@ MonoBehaviour:
   lightning_type_num: 0
   ice_type_num: 0
   earth_type_num: 0
-  attackRange: 30
 --- !u!114 &506174174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16829,6 +16833,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4680757731159730826, guid: 0fde05fa0f3321942a21896ff4f0856f, type: 3}
   m_PrefabInstance: {fileID: 509768033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &512721277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2099174124110514111, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
+  m_PrefabInstance: {fileID: 55570145}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &513448787
 GameObject:
@@ -32985,9 +32994,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 969566355}
-        m_TargetAssemblyTypeName: NightAndDay, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1148190683}
+        m_TargetAssemblyTypeName: DayManager, Assembly-CSharp
+        m_MethodName: ChangeDay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -37825,6 +37834,22 @@ MonoBehaviour:
   spawnPosition: {fileID: 0}
   nightFogDensity: 0
   fogDensityCalc: 0
+--- !u!114 &1148190683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148190680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8a0c1c44e77a648b01c9d20c27c2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Daylight: {fileID: 512721277}
+  Number: {fileID: 55570152}
+  roundTime: 200
+  isStop: 0
 --- !u!1 &1148300918
 GameObject:
   m_ObjectHideFlags: 0
@@ -55033,6 +55058,8 @@ MonoBehaviour:
   function47: 0
   function48: 0
   function49: 0
+  function50: 0
+  function51: 0
   fire_tower_weight: 0
   lightning_tower_weight: 0
   ice_tower_weight: 0
@@ -55055,8 +55082,10 @@ MonoBehaviour:
   earth_duration: 1
   tower_max: 3
   fence_max: 5
+  tower_target: 3
   tower_atkRange: 0
   character_speed: 0
+  character_BulletSpeed: 0.5
   character_atkRange: 0
   character_moneyLuck: 0
   fire_tower_critical: 0
