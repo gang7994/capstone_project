@@ -8,7 +8,8 @@ public class DayManager : MonoBehaviour
     public GameObject Daylight;
     public Transform Number;    // UI 텍스트
     public GameObject turnNightBtn;
-    public bool isNight = false;
+    GameManager GameManager;
+    private bool isNight = false;
     Color color;
     public float roundTime = 200f; //밤시간
     private int day = 1;
@@ -17,6 +18,7 @@ public class DayManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager = GameObject.Find("Main Camera").GetComponent<GameManager>();
         GetComponent<Image>().fillAmount = 0;
         time = 0f;
         isStop = true;
@@ -42,6 +44,7 @@ public class DayManager : MonoBehaviour
         if (isNight) // 밤일때
         {
             turnNightBtn.SetActive(false);
+            BecomeNight();
             isStop = false;
             Daylight.GetComponent<Light>().color = new Color(0, 0, 0, 255f);
         }
@@ -58,6 +61,7 @@ public class DayManager : MonoBehaviour
     }
 
     void BecomeNight(){
+        GameManager.SendMessage("MsgReceive", isNight);
         // send "isNighit=ture" to MonsterSpawnManager.cs 
     }
 }
