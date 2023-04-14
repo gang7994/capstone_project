@@ -7,7 +7,7 @@ public class DayManager : MonoBehaviour
 {
     public GameObject Daylight;
     public Transform Number;    // UI 텍스트
-    bool isNight = false;
+    public bool isNight = false;
     Color color;
     public float roundTime = 200f; //밤시간
     private int day = 1;

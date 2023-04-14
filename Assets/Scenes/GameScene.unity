@@ -33001,6 +33001,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1526508293}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: MonsterSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1503890753}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
@@ -37843,6 +37855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Daylight: {fileID: 1453881650}
   Number: {fileID: 55570152}
+  isNight: 0
   roundTime: 200
   isStop: 0
 --- !u!1 &1148300918
@@ -49309,6 +49322,7 @@ GameObject:
   - component: {fileID: 1526508290}
   - component: {fileID: 1526508291}
   - component: {fileID: 1526508292}
+  - component: {fileID: 1526508293}
   m_Layer: 6
   m_Name: Ground
   m_TagString: Map
@@ -49391,8 +49405,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Monster: {fileID: 7489988819297804875, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
-  enableSpwan: 1
+  enableSpwan: 0
   player: {fileID: 1014680514}
+--- !u!114 &1526508293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526508289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6966304fd3c23f64390e012db257e487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1529036452
 GameObject:
   m_ObjectHideFlags: 0
