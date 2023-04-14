@@ -106,7 +106,7 @@ public class Elemental : MonoBehaviour
         all_function.Add(Public_Increase_TowerRange);
         all_function.Add(Public_Increase_PlayerSpeed);
         all_function.Add(Public_Increase_BulletSpeed);
-        //all_function.Add(Public_Icrease_AttackRange);
+        all_function.Add(Public_Increase_TowerRange);
         all_function.Add(Public_Increase_Money);
         all_function.Add(Fire_Tower_Critical);
         all_function.Add(Lightning_Tower_Critical);
