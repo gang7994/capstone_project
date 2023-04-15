@@ -16018,8 +16018,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 0d04985f4d0633e4986b63d169bc4057, type: 2}
-  BgmSlider: {fileID: 431678423}
-  SfxSlider: {fileID: 992181080}
+  BgmSlider: {fileID: 992181080}
+  SfxSlider: {fileID: 308033630}
 --- !u!1001 &494582604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40884,8 +40884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce91c64507ea9b445b73335fa2597fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Option_Panel: {fileID: 0}
-  Gameover_Panel: {fileID: 0}
+  Option_Panel: {fileID: 516359835}
+  Gameover_Panel: {fileID: 1802952968}
 --- !u!1 &1244594877
 GameObject:
   m_ObjectHideFlags: 0
