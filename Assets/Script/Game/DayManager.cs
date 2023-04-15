@@ -17,12 +17,15 @@ public class DayManager : MonoBehaviour
     /* 
      *  UI fillAmount Value 
      *  fillValue = fixedUpdateTime / roundTime
+     *  Calcurate ony by your hand!! 
+     *  소수점 값 4번째자리까지 계산은 손으로만 해야 함!!
     */
     private float fillValue = 0.0002f; 
     /* Now Time Value */
     private float time = 0f;
     private int day = 1;
     private bool isStop = true;
+    private bool isClear = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +42,10 @@ public class DayManager : MonoBehaviour
             if (time >= roundTime){
                 isStop = true;
                 time = 0f;
+                // if (isClear) 
                 ChangeDay();
+                // else 
+                // GameManager.GameOver();
             }
         }
     }
@@ -56,16 +62,19 @@ public class DayManager : MonoBehaviour
         }
         else // 낮일때
         {
-            isStop = true;
-            time = 0;
             day += 1; 
             Number.GetComponent<Text>().text = day.ToString();      
             Daylight.GetComponent<Light>().color = new Color(255/255f, 244/255f, 214/255f, 255f/255f);;
         }     
     }
 
-    void SetDayOrNight(){
-        GameManager.SendMessage("MsgReceive", isNight);
-        // send "isNighit=ture" to MonsterSpawnManager.cs 
+    void SetDayOrNight()
+    {
+        GameManager.SendMessage("SetIsNight", isNight);
+    }
+
+    void SetIsClear(bool isClear)
+    {
+        this.isClear = isClear;
     }
 }
