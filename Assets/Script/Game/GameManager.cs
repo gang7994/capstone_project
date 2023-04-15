@@ -20,23 +20,25 @@ public class GameManager : MonoBehaviour
     }
     public void MsgReceive(bool isNight){
         nowIsNight = isNight;
-        BtnDisable();
+        if (nowIsNight == true) NightEvent();
+        else DayEvent();
+        
+    }
+    private void DayEvent()
+    {
+        BtnEnable(true);
+    }
+    private void NightEvent()
+    {        
+        BtnEnable(false);
         MonsterSpawn();
     }
-    private void MonsterSpawn(){
-        if (nowIsNight == true){
-            spawnManager.enableSpwan = true;
-            spawnManager.SpawnManage();
-            spawnManager.enableSpwan = false;
-        }
+    private void MonsterSpawn(){       
+        spawnManager.enableSpwan = true;
+        spawnManager.SpawnManage();
+        spawnManager.enableSpwan = false;
     }
-    private void BtnDisable(){
-        if (nowIsNight == true)
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                btns[i].SetActive(false);
-            }
-        }
+    private void BtnEnable(bool isEnable){
+        for (int i = 0; i < btns.Length; i++) btns[i].SetActive(isEnable);
     }
 }

@@ -37883,8 +37883,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Daylight: {fileID: 1453881650}
   Number: {fileID: 55570152}
-  turnNightBtn: {fileID: 969566355}
-  roundTime: 200
 --- !u!1 &1148300918
 GameObject:
   m_ObjectHideFlags: 0
