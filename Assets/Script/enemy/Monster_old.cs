@@ -10,7 +10,6 @@ public class Monster_old : MonoBehaviour
     public int damage;
     public GameObject house;
     public GameObject Attack_range;
-
     public Transform target;
     public bool isChase;
     public bool isAttack;
@@ -26,6 +25,7 @@ public class Monster_old : MonoBehaviour
     Material materi;
     NavMeshAgent navi;
     public Animator anim;
+    private GameManager gameManager;
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -33,6 +33,7 @@ public class Monster_old : MonoBehaviour
         materi = GetComponentInChildren<SkinnedMeshRenderer>().material;
         navi = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
+        gameManager = GameObject.Find("Main Camera").GetComponent<GameManager>();
         isAttack = false;
         Delay = 0;
         isAttackDelay = false;
@@ -191,7 +192,8 @@ public class Monster_old : MonoBehaviour
             isChase = false;
             target = null;
             Destroy(gameObject, 3);
-            Debug.Log("몬스터 사망2");
+            StartCoroutine("Die");
+            // Debug.Log("몬스터 사망2");
         }
         
     }
@@ -203,7 +205,7 @@ public class Monster_old : MonoBehaviour
         navi.speed = 0;
         isAttackDelay = true;
         Attack_range.GetComponent<Attack_range>().attack = true;
-        Debug.Log("몬스터 공격");
+        // Debug.Log("몬스터 공격");
                
     }
     void AttackDelay()
@@ -220,9 +222,15 @@ public class Monster_old : MonoBehaviour
         if (isChase)
         {
             //target.GetComponent<Player>().Health -= damage;
-            Debug.Log("데미지 10");
+            // Debug.Log("데미지 10");
         }
         
+    }
+
+    private IEnumerator Die()
+    {
+        gameManager.SendMessage("ChangeMonsterNumText", -1);
+        yield break;
     }
 
     void FreezeVelocity()

@@ -7,7 +7,7 @@ public class DayManager : MonoBehaviour
 {
     public GameObject Daylight;
     public Transform Number;    // UI 텍스트
-    GameManager GameManager;
+    GameManager gameManager;
     private bool isNight = false;
     Color color;
     /* Night Round Time */
@@ -29,7 +29,7 @@ public class DayManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager = GameObject.Find("Main Camera").GetComponent<GameManager>();
+        gameManager = GameObject.Find("Main Camera").GetComponent<GameManager>();
         GetComponent<Image>().fillAmount = 0;
     }
 
@@ -70,7 +70,7 @@ public class DayManager : MonoBehaviour
 
     void SetDayOrNight()
     {
-        GameManager.SendMessage("SetIsNight", isNight);
+        gameManager.SendMessage("SetIsNight", isNight);
     }
 
     void SetIsClear(bool isClear)
