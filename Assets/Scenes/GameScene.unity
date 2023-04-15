@@ -37860,7 +37860,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1148190680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 909ca2c314a5d064084d472978d59e5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 62c1ad63345bd094795833e26369cbd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   secondPerRealTimeSecond: 0
@@ -55017,7 +55017,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1721208980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 045aacc9a2a2c204ca3a2e37bc5dc39a, type: 3}
+  m_Script: {fileID: 11500000, guid: d2cf2d5964fda2e41bca9f8dc6263fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1014680514}
@@ -55135,9 +55135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932f4832da20d0449bed66be84e29413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1014680514}
   Monster: {fileID: 7489988819297804875, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
   enableSpwan: 0
-  player: {fileID: 1014680514}
+  nowMonsterNumber: 0
 --- !u!114 &1721208989
 MonoBehaviour:
   m_ObjectHideFlags: 0
