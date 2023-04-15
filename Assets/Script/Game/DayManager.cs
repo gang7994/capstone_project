@@ -39,11 +39,16 @@ public class DayManager : MonoBehaviour
         if (!isStop){
             time += Time.fixedDeltaTime;
             GetComponent<Image>().fillAmount += (float)fillValue; 
+            if (isClear) {
+                isStop = true;
+                time = 0f;
+                ChangeDay();
+                isClear = false;
+            }
             if (time >= roundTime){
                 isStop = true;
                 time = 0f;
-                // if (isClear) 
-                ChangeDay();
+                // if (isClear) ChangeDay();
                 // else 
                 // GameManager.GameOver();
             }

@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Update(){
-        //InvokeRepeating("MonsterSpawn", 10, 10);
+        
     }
 
     void SetIsNight(bool isNight){
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
         monsterAmountText.SetActive(!isEnable);
     }
 
-    void CheckIsClear(){
+    private void CheckIsClear(){
         bool isClaer;
 
         if (this.monsterNum == 0) isClaer = true;
@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour
     public void ChangeMonsterNumText(int monsterNumber){
         this.monsterNum += monsterNumber;
         monsterAmount.GetComponent<TextMeshProUGUI>().text = this.monsterNum.ToString();
+
+        if (this.monsterNum <= 0) CheckIsClear();
     }
     
     public void GameOver(){

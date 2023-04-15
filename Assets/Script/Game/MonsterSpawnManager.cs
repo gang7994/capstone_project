@@ -15,7 +15,7 @@ public class MonsterSpawnManager : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("Main Camera").GetComponent<GameManager>();
-        spawnMonsterNumber = 30;
+        spawnMonsterNumber = 10;
         spawnOnceNumOfMonster = 10;
         spawnDelay = 3f;
     }
