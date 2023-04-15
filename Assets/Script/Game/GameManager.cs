@@ -38,10 +38,8 @@ public class GameManager : MonoBehaviour
         MonsterSpawn();
     }
 
-    private void MonsterSpawn(){       
-        spawnManager.enableSpwan = true;
-        spawnManager.SpawnManage();
-        spawnManager.enableSpwan = false;
+    private void MonsterSpawn(){    
+        spawnManager.StartCoroutine("SpawnManage");
     }
 
     private void BtnEnable(bool isEnable){
