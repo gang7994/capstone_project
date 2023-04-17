@@ -12,6 +12,7 @@ class MonsterData {
 }
 class SpawnList : MonoBehaviour
 {
+    public MonsterData data;
     
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ class SpawnList : MonoBehaviour
     void JsonLoad()
     {
         var loadedJson = Resources.Load<TextAsset>("roundSpawn");
-        MonsterData data = JsonUtility.FromJson<MonsterData>(loadedJson.ToString());
+        data = JsonUtility.FromJson<MonsterData>(loadedJson.ToString());
         Debug.Log($"{data.name}, {data.round[1]}, {data.spawnMonsterNumber[0]}");
     }
 }

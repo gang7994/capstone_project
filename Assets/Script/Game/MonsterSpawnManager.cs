@@ -7,6 +7,7 @@ public class MonsterSpawnManager : MonoBehaviour
     public Transform player;
     public GameObject Monster; //prefab으로 받는 형태, 나중에 리스트나 표로 받아와야 함
     private GameManager gameManager;
+    private SpawnList spawnList;
     private bool enableSpwan = false;
     private int spawnMonsterNumber; //나중엔 리스트나 표로 몬스터 수도 받아와야 함
     private int spawnOnceNumOfMonster; //한번에 스폰할 몬스터 갯수
@@ -14,10 +15,10 @@ public class MonsterSpawnManager : MonoBehaviour
     
     void Start()
     {
-        gameManager = GameObject.Find("Main Camera").GetComponent<GameManager>();
-        spawnMonsterNumber = 10;
-        spawnOnceNumOfMonster = 10;
-        spawnDelay = 3f;
+        GameObject mainCamera = GameObject.Find("Main Camera");
+        gameManager = mainCamera.GetComponent<GameManager>();
+        spawnList = mainCamera.GetComponent<SpawnList>();
+        SetSpawnData(); 
     }
 
     // Update is called once per frame
@@ -48,5 +49,12 @@ public class MonsterSpawnManager : MonoBehaviour
 
         enableSpwan = false;
         yield break;
+    }
+
+    private void SetSpawnData()
+    {
+        spawnMonsterNumber = spawnList.data.spawnMonsterNumber[0];
+        spawnOnceNumOfMonster = spawnList.data.spawnOnceNumOfMonster[0];
+        spawnDelay = 3f;
     }
 }
