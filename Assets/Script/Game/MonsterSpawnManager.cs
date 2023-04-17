@@ -53,8 +53,12 @@ public class MonsterSpawnManager : MonoBehaviour
 
     private void SetSpawnData()
     {
+        spawnList.JsonLoad();
+
         spawnMonsterNumber = spawnList.data.spawnMonsterNumber[0];
         spawnOnceNumOfMonster = spawnList.data.spawnOnceNumOfMonster[0];
+        Debug.Log($"{spawnMonsterNumber}, {spawnOnceNumOfMonster}");
+        
         spawnDelay = 3f;
     }
 }

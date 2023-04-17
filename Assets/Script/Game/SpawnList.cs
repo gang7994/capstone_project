@@ -14,19 +14,7 @@ class SpawnList : MonoBehaviour
 {
     public MonsterData data;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        JsonLoad();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void JsonLoad()
+    public void JsonLoad()
     {
         var loadedJson = Resources.Load<TextAsset>("roundSpawn");
         data = JsonUtility.FromJson<MonsterData>(loadedJson.ToString());
