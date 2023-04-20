@@ -55473,11 +55473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb5203b94f0d664fa5aba77c7eca9e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data:
-    name: 
-    round: 
-    spawnMonsterNumber: 
-    spawnOnceNumOfMonster: 
 --- !u!1 &1732457461
 GameObject:
   m_ObjectHideFlags: 0

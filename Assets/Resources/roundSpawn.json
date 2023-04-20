@@ -1,6 +1,17 @@
+
 {
-    "name" : "Bat",
-    "round" : [1,2,3,4,5],
-    "spawnMonsterNumber" : [10,11,12,13,15],
-    "spawnOnceNumOfMonster" : [10,11,12,13,15]
+    "Body" : [
+        {
+            "round" : [1,2,3,4,5],
+            "name" : "Bat",
+            "spawnMonsterNumber" : [10,14,16,18,20],
+            "spawnOnceNumOfMonster" : [10,7,8,9,10]
+        },
+        {
+            "round" : [6,7,8,9,10],
+            "name" : "BatElite",
+            "spawnMonsterNumber" : [10,14,16,18,20],
+            "spawnOnceNumOfMonster" : [10,7,8,9,10]
+        }
+    ]
 }

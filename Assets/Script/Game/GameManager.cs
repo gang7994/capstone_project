@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     GameObject monsterAmount;
     private bool isNight = false;
     private int monsterNum = 0;
+    private int day = 1;
     void Start()
     {
         spawnManager = GetComponent<MonsterSpawnManager>();
@@ -36,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     private void DayEvent()
     {
+        day += 1;
+        Debug.Log("now day is " + day);
         UIEnable(true);
     }
 
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void MonsterSpawn(){    
-        spawnManager.StartCoroutine("SpawnManage");
+        spawnManager.StartCoroutine("SpawnManage", day);
     }
 
     private void UIEnable(bool isEnable){
@@ -71,6 +74,6 @@ public class GameManager : MonoBehaviour
     }
     
     public void GameOver(){
-
+        // need implementation
     }
 }

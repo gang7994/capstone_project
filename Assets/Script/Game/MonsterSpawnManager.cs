@@ -8,9 +8,11 @@ public class MonsterSpawnManager : MonoBehaviour
     public GameObject Monster; //prefab으로 받는 형태, 나중에 리스트나 표로 받아와야 함
     private GameManager gameManager;
     private SpawnList spawnList;
+    private List<MonsterInfo> monsterInfos;
     private bool enableSpwan = false;
-    private int spawnMonsterNumber; //나중엔 리스트나 표로 몬스터 수도 받아와야 함
+    private int spawnMonsterNumber; //최종 몬스터 수
     private int spawnOnceNumOfMonster; //한번에 스폰할 몬스터 갯수
+    private string monsterName;
     private float spawnDelay;
     
     void Start()
@@ -19,12 +21,6 @@ public class MonsterSpawnManager : MonoBehaviour
         gameManager = mainCamera.GetComponent<GameManager>();
         spawnList = mainCamera.GetComponent<SpawnList>();
         SetSpawnData(); 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void SpawnMonster()
@@ -38,7 +34,9 @@ public class MonsterSpawnManager : MonoBehaviour
         }
     }
 
-    public IEnumerator SpawnManage(){
+    public IEnumerator SpawnManage(int day){
+        SetSpawn(day);
+        Monster = Resources.Load<GameObject>(monsterName);
         int spawnNumber = spawnMonsterNumber / spawnOnceNumOfMonster;
         enableSpwan = true;
 
@@ -51,14 +49,24 @@ public class MonsterSpawnManager : MonoBehaviour
         yield break;
     }
 
+    private void SetSpawn(int day)
+    {
+        int wave = 0;
+        if ( day <= 5 )  wave = 0; 
+        else if ( day <= 10) wave = 1;
+
+        spawnMonsterNumber = monsterInfos[wave].spawnMonsterNumber[day-1];
+        spawnOnceNumOfMonster = monsterInfos[wave].spawnOnceNumOfMonster[day-1];
+        monsterName = "Monster/" + monsterInfos[wave].name;
+        // monsterName = "Monster/BatElite";
+        spawnDelay = 3f;
+
+        Debug.Log($"{monsterName},{spawnMonsterNumber}, {spawnOnceNumOfMonster}");
+    }
+
     private void SetSpawnData()
     {
         spawnList.JsonLoad();
-
-        spawnMonsterNumber = spawnList.data.spawnMonsterNumber[0];
-        spawnOnceNumOfMonster = spawnList.data.spawnOnceNumOfMonster[0];
-        Debug.Log($"{spawnMonsterNumber}, {spawnOnceNumOfMonster}");
-        
-        spawnDelay = 3f;
+        monsterInfos = spawnList.GetSpawnData();        
     }
 }

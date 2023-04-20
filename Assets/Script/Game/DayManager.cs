@@ -48,14 +48,13 @@ public class DayManager : MonoBehaviour
             if (time >= roundTime){
                 isStop = true;
                 time = 0f;
-                // if (isClear) ChangeDay();
-                // else 
-                // GameManager.GameOver();
+                if (isClear) ChangeDay();
+                else gameManager.GameOver();
             }
         }
     }
 
-    public void ChangeDay()
+    private void ChangeDay()
     {
         isNight = !isNight;
         SetDayOrNight();
@@ -73,7 +72,7 @@ public class DayManager : MonoBehaviour
         }     
     }
 
-    void SetDayOrNight()
+    private void SetDayOrNight()
     {
         gameManager.SendMessage("SetIsNight", isNight);
     }
