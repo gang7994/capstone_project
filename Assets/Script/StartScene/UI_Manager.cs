@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class UI_Manager : MonoBehaviour //StartSceneÀÇ UI ¸Å´ÏÁ®
+
+public class UI_Manager : MonoBehaviour //StartSceneï¿½ï¿½ UI ï¿½Å´ï¿½ï¿½ï¿½
 {
     public GameObject Ranking_Panel;
     public GameObject Option_Panel;
-
+    
+ 
     void Start()
     {
         Ranking_Panel.SetActive(false);
         Option_Panel.SetActive(false);
     }
 
+    public void Start_Button_Click(){
+        LoadingSceneController.LoadScene("GameScene");
+    }
     public void Ranking_Button_Click()
     {
         Ranking_Panel.SetActive(true);
