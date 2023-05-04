@@ -16,7 +16,7 @@ public class UI_Manager : MonoBehaviour //StartScene�� UI �Ŵ���
         Option_Panel.SetActive(false);
     }
 
-    public void Start_Button_Click(){
+    public void Start_Button_Click(){  //게임씬으로 가는 함수
         LoadingSceneController.LoadScene("GameScene");
     }
     public void Ranking_Button_Click()
@@ -35,4 +35,8 @@ public class UI_Manager : MonoBehaviour //StartScene�� UI �Ŵ���
     {
         Option_Panel.SetActive(false);
     }
+    public void Exit_Click(){
+        Application.Quit();
+    }
+
 }
