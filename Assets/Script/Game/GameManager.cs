@@ -76,4 +76,8 @@ public class GameManager : MonoBehaviour
     public void GameOver(){
         // need implementation
     }
+
+    public void Exit(){
+        Application.Quit();
+    }
 }
