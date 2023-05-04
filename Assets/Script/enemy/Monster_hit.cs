@@ -27,7 +27,6 @@ public class Monster_hit : MonoBehaviour
                 anims.SetBool("isDamage", true);
                 GetComponentInParent<Monster_old>().curHealth -= 20;
                 StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                GetComponentInParent<Monster_old>().Delay = 1.8f;
                 Destroy(other.gameObject);
             }
         }
@@ -40,7 +39,6 @@ public class Monster_hit : MonoBehaviour
                 print("towerATK"+ other.gameObject.GetComponent<TowerShoot>().towerAtk);
                 GetComponentInParent<Monster_old>().curHealth -= 20;
                 StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                GetComponentInParent<Monster_old>().Delay = 1.8f;
                 Destroy(other.gameObject);
             }
 

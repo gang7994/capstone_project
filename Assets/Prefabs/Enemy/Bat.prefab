@@ -40,6 +40,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
+      propertyPath: m_Name
+      value: RigJawGizmo(range)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
@@ -177,6 +181,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
+--- !u!1 &7489988819297804871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100012, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
+  m_PrefabInstance: {fileID: 7489988819297838315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &5048702737464708238
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7489988819297804871}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 8
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1464418187695542357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7489988819297804871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7322192c3fec0eb4aae364cc4db79efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7489988819297804873 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
@@ -208,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c1acfecbed44a4c93686e700dd8952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Character: {fileID: 0}
 --- !u!1 &7489988819297804875 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
@@ -239,10 +275,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 8
+  m_Radius: 1
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &905590721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +301,9 @@ MonoBehaviour:
   isAttack: 0
   Delay: 0
   attack_time: 0.7
+  target_check: 0
+  target_list: []
+  navi: {fileID: 0}
   anim: {fileID: 0}
 --- !u!195 &905590722
 NavMeshAgent:
