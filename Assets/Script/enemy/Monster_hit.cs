@@ -23,6 +23,7 @@ public class Monster_hit : MonoBehaviour
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
+                Debug.Log("타워공격맞음");
                 Vector3 reactVec = transform.parent.position;
                 anims.SetBool("isDamage", true);
                 GetComponentInParent<Monster_old>().curHealth -= 20;
@@ -34,12 +35,13 @@ public class Monster_hit : MonoBehaviour
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
+                Debug.Log("타워공격맞음");
                 Vector3 reactVec = transform.parent.position;
                 anims.SetBool("isDamage", true);
                 print("towerATK"+ other.gameObject.GetComponent<TowerShoot>().towerAtk);
                 GetComponentInParent<Monster_old>().curHealth -= 20;
                 StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                Destroy(other.gameObject);
+                other.GetComponent<TowerShoot>().DestroyBullet();
             }
 
         }

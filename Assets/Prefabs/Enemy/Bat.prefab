@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
       propertyPath: m_TagString
-      value: Monster
+      value: MonsterAttack
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
       propertyPath: m_Name

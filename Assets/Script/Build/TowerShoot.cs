@@ -21,9 +21,10 @@ public class TowerShoot : MonoBehaviour
    
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "Monster")
+        if (collision.CompareTag("MonsterAttack"))
         {
-            DestroyBullet();
+
+            /**DestroyBullet();**/
         }
     }
 
@@ -32,7 +33,7 @@ public class TowerShoot : MonoBehaviour
         transform.Translate(direction.normalized * 10f * Time.deltaTime, Space.World);
     }
 
-    void DestroyBullet(){
+    public void DestroyBullet(){
         try {
             towerScript.ReturnObject(this.gameObject);
         }
