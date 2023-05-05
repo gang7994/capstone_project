@@ -11,7 +11,9 @@ public class DayManager : MonoBehaviour
     public GameObject night_text;
     public GameObject night_Number; //남은 시간 UI 텍스트
 
+
     GameManager gameManager;
+    Tech_Manager tech_manager;
     private bool isNight = false;
     Color color;
     /* Left Time */
@@ -37,6 +39,7 @@ public class DayManager : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("Main Camera").GetComponent<GameManager>();
+        tech_manager = GameObject.Find("TechUI").GetComponent<Tech_Manager>();
         GetComponent<Image>().fillAmount = 0;
         night_text.SetActive(false);
         night_Number.SetActive(false);
@@ -83,6 +86,7 @@ public class DayManager : MonoBehaviour
         }
         else // 낮일때
         {
+            tech_manager.Tech_Button_Click();
             day += 1; 
             Number.GetComponent<Text>().text = day.ToString();      
             Daylight.GetComponent<Light>().color = new Color(255/255f, 244/255f, 214/255f, 255f/255f);

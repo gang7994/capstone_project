@@ -38138,6 +38138,7 @@ MonoBehaviour:
   Number: {fileID: 55570147}
   night_text: {fileID: 380165743}
   night_Number: {fileID: 1004751011}
+  techUI_panel: {fileID: 1823362189}
 --- !u!1 &1148300918
 GameObject:
   m_ObjectHideFlags: 0
