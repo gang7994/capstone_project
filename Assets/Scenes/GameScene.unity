@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18152016, g: 0.2271501, b: 0.3073661, a: 1}
+  m_IndirectSpecularColor: {r: 0.18154399, g: 0.22718655, b: 0.30740604, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -25419,13 +25419,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 905590721, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
+      propertyPath: house
+      value: 
+      objectReference: {fileID: 1744559394}
     - target: {fileID: 7489988819297713771, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
       propertyPath: m_RootOrder
       value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 7489988819297713771, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.3436055
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7489988819297713771, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
       propertyPath: m_LocalPosition.y
@@ -53846,7 +53850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 3}
       propertyPath: m_TagString
-      value: Map
+      value: base
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 3}
       propertyPath: m_RootOrder
@@ -55696,6 +55700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1014680514}
   Monster: {fileID: 7489988819297804875, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
+  house: {fileID: 1744559394}
 --- !u!114 &1721208989
 MonoBehaviour:
   m_ObjectHideFlags: 0

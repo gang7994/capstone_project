@@ -45,6 +45,17 @@ public class monster_attack : MonoBehaviour
                 }
             }
         }
+        if (other.gameObject.tag == "base")
+        {
+            if (GetComponentInParent<Monster_old>().target.gameObject.tag == "base")
+            {
+                if (GetComponentInParent<Monster_old>().isChase)
+                {
+                    GetComponentInParent<Monster_old>().isAttack = true;
+                    Attack_Check = true;
+                }
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -77,6 +88,22 @@ public class monster_attack : MonoBehaviour
                 }
             }
             
+
+        }
+        if (other.gameObject.tag == "base")
+        {
+            if (GetComponentInParent<Monster_old>().target != null)
+            {
+                if (GetComponentInParent<Monster_old>().target.gameObject.tag == "base")
+                {
+                    if (GetComponentInParent<Monster_old>().isChase)
+                    {
+                        GetComponentInParent<Monster_old>().isAttack = true;
+                        Attack_Check = true;
+                    }
+                }
+            }
+
 
         }
     }

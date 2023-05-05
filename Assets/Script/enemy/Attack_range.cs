@@ -34,13 +34,31 @@ public class Attack_range : MonoBehaviour
         {
             if(delay > 0.3f)
             {
-                if (other.gameObject.tag == "Player")
+                if (other.gameObject.CompareTag("Player"))
                 {
                     Debug.Log("╬Нец ╣й");
                     GetComponentInParent<Monster_old>().AttackOn();
                     attack = false;
                 }
-            }    
+            }
+            if (delay > 0.3f)
+            {
+                if (other.gameObject.CompareTag("TowerAttack"))
+                {
+                    Debug.Log("╬Нец ╣й");
+                    GetComponentInParent<Monster_old>().AttackOn();
+                    attack = false;
+                }
+            }
+            if (delay > 0.3f)
+            {
+                if (other.gameObject.CompareTag("base"))
+                {
+                    Debug.Log("╬Нец ╣й");
+                    GetComponentInParent<Monster_old>().AttackOn();
+                    attack = false;
+                }
+            }
         }
         
     }

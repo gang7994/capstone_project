@@ -48,6 +48,7 @@ public class Monster_old : MonoBehaviour
         target = house.transform;
         navi.velocity = Vector3.zero;
         navi.stoppingDistance = 2f;
+        damage = 10;
     }
     void Update()
     {
@@ -60,9 +61,11 @@ public class Monster_old : MonoBehaviour
             target = target_list[0].transform;
         }
         Delay += Time.deltaTime;
-        if (isAttackDelay)
+        if (isAttack)
         {
             navi.isStopped = true;
+            navi.velocity = Vector3.zero;
+            
         }
         else
         {
@@ -172,10 +175,24 @@ public class Monster_old : MonoBehaviour
 
     public void AttackOn()
     {
+        Debug.Log("공격성공");
         if (isChase)
         {
-            //target.GetComponent<Player>().Health -= damage;
-            // Debug.Log("데미지 10");
+            if (target.gameObject.CompareTag("Player"))
+            {
+                target.GetComponent<Player>().Health -= damage;
+                Debug.Log("캐릭터 데미지 10");
+            }else if(target.gameObject.CompareTag("TowerAttack"))
+            {
+                target.GetComponentInParent<Tower>().hp -= damage;
+                Debug.Log("타워 데미지 10");
+            }
+            else if(target.gameObject.CompareTag("base"))
+            {
+                target.GetComponent<Base>().hp -= damage;
+                Debug.Log("베이스 데미지 10");
+            }
+            
         }
         
     }
