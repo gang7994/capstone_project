@@ -55559,7 +55559,7 @@ MonoBehaviour:
   tower_max: 3
   fence_max: 5
   tower_target: 3
-  tower_atkRange: 0
+  tower_atkRange: 30
   character_speed: 0
   character_BulletSpeed: 0.5
   character_atkRange: 0

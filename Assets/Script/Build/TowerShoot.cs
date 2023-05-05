@@ -21,7 +21,7 @@ public class TowerShoot : MonoBehaviour
    
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "MonsterAttack")
+        if (collision.tag == "Monster")
         {
             DestroyBullet();
         }
