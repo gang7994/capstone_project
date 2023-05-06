@@ -38,6 +38,10 @@ public class TowerShoot : MonoBehaviour
         catch (Exception ex) {
             Destroy(this.gameObject);
         }
+        if(target.GetComponent<Monster_old>().isChase==false) {
+            Destroy(this.gameObject);
+            print("삭제");
+        }
     }
 
     public void DestroyBullet(){
