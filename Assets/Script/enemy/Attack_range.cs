@@ -27,7 +27,7 @@ public class Attack_range : MonoBehaviour
     }
 
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)   // 적이 게속 사정거리 안에 있으면 주기적으로 공격이 실행됨. 
     {
         
         if (attack)

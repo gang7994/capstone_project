@@ -17,7 +17,7 @@ public class Monster_hit : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)   // 몬스터의 피격판정
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player_Bullet"))
         {

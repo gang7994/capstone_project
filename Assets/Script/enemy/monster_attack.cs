@@ -20,7 +20,7 @@ public class monster_attack : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)   // 몬스터 공격 사정범위 안에 타겟이 들어왔을 경우 공격함, 현재 문제가 있음 고쳐야함
     {
         if (other.gameObject.tag == "Player")
         {

@@ -17,7 +17,7 @@ public class monster_attackcheck : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Player")
+        if (other.transform.tag == "Player")  // 타겟이 감지범위 안에 들어왔을때 이미 리스트에 있는지 체크하고 리스트에 넣음
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
@@ -59,7 +59,7 @@ public class monster_attackcheck : MonoBehaviour
 
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)   // 탐지범위에서 벗어났을 때 리스트안에 있으면 리스트에서 제거
     {
         foreach (Collider temp in GetComponentInParent<Monster_old>().target_list)
         {
