@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 public class TowerShoot : MonoBehaviour
 {
     public GameObject target;
@@ -29,8 +30,14 @@ public class TowerShoot : MonoBehaviour
     }
 
     void Update(){
-        Vector3 direction = target.transform.position - transform.position; 
-        transform.Translate(direction.normalized * 10f * Time.deltaTime, Space.World);
+        
+        try {
+            Vector3 direction = target.transform.position - transform.position; 
+            transform.Translate(direction.normalized * 10f * Time.deltaTime, Space.World);
+        }
+        catch (Exception ex) {
+            Destroy(this.gameObject);
+        }
     }
 
     public void DestroyBullet(){
