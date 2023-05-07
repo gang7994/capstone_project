@@ -146,10 +146,12 @@ public class Monster_old : MonoBehaviour
             target = null;
             Destroy(gameObject, 3);
             StartCoroutine("Die");
+            /*
             coinPrefab = GameObject.Find("CoinGold");
             GameObject instance = Instantiate(coinPrefab);
             Vector3 pos = this.gameObject.transform.position;
             instance.transform.position = pos;
+            */
 
             // Debug.Log("몬스터 사망2");
         }
