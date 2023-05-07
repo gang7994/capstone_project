@@ -264,10 +264,15 @@ public class Monster_old : MonoBehaviour
         if(curHealth < 1) { 
             materi.color = Color.gray;
             anim.SetBool("isDie", true);
-            if(GameObject.Find("Main Camera").GetComponent<Elemental>().fire_weapon_flamethrower) {
+            if(GameObject.Find("Main Camera").GetComponent<Elemental>().fire_spread_one==1) {
                 if (monsters.Length != 0){ 
-                    print("불이 옮겨 붙음");
                     monsters[1].GetComponent<Monster_old>().Fire_Damage_Effect();
+                }
+            }
+            else if(GameObject.Find("Main Camera").GetComponent<Elemental>().fire_spread_one==2) {
+                if (monsters.Length != 0){ 
+                    monsters[1].GetComponent<Monster_old>().Fire_Damage_Effect();
+                    monsters[2].GetComponent<Monster_old>().Fire_Damage_Effect();
                 }
             }
             anim.SetBool("isDamage", false);

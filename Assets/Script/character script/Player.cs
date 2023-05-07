@@ -211,6 +211,9 @@ public class Player : MonoBehaviour
                     else{  
                         bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
                     }
+                    if(GameObject.Find("Main Camera").GetComponent<Elemental>().fire_weapon_flamethrower) { //&&추가로 특성슬롯이 불 속성으로 다 차는 조건문 추가해야함
+                        //화염 방사기 기능 구현 할곳
+                    }
                 }
                 else if (Type[ran] == 2)
                 {
