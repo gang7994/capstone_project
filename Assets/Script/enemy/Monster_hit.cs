@@ -6,10 +6,12 @@ public class Monster_hit : MonoBehaviour
 {
     Animator anims;
     Material materi;
+    Player player;
     // Start is called before the first frame update
     void Start()
     {
         anims = GetComponentInParent<Monster_old>().anim;
+        player = GameObject.Find("MainCharacter").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -17,16 +19,51 @@ public class Monster_hit : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)   // ∏ÛΩ∫≈Õ¿« ««∞›∆«¡§
+    private void OnTriggerEnter(Collider other)   // ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩ«∞ÔøΩÔøΩÔøΩÔøΩÔøΩ
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player_Bullet"))
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
-                Debug.Log("≈∏øˆ∞¯∞›∏¬¿Ω");
                 Vector3 reactVec = transform.parent.position;
-                anims.SetBool("isDamage", true);
-                GetComponentInParent<Monster_old>().curHealth -= 20;
+                if(other.gameObject.GetComponent<Bullet>().property_type == "Fire") {
+                    print("Î∂à ÌäπÏÑ± Í≥µÍ≤© ÎßûÏùå");
+                    anims.SetBool("isDamage", true);
+                    GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
+                    StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
+                    Destroy(other.gameObject);
+                    
+                    GetComponentInParent<Monster_old>().Fire_Damage_Effect();
+                }
+                else if(other.gameObject.GetComponent<Bullet>().property_type == "Lightning") {
+                    anims.SetBool("isDamage", true);
+                    GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
+                    StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
+                    Destroy(other.gameObject);
+                    
+                }
+                else if(other.gameObject.GetComponent<Bullet>().property_type == "Ice") {
+                    anims.SetBool("isDamage", true);
+                    GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
+                    StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
+                    Destroy(other.gameObject);
+                    
+                }
+                else if(other.gameObject.GetComponent<Bullet>().property_type == "Earth") {
+                    anims.SetBool("isDamage", true);
+                    GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
+                    StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
+                    Destroy(other.gameObject);
+                    
+                }
+                else {
+                    anims.SetBool("isDamage", true);
+                    GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
+                    StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
+                    Destroy(other.gameObject);
+                }
+                
+                GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
                 StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
                 Destroy(other.gameObject);
             }
@@ -35,7 +72,7 @@ public class Monster_hit : MonoBehaviour
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
-                Debug.Log("≈∏øˆ∞¯∞›∏¬¿Ω");
+                Debug.Log("≈∏ÔøΩÔøΩÔøΩÔøΩÔøΩ›∏ÔøΩÔøΩÔøΩ");
                 Vector3 reactVec = transform.parent.position;
                 anims.SetBool("isDamage", true);
                 print("towerATK"+ other.gameObject.GetComponent<TowerShoot>().towerAtk);

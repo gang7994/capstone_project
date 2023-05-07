@@ -21,15 +21,20 @@ public class Monster_old : MonoBehaviour
     public bool target_check;
     Color meshColor;
     public List<Collider> target_list = new List<Collider>();
+    public Material[] normal_monster_state = new Material[1];
+    public Material[] fire_monster_state = new Material[1];
+    
 
     Rigidbody rigid;
     CapsuleCollider collider;
     Material materi;
+    Renderer rd;
     public NavMeshAgent navi;
     public Animator anim;
     private GameManager gameManager;
-    void Awake()
+    public void Awake()
     {
+        rd = GetComponentInChildren<SkinnedMeshRenderer>();
         rigid = GetComponent<Rigidbody>();
         collider = GetComponent<CapsuleCollider>();
         materi = GetComponentInChildren<SkinnedMeshRenderer>().material;
@@ -231,5 +236,39 @@ public class Monster_old : MonoBehaviour
         isChase = true;
     }
 
+    public void Fire_Damage_Effect(){
+        InvokeRepeating("Fire_Dot_Damage_Coroutine", 0f, 1f);
+        Invoke("Stop_Fire_Dot_Damage", 5f);
+    }
+
+    void Fire_Dot_Damage_Coroutine(){
+        StartCoroutine(Fire_Dot_Damage());
+    }
+
+    public IEnumerator Fire_Dot_Damage(){
+        
+        rd.materials = fire_monster_state;
+        yield return new WaitForSeconds(0.1f);
+        anim.SetBool("isDamage", true);
+        curHealth -= GameObject.Find("Main Camera").GetComponent<Elemental>().fire_dot_damage;
+        if(curHealth < 1) {
+            materi.color = Color.gray;
+            anim.SetBool("isDie", true);
+            anim.SetBool("isDamage", false);
+            gameObject.layer = LayerMask.NameToLayer("MonsterDied");
+            navi.isStopped = true;
+            navi.velocity = Vector3.zero;
+            navi.speed = 0;
+            isChase = false;
+            target = null;
+            Destroy(gameObject, 3);
+            StartCoroutine("Die");
+        }
+        anim.SetBool("isDamage", false);
+        rd.materials = normal_monster_state;
+    }
+    public void Stop_Fire_Dot_Damage(){
+        CancelInvoke("Fire_Dot_Damage_Coroutine");
+    }
     
 }

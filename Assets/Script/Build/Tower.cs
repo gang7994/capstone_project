@@ -31,7 +31,7 @@ public class Tower : MonoBehaviour
     private List<GameObject> collEnemys = new List<GameObject>();
     SphereCollider attack_Collider;
     
-     public float empty_type_num;
+    public float empty_type_num;
     public float fire_type_num;
     public float lightning_type_num;
     public float ice_type_num;

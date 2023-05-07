@@ -21,11 +21,7 @@ public class Player : MonoBehaviour
     public Sprite FireImage, LightImage, IceImage, EarthImage, WhiteImage;
     public GameObject health_bar;
     public GameObject health_text;
-    public Material Fire;
-    public Material Lightning;
-    public Material Ice;
-    public Material Earth;
-    public Material Normal;
+    
     public AudioSource audioSource;
     public GameObject MainCamera;
 
@@ -33,6 +29,10 @@ public class Player : MonoBehaviour
     float attackDelay;
     int[] Type = new int[5];
     int selectNumber;
+    
+    public float weapon_atkVal = 20.0f; 
+
+
 
     /*Ư�� ���� ����*/
     public float fire_weight;
@@ -196,23 +196,36 @@ public class Player : MonoBehaviour
                 int ran = Random.Range(0, 5);
                 if (Type[ran] == 0)
                 {
-                    bullet.GetComponent<MeshRenderer>().material = Normal;
+                    bullet.GetComponent<Bullet>().property_type = "None";
+                    bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
+                    
                 }
                 else if (Type[ran] == 1)
                 {
-                    bullet.GetComponent<MeshRenderer>().material = Fire;
+                    bullet.GetComponent<Bullet>().property_type = "Fire";
+                    List<int> fireCritical = new List<int> {0,0,0,0,0};
+                    for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().fire_weapon_critical;i++) fireCritical[i] = 1;
+                    if(fireCritical[UnityEngine.Random.Range(0,5)]==1) {
+                        bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal *2;
+                    }
+                    else{  
+                        bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
+                    }
                 }
                 else if (Type[ran] == 2)
                 {
-                    bullet.GetComponent<MeshRenderer>().material = Lightning;
+                    bullet.GetComponent<Bullet>().property_type = "Lightning";
+                    bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
                 }
                 else if (Type[ran] == 3)
                 {
-                    bullet.GetComponent<MeshRenderer>().material = Ice;
+                    bullet.GetComponent<Bullet>().property_type = "Ice";
+                    bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
                 }
                 else
                 {
-                    bullet.GetComponent<MeshRenderer>().material = Earth;
+                    bullet.GetComponent<Bullet>().property_type = "Earth";
+                    bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
                 }
 
                 attackDelay = 0;

@@ -296,6 +296,7 @@ MonoBehaviour:
   damage: 10
   house: {fileID: 0}
   Attack_range: {fileID: 7489988819297804879}
+  coinPrefab: {fileID: 0}
   target: {fileID: 0}
   isChase: 1
   isAttack: 0
@@ -303,6 +304,10 @@ MonoBehaviour:
   attack_time: 0.7
   target_check: 0
   target_list: []
+  normal_monster_state:
+  - {fileID: 2100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
+  fire_monster_state:
+  - {fileID: 2100000, guid: 0f0c23c0ac300964f8f38eb8c63e45b2, type: 2}
   navi: {fileID: 0}
   anim: {fileID: 0}
 --- !u!195 &905590722

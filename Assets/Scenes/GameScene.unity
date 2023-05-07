@@ -55570,6 +55570,11 @@ MonoBehaviour:
   character_moneyLuck: 0
   fire_tower_critical: 0
   lightning_tower_critical: 0
+  fire_weapon_critical: 0
+  fire_spread_one: 0
+  fire_dot_damage: 1
+  fire_tower_eternal: 0
+  fire_weapon_flamethrower: 0
   property_memory_run: 
 --- !u!114 &1721208988
 MonoBehaviour:

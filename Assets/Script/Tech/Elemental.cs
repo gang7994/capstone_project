@@ -59,13 +59,24 @@ public class Elemental : MonoBehaviour
     public float character_moneyLuck = 1.0f;
 
 
-    //Tier.1
+    //Tier.2
     //tower
-    public float fire_tower_critical = 0; //Function 26 value
-    public float lightning_tower_critical = 0; //Function 27 value
+    public int fire_tower_critical = 0; //Function 28 value
+    public int lightning_tower_critical = 0; //Function 29 value
+    //weapon
+    public int fire_weapon_critical = 0; //Function 32 value
+    
 
+    //property
+    public int fire_spread_one = 0; //Function 36 value
+    public float fire_dot_damage = 1.0f; //Function 40 value
 
+    //Tier.2
+    //tower
+    public bool fire_tower_eternal = false; //Function 44 value
 
+    //weapon
+    public bool fire_weapon_flamethrower = false; //Function 48 value
 
 
     public static List<string> property_memory = new List<string>();
@@ -418,7 +429,9 @@ public class Elemental : MonoBehaviour
     }
 
     public void Fire_Weapon_Critical(){ //Function 32
-
+        function32 +=1;
+        if (function32 == 1) fire_weapon_critical+=1;
+        else if(function32 == 2) fire_weapon_critical+=1;
     }
 
     public void Lightning_Weapon_Fierce(){ //Function 33
@@ -433,7 +446,9 @@ public class Elemental : MonoBehaviour
     }
 
     public void Fire_Spread_One(){ //Function 36
-
+        function36 +=1;
+        if (function36 == 1) fire_spread_one+=1;
+        else if(function36 == 2) fire_spread_one+=1;
     }
 
     public void Lightning_Shock(){ //Function 37
@@ -446,7 +461,9 @@ public class Elemental : MonoBehaviour
     }
     
     public void Fire_Dot_DamageUp(){ //Function 40
-
+        function40 +=1;
+        if (function40 == 1) fire_dot_damage+=1.0f;
+        else if(function40 == 2) fire_dot_damage+=1.0f;
     }
     public void Lightning_Dot_DamageUp(){ //Function 41
 
@@ -460,7 +477,7 @@ public class Elemental : MonoBehaviour
     
     //Tier. 3
     public void Fire_Tower_Eternal(){ //Function 44
-        
+        fire_tower_eternal = true;
     }
     public void Lightning_Tower_Shock_All(){ // Function 45
 
@@ -473,7 +490,7 @@ public class Elemental : MonoBehaviour
     }
 
     public void Fire_Weapon_Flamethrower(){// Function 48
-
+        fire_weapon_flamethrower = true;
     }
 
     public void Lightning_Weapon_Mjolnir(){// Function 49
