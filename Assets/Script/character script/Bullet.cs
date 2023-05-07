@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float bulletAtk = 20.0f;
+    public float bulletAtk;
     public string property_type;
 
     public Material Fire;

@@ -20,10 +20,13 @@ public class Monster_old : MonoBehaviour
     public float attack_time;
     public bool target_check;
     Color meshColor;
+
     public List<Collider> target_list = new List<Collider>();
     public Material[] normal_monster_state = new Material[1];
     public Material[] fire_monster_state = new Material[1];
+    public GameObject[] monsters;
     
+    private float fire_cooltime = 5.0f;
 
     Rigidbody rigid;
     CapsuleCollider collider;
@@ -51,6 +54,7 @@ public class Monster_old : MonoBehaviour
     }
     private void Start()
     {
+        
         target = house.transform;
         navi.velocity = Vector3.zero;
         navi.stoppingDistance = 2f;
@@ -58,6 +62,12 @@ public class Monster_old : MonoBehaviour
     }
     void Update()
     {
+        monsters = GameObject.FindGameObjectsWithTag("MonsterAttack");
+        Array.Sort(monsters, (monster1, monster2) => 
+            Vector3.Distance(monster1.transform.position, transform.position).CompareTo(
+                Vector3.Distance(monster2.transform.position, transform.position)
+            )
+        );
         if(target_list.Count == 0)  //주변에 타겟이 없으면 베이스를 타겟으로함, 타겟이 여럿일 경우 가장 처음에 접촉한 타겟을 목표로 함
         {
             target = house.transform;
@@ -238,7 +248,8 @@ public class Monster_old : MonoBehaviour
 
     public void Fire_Damage_Effect(){
         InvokeRepeating("Fire_Dot_Damage_Coroutine", 0f, 1f);
-        Invoke("Stop_Fire_Dot_Damage", 5f);
+        if(GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_eternal) fire_cooltime = 100f;
+        Invoke("Stop_Fire_Dot_Damage", fire_cooltime);
     }
 
     void Fire_Dot_Damage_Coroutine(){
@@ -246,14 +257,19 @@ public class Monster_old : MonoBehaviour
     }
 
     public IEnumerator Fire_Dot_Damage(){
-        
-        rd.materials = fire_monster_state;
+        rd.materials = fire_monster_state; //화상상태 머티리얼
         yield return new WaitForSeconds(0.1f);
         anim.SetBool("isDamage", true);
         curHealth -= GameObject.Find("Main Camera").GetComponent<Elemental>().fire_dot_damage;
-        if(curHealth < 1) {
+        if(curHealth < 1) { 
             materi.color = Color.gray;
             anim.SetBool("isDie", true);
+            if(GameObject.Find("Main Camera").GetComponent<Elemental>().fire_weapon_flamethrower) {
+                if (monsters.Length != 0){ 
+                    print("불이 옮겨 붙음");
+                    monsters[1].GetComponent<Monster_old>().Fire_Damage_Effect();
+                }
+            }
             anim.SetBool("isDamage", false);
             gameObject.layer = LayerMask.NameToLayer("MonsterDied");
             navi.isStopped = true;
@@ -265,7 +281,7 @@ public class Monster_old : MonoBehaviour
             StartCoroutine("Die");
         }
         anim.SetBool("isDamage", false);
-        rd.materials = normal_monster_state;
+        rd.materials = normal_monster_state; //일반상태 머티리얼
     }
     public void Stop_Fire_Dot_Damage(){
         CancelInvoke("Fire_Dot_Damage_Coroutine");

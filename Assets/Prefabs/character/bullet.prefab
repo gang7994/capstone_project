@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4db2318cbf66c747b161882e44de45d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletAtk: 20
-  property_type: 
+  bulletAtk: 0
+  property_type: Fire
   Fire: {fileID: 2100000, guid: 85b89c190c087cf49b75313abfa9084e, type: 2}
   Lightning: {fileID: 2100000, guid: 190f3cf95b15a1b4b900c7c62226b87e, type: 2}
   Ice: {fileID: 2100000, guid: b6bfcc1ab02f4b74db922f6323550a0b, type: 2}

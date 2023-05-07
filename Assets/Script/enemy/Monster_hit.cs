@@ -32,7 +32,7 @@ public class Monster_hit : MonoBehaviour
                     GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
                     Destroy(other.gameObject);
-                    
+
                     GetComponentInParent<Monster_old>().Fire_Damage_Effect();
                 }
                 else if(other.gameObject.GetComponent<Bullet>().property_type == "Lightning") {
@@ -62,10 +62,7 @@ public class Monster_hit : MonoBehaviour
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
                     Destroy(other.gameObject);
                 }
-                
-                GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
-                StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                Destroy(other.gameObject);
+            
             }
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Tower_Bullet"))
