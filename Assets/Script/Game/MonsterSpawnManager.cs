@@ -14,6 +14,7 @@ public class MonsterSpawnManager : MonoBehaviour
     private int spawnOnceNumOfMonster; //한번에 스폰할 몬스터 갯수
     private string monsterName;
     private float spawnDelay;
+    public GameObject house;
     
     void Start()
     {
@@ -29,6 +30,7 @@ public class MonsterSpawnManager : MonoBehaviour
             for (int i = 0; i < spawnOnceNumOfMonster; i++){
                 Vector3 spawnPosition = new Vector3(Random.Range(-50, 50), 0.5f, Random.Range(-50, 50));
                 GameObject enemy = Instantiate(Monster, spawnPosition, Quaternion.identity);
+                enemy.GetComponent<Monster_old>().house = house;
                 gameManager.SendMessage("ChangeMonsterNumText", 1);
             }
         }

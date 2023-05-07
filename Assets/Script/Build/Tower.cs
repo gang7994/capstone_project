@@ -20,9 +20,6 @@ public class Tower : MonoBehaviour
     public int      slot_num = 0;
     public int      level = 0;
 
-    
-    
-
     public GameObject Bullet;
     public int poolSize = 50;
     public Queue<GameObject> bulletPool;
@@ -66,6 +63,7 @@ public class Tower : MonoBehaviour
         timer += Time.deltaTime;
         
         if(timer > coolTime){
+
             AutoAttack(FirePos, collEnemys);
             timer = 0.0f;
         }
@@ -96,10 +94,10 @@ public class Tower : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "MonsterAttack" && collEnemys.Count < 5)
+        if (collision.CompareTag("MonsterAttack") && collEnemys.Count < 5)
         {
             print("사거리 진입");
-            collEnemys.Add(collision.transform.parent.gameObject);
+            collEnemys.Add(collision.transform.gameObject);
         }
     }
     
@@ -115,7 +113,7 @@ public class Tower : MonoBehaviour
             }
         }
     }
-    
+
     public void AutoAttack(Transform firePos, List<GameObject> collEnemy){
         if (collEnemy.Count != 0){
             foreach (GameObject go in collEnemy){
@@ -126,7 +124,7 @@ public class Tower : MonoBehaviour
                 ice_type_num = (float)types.FindAll(n => n == 3).Count;
                 earth_type_num = (float)types.FindAll(n => n == 4).Count;
                 
-                print("------"+GameObject.Find("Main Camera").GetComponent<Elemental>().isFunction1);
+                
                 if(GameObject.Find("Main Camera").GetComponent<Elemental>().isFunction1) {
                     attack_val = basic_attack_val + (basic_attack_val/20)*fire_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_damage;
                 }

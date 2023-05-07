@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baker_house Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 3}
+      propertyPath: m_TagString
+      value: base
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -95,3 +99,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.502298, y: 9.91815, z: 8.857442}
   m_Center: {x: 0, y: 0, z: 4.4292207}
+--- !u!114 &2391954313230602988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817948986101540446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31236f022cf1cee48966f52c5c135612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_hp: 1000
+  hp: 1000
+  base_health_bar: {fileID: 0}
+  base_health_text: {fileID: 0}

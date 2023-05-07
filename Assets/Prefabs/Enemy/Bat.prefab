@@ -17,15 +17,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
       propertyPath: m_TagString
-      value: Monster
+      value: MonsterAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
+      propertyPath: m_Name
+      value: "Bat(\uACF5\uACA9\uC0AC\uAC70\uB9AC)"
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
+      propertyPath: m_Name
+      value: "Rig(\uACF5\uACA9\uD310\uC815\uBC94\uC704)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
+      propertyPath: m_Name
+      value: "RigHub(\uD53C\uACA9 \uBC94\uC704)"
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
       propertyPath: m_Layer
@@ -41,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
       propertyPath: m_Name
-      value: RigJawGizmo(range)
+      value: "RigJawGizmo(\uAC10\uC9C0\uBC94\uC704)"
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
       propertyPath: m_Layer

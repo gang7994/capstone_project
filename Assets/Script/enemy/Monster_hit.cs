@@ -17,12 +17,13 @@ public class Monster_hit : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)   // 몬스터의 피격판정
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player_Bullet"))
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
+                Debug.Log("타워공격맞음");
                 Vector3 reactVec = transform.parent.position;
                 anims.SetBool("isDamage", true);
                 GetComponentInParent<Monster_old>().curHealth -= 20;
@@ -34,12 +35,13 @@ public class Monster_hit : MonoBehaviour
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
+                Debug.Log("타워공격맞음");
                 Vector3 reactVec = transform.parent.position;
                 anims.SetBool("isDamage", true);
                 print("towerATK"+ other.gameObject.GetComponent<TowerShoot>().towerAtk);
                 GetComponentInParent<Monster_old>().curHealth -= 20;
                 StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                Destroy(other.gameObject);
+                other.GetComponent<TowerShoot>().DestroyBullet();
             }
 
         }

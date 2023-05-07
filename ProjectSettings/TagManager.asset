@@ -12,6 +12,7 @@ TagManager:
   - Fence
   - MonsterAttack
   - TowerAttack
+  - Gold
   layers:
   - Default
   - TransparentFX

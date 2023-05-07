@@ -27,20 +27,38 @@ public class Attack_range : MonoBehaviour
     }
 
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)   // 적이 게속 사정거리 안에 있으면 주기적으로 공격이 실행됨. 
     {
         
         if (attack)
         {
             if(delay > 0.3f)
             {
-                if (other.gameObject.tag == "Player")
+                if (other.gameObject.CompareTag("Player"))
                 {
                     Debug.Log("어택 됨");
                     GetComponentInParent<Monster_old>().AttackOn();
                     attack = false;
                 }
-            }    
+            }
+            if (delay > 0.3f)
+            {
+                if (other.gameObject.CompareTag("TowerAttack"))
+                {
+                    Debug.Log("어택 됨");
+                    GetComponentInParent<Monster_old>().AttackOn();
+                    attack = false;
+                }
+            }
+            if (delay > 0.3f)
+            {
+                if (other.gameObject.CompareTag("base"))
+                {
+                    Debug.Log("어택 됨");
+                    GetComponentInParent<Monster_old>().AttackOn();
+                    attack = false;
+                }
+            }
         }
         
     }

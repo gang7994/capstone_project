@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 public class TowerShoot : MonoBehaviour
 {
     public GameObject target;
@@ -21,18 +22,29 @@ public class TowerShoot : MonoBehaviour
    
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "MonsterAttack")
+        if (collision.CompareTag("MonsterAttack"))
         {
-            DestroyBullet();
+
+            /**DestroyBullet();**/
         }
     }
 
     void Update(){
-        Vector3 direction = target.transform.position - transform.position; 
-        transform.Translate(direction.normalized * 10f * Time.deltaTime, Space.World);
+        
+        try {
+            Vector3 direction = target.transform.position - transform.position; 
+            transform.Translate(direction.normalized * 10f * Time.deltaTime, Space.World);
+        }
+        catch (Exception ex) {
+            Destroy(this.gameObject);
+        }
+        if(target.GetComponent<Monster_old>().isChase==false) {
+            Destroy(this.gameObject);
+            print("삭제");
+        }
     }
 
-    void DestroyBullet(){
+    public void DestroyBullet(){
         try {
             towerScript.ReturnObject(this.gameObject);
         }
