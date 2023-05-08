@@ -98,6 +98,19 @@ public class Tower : MonoBehaviour
         {
             print("사거리 진입");
             collEnemys.Add(collision.transform.gameObject);
+            GameObject spark1 = transform.Find("YellowLightningMuzzleFlash1").gameObject;
+            GameObject spark2 = transform.Find("YellowLightningMuzzleFlash2").gameObject;
+            GameObject spark3 = transform.Find("YellowLightningMuzzleFlash3").gameObject;
+            GameObject spark4 = transform.Find("YellowLightningMuzzleFlash4").gameObject;
+
+            if(GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_shock && lightning_type_num > 0){
+                spark1.SetActive(true);
+                spark2.SetActive(true);
+                spark3.SetActive(true);
+                spark4.SetActive(true);
+                collision.transform.gameObject.GetComponent<Monster_old>().Lightning_Damage_Effect();
+            }
+            
         }
     }
     
@@ -244,6 +257,12 @@ public class Tower : MonoBehaviour
         GameObject danger1 = transform.Find("SmokeDark").gameObject;
         GameObject danger2 = transform.Find("RedFire").gameObject;
 
+        GameObject spark1 = transform.Find("YellowLightningMuzzleFlash1").gameObject;
+        GameObject spark2 = transform.Find("YellowLightningMuzzleFlash2").gameObject;
+        GameObject spark3 = transform.Find("YellowLightningMuzzleFlash3").gameObject;
+        GameObject spark4 = transform.Find("YellowLightningMuzzleFlash4").gameObject;
+
+        
         if(hp > max_hp/2){
             warning.SetActive(false);
             danger1.SetActive(false);
@@ -261,6 +280,11 @@ public class Tower : MonoBehaviour
         }
     }
     
+    public void shock_all(List<GameObject> collEnemy){
+        foreach (GameObject go in collEnemy){
+            go.GetComponent<Monster_old>().Lightning_Damage_Effect();
+        }
+    }
     // Skill Function
     //Tier. 1
     

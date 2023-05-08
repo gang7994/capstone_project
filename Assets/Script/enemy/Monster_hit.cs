@@ -21,6 +21,8 @@ public class Monster_hit : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)   // ������ �ǰ�����
     {
+        int can_fierce = GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_fierce;
+        float shock = GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_shock;// 
         if (other.gameObject.layer == LayerMask.NameToLayer("Player_Bullet"))
         {
             if (GetComponentInParent<Monster_old>().isChase)
@@ -32,14 +34,15 @@ public class Monster_hit : MonoBehaviour
                     GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
                     Destroy(other.gameObject);
-
                     GetComponentInParent<Monster_old>().Fire_Damage_Effect();
                 }
                 else if(other.gameObject.GetComponent<Bullet>().property_type == "Lightning") {
                     anims.SetBool("isDamage", true);
                     GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                    Destroy(other.gameObject);
+                    if(can_fierce == 0) Destroy(other.gameObject);
+                    can_fierce -= 1;
+                    GetComponentInParent<Monster_old>().Lightning_Damage_Effect();
                     
                 }
                 else if(other.gameObject.GetComponent<Bullet>().property_type == "Ice") {

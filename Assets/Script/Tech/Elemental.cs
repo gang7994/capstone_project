@@ -71,13 +71,17 @@ public class Elemental : MonoBehaviour
     public int fire_spread_one = 0; //Function 36 value
     public float fire_dot_damage = 1.0f; //Function 40 value
 
-    //Tier.2
+    public int lightning_fierce = 0;
+    public float lightning_shock = 0;
+    public float lightning_dot_damage = 1.0f;
+
+    //Tier.3
     //tower
     public bool fire_tower_eternal = false; //Function 44 value
 
     //weapon
     public bool fire_weapon_flamethrower = false; //Function 48 value
-
+    public bool lightning_tower_shock = false;
 
     public static List<string> property_memory = new List<string>();
 
@@ -435,7 +439,9 @@ public class Elemental : MonoBehaviour
     }
 
     public void Lightning_Weapon_Fierce(){ //Function 33
-
+        function33 += 1;
+        if (function33 == 1) lightning_fierce += 1;
+        if (function33 == 2) lightning_fierce += 1;
     }
 
     public void Ice_Weapon_Icicle(){ //Function 34
@@ -452,7 +458,9 @@ public class Elemental : MonoBehaviour
     }
 
     public void Lightning_Shock(){ //Function 37
-
+        function37 += 1;
+        if (function37 == 1) lightning_shock += 1.0f;
+        else if(function37 == 2) lightning_shock += 1.0f;
     }
     public void Ice_DefDecrease(){ //Function 38
     }
@@ -466,7 +474,9 @@ public class Elemental : MonoBehaviour
         else if(function40 == 2) fire_dot_damage+=1.0f;
     }
     public void Lightning_Dot_DamageUp(){ //Function 41
-
+        function41 += 1;
+        if(function41 == 1) lightning_dot_damage += 1.0f;
+        else if (function41 == 2) lightning_dot_damage += 1.0f;
     }
     public void Ice_AtkSpeed_Down(){ //Function 42
 
@@ -480,7 +490,7 @@ public class Elemental : MonoBehaviour
         fire_tower_eternal = true;
     }
     public void Lightning_Tower_Shock_All(){ // Function 45
-
+        lightning_tower_shock = true;
     }
     public void Ice_Tower_Excution(){// Function 46
         

@@ -24,9 +24,11 @@ public class Monster_old : MonoBehaviour
     public List<Collider> target_list = new List<Collider>();
     public Material[] normal_monster_state = new Material[1];
     public Material[] fire_monster_state = new Material[1];
+    public Material[] lightning_monster_state = new Material[1];
     public GameObject[] monsters;
     
     private float fire_cooltime = 5.0f;
+    private float ligntning_cooltime = 5.0f;
 
     Rigidbody rigid;
     CapsuleCollider collider;
@@ -246,6 +248,7 @@ public class Monster_old : MonoBehaviour
         isChase = true;
     }
 
+
     public void Fire_Damage_Effect(){
         InvokeRepeating("Fire_Dot_Damage_Coroutine", 0f, 1f);
         if(GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_eternal) fire_cooltime = 100f;
@@ -260,7 +263,7 @@ public class Monster_old : MonoBehaviour
         rd.materials = fire_monster_state; //화상상태 머티리얼
         yield return new WaitForSeconds(0.1f);
         anim.SetBool("isDamage", true);
-        curHealth -= GameObject.Find("Main Camera").GetComponent<Elemental>().fire_dot_damage;
+        curHealth -= GameObject.Find("Main Camera").GetComponent<Elemental>().fire_dot_damage;      
         if(curHealth < 1) { 
             materi.color = Color.gray;
             anim.SetBool("isDie", true);
@@ -292,4 +295,45 @@ public class Monster_old : MonoBehaviour
         CancelInvoke("Fire_Dot_Damage_Coroutine");
     }
     
+    public void Lightning_Damage_Effect(){
+        InvokeRepeating("Lightning_Dot_Damage_Coroutine", 0f, 1f);
+        Invoke("Stop_Ligntning_Dot_Damage", ligntning_cooltime);
+    }
+
+    void Lightning_Dot_Damage_Coroutine(){
+        StartCoroutine(Lightning_Dot_Damage());
+    }
+
+    public IEnumerator Lightning_Dot_Damage(){
+        float shock = GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_shock;
+        rd.materials = lightning_monster_state; //감전상태 머티리얼
+        yield return new WaitForSeconds(0.1f);
+        anim.SetBool("isDamage", true);
+        curHealth -= GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_dot_damage;
+        if(shock > 0) {
+            //몬스터가 공포 상태에 걸림
+        }
+        if(curHealth < 1) { 
+            materi.color = Color.gray;
+            anim.SetBool("isDie", true);
+            anim.SetBool("isDamage", false);
+            gameObject.layer = LayerMask.NameToLayer("MonsterDied");
+            navi.isStopped = true;
+            navi.velocity = Vector3.zero;
+            navi.speed = 0;
+            isChase = false;
+            target = null;
+            Destroy(gameObject, 3);
+            StartCoroutine("Die");
+        }
+        anim.SetBool("isDamage", false);
+        rd.materials = normal_monster_state; 
+    }
+    public void Stop_Lightning_Dot_Damage(){
+        CancelInvoke("Lightning_Dot_Damage_Coroutine");
+    }
+    public void Stop_Shocking_By_Lightning(){
+        navi.isStopped = false;
+        Debug.Log("감전공포");
+    }
 }

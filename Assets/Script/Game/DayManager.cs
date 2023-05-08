@@ -14,7 +14,7 @@ public class DayManager : MonoBehaviour
 
     GameManager gameManager;
     Tech_Manager tech_manager;
-    private bool isNight = false;
+    public bool isNight = false;
     Color color;
     /* Left Time */
     /* Night Round Time */
