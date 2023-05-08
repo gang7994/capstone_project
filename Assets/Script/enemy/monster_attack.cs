@@ -6,23 +6,62 @@ public class monster_attack : MonoBehaviour
 {
     Animator anims;
     public GameObject Character;
-    bool Attack_Check;
+    public bool Attack_Check;
+    public List<Collider> attack_list = new List<Collider>();
     // Start is called before the first frame update
+    public Collider target;
     void Start()
     {
         anims = GetComponentInParent<Monster_old>().anim;
         Attack_Check = false;
+        target = null;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GetComponentInParent<Monster_old>().target != null)
+        {
+            if(target != null)
+            {
+                if (target.transform != GetComponentInParent<Monster_old>().target)
+                {
+                    target = null;
+                }
+            }
+            
+        }
+        
+        if (GetComponentInParent<Monster_old>().isChase)
+        {
+            if(target != null)
+            {
+                GetComponentInParent<Monster_old>().isAttack = true;
+                Attack_Check = true;
+            }
+            else
+            {
+                GetComponentInParent<Monster_old>().isAttack = false;
+                Attack_Check = false; ;
+            }
+            
+        }
 
+        
     }
 
     private void OnTriggerEnter(Collider other)   // 몬스터 공격 사정범위 안에 타겟이 들어왔을 경우 공격함, 현재 문제가 있음 고쳐야함
     {
-        if (other.gameObject.tag == "Player")
+        if(other.gameObject.CompareTag("Player")|| other.gameObject.CompareTag("TowerAttack")|| other.gameObject.CompareTag("base"))
+        {
+            if(GetComponentInParent<Monster_old>().target == other.transform)
+            {
+                target = other;
+            }
+        }
+        
+        
+        /**if (other.gameObject.tag == "Player")
         {
             if (GetComponentInParent<Monster_old>().target.gameObject.tag == "Player")
             {
@@ -55,10 +94,10 @@ public class monster_attack : MonoBehaviour
                     Attack_Check = true;
                 }
             }
-        }
+        }**/
     }
 
-    private void OnTriggerStay(Collider other)
+    /**private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -106,11 +145,15 @@ public class monster_attack : MonoBehaviour
 
 
         }
-    }
+    }**/
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if(other == target)
+        {
+            target = null;
+        }
+        /**if (other.gameObject.tag == "Player")
         {
             if (GetComponentInParent<Monster_old>().target != null)
             {
@@ -131,7 +174,7 @@ public class monster_attack : MonoBehaviour
                     Attack_Check = false;
                 }
             }
-        }
+        }**/
         
     }
 }

@@ -191,7 +191,7 @@ public class Monster_old : MonoBehaviour
         if (isChase)
         {
             navi.isStopped = false;
-            navi.speed = 1;
+            navi.speed = 2;
             anim.SetBool("isAttack", false);
             Attack_range.GetComponent<Attack_range>().attack = false;
             isAttackDelay = false;

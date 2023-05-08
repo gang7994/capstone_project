@@ -21,6 +21,10 @@ public class monster_attackcheck : MonoBehaviour
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
+                if(GetComponentInParent<Monster_old>().target == null)
+                {
+                    GetComponentInParent<Monster_old>().isAttack = false;
+                }
                 bool check_temp = true;
                 foreach (Collider temp in GetComponentInParent<Monster_old>().target_list)
                 {

@@ -27,38 +27,43 @@ public class Attack_range : MonoBehaviour
     }
 
 
-    private void OnTriggerStay(Collider other)   // 적이 게속 사정거리 안에 있으면 주기적으로 공격이 실행됨. 
+    private void OnTriggerStay(Collider other)   // 적이 공격 범위에 있을 시 데미지 적용
     {
         
         if (attack)
         {
             if(delay > 0.3f)
             {
-                if (other.gameObject.CompareTag("Player"))
+                if (other.gameObject.CompareTag(GetComponentInParent<Monster_old>().target.gameObject.tag))
                 {
-                    Debug.Log("어택 됨");
-                    GetComponentInParent<Monster_old>().AttackOn();
-                    attack = false;
+                    if (other.gameObject.CompareTag("Player"))
+                    {
+                        Debug.Log("플레이어 어택 됨");
+                        GetComponentInParent<Monster_old>().AttackOn();
+                        attack = false;
+                    }
+                    if (delay > 0.3f)
+                    {
+                        if (other.gameObject.CompareTag("TowerAttack"))
+                        {
+                            Debug.Log("타워 어택 됨");
+                            GetComponentInParent<Monster_old>().AttackOn();
+                            attack = false;
+                        }
+                    }
+                    if (delay > 0.3f)
+                    {
+                        if (other.gameObject.CompareTag("base"))
+                        {
+                            Debug.Log("베이스 어택 됨");
+                            GetComponentInParent<Monster_old>().AttackOn();
+                            attack = false;
+                        }
+                    }
                 }
+                
             }
-            if (delay > 0.3f)
-            {
-                if (other.gameObject.CompareTag("TowerAttack"))
-                {
-                    Debug.Log("어택 됨");
-                    GetComponentInParent<Monster_old>().AttackOn();
-                    attack = false;
-                }
-            }
-            if (delay > 0.3f)
-            {
-                if (other.gameObject.CompareTag("base"))
-                {
-                    Debug.Log("어택 됨");
-                    GetComponentInParent<Monster_old>().AttackOn();
-                    attack = false;
-                }
-            }
+            
         }
         
     }
