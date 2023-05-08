@@ -213,6 +213,9 @@ public class Tower : MonoBehaviour
                 else if(type_num == 4){
                     towerShoot.property_type = "E";
                     towerShoot.towerAtk = attack_val;
+                    if(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain !=0) {
+                        if(hp < max_hp) hp+= GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain;
+                    }
                 }
 
                 bullet.GetComponent<TrailRenderer>().material = ranShoot[type_num];

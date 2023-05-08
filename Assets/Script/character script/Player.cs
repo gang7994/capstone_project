@@ -229,6 +229,9 @@ public class Player : MonoBehaviour
                 {
                     bullet.GetComponent<Bullet>().property_type = "Earth";
                     bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
+                    if(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain !=0) {
+                        if(Health < 100) Health += (int)(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain/2);
+                    }
                 }
 
                 attackDelay = 0;

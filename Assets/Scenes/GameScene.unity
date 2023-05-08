@@ -55888,7 +55888,7 @@ MonoBehaviour:
   fire_duration: 1
   lightning_duration: 1
   ice_duration: 1
-  earth_duration: 1
+  earth_duration: 2
   tower_max: 3
   fence_max: 5
   tower_target: 3
@@ -55899,7 +55899,9 @@ MonoBehaviour:
   character_moneyLuck: 0
   fire_tower_critical: 0
   lightning_tower_critical: 0
+  earth_tower_reflex: 0
   fire_weapon_critical: 0
+  earth_weapon_armour: 0
   fire_spread_one: 0
   fire_dot_damage: 1
   lightning_fierce: 0

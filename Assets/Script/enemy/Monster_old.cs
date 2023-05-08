@@ -25,6 +25,7 @@ public class Monster_old : MonoBehaviour
     public Material[] normal_monster_state = new Material[1];
     public Material[] fire_monster_state = new Material[1];
     public Material[] lightning_monster_state = new Material[1];
+    public Material[] earth_monster_state = new Material[1];
     public GameObject[] monsters;
     
     private float fire_cooltime = 5.0f;
@@ -204,12 +205,17 @@ public class Monster_old : MonoBehaviour
         if (isChase)
         {
             if (target.gameObject.CompareTag("Player"))
-            {
-                target.GetComponent<Player>().Health -= damage;
+            {   
+                int total_damage = (int)(damage-(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_weapon_armour)); //여기에 캐릭터 대지 속성 갯수 파악 필요 곱하기로(func35, func39)
+                target.GetComponent<Player>().Health -= total_damage;
                 Debug.Log("캐릭터 데미지 10");
             }else if(target.gameObject.CompareTag("TowerAttack"))
             {
-                target.GetComponentInParent<Tower>().hp -= damage;
+                int total_damage = (int)(damage);
+                target.GetComponentInParent<Tower>().hp -= total_damage;
+                if(GameObject.Find("Main Camera").GetComponent<Elemental>().function31 != 0 && target.GetComponentInParent<Tower>().earth_type_num>0){
+                    StartCoroutine(Earth_Reflex(target));
+                }
                 Debug.Log("타워 데미지 10");
             }
             else if(target.gameObject.CompareTag("base"))
@@ -335,5 +341,44 @@ public class Monster_old : MonoBehaviour
     public void Stop_Shocking_By_Lightning(){
         navi.isStopped = false;
         Debug.Log("감전공포");
+    }
+
+    public IEnumerator Earth_Reflex(Transform target){
+        rd.materials = earth_monster_state; 
+        yield return new WaitForSeconds(0.1f);
+        anim.SetBool("isDamage", true);
+        curHealth -= GameObject.Find("Main Camera").GetComponent<Elemental>().earth_tower_reflex * target.GetComponentInParent<Tower>().earth_type_num;      
+        if(curHealth < 1) { 
+            materi.color = Color.gray;
+            anim.SetBool("isDie", true);
+            anim.SetBool("isDamage", false);
+            gameObject.layer = LayerMask.NameToLayer("MonsterDied");
+            navi.isStopped = true;
+            navi.velocity = Vector3.zero;
+            navi.speed = 0;
+            isChase = false;
+            target = null;
+            Destroy(gameObject, 3);
+            StartCoroutine("Die");
+        }
+        anim.SetBool("isDamage", false);
+        rd.materials = normal_monster_state; //일반상태 머티리얼
+    }
+
+    public void Earth_Damage_Effect(){
+        print("시간 정지");
+        StartCoroutine(Earth_Damage());
+    }
+
+    public IEnumerator Earth_Damage(){
+        rd.materials = earth_monster_state;
+        navi.isStopped = true;
+        navi.velocity = Vector3.zero;
+        navi.speed = 0;
+        anim.SetBool("isMove", false);
+        yield return new WaitForSecondsRealtime(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_duration);
+        navi.isStopped = false;
+        anim.SetBool("isMove", true);
+        rd.materials = normal_monster_state; //일반상태 머티리얼
     }
 }

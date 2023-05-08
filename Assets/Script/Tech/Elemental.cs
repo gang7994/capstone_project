@@ -47,7 +47,7 @@ public class Elemental : MonoBehaviour
     public float fire_duration      = 1.0f;
     public float lightning_duration = 1.0f;
     public float ice_duration       = 1.0f;
-    public float earth_duration     = 1.0f;
+    public float earth_duration     = 2.0f;
     //public
     public int tower_max = 3;
     public int fence_max = 5;
@@ -63,17 +63,23 @@ public class Elemental : MonoBehaviour
     //tower
     public int fire_tower_critical = 0; //Function 28 value
     public int lightning_tower_critical = 0; //Function 29 value
+    
+    public float earth_tower_reflex = 0; //Function 31 value
+
     //weapon
     public int fire_weapon_critical = 0; //Function 32 value
-    
+    public float earth_weapon_armour = 0f; //Function 35 value
 
     //property
     public int fire_spread_one = 0; //Function 36 value
+    public float earth_atkDecrease = 0; //Function 39 value
     public float fire_dot_damage = 1.0f; //Function 40 value
 
     public int lightning_fierce = 0;
     public float lightning_shock = 0;
     public float lightning_dot_damage = 1.0f;
+
+    public float earth_drain = 0; //Function 43 value
 
     //Tier.3
     //tower
@@ -130,7 +136,7 @@ public class Elemental : MonoBehaviour
         all_function.Add(Fire_Weapon_Critical);
         all_function.Add(Lightning_Weapon_Fierce);
         all_function.Add(Ice_Weapon_Icicle);
-        all_function.Add(Earth_Weapon_Barrier);
+        all_function.Add(Earth_Weapon_Armour);
         all_function.Add(Fire_Spread_One);
         all_function.Add(Lightning_Shock);
         all_function.Add(Ice_DefDecrease);
@@ -429,7 +435,9 @@ public class Elemental : MonoBehaviour
     }
 
     public void Earth_Tower_Reflex(){ //Function 31
- 
+        function31+=1;
+        if (function31 == 1) earth_tower_reflex+=1.0f;
+        else if(function31 == 2) earth_tower_reflex+=1.0f;
     }
 
     public void Fire_Weapon_Critical(){ //Function 32
@@ -447,8 +455,10 @@ public class Elemental : MonoBehaviour
     public void Ice_Weapon_Icicle(){ //Function 34
 
     }
-    public void Earth_Weapon_Barrier(){ //Function 35
-
+    public void Earth_Weapon_Armour(){ //Function 35
+        function35 += 1;
+        if (function35 == 1) earth_weapon_armour += 0.5f;
+        if (function35 == 2) earth_weapon_armour += 0.5f;
     }
 
     public void Fire_Spread_One(){ //Function 36
@@ -465,7 +475,9 @@ public class Elemental : MonoBehaviour
     public void Ice_DefDecrease(){ //Function 38
     }
     public void Earth_AtkDecrease(){ //Function 39
-        
+        function39 += 1;
+        if (function39 == 1) earth_atkDecrease += 1.0f;
+        else if(function39 == 2) earth_atkDecrease += 1.0f;
     }
     
     public void Fire_Dot_DamageUp(){ //Function 40
@@ -482,7 +494,9 @@ public class Elemental : MonoBehaviour
 
     }
     public void Earth_Drain(){ //Function 43
-        
+        function43 += 1;
+        if(function43 == 1) earth_drain += 1.0f;
+        else if (function43 == 2) earth_drain += 1.0f;
     }
     
     //Tier. 3

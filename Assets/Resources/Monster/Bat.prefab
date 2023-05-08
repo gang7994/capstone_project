@@ -308,6 +308,11 @@ MonoBehaviour:
   - {fileID: 2100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
   fire_monster_state:
   - {fileID: 2100000, guid: 0f0c23c0ac300964f8f38eb8c63e45b2, type: 2}
+  lightning_monster_state:
+  - {fileID: 0}
+  earth_monster_state:
+  - {fileID: 2100000, guid: 52a1cc4366fd94b4e9316e4f45dede60, type: 2}
+  monsters: []
   navi: {fileID: 0}
   anim: {fileID: 0}
 --- !u!195 &905590722

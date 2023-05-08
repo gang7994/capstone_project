@@ -58,6 +58,7 @@ public class Monster_hit : MonoBehaviour
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
                     Destroy(other.gameObject);
                     
+                    GetComponentInParent<Monster_old>().Earth_Damage_Effect();
                 }
                 else {
                     anims.SetBool("isDamage", true);
@@ -72,13 +73,22 @@ public class Monster_hit : MonoBehaviour
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
-                Debug.Log("Ÿ�����ݸ���");
                 Vector3 reactVec = transform.parent.position;
-                anims.SetBool("isDamage", true);
-                print("towerATK"+ other.gameObject.GetComponent<TowerShoot>().towerAtk);
-                GetComponentInParent<Monster_old>().curHealth -= 20;
-                StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                other.GetComponent<TowerShoot>().DestroyBullet();
+                if(other.gameObject.GetComponent<TowerShoot>().property_type == "F") {
+                    print("불 특성 공격 맞음");
+                    anims.SetBool("isDamage", true);
+                    GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
+                    StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
+                    other.GetComponent<TowerShoot>().DestroyBullet();
+                    GetComponentInParent<Monster_old>().Fire_Damage_Effect();
+                }
+                else if(other.gameObject.GetComponent<TowerShoot>().property_type == "E") {
+                    anims.SetBool("isDamage", true);
+                    GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
+                    StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
+                    other.GetComponent<TowerShoot>().DestroyBullet();
+                    GetComponentInParent<Monster_old>().Earth_Damage_Effect();
+                }
             }
 
         }

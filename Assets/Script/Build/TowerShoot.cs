@@ -47,6 +47,7 @@ public class TowerShoot : MonoBehaviour
     public void DestroyBullet(){
         try {
             towerScript.ReturnObject(this.gameObject);
+            print("리턴");
         }
         catch (System.NullReferenceException ex) {
             Destroy(this.gameObject);
