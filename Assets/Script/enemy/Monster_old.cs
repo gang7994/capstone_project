@@ -19,6 +19,7 @@ public class Monster_old : MonoBehaviour
     float RoSpeed = 5;
     public float attack_time;
     public bool target_check;
+    public bool frozen = false;
     Color meshColor;
 
     public List<Collider> target_list = new List<Collider>();
@@ -26,6 +27,7 @@ public class Monster_old : MonoBehaviour
     public Material[] fire_monster_state = new Material[1];
     public Material[] lightning_monster_state = new Material[1];
     public Material[] earth_monster_state = new Material[1];
+    public Material[] ice_monster_state = new Material[1];
     public GameObject[] monsters;
     
     private float fire_cooltime = 5.0f;
@@ -133,7 +135,16 @@ public class Monster_old : MonoBehaviour
         {
             navi.isStopped = false;
         }
+        if(frozen){
+            rd.materials = ice_monster_state;
+            Invoke("Unfrozen",GameObject.Find("Main Camera").GetComponent<Elemental>().ice_duration);
+        }
+        
 
+    }
+    void Unfrozen(){
+        rd.materials = normal_monster_state;
+        frozen = false;
     }
 
     
@@ -215,6 +226,11 @@ public class Monster_old : MonoBehaviour
                 target.GetComponentInParent<Tower>().hp -= total_damage;
                 if(GameObject.Find("Main Camera").GetComponent<Elemental>().function31 != 0 && target.GetComponentInParent<Tower>().earth_type_num>0){
                     StartCoroutine(Earth_Reflex(target));
+                }
+                else if(target.gameObject.GetComponentInParent<Tower>().frozen){
+                    frozen = true;
+                    //몬스터가 동상에 걸림
+                    Debug.Log("몬스터 동상");
                 }
                 Debug.Log("타워 데미지 10");
             }
@@ -317,7 +333,9 @@ public class Monster_old : MonoBehaviour
         anim.SetBool("isDamage", true);
         curHealth -= GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_dot_damage;
         if(shock > 0) {
-            //몬스터가 공포 상태에 걸림
+            navi.isStopped = true;
+            navi.velocity = Vector3.zero;
+            navi.speed = 0;
         }
         if(curHealth < 1) { 
             materi.color = Color.gray;
@@ -341,6 +359,9 @@ public class Monster_old : MonoBehaviour
     public void Stop_Shocking_By_Lightning(){
         navi.isStopped = false;
         Debug.Log("감전공포");
+    }
+    public void Ice_Damage_Effect(){
+
     }
 
     public IEnumerator Earth_Reflex(Transform target){
@@ -381,4 +402,5 @@ public class Monster_old : MonoBehaviour
         anim.SetBool("isMove", true);
         rd.materials = normal_monster_state; //일반상태 머티리얼
     }
+    
 }

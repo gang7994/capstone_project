@@ -63,11 +63,13 @@ public class Elemental : MonoBehaviour
     //tower
     public int fire_tower_critical = 0; //Function 28 value
     public int lightning_tower_critical = 0; //Function 29 value
-    
+    public int ice_tower_frostbite = 0; //Funtion 30 value
     public float earth_tower_reflex = 0; //Function 31 value
 
     //weapon
     public int fire_weapon_critical = 0; //Function 32 value
+    public int lightning_fierce = 0; // Function 33 value
+    public int icicle_damage = 0; // Function 34 value
     public float earth_weapon_armour = 0f; //Function 35 value
 
     //property
@@ -75,7 +77,6 @@ public class Elemental : MonoBehaviour
     public float earth_atkDecrease = 0; //Function 39 value
     public float fire_dot_damage = 1.0f; //Function 40 value
 
-    public int lightning_fierce = 0;
     public float lightning_shock = 0;
     public float lightning_dot_damage = 1.0f;
 
@@ -425,13 +426,15 @@ public class Elemental : MonoBehaviour
     }
 
     public void Lightning_Tower_Critical(){ //Function 29
-        function27+=1;
-        if (function27 == 1) lightning_tower_critical+=1;
-        else if(function27 == 2) lightning_tower_critical+=1;
+        function29+=1;
+        if (function29 == 1) lightning_tower_critical+=1;
+        else if(function29 == 2) lightning_tower_critical+=1;
     }
 
     public void Ice_Tower_frostbite(){ //Function 30
-
+        function30 += 1;
+        if (function30 == 1) ice_tower_frostbite += 1;
+        else if(function30 == 2) ice_tower_frostbite += 1;
     }
 
     public void Earth_Tower_Reflex(){ //Function 31
@@ -453,7 +456,9 @@ public class Elemental : MonoBehaviour
     }
 
     public void Ice_Weapon_Icicle(){ //Function 34
-
+        function34 += 1;
+        if (function34 == 1) icicle_damage += 50;
+        else if(function34 == 2) icicle_damage += 50;
     }
     public void Earth_Weapon_Armour(){ //Function 35
         function35 += 1;

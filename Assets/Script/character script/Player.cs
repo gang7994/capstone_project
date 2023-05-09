@@ -224,6 +224,7 @@ public class Player : MonoBehaviour
                 {
                     bullet.GetComponent<Bullet>().property_type = "Ice";
                     bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
+                    
                 }
                 else
                 {

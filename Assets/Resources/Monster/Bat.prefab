@@ -325,15 +325,18 @@ MonoBehaviour:
   Delay: 0
   attack_time: 0.7
   target_check: 0
+  frozen: 0
   target_list: []
   normal_monster_state:
   - {fileID: 2100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
   fire_monster_state:
   - {fileID: 2100000, guid: 0f0c23c0ac300964f8f38eb8c63e45b2, type: 2}
   lightning_monster_state:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 21c592a9649ccd0438af6a84280404bf, type: 2}
   earth_monster_state:
   - {fileID: 2100000, guid: 52a1cc4366fd94b4e9316e4f45dede60, type: 2}
+  ice_monster_state:
+  - {fileID: 2100000, guid: 730712a269da3f54682e64cf17acabd7, type: 2}
   monsters: []
   navi: {fileID: 0}
   anim: {fileID: 0}

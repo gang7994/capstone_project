@@ -27,6 +27,9 @@ public class Tower : MonoBehaviour
     public Transform FirePos;
 
     public Material[] ranShoot = new Material[7];
+    public Material[] frozen_tower = new Material[3];
+
+    public Material[] tower_base = new Material[3];
     public List<int> types = new List<int>();
     private List<GameObject> collEnemys = new List<GameObject>();
     SphereCollider attack_Collider;
@@ -36,6 +39,8 @@ public class Tower : MonoBehaviour
     public float lightning_type_num;
     public float ice_type_num;
     public float earth_type_num;
+
+    public bool frozen = false;
     
 
     float timer;
@@ -207,6 +212,14 @@ public class Tower : MonoBehaviour
                     
                     towerShoot.property_type = "I";
                     towerShoot.towerAtk = attack_val;
+                    List<int> frostbite = new List<int> {0,0,0,0,0};
+                    for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().ice_tower_frostbite;i++) frostbite[i] = 1;
+                    if(frostbite[UnityEngine.Random.Range(0,5)]==1) {
+                        frozen = true;
+                        Renderer rd = this.GetComponent<MeshRenderer>();
+                        rd.materials = frozen_tower;
+                        Invoke("Unfrozen",3);
+                    }
   
 
                 }
@@ -223,6 +236,12 @@ public class Tower : MonoBehaviour
                 towerShoot.target = go; 
             }
         }
+    }
+
+    void Unfrozen(){
+        frozen = false;
+        Renderer rd = this.GetComponent<MeshRenderer>();
+        rd.materials = tower_base;
     }
 
     
@@ -285,7 +304,7 @@ public class Tower : MonoBehaviour
     
     public void shock_all(List<GameObject> collEnemy){
         foreach (GameObject go in collEnemy){
-            go.GetComponent<Monster_old>().Lightning_Damage_Effect();
+            go.GetComponent<Monster_old>().curHealth -= 50;
         }
     }
     // Skill Function
