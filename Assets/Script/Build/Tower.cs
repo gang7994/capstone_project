@@ -147,7 +147,7 @@ public class Tower : MonoBehaviour
                     attack_val = basic_attack_val + (basic_attack_val/20)*fire_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_damage;
                 }
 
-                if(GameObject.Find("Main Camera").GetComponent<Elemental>().isFunction3) {
+                if(GameObject.Find("Main Camera").GetComponent<Elemental>().function3!=0) {
                     coolTime = basic_coolTime - (basic_coolTime/20)*lightning_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_atkSpeed;
                 }
 

@@ -5,7 +5,6 @@ using System;
 
 public class Elemental : MonoBehaviour
 {
-    public bool isFunction3 = false;
     public bool isFunction5 = false;
     public bool isFunction7 = false;
     public bool isFunction10 = false;
@@ -193,10 +192,9 @@ public class Elemental : MonoBehaviour
     }
     public void Lightning_Tower_AtkSpeed(){  //Function 3
         function3 += 1;
-        if(function3 == 1) lightning_tower_atkSpeed += 1.0f;
-        else if(function3 == 2) lightning_tower_atkSpeed += 1.0f;
-        else if(function3 == 3) lightning_tower_atkSpeed += 1.0f;
-        isFunction3 = true;
+        if(function3 == 1) lightning_tower_atkSpeed += 0.5f;
+        else if(function3 == 2) lightning_tower_atkSpeed += 0.5f;
+        else if(function3 == 3) lightning_tower_atkSpeed += 0.5f;
     }
     public void Ice_Tower_Weight() { //Function 4
         function4 += 1;
