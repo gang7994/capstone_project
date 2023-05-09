@@ -75,6 +75,9 @@ public class Tower : MonoBehaviour
         if(GameObject.Find("Main Camera").GetComponent<Elemental>().function5!=0) {
             defence_val = basic_defence_val + (basic_defence_val/20)*ice_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().ice_tower_armour;
         }
+        if(GameObject.Find("Main Camera").GetComponent<Elemental>().function7!=0) {
+            max_hp = basic_max_hp + (basic_attack_val/20)*earth_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().earth_tower_MaxHp;
+        }
         check_tower();         
     }
 
@@ -154,11 +157,7 @@ public class Tower : MonoBehaviour
                     coolTime = basic_coolTime - (basic_coolTime/20)*lightning_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_atkSpeed;
                 }
 
-                
-                if(GameObject.Find("Main Camera").GetComponent<Elemental>().isFunction7) {
-                    max_hp = basic_max_hp + (basic_attack_val/20)*earth_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().earth_tower_MaxHp;
-                }
-                
+
                 int type_num = Random_type_attack();
 
                 if (bulletPool.Count == 0)

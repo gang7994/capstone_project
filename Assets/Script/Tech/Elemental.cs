@@ -5,7 +5,6 @@ using System;
 
 public class Elemental : MonoBehaviour
 {
-    public bool isFunction7 = false;
     public bool isFunction10 = false;
     public bool isFunction11 = false;
 
@@ -22,14 +21,14 @@ public class Elemental : MonoBehaviour
 
     //Tier.1
     //tower
-    public float fire_tower_weight = 0; //Function 0 value
-    public float lightning_tower_weight = 0; //Function 2 value
-    public float ice_tower_weight = 0; //Function 4 value
-    public float earth_tower_weight = 0; //Function 6 value
-    public float fire_tower_damage = 0; //Function 1 value
+    public float fire_tower_weight = 0;         //Function 0 value
+    public float fire_tower_damage = 0;         //Function 1 value
+    public float lightning_tower_weight = 0;    //Function 2 value
     public float lightning_tower_atkSpeed = 0;  //Function 3 value
-    public float ice_tower_armour; //Function 5 value
-    public float earth_tower_MaxHp; //Function 7 value
+    public float ice_tower_weight = 0;          //Function 4 value
+    public float ice_tower_armour = 0;              //Function 5 value
+    public float earth_tower_weight = 0;        //Function 6 value
+    public float earth_tower_MaxHp = 0;             //Function 7 value
 
     //weapon
     public float fire_character_damage;
@@ -215,10 +214,9 @@ public class Elemental : MonoBehaviour
     }
     public void Earth_Tower_MaxHp(){ //Function 7
         function7+=1;
-        isFunction7 = true;
-        if(function7 == 1) earth_tower_MaxHp += 1;
-        else if(function7 == 2) earth_tower_MaxHp += 1;
-        else if(function7 == 3) earth_tower_MaxHp += 1;
+        if(function7 == 1) earth_tower_MaxHp += 1.0f;
+        else if(function7 == 2) earth_tower_MaxHp += 1.0f;
+        else if(function7 == 3) earth_tower_MaxHp += 1.0f;
 
     } 
 
