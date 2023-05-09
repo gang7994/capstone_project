@@ -5,7 +5,6 @@ using System;
 
 public class Elemental : MonoBehaviour
 {
-    public bool isFunction5 = false;
     public bool isFunction7 = false;
     public bool isFunction10 = false;
     public bool isFunction11 = false;
@@ -204,10 +203,9 @@ public class Elemental : MonoBehaviour
     }   
     public void Ice_Tower_Armour(){  //Function 5
         function5+=1;
-        isFunction5 = true;
-        if(function5 == 1) ice_tower_armour += 1;
-        else if(function5 == 2) ice_tower_armour += 1;
-        else if(function5 == 3) ice_tower_armour += 1;
+        if(function5 == 1) ice_tower_armour += 1.0f;
+        else if(function5 == 2) ice_tower_armour += 1.0f;
+        else if(function5 == 3) ice_tower_armour += 1.0f;
     }
     public void Earth_Tower_Weight() { //Function 6
         function6+=1;

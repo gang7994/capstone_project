@@ -72,6 +72,9 @@ public class Tower : MonoBehaviour
             AutoAttack(FirePos, collEnemys);
             timer = 0.0f;
         }
+        if(GameObject.Find("Main Camera").GetComponent<Elemental>().function5!=0) {
+            defence_val = basic_defence_val + (basic_defence_val/20)*ice_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().ice_tower_armour;
+        }
         check_tower();         
     }
 
@@ -151,9 +154,6 @@ public class Tower : MonoBehaviour
                     coolTime = basic_coolTime - (basic_coolTime/20)*lightning_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_atkSpeed;
                 }
 
-                if(GameObject.Find("Main Camera").GetComponent<Elemental>().isFunction5) {
-                    defence_val = basic_defence_val + (basic_defence_val/20)*ice_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().ice_tower_armour;
-                }
                 
                 if(GameObject.Find("Main Camera").GetComponent<Elemental>().isFunction7) {
                     max_hp = basic_max_hp + (basic_attack_val/20)*earth_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().earth_tower_MaxHp;
@@ -234,7 +234,13 @@ public class Tower : MonoBehaviour
                 bullet.GetComponent<TrailRenderer>().material = ranShoot[type_num];
                 
                 towerShoot.target = go; 
+   
             }
+            empty_type_num = (float)types.FindAll(n => n == 0).Count;
+            fire_type_num = (float)types.FindAll(n => n == 1).Count;
+            lightning_type_num = (float)types.FindAll(n => n == 2).Count;
+            ice_type_num = (float)types.FindAll(n => n == 3).Count;
+            earth_type_num = (float)types.FindAll(n => n == 4).Count;
         }
     }
 
