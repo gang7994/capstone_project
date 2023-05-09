@@ -5,7 +5,6 @@ using System;
 
 public class Elemental : MonoBehaviour
 {
-    public bool isFunction1 = false;
     public bool isFunction3 = false;
     public bool isFunction5 = false;
     public bool isFunction7 = false;
@@ -182,7 +181,6 @@ public class Elemental : MonoBehaviour
     }
     public void Fire_Tower_Damage(){  //Function 1
         function1 += 1;
-        isFunction1 = true;
         if(function1 == 1) fire_tower_damage += 1.0f;
         else if(function1 == 2) fire_tower_damage += 1.0f;
         else if(function1 == 3) fire_tower_damage += 1.0f;

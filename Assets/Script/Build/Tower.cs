@@ -143,7 +143,7 @@ public class Tower : MonoBehaviour
                 earth_type_num = (float)types.FindAll(n => n == 4).Count;
                 
                 
-                if(GameObject.Find("Main Camera").GetComponent<Elemental>().isFunction1) {
+                if(GameObject.Find("Main Camera").GetComponent<Elemental>().function1!=0) {
                     attack_val = basic_attack_val + (basic_attack_val/20)*fire_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_damage;
                 }
 
