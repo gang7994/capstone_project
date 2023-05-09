@@ -200,9 +200,9 @@ public class Elemental : MonoBehaviour
     }
     public void Ice_Tower_Weight() { //Function 4
         function4 += 1;
-        if(function4 == 1) ice_tower_weight += 1.0f;
-        else if(function4 == 2) ice_tower_weight += 1.0f;
-        else if(function4 == 3) ice_tower_weight += 1.0f;
+        if(function4 == 1) ice_tower_weight += 0.5f;
+        else if(function4 == 2) ice_tower_weight += 0.5f;
+        else if(function4 == 3) ice_tower_weight += 0.5f;
     }   
     public void Ice_Tower_Armour(){  //Function 5
         function5+=1;

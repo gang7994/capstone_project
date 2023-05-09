@@ -10689,7 +10689,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e9183028ae0e45748bc31c21113e02d9, type: 3}
+    m_Font: {fileID: 12800000, guid: 94b016fdf609f624fb1002100bb3c9a0, type: 3}
     m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
@@ -55917,7 +55917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca2a03900629a641932f3b840bfd917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFunction1: 0
   isFunction3: 0
   isFunction5: 0
   isFunction7: 0
@@ -57669,7 +57668,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1652233787}
         m_TargetAssemblyTypeName: Build_Panel, Assembly-CSharp
-        m_MethodName: LevelUp_Click
+        m_MethodName: repair
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
