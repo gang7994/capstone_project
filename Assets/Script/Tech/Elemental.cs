@@ -40,10 +40,10 @@ public class Elemental : MonoBehaviour
     public float ice_character_weight;
     public float earth_character_weight;
     //property
-    public float fire_duration      = 1.0f;
-    public float lightning_duration = 1.0f;
-    public float ice_duration       = 1.0f;
-    public float earth_duration     = 2.0f;
+    public float fire_duration      = 3.0f;
+    public float lightning_duration = 3.0f;
+    public float ice_duration       = 3.0f;
+    public float earth_duration     = 3.0f;
     //public
     public int tower_max = 3;
     public int fence_max = 5;

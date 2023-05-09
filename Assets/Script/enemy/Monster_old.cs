@@ -30,7 +30,7 @@ public class Monster_old : MonoBehaviour
     public Material[] ice_monster_state = new Material[1];
     public GameObject[] monsters;
     
-    private float fire_cooltime = 5.0f;
+    private float fire_cooltime;
     private float ligntning_cooltime = 5.0f;
 
     Rigidbody rigid;
@@ -274,6 +274,7 @@ public class Monster_old : MonoBehaviour
     public void Fire_Damage_Effect(){
         InvokeRepeating("Fire_Dot_Damage_Coroutine", 0f, 1f);
         if(GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_eternal) fire_cooltime = 100f;
+        else fire_cooltime = GameObject.Find("Main Camera").GetComponent<Elemental>().fire_duration;
         Invoke("Stop_Fire_Dot_Damage", fire_cooltime);
     }
 
