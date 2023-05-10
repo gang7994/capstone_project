@@ -51,7 +51,7 @@ public class Elemental : MonoBehaviour
     public float tower_atkRange = 30.0f;
     public float character_speed = 5.0f;
     public float character_BulletSpeed = 20.0f;
-    public float character_atkRange = 3.0f;
+    public float character_atkRange = 0.5f;
     public float character_moneyLuck = 1.0f;
 
 
@@ -387,13 +387,13 @@ public class Elemental : MonoBehaviour
     public void Public_Increase_AttackRange(){ //Function 26
         function26++;
         if(function26 == 1) {
-            character_atkRange += 0.5f;
+            character_atkRange += 0.1f;
         }
         else if(function26 == 2) {
-            character_BulletSpeed += 0.1f;
+            character_atkRange += 0.1f;
         }
         else if(function26 == 3) {
-            character_BulletSpeed += 0.1f;
+            character_atkRange += 0.2f;
         }
     }
 

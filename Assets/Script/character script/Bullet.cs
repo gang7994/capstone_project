@@ -37,12 +37,14 @@ public class Bullet : MonoBehaviour
         isFire = true;
         if (gun)
         {
-            Destroy(gameObject, 5f);
+            Destroy(gameObject, GameObject.Find("Main Camera").GetComponent<Elemental>().character_atkRange);
         }
+        /*
         else
         {
             Destroy(gameObject, 1f);
         }
+        */
         
     }
 
