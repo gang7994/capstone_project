@@ -37,11 +37,11 @@ public class Monster_hit : MonoBehaviour
                     GetComponentInParent<Monster_old>().Fire_Damage_Effect();
                 }
                 else if(other.gameObject.GetComponent<Bullet>().property_type == "Lightning") {
+                    can_fierce -= 1;
                     anims.SetBool("isDamage", true);
                     GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                    if(can_fierce == 0) Destroy(other.gameObject);
-                    can_fierce -= 1;
+                    if(can_fierce <= 0) Destroy(other.gameObject);
                     GetComponentInParent<Monster_old>().Lightning_Damage_Effect();
                     
                 }

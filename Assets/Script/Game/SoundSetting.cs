@@ -7,7 +7,8 @@ public class SoundSetting : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioMixer audioMixer;
-
+    
+    public Slider MasterSlider;
     public Slider BgmSlider;
     public Slider SfxSlider;
 
@@ -18,5 +19,9 @@ public class SoundSetting : MonoBehaviour
 
     public void SetSFXVolume(){
         audioMixer.SetFloat("SFX", Mathf.Log10(SfxSlider.value)*20);
+    }
+
+    public void SetMasterVolume(){
+        audioMixer.SetFloat("Master", Mathf.Log10(MasterSlider.value)*20);
     }
 }
