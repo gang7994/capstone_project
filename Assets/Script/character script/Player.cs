@@ -7,7 +7,6 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5.0f;
     public int Health;
     bool isAttackKetInput;
     public bool isAttackReady, attack_time, check;
@@ -164,7 +163,7 @@ public class Player : MonoBehaviour
             
         //}
         if (isAttackReady){
-            transform.position += moveVec * speed * Time.deltaTime;
+            transform.position += moveVec * GameObject.Find("Main Camera").GetComponent<Elemental>().character_speed * Time.deltaTime;
             transform.LookAt(transform.position + moveVec);
             moveVec = stick_hAxis * Vector3.right + stick_vAxis * Vector3.forward + key_hAxis * Vector3.right + key_vAxis * Vector3.forward;
             moveVec = moveVec.normalized;
