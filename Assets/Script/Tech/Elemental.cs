@@ -326,7 +326,7 @@ public class Elemental : MonoBehaviour
             fence_max += 2;
         }
         else if(function21 == 3) {
-            fence_max += 3;
+            fence_max += 4;
         }
     }
 
