@@ -50,7 +50,7 @@ public class Elemental : MonoBehaviour
     public int tower_target = 3;
     public float tower_atkRange = 30.0f;
     public float character_speed = 5.0f;
-    public float character_BulletSpeed = 0.5f;
+    public float character_BulletSpeed = 20.0f;
     public float character_atkRange = 3.0f;
     public float character_moneyLuck = 1.0f;
 
@@ -372,13 +372,13 @@ public class Elemental : MonoBehaviour
     public void Public_Increase_BulletSpeed(){ //Function 25
         function25++;
         if(function25 == 1) {
-            character_BulletSpeed += 0.1f;
+            character_BulletSpeed += 5.0f;
         }
         else if(function25 == 2) {
-            character_BulletSpeed += 0.1f;
+            character_BulletSpeed += 5.0f;
         }
         else if(function25 == 3) {
-            character_BulletSpeed += 0.1f;
+            character_BulletSpeed += 5.0f;
         }
 
     }

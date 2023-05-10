@@ -50,7 +50,7 @@ public class Bullet : MonoBehaviour
     {
         if (isFire)
         {
-            transform.Translate(direction * speed * Time.deltaTime);
+            transform.Translate(direction *  GameObject.Find("Main Camera").GetComponent<Elemental>().character_BulletSpeed * Time.deltaTime);
         }
     }
 

@@ -55912,7 +55912,7 @@ MonoBehaviour:
   tower_target: 3
   tower_atkRange: 30
   character_speed: 5
-  character_BulletSpeed: 0.5
+  character_BulletSpeed: 20
   character_atkRange: 0
   character_moneyLuck: 0
   fire_tower_critical: 0
