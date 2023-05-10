@@ -16761,10 +16761,10 @@ MonoBehaviour:
   FirePos: {fileID: 786160017}
   ranShoot:
   - {fileID: 2100000, guid: ffc76947a32ac8040a67af5770cf79d1, type: 2}
-  - {fileID: 2100000, guid: 5b5ed2babbef61f489c84a5c11abeac8, type: 2}
-  - {fileID: 2100000, guid: aa552c16e4d871c49bd0ad62eec7bff3, type: 2}
-  - {fileID: 2100000, guid: 16d625988a0b8954ba0fbb341eaa211b, type: 2}
-  - {fileID: 2100000, guid: 7e2c78aff685b814481998ec6813b8d0, type: 2}
+  - {fileID: 2100000, guid: bbdd736b198c3954aa3ccb5bfa7efb45, type: 2}
+  - {fileID: 2100000, guid: 54917e90f51b49f48a77e8a0995497bb, type: 2}
+  - {fileID: 2100000, guid: bc1a9ca1bc3387145816c217ff6ec865, type: 2}
+  - {fileID: 2100000, guid: b9f281572cfa9084f8ca34860f3b502f, type: 2}
   - {fileID: 2100000, guid: ebda0ea799a1edb4abc23eabf2adfc9d, type: 2}
   - {fileID: 2100000, guid: 6b118820e83244040bd5ac81ed500bac, type: 2}
   frozen_tower:
