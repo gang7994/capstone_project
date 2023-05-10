@@ -225,7 +225,6 @@ public class Monster_old : MonoBehaviour
             {   
                 int total_damage = (int)(damage-(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_weapon_armour)); //여기에 캐릭터 대지 속성 갯수 파악 필요 곱하기로(func35, func39)
                 target.GetComponent<Player>().Health -= total_damage;
-                Debug.Log("캐릭터 데미지 10");
             }else if(target.gameObject.CompareTag("TowerAttack"))
             {
                 int total_damage = (int)(damage);
