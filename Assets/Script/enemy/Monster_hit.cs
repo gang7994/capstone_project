@@ -46,11 +46,11 @@ public class Monster_hit : MonoBehaviour
                     
                 }
                 else if(other.gameObject.GetComponent<Bullet>().property_type == "Ice") {
+                    GetComponentInParent<Monster_old>().frozen = true;
                     anims.SetBool("isDamage", true);
-                    GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
+                    GetComponentInParent<Monster_old>().curHealth -= (other.gameObject.GetComponent<Bullet>().bulletAtk)*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().ice_def_decrease);
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
                     Destroy(other.gameObject);
-                    GetComponentInParent<Monster_old>().frozen = true;
                     Debug.Log("동상 걸려");
                 }
                 else if(other.gameObject.GetComponent<Bullet>().property_type == "Earth") {
@@ -92,7 +92,7 @@ public class Monster_hit : MonoBehaviour
                 }
                 else if(other.gameObject.GetComponent<TowerShoot>().property_type == "I") {
                     anims.SetBool("isDamage", true);
-                    GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<TowerShoot>().towerAtk;
+                    GetComponentInParent<Monster_old>().curHealth -= (other.gameObject.GetComponent<TowerShoot>().towerAtk)*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().ice_def_decrease);
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
                     other.GetComponent<TowerShoot>().DestroyBullet();
                     GetComponentInParent<Monster_old>().frozen = true;

@@ -75,6 +75,8 @@ public class Elemental : MonoBehaviour
 
     public float lightning_shock = 0;
     public float lightning_dot_damage = 1.0f;
+    public float ice_def_decrease = 0;
+    public float ice_atk_decrease = 0;
 
     public float earth_drain = 0; //Function 43 value
 
@@ -470,6 +472,9 @@ public class Elemental : MonoBehaviour
         else if(function37 == 2) lightning_shock += 1.0f;
     }
     public void Ice_DefDecrease(){ //Function 38
+        function38 += 1;
+        if (function38 == 1) ice_def_decrease += 0.1f;
+        else if(function38 == 2) ice_def_decrease += 0.1f;
     }
     public void Earth_AtkDecrease(){ //Function 39
         function39 += 1;
@@ -488,7 +493,9 @@ public class Elemental : MonoBehaviour
         else if (function41 == 2) lightning_dot_damage += 1.0f;
     }
     public void Ice_AtkSpeed_Down(){ //Function 42
-
+        function42 += 1;
+        if(function42 == 1) ice_atk_decrease += 1.0f;
+        else if(function42 == 2) ice_atk_decrease += 1.0f;
     }
     public void Earth_Drain(){ //Function 43
         function43 += 1;

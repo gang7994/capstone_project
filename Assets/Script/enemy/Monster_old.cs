@@ -20,6 +20,7 @@ public class Monster_old : MonoBehaviour
     public float attack_time;
     public bool target_check;
     public bool frozen = false;
+    public bool freeze = false;
     Color meshColor;
 
     public List<Collider> target_list = new List<Collider>();
@@ -135,7 +136,7 @@ public class Monster_old : MonoBehaviour
         {
             navi.isStopped = false;
         }
-        if(frozen){
+        if(frozen){ // 동상 시 느려짐 구현해야 함. GameObject.Find("Main Camera").GetComponent<Elemental>().ice_atk_decrease 변수를 받아 공격속도 제어해야 함.
             rd.materials = ice_monster_state;
             Invoke("Unfrozen",GameObject.Find("Main Camera").GetComponent<Elemental>().ice_duration);
         }
