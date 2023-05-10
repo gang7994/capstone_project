@@ -105,7 +105,7 @@ public class Tower : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("MonsterAttack") && collEnemys.Count < 5)
+        if (collision.CompareTag("MonsterAttack") && collEnemys.Count < GameObject.Find("Main Camera").GetComponent<Elemental>().tower_target)
         {
             print("사거리 진입");
             collEnemys.Add(collision.transform.gameObject);
