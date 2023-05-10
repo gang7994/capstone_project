@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class Monster_old : MonoBehaviour
 {
     public float maxHealth, curHealth;
+    public float monster_speed = 2;
     public int damage;
     public GameObject house;
     public GameObject Attack_range;
@@ -138,6 +139,7 @@ public class Monster_old : MonoBehaviour
         }
         if(frozen){ // 동상 시 느려짐 구현해야 함. GameObject.Find("Main Camera").GetComponent<Elemental>().ice_atk_decrease 변수를 받아 공격속도 제어해야 함.
             rd.materials = ice_monster_state;
+            monster_speed = 1;
             Invoke("Unfrozen",GameObject.Find("Main Camera").GetComponent<Elemental>().ice_duration);
         }
         
@@ -146,6 +148,8 @@ public class Monster_old : MonoBehaviour
     void Unfrozen(){
         rd.materials = normal_monster_state;
         frozen = false;
+        monster_speed = 2;
+
     }
 
     
@@ -204,7 +208,7 @@ public class Monster_old : MonoBehaviour
         if (isChase)
         {
             navi.isStopped = false;
-            navi.speed = 2;
+            navi.speed = monster_speed;
             anim.SetBool("isAttack", false);
             Attack_range.GetComponent<Attack_range>().attack = false;
             isAttackDelay = false;
