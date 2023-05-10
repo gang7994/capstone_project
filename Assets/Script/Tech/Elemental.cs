@@ -451,8 +451,8 @@ public class Elemental : MonoBehaviour
 
     public void Ice_Weapon_Icicle(){ //Function 34
         function34 += 1;
-        if (function34 == 1) icicle_damage += 50;
-        else if(function34 == 2) icicle_damage += 50;
+        if (function34 == 1) icicle_damage += 20;
+        else if(function34 == 2) icicle_damage += 20;
     }
     public void Earth_Weapon_Armour(){ //Function 35
         function35 += 1;

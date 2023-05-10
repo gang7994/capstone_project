@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     /*public GameObject sword, gun,shotgun;*/
     public bool isSword, isGun, isShotgun;
     public GameObject bullet;
+    public GameObject icicle;
     public GameObject sw_btn, g_btn, sg_btn;
     public GameObject LevelUp_UI;
     public GameObject TypePanel;
@@ -241,7 +242,17 @@ public class Player : MonoBehaviour
                 anim.SetBool("isShoot", true);
                 anim.SetBool("timeout", false);
                 GameObject temp = Instantiate(bullet, transform.position, Quaternion.identity);
+                
                 temp.GetComponent<Bullet>().fire(transform.forward,true);
+                if(GameObject.Find("Main Camera").GetComponent<Elemental>().icicle_damage > 0 && Type[ran] == 3){
+                    GameObject icicle1 = Instantiate(icicle, transform.position, Quaternion.identity);
+                    icicle1.transform.Rotate(new Vector3(0f, 10f, 0f));
+                    GameObject icicle2 = Instantiate(icicle, transform.position, Quaternion.identity);
+                    icicle2.transform.Rotate(new Vector3(0f, -10f, 0f));
+                    icicle1.GetComponent<Bullet>().fire(transform.forward,true);
+                    icicle2.GetComponent<Bullet>().fire(transform.forward,true);   
+                }
+
                 audioSource.Play();
                 
             }
