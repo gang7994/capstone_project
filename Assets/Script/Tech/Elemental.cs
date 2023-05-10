@@ -333,13 +333,13 @@ public class Elemental : MonoBehaviour
     public void Public_Increase_Target(){  // Function 22
         function22++;
         if(function22 == 1) {
-            tower_max += 1;
+            tower_target += 1;
         }
         else if(function22 == 2) {
-            tower_max += 2;
+            tower_target += 2;
         }
         else if(function22 == 3) {
-            tower_max += 3;
+            tower_target += 3;
         }
     }
 
