@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Gold : MonoBehaviour
 {
     public Text GoldText;
-    public int amount = 0;
+    public int amount = 1000;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,7 @@ public class Gold : MonoBehaviour
         if (collision.tag == "Player")
         {
             Destroy(gameObject);
-            amount += 100;
+            amount += 1000;
             GoldText.text = amount.ToString();
 
         }

@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
     int selectNumber;
     
     public float weapon_atkVal = 20.0f; 
+    public Text GoldText;
+    public float amount = 1000.0f;
 
 
 
@@ -541,6 +543,16 @@ public class Player : MonoBehaviour
             TypeIcon5.GetComponent<Image>().sprite = EarthImage;
             Type[4] = 4;
             TypePanel.SetActive(false);
+        }
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag == "Gold")
+        {
+            Destroy(collision.gameObject);
+            amount += 1000*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().character_moneyLuck);
+            GoldText.text = amount.ToString();
+
         }
     }
 }

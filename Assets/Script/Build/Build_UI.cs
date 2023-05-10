@@ -139,6 +139,7 @@ public class Build_UI : MonoBehaviour
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().fence_vertical_position[Convert.ToInt32(fence.transform.position.z / 3) + 6, Convert.ToInt32(fence.transform.position.x+1.5) / 3 + 10] = 1;
                     }
+                    
                 }
             }
             
@@ -149,6 +150,9 @@ public class Build_UI : MonoBehaviour
         move_button.SetActive(false);
         build_button.SetActive(false);
         rotate_button.SetActive(false);
+        rotate_count = 0;
+        inclined = false;
+        horizontal = true;
     }
     
 
