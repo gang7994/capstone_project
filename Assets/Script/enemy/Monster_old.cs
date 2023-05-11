@@ -339,7 +339,7 @@ public class Monster_old : MonoBehaviour
     }
 
     public IEnumerator Lightning_Dot_Damage(){
-        int shock = GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_shock;
+        float shock = GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_shock;
         rd.materials = lightning_monster_state; //감전상태 머티리얼
         monster_speed = 0;
         if(shock > 0){

@@ -98,13 +98,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4db2318cbf66c747b161882e44de45d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletAtk: 0
-  property_type: Fire
+  bulletAtk: 20
+  property_type: Lightning
   Fire: {fileID: 2100000, guid: 85b89c190c087cf49b75313abfa9084e, type: 2}
   Lightning: {fileID: 2100000, guid: 190f3cf95b15a1b4b900c7c62226b87e, type: 2}
   Ice: {fileID: 2100000, guid: b6bfcc1ab02f4b74db922f6323550a0b, type: 2}
   Earth: {fileID: 2100000, guid: c92d8f0d57db4ca4db2269c6d561af6d, type: 2}
   Normal: {fileID: 2100000, guid: 301ac81f8cccc0a48b46789bd364ebcf, type: 2}
+  can_fierce: 0
   speed: 20
 --- !u!54 &-3176919511322328685
 Rigidbody:

@@ -96,15 +96,15 @@ public class Monster_hit : MonoBehaviour
                         for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().ice_tower_frostbite;i++) frostbite[i] = 1;
                             if(frostbite[UnityEngine.Random.Range(0,10)]==1) {
                                 GetComponentInParent<Monster_old>().freeze = true;
-                }
-                    }
+                            }
+                        }
                     else{
-                        anims.SetBool("isDamage", true);
-                        GetComponentInParent<Monster_old>().curHealth -= (other.gameObject.GetComponent<TowerShoot>().towerAtk)*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().ice_def_decrease);
-                        StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                        other.GetComponent<TowerShoot>().DestroyBullet();
                         GetComponentInParent<Monster_old>().frozen = true;
                     }
+                    anims.SetBool("isDamage", true);
+                    GetComponentInParent<Monster_old>().curHealth -= (other.gameObject.GetComponent<TowerShoot>().towerAtk)*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().ice_def_decrease);
+                    StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
+                    other.GetComponent<TowerShoot>().DestroyBullet();
                 }
                 else if(other.gameObject.GetComponent<TowerShoot>().property_type == "E") {
                     anims.SetBool("isDamage", true);
