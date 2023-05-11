@@ -49,6 +49,8 @@ public class Player : MonoBehaviour
     public float earth_weight;
     public float earth_duration;
     public float earth_Character_MaxHp;
+    float empty_weight;
+    int attack_type;
 
     Vector3 moveVec;
     Animator anim;
@@ -116,11 +118,6 @@ public class Player : MonoBehaviour
 
     public void SetValue()   // setting value
     {
-        fire_weight = MainCamera.GetComponent<Elemental>().fire_character_weight;
-        lightning_weight = MainCamera.GetComponent<Elemental>().lightning_character_weight;
-        ice_weight = MainCamera.GetComponent<Elemental>().ice_character_weight;
-        earth_weight = MainCamera.GetComponent<Elemental>().earth_character_weight;
-
         fire_duration = MainCamera.GetComponent<Elemental>().fire_duration;
         lightning_duration = MainCamera.GetComponent<Elemental>().lightning_duration;
         ice_duration = MainCamera.GetComponent<Elemental>().ice_duration;
@@ -130,6 +127,35 @@ public class Player : MonoBehaviour
         lightning_AtkSpeed = MainCamera.GetComponent<Elemental>().lightning_character_atkSpeed;
         ice_Character_armour = MainCamera.GetComponent<Elemental>().ice_character_armour;
         earth_Character_MaxHp = MainCamera.GetComponent<Elemental>().earth_character_MaxHp;
+        float temp_fire = 0;
+        float temp_lightning = 0;
+        float temp_ice = 0;
+        float temp_earth = 0;
+        float temp_empty = 0;
+        for (int i = 0; i < Type.Length; i++)
+        {     
+            if(Type[i] == 0)
+            {
+                temp_empty += 1;
+            }else if(Type[i] == 1)
+            {
+                temp_fire += 1;
+            }else if(Type[i] == 2)
+            {
+                temp_lightning += 1;
+            }else if(Type[i] == 3)
+            {
+                temp_ice += 1;
+            }else if(Type[i] == 2)
+            {
+                temp_earth += 1;
+            }
+        }
+        empty_weight = temp_empty;
+        fire_weight = temp_fire + MainCamera.GetComponent<Elemental>().fire_character_weight;
+        lightning_weight = temp_lightning + MainCamera.GetComponent<Elemental>().lightning_character_weight;
+        ice_weight = temp_ice + MainCamera.GetComponent<Elemental>().ice_character_weight;
+        earth_weight = temp_earth + MainCamera.GetComponent<Elemental>().earth_character_weight;
 
     }
 
@@ -191,20 +217,23 @@ public class Player : MonoBehaviour
                 anim.SetBool("isAttack", false);
             }
         }
-        else if(isGun)
+        else if(isGun)   // 총 발사
         {
             if (isAttackKetInput && isAttackReady && attack_time)
             {
-                int ran = Random.Range(0, 5);
-                if (Type[ran] == 0)
+                float all = empty_weight + fire_weight + lightning_weight + ice_weight + earth_weight;
+                float ran = all*Random.Range(0f,1f );
+                if (ran <= empty_weight)
                 {
                     bullet.GetComponent<Bullet>().property_type = "None";
                     bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
+                    attack_type = 0;
                     
                 }
-                else if (Type[ran] == 1)
+                else if (ran <= empty_weight+fire_weight)
                 {
                     bullet.GetComponent<Bullet>().property_type = "Fire";
+                    attack_type = 1;
                     List<int> fireCritical = new List<int> {0,0,0,0,0};
                     for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().fire_weapon_critical;i++) fireCritical[i] = 1;
                     if(fireCritical[UnityEngine.Random.Range(0,5)]==1) {
@@ -217,19 +246,22 @@ public class Player : MonoBehaviour
                         //화염 방사기 기능 구현 할곳
                     }
                 }
-                else if (Type[ran] == 2)
+                else if (ran <= empty_weight+fire_weight+lightning_weight)
                 {
+                    attack_type = 2;
                     bullet.GetComponent<Bullet>().property_type = "Lightning";
                     bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
                 }
-                else if (Type[ran] == 3)
+                else if (ran <= empty_weight+fire_weight+lightning_weight+ice_weight)
                 {
+                    attack_type = 3;
                     bullet.GetComponent<Bullet>().property_type = "Ice";
                     bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
                     
                 }
-                else
+                else if(ran <= empty_weight+fire_weight+lightning_weight+ice_weight)
                 {
+                    attack_type = 4;
                     bullet.GetComponent<Bullet>().property_type = "Earth";
                     bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
                     if(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain !=0) {
@@ -243,7 +275,7 @@ public class Player : MonoBehaviour
                 GameObject temp = Instantiate(bullet, transform.position, Quaternion.identity);
                 
                 temp.GetComponent<Bullet>().fire(transform.forward,true);
-                if(GameObject.Find("Main Camera").GetComponent<Elemental>().icicle_damage > 0 && Type[ran] == 3){
+                if(GameObject.Find("Main Camera").GetComponent<Elemental>().icicle_damage > 0 && attack_type == 3){
                     GameObject icicle1 = Instantiate(icicle, transform.position, Quaternion.identity);
                     icicle1.transform.Rotate(new Vector3(0f, 10f, 0f));
                     GameObject icicle2 = Instantiate(icicle, transform.position, Quaternion.identity);
