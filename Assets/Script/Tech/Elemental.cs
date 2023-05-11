@@ -489,8 +489,8 @@ public class Elemental : MonoBehaviour
     }
     public void Lightning_DamageUp(){ //Function 41
         function41 += 1;
-        if(function41 == 1) lightning_damage += 1.0f;
-        else if (function41 == 2) lightning_damage += 1.0f;
+        if(function41 == 1) lightning_damage += 0.1f;
+        else if (function41 == 2) lightning_damage += 0.1f;
     }
     public void Ice_AtkSpeed_Down(){ //Function 42
         function42 += 1;
