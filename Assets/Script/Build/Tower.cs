@@ -211,14 +211,7 @@ public class Tower : MonoBehaviour
                     
                     towerShoot.property_type = "I";
                     towerShoot.towerAtk = attack_val;
-                    List<int> frostbite = new List<int> {0,0,0,0,0};
-                    for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().ice_tower_frostbite;i++) frostbite[i] = 1;
-                    if(frostbite[UnityEngine.Random.Range(0,5)]==1) {
-                        frozen = true;
-                        Renderer rd = this.GetComponent<MeshRenderer>();
-                        rd.materials = frozen_tower;
-                        Invoke("Unfrozen",3);
-                    }
+                    
   
 
                 }

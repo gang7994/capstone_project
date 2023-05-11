@@ -74,7 +74,7 @@ public class Elemental : MonoBehaviour
     public float fire_dot_damage = 1.0f; //Function 40 value
 
     public float lightning_shock = 0;
-    public float lightning_dot_damage = 1.0f;
+    public float lightning_damage = 0;
     public float ice_def_decrease = 0;
     public float ice_atk_decrease = 0;
 
@@ -141,7 +141,7 @@ public class Elemental : MonoBehaviour
         all_function.Add(Ice_DefDecrease);
         all_function.Add(Earth_AtkDecrease);
         all_function.Add(Fire_Dot_DamageUp);
-        all_function.Add(Lightning_Dot_DamageUp);
+        all_function.Add(Lightning_DamageUp);
         all_function.Add(Ice_AtkSpeed_Down);
         all_function.Add(Earth_Drain);
         all_function.Add(Fire_Tower_Eternal);
@@ -487,10 +487,10 @@ public class Elemental : MonoBehaviour
         if (function40 == 1) fire_dot_damage+=1.0f;
         else if(function40 == 2) fire_dot_damage+=1.0f;
     }
-    public void Lightning_Dot_DamageUp(){ //Function 41
+    public void Lightning_DamageUp(){ //Function 41
         function41 += 1;
-        if(function41 == 1) lightning_dot_damage += 1.0f;
-        else if (function41 == 2) lightning_dot_damage += 1.0f;
+        if(function41 == 1) lightning_damage += 1.0f;
+        else if (function41 == 2) lightning_damage += 1.0f;
     }
     public void Ice_AtkSpeed_Down(){ //Function 42
         function42 += 1;

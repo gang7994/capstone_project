@@ -315,6 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   curHealth: 100
+  monster_speed: 2
   damage: 10
   house: {fileID: 0}
   Attack_range: {fileID: 7489988819297804879}
@@ -326,6 +327,7 @@ MonoBehaviour:
   attack_time: 0.7
   target_check: 0
   frozen: 0
+  freeze: 0
   target_list: []
   normal_monster_state:
   - {fileID: 2100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
@@ -337,6 +339,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 52a1cc4366fd94b4e9316e4f45dede60, type: 2}
   ice_monster_state:
   - {fileID: 2100000, guid: 730712a269da3f54682e64cf17acabd7, type: 2}
+  freeze_monster_state:
+  - {fileID: 2100000, guid: 3b16c1a4df23b3f418dd8e0bb1d0378c, type: 2}
   monsters: []
   navi: {fileID: 0}
   anim: {fileID: 0}

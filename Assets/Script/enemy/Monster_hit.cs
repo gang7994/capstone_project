@@ -37,11 +37,11 @@ public class Monster_hit : MonoBehaviour
                     GetComponentInParent<Monster_old>().Fire_Damage_Effect();
                 }
                 else if(other.gameObject.GetComponent<Bullet>().property_type == "Lightning") {
-                    can_fierce -= 1;
+                    other.gameObject.GetComponent<Bullet>().can_fierce -= 1;
                     anims.SetBool("isDamage", true);
-                    GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
+                    GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_damage);
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                    if(can_fierce <= 0) Destroy(other.gameObject);
+                    if(other.gameObject.GetComponent<Bullet>().can_fierce <  0) Destroy(other.gameObject);
                     GetComponentInParent<Monster_old>().Lightning_Damage_Effect();
                     
                 }
@@ -85,18 +85,26 @@ public class Monster_hit : MonoBehaviour
                 }
                 else if(other.gameObject.GetComponent<TowerShoot>().property_type == "L") {
                     anims.SetBool("isDamage", true);
-                    GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<TowerShoot>().towerAtk;
+                    GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<TowerShoot>().towerAtk*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_damage);
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
                     other.GetComponent<TowerShoot>().DestroyBullet();
                     GetComponentInParent<Monster_old>().Lightning_Damage_Effect();
                 }
                 else if(other.gameObject.GetComponent<TowerShoot>().property_type == "I") {
-                    anims.SetBool("isDamage", true);
-                    GetComponentInParent<Monster_old>().curHealth -= (other.gameObject.GetComponent<TowerShoot>().towerAtk)*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().ice_def_decrease);
-                    StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                    other.GetComponent<TowerShoot>().DestroyBullet();
-                    GetComponentInParent<Monster_old>().frozen = true;
-                    Debug.Log("동상 걸려");
+                    if(GetComponentInParent<Monster_old>().frozen){
+                        List<int> frostbite = new List<int> {0,0,0,0,0,0,0,0,0,0};
+                        for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().ice_tower_frostbite;i++) frostbite[i] = 1;
+                            if(frostbite[UnityEngine.Random.Range(0,10)]==1) {
+                                GetComponentInParent<Monster_old>().freeze = true;
+                }
+                    }
+                    else{
+                        anims.SetBool("isDamage", true);
+                        GetComponentInParent<Monster_old>().curHealth -= (other.gameObject.GetComponent<TowerShoot>().towerAtk)*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().ice_def_decrease);
+                        StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
+                        other.GetComponent<TowerShoot>().DestroyBullet();
+                        GetComponentInParent<Monster_old>().frozen = true;
+                    }
                 }
                 else if(other.gameObject.GetComponent<TowerShoot>().property_type == "E") {
                     anims.SetBool("isDamage", true);

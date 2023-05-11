@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     public Material Ice;
     public Material Earth;
     public Material Normal;
+    public int can_fierce;
 
 
     float stack;
@@ -28,6 +29,8 @@ public class Bullet : MonoBehaviour
         else gameObject.GetComponent<MeshRenderer>().material = Normal;
         stack = 1.0f;
         transform.position += new Vector3(0, 0.5f, 0);
+        can_fierce = GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_fierce;
+
 
     }
 
