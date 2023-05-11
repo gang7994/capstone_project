@@ -55903,10 +55903,10 @@ MonoBehaviour:
   lightning_character_weight: 0
   ice_character_weight: 0
   earth_character_weight: 0
-  fire_duration: 1
-  lightning_duration: 1
-  ice_duration: 1
-  earth_duration: 2
+  fire_duration: 3
+  lightning_duration: 3
+  ice_duration: 3
+  earth_duration: 3
   tower_max: 3
   fence_max: 5
   tower_target: 3
@@ -55927,7 +55927,7 @@ MonoBehaviour:
   earth_atkDecrease: 0
   fire_dot_damage: 1
   lightning_shock: 0
-  lightning_dot_damage: 1
+  lightning_damage: 0
   ice_def_decrease: 0
   ice_atk_decrease: 0
   earth_drain: 0
