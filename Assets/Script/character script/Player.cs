@@ -266,7 +266,7 @@ public class Player : MonoBehaviour
                     bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
                     
                 }
-                else if(ran <= empty_weight+fire_weight+lightning_weight+ice_weight)
+                else if(ran <= empty_weight+fire_weight+lightning_weight+ice_weight+earth_weight)
                 {
                     attack_type = 4;
                     bullet.GetComponent<Bullet>().property_type = "Earth";
@@ -275,7 +275,6 @@ public class Player : MonoBehaviour
                         if(Health < 100) Health += (int)(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain/2);
                     }
                 }
-
                 attackDelay = 0;
                 anim.SetBool("isShoot", true);
                 anim.SetBool("timeout", false);
