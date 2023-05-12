@@ -502,7 +502,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13322788}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2816,10 +2816,10 @@ MonoBehaviour:
   build_button: {fileID: 695121974}
   rotate_button: {fileID: 1974775898}
   tower_base:
-  - {fileID: 7555185752953191562, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
-  - {fileID: 2002842263116201729, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
-  - {fileID: -3632132094842907418, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
-  fence_base: {fileID: 2100000, guid: 9287528150253d643bab4454d33ac3e7, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fence_base: {fileID: 0}
   inclined: 0
   horizontal: 1
   rotate_count: 0
@@ -13559,7 +13559,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 95681283}
+      - m_Target: {fileID: 432238138}
         m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
         m_MethodName: onClick3
         m_Mode: 1
@@ -18623,6 +18623,7 @@ GameObject:
   - component: {fileID: 574898735}
   - component: {fileID: 574898734}
   - component: {fileID: 574898733}
+  - component: {fileID: 574898736}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -18694,7 +18695,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95681283}
+      - m_Target: {fileID: 574898736}
         m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
         m_MethodName: onClick1
         m_Mode: 1
@@ -18780,6 +18781,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574898731}
   m_CullTransparentMesh: 1
+--- !u!114 &574898736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574898731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5acd6e6859ec32418b097fc0b74e876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower_prefab: {fileID: 506174169}
+  fence_prefab: {fileID: 1032890875}
+  move_button: {fileID: 527337711}
+  build_button: {fileID: 695121974}
+  rotate_button: {fileID: 1974775898}
+  tower_base:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fence_base: {fileID: 0}
+  inclined: 0
+  horizontal: 1
+  rotate_count: 0
 --- !u!1 &577313821
 GameObject:
   m_ObjectHideFlags: 0
@@ -23100,6 +23126,7 @@ GameObject:
   - component: {fileID: 695121978}
   - component: {fileID: 695121977}
   - component: {fileID: 695121976}
+  - component: {fileID: 695121979}
   m_Layer: 5
   m_Name: Setup
   m_TagString: Untagged
@@ -23125,7 +23152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1774.0001, y: 845}
+  m_AnchoredPosition: {x: 1774, y: 845}
   m_SizeDelta: {x: 321.6258, y: 94.7981}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &695121976
@@ -23172,7 +23199,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95681283}
+      - m_Target: {fileID: 695121979}
         m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
         m_MethodName: SetUp
         m_Mode: 1
@@ -23234,6 +23261,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695121974}
   m_CullTransparentMesh: 0
+--- !u!114 &695121979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695121974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5acd6e6859ec32418b097fc0b74e876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower_prefab: {fileID: 506174169}
+  fence_prefab: {fileID: 1032890875}
+  move_button: {fileID: 527337711}
+  build_button: {fileID: 695121974}
+  rotate_button: {fileID: 1974775898}
+  tower_base:
+  - {fileID: 7555185752953191562, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
+  - {fileID: 2002842263116201729, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
+  - {fileID: -3632132094842907418, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
+  fence_base: {fileID: 2100000, guid: 9287528150253d643bab4454d33ac3e7, type: 2}
+  inclined: 0
+  horizontal: 1
+  rotate_count: 0
 --- !u!1 &697332164
 GameObject:
   m_ObjectHideFlags: 0
@@ -26857,7 +26909,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 695121979}
         m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
         m_MethodName: start
         m_Mode: 1
@@ -26869,7 +26921,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 695121979}
         m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
         m_MethodName: start
         m_Mode: 1
@@ -35363,10 +35415,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: f9b057a0cb507a240a04d756f447a9a7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0f0c23c0ac300964f8f38eb8c63e45b2, type: 2}
     - target: {fileID: 919132149155446097, guid: f9b057a0cb507a240a04d756f447a9a7, type: 3}
       propertyPath: m_Name
       value: Fence0
@@ -38061,6 +38109,7 @@ GameObject:
   - component: {fileID: 1148038433}
   - component: {fileID: 1148038432}
   - component: {fileID: 1148038431}
+  - component: {fileID: 1148038434}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -38132,7 +38181,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95681283}
+      - m_Target: {fileID: 1148038434}
         m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
         m_MethodName: onClick2
         m_Mode: 1
@@ -38218,6 +38267,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148038429}
   m_CullTransparentMesh: 1
+--- !u!114 &1148038434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148038429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5acd6e6859ec32418b097fc0b74e876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower_prefab: {fileID: 506174169}
+  fence_prefab: {fileID: 1032890875}
+  move_button: {fileID: 527337711}
+  build_button: {fileID: 695121974}
+  rotate_button: {fileID: 1974775898}
+  tower_base:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fence_base: {fileID: 0}
+  inclined: 0
+  horizontal: 1
+  rotate_count: 0
 --- !u!1 &1148190680 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2099174123423218066, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
@@ -64067,6 +64141,7 @@ GameObject:
   - component: {fileID: 1974775903}
   - component: {fileID: 1974775902}
   - component: {fileID: 1974775901}
+  - component: {fileID: 1974775900}
   m_Layer: 5
   m_Name: Rotate
   m_TagString: Untagged
@@ -64095,6 +64170,31 @@ RectTransform:
   m_AnchoredPosition: {x: 1774, y: 694.6306}
   m_SizeDelta: {x: 321.6258, y: 94.7981}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1974775900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974775898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5acd6e6859ec32418b097fc0b74e876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower_prefab: {fileID: 506174169}
+  fence_prefab: {fileID: 1032890875}
+  move_button: {fileID: 527337711}
+  build_button: {fileID: 695121974}
+  rotate_button: {fileID: 1974775898}
+  tower_base:
+  - {fileID: 7555185752953191562, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
+  - {fileID: 2002842263116201729, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
+  - {fileID: -3632132094842907418, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
+  fence_base: {fileID: 0}
+  inclined: 0
+  horizontal: 1
+  rotate_count: 0
 --- !u!114 &1974775901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64139,7 +64239,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95681283}
+      - m_Target: {fileID: 1974775900}
         m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
         m_MethodName: onClick4
         m_Mode: 1

@@ -51,7 +51,6 @@ public class Build_UI : MonoBehaviour
             GameObject.Find("Building_Inspector").GetComponent<Build_UI>().rotate_count = 0;
             GameObject.Find("Building_Inspector").GetComponent<Build_UI>().inclined = false;
             GameObject.Find("Building_Inspector").GetComponent<Build_UI>().horizontal = true;
-            fence_prefab.GetComponent<Fence_Move>().IsBuild_Fence();
         }
     }
 
@@ -82,6 +81,7 @@ public class Build_UI : MonoBehaviour
                 rotate_count = 0;
             }
         }
+        fence_prefab.GetComponent<Fence_Move>().IsBuild_Fence();
         
     }
 
