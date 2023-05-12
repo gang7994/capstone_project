@@ -22,11 +22,11 @@ public class Bullet : MonoBehaviour
 
     void Start(){
         //Invoke("DestroyBullet", 1);
-        if(property_type == "Fire") gameObject.GetComponent<MeshRenderer>().material = Fire;
-        else if(property_type == "Lightning") gameObject.GetComponent<MeshRenderer>().material = Lightning;
-        else if(property_type == "Ice") gameObject.GetComponent<MeshRenderer>().material = Ice;
-        else if(property_type == "Earth") gameObject.GetComponent<MeshRenderer>().material = Earth;
-        else gameObject.GetComponent<MeshRenderer>().material = Normal;
+        if(property_type == "Fire") gameObject.GetComponent<TrailRenderer>().material = Fire;
+        else if(property_type == "Lightning") gameObject.GetComponent<TrailRenderer>().material = Lightning;
+        else if(property_type == "Ice") gameObject.GetComponent<TrailRenderer>().material = Ice;
+        else if(property_type == "Earth") gameObject.GetComponent<TrailRenderer>().material = Earth;
+        else gameObject.GetComponent<TrailRenderer>().material = Normal;
         stack = 1.0f;
         transform.position += new Vector3(0, 0.5f, 0);
         can_fierce = GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_fierce;
