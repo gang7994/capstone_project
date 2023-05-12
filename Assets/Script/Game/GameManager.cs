@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     GameObject[] btns = new GameObject[4];
     GameObject monsterAmountText;
     GameObject monsterAmount;
+    GameObject moneyText;
+    public int money = 0;
+    
+
     private bool isNight = false;
     private int monsterNum = 0;
     private int day = 1;
@@ -21,11 +25,12 @@ public class GameManager : MonoBehaviour
         btns = GameObject.FindGameObjectsWithTag("Button");
         monsterAmountText = GameObject.Find("MonsterAmountText");
         monsterAmount = GameObject.Find("MonsterAmount");
+        moneyText = GameObject.Find("money");
         monsterAmountText.SetActive(false);
     }
 
     void Update(){
-        
+        moneyText.GetComponent<TextMeshProUGUI>().text = money.ToString();
     }
 
     void SetIsNight(bool isNight){
