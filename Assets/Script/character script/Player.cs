@@ -148,7 +148,7 @@ public class Player : MonoBehaviour
             }else if(Type[i] == 3)
             {
                 temp_ice += 1;
-            }else if(Type[i] == 2)
+            }else if(Type[i] == 4)
             {
                 temp_earth += 1;
             }
@@ -229,7 +229,7 @@ public class Player : MonoBehaviour
             if (isAttackKetInput && isAttackReady && attack_time)
             {
                 float all = empty_weight + fire_weight + lightning_weight + ice_weight + earth_weight;
-                float ran = all*Random.Range(0f,1f );
+                int ran = Mathf.RoundToInt(all * UnityEngine.Random.Range(0f, 1f));
                 if (ran <= empty_weight)
                 {
                     bullet.GetComponent<Bullet>().property_type = "None";
