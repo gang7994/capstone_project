@@ -37,10 +37,10 @@ public class Player : MonoBehaviour
 
 
     /*Ư�� ���� ����*/
-    public int fire_character_weight;
-    public int lightning_character_weight;
-    public int ice_character_weight;
-    public int earth_character_weight;
+    public int fire_num;
+    public int lightning_num;
+    public int ice_num;
+    public int earth_num;
     public float fire_weight;
     public float fire_duration;
     public float fire_damage;
@@ -109,6 +109,7 @@ public class Player : MonoBehaviour
             isAttackReady = 0.5f < attackDelay;
             attack_time = 1.2f < attackDelay;
         }
+        SetValue();
         GetInput();
         Move();
         Attack();
@@ -160,10 +161,10 @@ public class Player : MonoBehaviour
         lightning_weight = temp_lightning + MainCamera.GetComponent<Elemental>().lightning_character_weight;
         ice_weight = temp_ice + MainCamera.GetComponent<Elemental>().ice_character_weight;
         earth_weight = temp_earth + MainCamera.GetComponent<Elemental>().earth_character_weight;
-        fire_character_weight = temp_fire;
-        lightning_character_weight = temp_lightning;
-        ice_character_weight = temp_ice;
-        earth_character_weight = temp_earth;
+        fire_num = temp_fire;
+        lightning_num = temp_lightning;
+        ice_num = temp_ice;
+        earth_num = temp_earth;
 
 
     }
