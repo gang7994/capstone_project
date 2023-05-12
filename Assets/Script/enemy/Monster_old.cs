@@ -22,7 +22,6 @@ public class Monster_old : MonoBehaviour
     public bool target_check;
     public bool frozen = false;
     public bool freeze = false;
-    private float earth_atk_decrease = 0;
     Color meshColor;
 
     public List<Collider> target_list = new List<Collider>();
@@ -171,6 +170,7 @@ public class Monster_old : MonoBehaviour
             reactVec += Vector3.up;
             rigid.AddForce(reactVec * 5, ForceMode.Impulse);
             anim.SetBool("isDamage", false);
+            Debug.Log("damaged");
             materi.color = meshColor;
         }
         else
@@ -229,12 +229,11 @@ public class Monster_old : MonoBehaviour
         {
             if (target.gameObject.CompareTag("Player"))
             {   
-                int total_damage = (int)(damage-(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_weapon_armour * target.GetComponent<Player>().earth_num)-
-                 earth_atk_decrease * target.GetComponent<Player>().earth_num);
+                int total_damage = (int)(damage-(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_weapon_armour)); //여기에 캐릭터 대지 속성 갯수 파악 필요 곱하기로(func35, func39)
                 target.GetComponent<Player>().Health -= total_damage;
             }else if(target.gameObject.CompareTag("TowerAttack"))
             {
-                int total_damage = (int)(damage - earth_atk_decrease * target.GetComponent<Player>().earth_num);
+                int total_damage = (int)(damage);
                 target.GetComponentInParent<Tower>().hp -= total_damage;
                 if(GameObject.Find("Main Camera").GetComponent<Elemental>().function31 != 0 && target.GetComponentInParent<Tower>().earth_type_num>0){
                     StartCoroutine(Earth_Reflex(target));
@@ -251,7 +250,9 @@ public class Monster_old : MonoBehaviour
                 target.GetComponent<Base>().hp -= damage;
                 Debug.Log("베이스 데미지 10");
             }
+            
         }
+        
     }
 
     private IEnumerator Die()
@@ -380,6 +381,7 @@ public class Monster_old : MonoBehaviour
     }
 
     public void Earth_Damage_Effect(){
+        print("시간 정지");
         StartCoroutine(Earth_Damage());
     }
 
@@ -393,16 +395,6 @@ public class Monster_old : MonoBehaviour
         navi.isStopped = false;
         anim.SetBool("isMove", true);
         rd.materials = normal_monster_state; //일반상태 머티리얼
-        if(GameObject.Find("Main Camera").GetComponent<Elemental>().function39!=0) StartCoroutine(Earth_AtkDecrease_Effect());
-    }
-
-    public IEnumerator Earth_AtkDecrease_Effect(){
-        print("공격력------------------감소");
-        earth_atk_decrease = GameObject.Find("Main Camera").GetComponent<Elemental>().earth_atkDecrease;
-        yield return new WaitForSecondsRealtime(3.0f);
-        earth_atk_decrease=0;
-        print("공격력------------------증가");
-
     }
     
 }

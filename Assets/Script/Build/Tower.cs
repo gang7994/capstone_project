@@ -205,11 +205,15 @@ public class Tower : MonoBehaviour
                     else{  
                         towerShoot.towerAtk = attack_val;
                     }
+
                 }
                 else if(type_num == 3) {
                     
                     towerShoot.property_type = "I";
                     towerShoot.towerAtk = attack_val;
+                    
+  
+
                 }
                 else if(type_num == 4){
                     towerShoot.property_type = "E";
