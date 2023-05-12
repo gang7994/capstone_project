@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;   
 
 public class Tower_Move : MonoBehaviour
 {
@@ -51,16 +52,18 @@ public class Tower_Move : MonoBehaviour
        
     public void IsBuild_Tower()
     {
-        if(BuildMod_UI.activeSelf==true){
-            if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)transform.position.z / 3) + 6, (int)transform.position.x / 3 + 10] == 1){
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = false;
-                Renderer rd = this.GetComponent<MeshRenderer>();
-                rd.materials = cannot_build;
-            }
-            else{
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = true;
-                Renderer rd = this.GetComponent<MeshRenderer>();
-                rd.materials = can_build;
+        if(gameObject.activeSelf == true){
+            if(BuildMod_UI.activeSelf==true){
+                if (GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Convert.ToInt32((transform.position.z / 3) + 6), Convert.ToInt32(transform.position.x / 3 + 10)] == 1){
+                    Renderer rd = this.GetComponent<MeshRenderer>();
+                    rd.materials = cannot_build;
+                    GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = false;
+                }
+                else{
+                    Renderer rd = this.GetComponent<MeshRenderer>();
+                    rd.materials = can_build;
+                    GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().isBuild = true;
+                }
             }
         }
     }

@@ -100,7 +100,7 @@ public class Monster_hit : MonoBehaviour
                         }
                     else{
                         GetComponentInParent<Monster_old>().frozen = true;
-                    }
+                    }           
                     anims.SetBool("isDamage", true);
                     GetComponentInParent<Monster_old>().curHealth -= (other.gameObject.GetComponent<TowerShoot>().towerAtk)*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().ice_def_decrease);
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));

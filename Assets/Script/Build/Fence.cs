@@ -12,7 +12,7 @@ public class Fence : MonoBehaviour
     public int level = 0;
     void Start()
     {
-        gameObject.GetComponent<MeshRenderer>().material = material[0];
+        //gameObject.GetComponent<MeshRenderer>().material = material[0];
     }
     void Update()
     {
