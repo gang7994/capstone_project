@@ -38333,6 +38333,7 @@ MonoBehaviour:
   night_text: {fileID: 380165743}
   night_Number: {fileID: 1004751011}
   isNight: 0
+  character: {fileID: 1475632683}
 --- !u!1 &1148300918
 GameObject:
   m_ObjectHideFlags: 0

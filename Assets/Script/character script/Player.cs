@@ -37,6 +37,10 @@ public class Player : MonoBehaviour
 
 
     /*Ư�� ���� ����*/
+    public int fire_character_weight;
+    public int lightning_character_weight;
+    public int ice_character_weight;
+    public int earth_character_weight;
     public float fire_weight;
     public float fire_duration;
     public float fire_damage;
@@ -127,11 +131,11 @@ public class Player : MonoBehaviour
         lightning_AtkSpeed = MainCamera.GetComponent<Elemental>().lightning_character_atkSpeed;
         ice_Character_armour = MainCamera.GetComponent<Elemental>().ice_character_armour;
         earth_Character_MaxHp = MainCamera.GetComponent<Elemental>().earth_character_MaxHp;
-        float temp_fire = 0;
-        float temp_lightning = 0;
-        float temp_ice = 0;
-        float temp_earth = 0;
-        float temp_empty = 0;
+        int temp_fire = 0;
+        int temp_lightning = 0;
+        int temp_ice = 0;
+        int temp_earth = 0;
+        int temp_empty = 0;
         for (int i = 0; i < Type.Length; i++)
         {     
             if(Type[i] == 0)
@@ -156,6 +160,11 @@ public class Player : MonoBehaviour
         lightning_weight = temp_lightning + MainCamera.GetComponent<Elemental>().lightning_character_weight;
         ice_weight = temp_ice + MainCamera.GetComponent<Elemental>().ice_character_weight;
         earth_weight = temp_earth + MainCamera.GetComponent<Elemental>().earth_character_weight;
+        fire_character_weight = temp_fire;
+        lightning_character_weight = temp_lightning;
+        ice_character_weight = temp_ice;
+        earth_character_weight = temp_earth;
+
 
     }
 

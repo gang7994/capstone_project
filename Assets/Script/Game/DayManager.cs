@@ -35,6 +35,7 @@ public class DayManager : MonoBehaviour
     private int day = 1;
     private bool isStop = true;
     private bool isClear = false;
+    public GameObject character;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +71,7 @@ public class DayManager : MonoBehaviour
 
     private void ChangeDay()
     {
+        character.GetComponent<Player>().SetValue();
         isNight = !isNight;
         SetDayOrNight();
         GetComponent<Image>().fillAmount = 0; 
