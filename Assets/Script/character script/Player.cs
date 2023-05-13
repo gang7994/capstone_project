@@ -31,8 +31,6 @@ public class Player : MonoBehaviour
     int selectNumber;
     
     public float weapon_atkVal = 20.0f; 
-    public Text GoldText;
-    public float amount = 1000.0f;
 
 
 
@@ -93,7 +91,6 @@ public class Player : MonoBehaviour
     {
         health_bar.GetComponent<Slider>().value = Health;
         health_text.GetComponent<Text>().text = Health.ToString();
-        //isAttackReady �� ���ݸ�� �ð� attack_time �� �������ݱ��� ������ isattackReady ���� ������
         attackDelay += Time.deltaTime;
         if (isSword)
         {
@@ -151,7 +148,7 @@ public class Player : MonoBehaviour
             }else if(Type[i] == 3)
             {
                 temp_ice += 1;
-            }else if(Type[i] == 2)
+            }else if(Type[i] == 4)
             {
                 temp_earth += 1;
             }
@@ -232,7 +229,7 @@ public class Player : MonoBehaviour
             if (isAttackKetInput && isAttackReady && attack_time)
             {
                 float all = empty_weight + fire_weight + lightning_weight + ice_weight + earth_weight;
-                float ran = all*Random.Range(0f,1f );
+                int ran = Mathf.RoundToInt(all * UnityEngine.Random.Range(0f, 1f));
                 if (ran <= empty_weight)
                 {
                     bullet.GetComponent<Bullet>().property_type = "None";
@@ -269,7 +266,7 @@ public class Player : MonoBehaviour
                     bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
                     
                 }
-                else if(ran <= empty_weight+fire_weight+lightning_weight+ice_weight)
+                else if(ran <= empty_weight+fire_weight+lightning_weight+ice_weight+earth_weight)
                 {
                     attack_type = 4;
                     bullet.GetComponent<Bullet>().property_type = "Earth";
@@ -278,7 +275,6 @@ public class Player : MonoBehaviour
                         if(Health < 100) Health += (int)(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain/2);
                     }
                 }
-
                 attackDelay = 0;
                 anim.SetBool("isShoot", true);
                 anim.SetBool("timeout", false);
@@ -602,9 +598,7 @@ public class Player : MonoBehaviour
         if (collision.tag == "Gold")
         {
             Destroy(collision.gameObject);
-            amount += 1000*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().character_moneyLuck);
-            GoldText.text = amount.ToString();
-
+            GameObject.Find("Main Camera").GetComponent<GameManager>().money += (int)(1000*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().character_moneyLuck));
         }
     }
 }

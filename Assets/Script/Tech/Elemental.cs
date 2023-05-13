@@ -456,7 +456,7 @@ public class Elemental : MonoBehaviour
     }
     public void Earth_Weapon_Armour(){ //Function 35
         function35 += 1;
-        if (function35 == 1) earth_weapon_armour += 0.5f;
+        if (function35 == 1) earth_weapon_armour += 0.1f;
         if (function35 == 2) earth_weapon_armour += 0.5f;
     }
 
@@ -478,8 +478,8 @@ public class Elemental : MonoBehaviour
     }
     public void Earth_AtkDecrease(){ //Function 39
         function39 += 1;
-        if (function39 == 1) earth_atkDecrease += 1.0f;
-        else if(function39 == 2) earth_atkDecrease += 1.0f;
+        if (function39 == 1) earth_atkDecrease += 0.1f;
+        else if(function39 == 2) earth_atkDecrease += 0.5f;
     }
     
     public void Fire_Dot_DamageUp(){ //Function 40
