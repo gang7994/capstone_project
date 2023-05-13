@@ -6,16 +6,17 @@ using UnityEngine.UI;
 public class WeaponLevel : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Text levelText;
+    private Text levelText, goldText;
     public GameObject TypeIcon1, TypeIcon2, TypeIcon3, TypeIcon4, TypeIcon5;
     public GameObject TypeIcon1_N, TypeIcon2_N, TypeIcon3_N, TypeIcon4_N, TypeIcon5_N;
+    private int cost = 100;
 
     public int SL;
 
     void Start()
     {
         levelText = GameObject.Find("Level_Text").GetComponent<Text>();
-
+        goldText = GameObject.Find("Upgrade_Gold_Weapon").GetComponent<Text>();
         SL = 1;
 
         TypeIcon1_N.SetActive(true);
@@ -72,8 +73,14 @@ public class WeaponLevel : MonoBehaviour
     }
     public void LevelUp_Sword()
     {
-        SL++;
-        levelText.text = "레벨 : "+SL;
-        if(SL == 25) levelText.text += "(최대)";
+        if(SL < 25){
+            SL++;
+            levelText.text = "레벨 : "+SL;
+            GameObject.Find("Main Camera").GetComponent<GameManager>().money -= cost;
+            cost += 500;
+            goldText.text = cost.ToString();    
+            if(SL == 25) levelText.text += "(최대)";
+        }
+
     }
 }

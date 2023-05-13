@@ -19,8 +19,12 @@ public class Build_Panel : MonoBehaviour
 
     private Text levelText;
     private Text hpText;
-
+    private int cost_tower_upgrade = 100;
+    private int cost_tower_repair = 100;
+    private int cost_fence_upgrade = 100;
+    private int cost_fence_repair = 100;
     private Text Upgrade_Gold, Repair_Gold;
+    private int repair_gold;
     
 
     public Material[] mat = new Material[5]; 
@@ -92,7 +96,7 @@ public class Build_Panel : MonoBehaviour
     {
         if (objectname.Contains("tower"))
         {
-            if (GameObject.Find(objectname).GetComponent<Tower>().level < 25)
+            if (GameObject.Find(objectname).GetComponent<Tower>().level < 25)//돈 부족할 경우 조건문 넣어놔야함
             {
                 GameObject.Find(objectname).GetComponent<Tower>().level += 1;
                 GameObject.Find(objectname).GetComponent<Tower>().max_hp += 10;
@@ -100,15 +104,22 @@ public class Build_Panel : MonoBehaviour
                 GameObject.Find(objectname).GetComponent<Tower>().hp += 10;
                 GameObject.Find(objectname).GetComponent<Tower>().attack_val += 1;
                 GameObject.Find(objectname).GetComponent<Tower>().basic_attack_val += 1;
-                Upgrade_Gold.text = (100 + GameObject.Find(objectname).GetComponent<Tower>().level *100).ToString();
-
+                GameObject.Find("Main Camera").GetComponent<GameManager>().money -= cost_tower_upgrade;
+                cost_tower_upgrade += 500;
+                Upgrade_Gold.text = cost_tower_upgrade.ToString();
             }
         }
         else if (objectname.Contains("fence"))
         {
-            GameObject.Find(objectname).GetComponent<Fence>().level += 1;
-            GameObject.Find(objectname).GetComponent<Fence>().max_hp += 10;
-            GameObject.Find(objectname).GetComponent<Fence>().hp += 10;
+            if (GameObject.Find(objectname).GetComponent<Fence>().level < 30){//돈 부족할 경우 조건문 넣어놔야함
+                GameObject.Find(objectname).GetComponent<Fence>().level += 1;
+                GameObject.Find(objectname).GetComponent<Fence>().max_hp += 10;
+                GameObject.Find(objectname).GetComponent<Fence>().hp += 10;
+                GameObject.Find("Main Camera").GetComponent<GameManager>().money -= cost_fence_upgrade;
+                cost_fence_upgrade += 300;
+                Upgrade_Gold.text = cost_fence_upgrade.ToString();
+            }
+            
         }
         else return;
     }
@@ -116,11 +127,13 @@ public class Build_Panel : MonoBehaviour
     public void repair(){
         if (objectname.Contains("tower"))
         {
+            GameObject.Find("Main Camera").GetComponent<GameManager>().money -= repair_gold;
             GameObject.Find(objectname).GetComponent<Tower>().hp = GameObject.Find(objectname).GetComponent<Tower>().max_hp; 
 
         }
         else if (objectname.Contains("fence"))
         {
+            GameObject.Find("Main Camera").GetComponent<GameManager>().money -= repair_gold;
             GameObject.Find(objectname).GetComponent<Fence>().hp = GameObject.Find(objectname).GetComponent<Fence>().max_hp;  
         }
         else return;
@@ -161,7 +174,7 @@ public class Build_Panel : MonoBehaviour
         hpText.text = hp + " / " + max_hp; 
         levelText.text = "타워 레벨 :   " + level.ToString();
         Upgrade_Gold.text = (level*500+100).ToString();
-        int repair_gold = Mathf.RoundToInt((1-(hp / max_hp)) * 10000);
+        repair_gold = Mathf.RoundToInt((1-(hp / max_hp)) * 10000);
         Repair_Gold.text = repair_gold.ToString();
         hpBar.value = (float) hp / (float) max_hp;
 
