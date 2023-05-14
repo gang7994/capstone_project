@@ -230,8 +230,8 @@ public class Monster_old : MonoBehaviour
             if (target.gameObject.CompareTag("Player"))
             {   
                 int total_damage = (int)(damage-(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_weapon_armour * target.GetComponent<Player>().earth_num)-
-                 earth_atk_decrease * target.GetComponent<Player>().earth_num);
-                target.GetComponent<Player>().Health -= total_damage;
+                earth_atk_decrease * target.GetComponent<Player>().earth_num);
+                if(target.GetComponent<Player>().isInvincible == false) target.GetComponent<Player>().Health -= total_damage;
             }else if(target.gameObject.CompareTag("TowerAttack"))
             {
                 int total_damage = (int)(damage - earth_atk_decrease * target.GetComponent<Player>().earth_num);
@@ -403,6 +403,14 @@ public class Monster_old : MonoBehaviour
         earth_atk_decrease=0;
         print("공격력------------------증가");
 
+    }
+
+    public IEnumerator Earth_AllBind_Effect(){
+        rd.materials = earth_monster_state;
+        navi.speed = 0;
+        yield return new WaitForSecondsRealtime(3.0f);
+        rd.materials = normal_monster_state;
+        navi.speed = 2;
     }
     
 }

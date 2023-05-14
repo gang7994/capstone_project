@@ -85,8 +85,11 @@ public class Elemental : MonoBehaviour
     public bool fire_tower_eternal = false; //Function 44 value
 
     //weapon
+    public bool earth_tower_all_bind = false; //Function 47 value
     public bool fire_weapon_flamethrower = false; //Function 48 value
     public bool lightning_tower_shock = false;
+    public bool earth_weapon_unbreakable = false; //Function 51 value
+
 
     public static List<string> property_memory = new List<string>();
 
@@ -168,10 +171,7 @@ public class Elemental : MonoBehaviour
                 property_memory_run[i] = true;
             }
         }
-        
     }
-
-
     public void Fire_Tower_Weight() { //Function 0
         function0 += 1;
         if(function0 == 1) fire_tower_weight += 0.5f;
@@ -514,7 +514,7 @@ public class Elemental : MonoBehaviour
         
     }
     public void Earth_Tower_All_Bind(){// Function 47
-
+        earth_tower_all_bind = true;
     }
 
     public void Fire_Weapon_Flamethrower(){// Function 48
@@ -528,6 +528,6 @@ public class Elemental : MonoBehaviour
 
     }
     public void Earth_Weapon_Unbreakable(){// Function 51
-
+        earth_weapon_unbreakable = true;
     }
 }

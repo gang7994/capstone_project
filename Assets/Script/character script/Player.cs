@@ -54,6 +54,8 @@ public class Player : MonoBehaviour
     float empty_weight;
     int attack_type;
 
+    public bool isInvincible = false;
+
     Vector3 moveVec;
     Animator anim;
 
@@ -273,6 +275,12 @@ public class Player : MonoBehaviour
                     bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
                     if(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain !=0) {
                         if(Health < 100) Health += (int)(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain/2);
+                    }
+                    if(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_weapon_unbreakable) {
+                        List<int> earthWeaponUnbreakable = new List<int> {0,0,0,0,0,0,0,0,0,1};
+                        if(earthWeaponUnbreakable[UnityEngine.Random.Range(0,10)]==1) {
+                            StartCoroutine(Earth_Weapon_Unbreakable_Effect());
+                        }
                     }
                 }
                 attackDelay = 0;
@@ -600,5 +608,11 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject);
             GameObject.Find("Main Camera").GetComponent<GameManager>().money += (int)(1000*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().character_moneyLuck));
         }
+    }
+
+    public IEnumerator Earth_Weapon_Unbreakable_Effect(){
+        isInvincible = true;
+        yield return new WaitForSecondsRealtime(3.0f);
+        isInvincible = false;
     }
 }

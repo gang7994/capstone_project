@@ -6,7 +6,7 @@ using System;
 
 public class Tower : MonoBehaviour
 {
-    public int select_number;
+    public int      select_number;
     public float    basic_max_hp = 100.0f;
     public float    max_hp = 100.0f;
     public float    hp = 100f;
@@ -31,7 +31,9 @@ public class Tower : MonoBehaviour
 
     public Material[] tower_base = new Material[3];
     public List<int> types = new List<int>();
+
     private List<GameObject> collEnemys = new List<GameObject>();
+    private List<GameObject> allEnemys = new List<GameObject>();
     SphereCollider attack_Collider;
     
     public float empty_type_num;
@@ -42,14 +44,15 @@ public class Tower : MonoBehaviour
 
     public bool frozen = false;
     
-
+    GameObject earthEffect;
     float timer;
 
     void Start()
     { 
         bulletPool = new Queue<GameObject>();
+        earthEffect = transform.Find("GreenShockwaveMissilev2").gameObject;
+        earthEffect.SetActive(false);
         InitalizePool(poolSize);
-    
         types[0] = 0;
         types[1] = 0;
         types[2] = 0;
@@ -97,8 +100,6 @@ public class Tower : MonoBehaviour
 
     public void Level_Manager(int level)
     {
-        //max_hp = 100 + 10 * level;
-        //attack_val = level;
         slot_num = (level / 5);
     }
 
@@ -121,7 +122,10 @@ public class Tower : MonoBehaviour
                 spark4.SetActive(true);
                 collision.transform.gameObject.GetComponent<Monster_old>().Lightning_Damage_Effect();
             }
-            
+        }
+        if (collision.CompareTag("MonsterAttack")) {
+            allEnemys.Add(collision.transform.gameObject);
+            print("사거리 진입2");
         }
     }
     
@@ -133,6 +137,15 @@ public class Tower : MonoBehaviour
             {
                 print("사거리 진출함");
                 collEnemys.Remove(go);
+                break;
+            }
+        }
+        foreach (GameObject go in allEnemys)
+        {
+            if (go == collision.gameObject)
+            {
+                print("사거리 진출2");
+                allEnemys.Remove(go);
                 break;
             }
         }
@@ -148,7 +161,6 @@ public class Tower : MonoBehaviour
                 ice_type_num = (float)types.FindAll(n => n == 3).Count;
                 earth_type_num = (float)types.FindAll(n => n == 4).Count;
                 
-                
                 if(GameObject.Find("Main Camera").GetComponent<Elemental>().function1!=0) {
                     attack_val = basic_attack_val + (basic_attack_val/20)*fire_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_damage;
                 }
@@ -156,7 +168,6 @@ public class Tower : MonoBehaviour
                 if(GameObject.Find("Main Camera").GetComponent<Elemental>().function3!=0) {
                     coolTime = basic_coolTime - (basic_coolTime/20)*lightning_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_atkSpeed;
                 }
-
 
                 int type_num = Random_type_attack();
 
@@ -199,15 +210,12 @@ public class Tower : MonoBehaviour
                     if(lightningCritical[UnityEngine.Random.Range(0,5)]==1) {
                         type_num = 6;
                         towerShoot.towerAtk = attack_val*2;
-
-
                     }
                     else{  
                         towerShoot.towerAtk = attack_val;
                     }
                 }
-                else if(type_num == 3) {
-                    
+                else if(type_num == 3) {      
                     towerShoot.property_type = "I";
                     towerShoot.towerAtk = attack_val;
                 }
@@ -217,10 +225,18 @@ public class Tower : MonoBehaviour
                     if(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain !=0) {
                         if(hp < max_hp) hp+= GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain;
                     }
+                    //리스트 5개 해서 하나 나오면 [1,0,0,0,0]
+                    if(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_tower_all_bind) {
+                        List<int> earthAllBind = new List<int> {0,0,0,0,0,0,0,0,0,1};
+                        if(earthAllBind[UnityEngine.Random.Range(0,10)]==1) {
+                            StartCoroutine(Earth_Effect_Active());
+                            foreach(GameObject monster in allEnemys) {
+                                StartCoroutine(monster.GetComponent<Monster_old>().Earth_AllBind_Effect());
+                            } 
+                        }
+                    }
                 }
-
                 bullet.GetComponent<TrailRenderer>().material = ranShoot[type_num];
-                
                 towerShoot.target = go; 
    
             }
@@ -238,10 +254,8 @@ public class Tower : MonoBehaviour
         rd.materials = tower_base;
     }
 
-    
-    
+
     int Random_type_attack() {
-        
         if(fire_type_num != 0) fire_type_num += GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_weight;
         if(lightning_type_num != 0) lightning_type_num += GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_weight;
         if(ice_type_num != 0) ice_type_num += GameObject.Find("Main Camera").GetComponent<Elemental>().ice_tower_weight;
@@ -301,45 +315,10 @@ public class Tower : MonoBehaviour
             go.GetComponent<Monster_old>().curHealth -= 50;
         }
     }
-    // Skill Function
-    //Tier. 1
-    
-    
-    /*
-        public void Fire_Send_Duration(){  //Function 1
-        TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
-        towerShoot.fire_duration += 1.0f;
-    }
 
-     public void Fire_Send_Damage(){  //Function 2
-        TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
-        towerShoot.fireAtk += 1.0f;
+    public IEnumerator Earth_Effect_Active(){
+        earthEffect.SetActive(true);
+        yield return new WaitForSecondsRealtime(3.0f);
+        earthEffect.SetActive(false);
     }
-    public void Lightning_Send_Duration(){ //Function 5
-        TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
-        towerShoot.lightning_duration += 1.0f;
-    }
-
-    public void Lightning_Send_Damage(){ //Function 6
-        TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
-        towerShoot.lightningAtk += 1.0f;
-    }
-
-    public void Ice_Send_Duration(){ //Function 9
-        TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
-        towerShoot.ice_duration += 1.0f;
-    }
-    public void Ice_Send_Exhaust(){ //Function 10
-        TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
-        towerShoot.ice_exhaust += 1.0f;
-    }
-    public void Earth_Send_Duration(){ //Function 13
-        TowerShoot towerShoot = Bullet.GetComponent<TowerShoot>(); 
-        towerShoot.earth_duration += 1.0f;
-    }
-    public void Earth_Tower_Heal() { //Function 14
-        isFunction14 = true;
-        healNum += 1;
-    }
-    */
 }
