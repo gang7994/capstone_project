@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
     int attack_type;
 
     public bool isInvincible = false;
+    private bool ice_blizzard = false;
 
     Vector3 moveVec;
     Animator anim;
@@ -269,10 +270,14 @@ public class Player : MonoBehaviour
                     bullet.GetComponent<Bullet>().property_type = "Ice";
                     bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
                     if(GameObject.Find("Main Camera").GetComponent<Elemental>().ice_blizzard) {
-                        InvokeRepeating("Ice_Blizzard",0,10);
+                        if(!ice_blizzard){
+                            InvokeRepeating("Ice_Blizzard",0,10);
+                            ice_blizzard = true;
+                        }
                         if(GameObject.Find("Day Bar").GetComponent<DayManager>().isNight == false) {
                             CancelInvoke("Ice_Blizzard");
                             blizzard.SetActive(false);
+                            ice_blizzard = false;
                         }
                     }
                     

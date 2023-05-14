@@ -45,6 +45,7 @@ public class Tower : MonoBehaviour
     public bool frozen = false;
     
     GameObject earthEffect;
+    GameObject lightningEffect;
     float timer;
 
     void Start()
@@ -52,6 +53,8 @@ public class Tower : MonoBehaviour
         bulletPool = new Queue<GameObject>();
         earthEffect = transform.Find("GreenShockwaveMissilev2").gameObject;
         earthEffect.SetActive(false);
+        lightningEffect = transform.Find("YellowShockwaveMissilev2").gameObject;
+        lightningEffect.SetActive(false);
         InitalizePool(poolSize);
         types[0] = 0;
         types[1] = 0;
@@ -110,18 +113,6 @@ public class Tower : MonoBehaviour
         {
             print("사거리 진입");
             collEnemys.Add(collision.transform.gameObject);
-            GameObject spark1 = transform.Find("YellowLightningMuzzleFlash1").gameObject;
-            GameObject spark2 = transform.Find("YellowLightningMuzzleFlash2").gameObject;
-            GameObject spark3 = transform.Find("YellowLightningMuzzleFlash3").gameObject;
-            GameObject spark4 = transform.Find("YellowLightningMuzzleFlash4").gameObject;
-
-            if(GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_shock && lightning_type_num > 0){
-                spark1.SetActive(true);
-                spark2.SetActive(true);
-                spark3.SetActive(true);
-                spark4.SetActive(true);
-                collision.transform.gameObject.GetComponent<Monster_old>().Lightning_Damage_Effect();
-            }
         }
         if (collision.CompareTag("MonsterAttack")) {
             allEnemys.Add(collision.transform.gameObject);
@@ -214,6 +205,16 @@ public class Tower : MonoBehaviour
                     else{  
                         towerShoot.towerAtk = attack_val;
                     }
+                    if(GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_shock){
+                        List<int> earthAllBind = new List<int> {0,0,0,0,0,0,0,1,1,1};
+                        if(earthAllBind[UnityEngine.Random.Range(0,10)]==1) {
+                            StartCoroutine(Lightning_shock_all());
+                            foreach(GameObject monster in allEnemys) {
+                                StartCoroutine(monster.GetComponent<Monster_old>().Lightning_Dot_Damage());
+                                monster.GetComponent<Monster_old>().curHealth -= 50;
+                            } 
+                        }
+                    }
                 }
                 else if(type_num == 3) {      
                     towerShoot.property_type = "I";
@@ -287,10 +288,7 @@ public class Tower : MonoBehaviour
         GameObject danger1 = transform.Find("SmokeDark").gameObject;
         GameObject danger2 = transform.Find("RedFire").gameObject;
 
-        GameObject spark1 = transform.Find("YellowLightningMuzzleFlash1").gameObject;
-        GameObject spark2 = transform.Find("YellowLightningMuzzleFlash2").gameObject;
-        GameObject spark3 = transform.Find("YellowLightningMuzzleFlash3").gameObject;
-        GameObject spark4 = transform.Find("YellowLightningMuzzleFlash4").gameObject;
+
 
         
         if(hp > max_hp/2){
@@ -310,10 +308,10 @@ public class Tower : MonoBehaviour
         }
     }
     
-    public void shock_all(List<GameObject> collEnemy){
-        foreach (GameObject go in collEnemy){
-            go.GetComponent<Monster_old>().curHealth -= 50;
-        }
+    public IEnumerator Lightning_shock_all(){
+        lightningEffect.SetActive(true);
+        yield return new WaitForSecondsRealtime(3.0f);
+        lightningEffect.SetActive(false);
     }
 
     public IEnumerator Earth_Effect_Active(){
