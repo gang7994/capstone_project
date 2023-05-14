@@ -244,9 +244,9 @@ public class Elemental : MonoBehaviour
     }
     public void Lightning_Weapon_AtkSpeed(){  //Function 11
         function11 += 1;
-        if (function11 == 1) lightning_character_atkSpeed += 1.0f;
-        else if (function11 == 2) lightning_character_atkSpeed += 1.0f;
-        else if (function11 == 3) lightning_character_atkSpeed += 1.0f;
+        if (function11 == 1) lightning_character_atkSpeed += 0.1f;
+        else if (function11 == 2) lightning_character_atkSpeed += 0.1f;
+        else if (function11 == 3) lightning_character_atkSpeed += 0.1f;
     }
     public void Ice_Weapon_Weight() { //Function 12
         function12 += 1;

@@ -6,6 +6,7 @@ public class attack : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject character;
+
     bool check;
     float delay;
     void Start()
