@@ -88,6 +88,8 @@ public class Elemental : MonoBehaviour
     public bool earth_tower_all_bind = false; //Function 47 value
     public bool fire_weapon_flamethrower = false; //Function 48 value
     public bool lightning_tower_shock = false;
+    public bool ice_excution;
+    public bool ice_blizzard = false;
     public bool earth_weapon_unbreakable = false; //Function 51 value
 
 
@@ -511,7 +513,7 @@ public class Elemental : MonoBehaviour
         lightning_tower_shock = true;
     }
     public void Ice_Tower_Excution(){// Function 46
-        
+        ice_excution = true;   
     }
     public void Earth_Tower_All_Bind(){// Function 47
         earth_tower_all_bind = true;
@@ -525,7 +527,7 @@ public class Elemental : MonoBehaviour
 
     }
     public void Ice_Weapon_Blizzard(){// Function 51
-
+        ice_blizzard = true;
     }
     public void Earth_Weapon_Unbreakable(){// Function 51
         earth_weapon_unbreakable = true;

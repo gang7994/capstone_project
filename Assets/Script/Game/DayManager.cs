@@ -10,6 +10,7 @@ public class DayManager : MonoBehaviour
     public GameObject Number; //낮 UI 텍스트
     public GameObject night_text;
     public GameObject night_Number; //남은 시간 UI 텍스트
+    public GameObject blizzard;
 
 
     GameManager gameManager;
@@ -97,6 +98,7 @@ public class DayManager : MonoBehaviour
             
             Number.SetActive(true);
             day_text.SetActive(true);
+            blizzard.SetActive(false); 
         }     
         
     }

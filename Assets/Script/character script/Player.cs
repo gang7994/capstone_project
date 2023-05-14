@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public Sprite FireImage, LightImage, IceImage, EarthImage, WhiteImage;
     public GameObject health_bar;
     public GameObject health_text;
+    public GameObject blizzard;
     
     public AudioSource audioSource;
     public GameObject MainCamera;
@@ -35,10 +36,10 @@ public class Player : MonoBehaviour
 
 
     /*Ư�� ���� ����*/
-    public int fire_num;
-    public int lightning_num;
-    public int ice_num;
-    public int earth_num;
+    public int fire_num = 0;
+    public int lightning_num = 0;
+    public int ice_num = 0;
+    public int earth_num = 0;
     public float fire_weight;
     public float fire_duration;
     public float fire_damage;
@@ -267,6 +268,13 @@ public class Player : MonoBehaviour
                     attack_type = 3;
                     bullet.GetComponent<Bullet>().property_type = "Ice";
                     bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;
+                    if(GameObject.Find("Main Camera").GetComponent<Elemental>().ice_blizzard) {
+                        InvokeRepeating("Ice_Blizzard",0,10);
+                        if(GameObject.Find("Day Bar").GetComponent<DayManager>().isNight == false) {
+                            CancelInvoke("Ice_Blizzard");
+                            blizzard.SetActive(false);
+                        }
+                    }
                     
                 }
                 else if(ran <= empty_weight+fire_weight+lightning_weight+ice_weight+earth_weight)
@@ -616,4 +624,14 @@ public class Player : MonoBehaviour
         yield return new WaitForSecondsRealtime(3.0f);
         isInvincible = false;
     }
+
+    
+    void Ice_Blizzard(){
+        blizzard.SetActive(true);
+        GameObject[] temp = GameObject.FindGameObjectsWithTag("MonsterAttack");
+        foreach(GameObject monster in temp){
+            monster.GetComponent<Monster_old>().freeze = true;
+        }
+    }
+    
 }
