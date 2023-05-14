@@ -7,6 +7,7 @@ public class Monster_hit : MonoBehaviour
     Animator anims;
     Material materi;
     Player player;
+
     // Start is called before the first frame update
     void Start()
     {

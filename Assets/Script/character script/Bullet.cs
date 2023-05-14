@@ -57,6 +57,7 @@ public class Bullet : MonoBehaviour
         {
             transform.Translate(direction *  GameObject.Find("Main Camera").GetComponent<Elemental>().character_BulletSpeed * Time.deltaTime);
         }
+
     }
 
 

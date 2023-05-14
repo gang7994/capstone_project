@@ -94,20 +94,21 @@ public class Player : MonoBehaviour
         health_bar.GetComponent<Slider>().value = Health;
         health_text.GetComponent<Text>().text = Health.ToString();
         attackDelay += Time.deltaTime;
-        if (isSword)
+        if (isGun)
+        {
+            isAttackReady = 0.2f < attackDelay;
+            attack_time = 1.0f - MainCamera.GetComponent<Elemental>().lightning_character_atkSpeed < attackDelay;
+        }
+        /**if (isSword)
         {
             isAttackReady = 0.4f < attackDelay;
             attack_time = 0.7f < attackDelay;
-        }else if (isGun)
-        {
-            isAttackReady = 0.3f < attackDelay;
-            attack_time = 0.5f < attackDelay;
         }
         else
         {
             isAttackReady = 0.5f < attackDelay;
             attack_time = 1.2f < attackDelay;
-        }
+        }**/
         SetValue();
         GetInput();
         Move();
@@ -211,7 +212,7 @@ public class Player : MonoBehaviour
     void Attack()
     {
         
-        if (isSword)
+        /**if (isSword)
         {
             if (isAttackKetInput && isAttackReady && attack_time)
             {
@@ -225,8 +226,8 @@ public class Player : MonoBehaviour
             {
                 anim.SetBool("isAttack", false);
             }
-        }
-        else if(isGun)   // 총 발사
+        }**/
+        if(isGun)   // 총 발사
         {
             if (isAttackKetInput && isAttackReady && attack_time)
             {
@@ -310,7 +311,7 @@ public class Player : MonoBehaviour
                 anim.SetBool("isShoot", false);
             }
         }
-        else if(isShotgun)
+        /**else if(isShotgun)
         {
             if (isAttackKetInput && isAttackReady && attack_time)
             {
@@ -327,7 +328,7 @@ public class Player : MonoBehaviour
             {
                 anim.SetBool("isShot", false);
             }
-        }
+        }**/
 
 
     }
