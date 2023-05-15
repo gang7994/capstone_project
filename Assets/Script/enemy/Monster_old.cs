@@ -293,36 +293,38 @@ public class Monster_old : MonoBehaviour
     }
 
     public IEnumerator Fire_Dot_Damage(){
-        rd.materials = fire_monster_state; //화상상태 머티리얼
-        yield return new WaitForSeconds(0.1f);
-        anim.SetBool("isDamage", true);
-        curHealth -= GameObject.Find("Main Camera").GetComponent<Elemental>().fire_dot_damage;      
-        if(curHealth < 1) { 
-            materi.color = Color.gray;
-            anim.SetBool("isDie", true);
-            if(GameObject.Find("Main Camera").GetComponent<Elemental>().fire_spread_one==1) {
-                if (monsters.Length != 0){ 
-                    monsters[1].GetComponent<Monster_old>().Fire_Damage_Effect();
+        if(anim.GetBool("isDie")== false){
+            rd.materials = fire_monster_state; //화상상태 머티리얼
+            yield return new WaitForSeconds(0.1f);
+            anim.SetBool("isDamage", true);
+            curHealth -= GameObject.Find("Main Camera").GetComponent<Elemental>().fire_dot_damage;      
+            if(curHealth < 1) { 
+                materi.color = Color.gray;
+                anim.SetBool("isDie", true);
+                if(GameObject.Find("Main Camera").GetComponent<Elemental>().fire_spread_one==1) {
+                    if (monsters.Length != 0){ 
+                        monsters[1].GetComponent<Monster_old>().Fire_Damage_Effect();
+                    }
                 }
-            }
-            else if(GameObject.Find("Main Camera").GetComponent<Elemental>().fire_spread_one==2) {
-                if (monsters.Length != 0){ 
-                    monsters[1].GetComponent<Monster_old>().Fire_Damage_Effect();
-                    monsters[2].GetComponent<Monster_old>().Fire_Damage_Effect();
+                else if(GameObject.Find("Main Camera").GetComponent<Elemental>().fire_spread_one==2) {
+                    if (monsters.Length != 0){ 
+                        monsters[1].GetComponent<Monster_old>().Fire_Damage_Effect();
+                        monsters[2].GetComponent<Monster_old>().Fire_Damage_Effect();
+                    }
                 }
+                anim.SetBool("isDamage", false);
+                gameObject.layer = LayerMask.NameToLayer("MonsterDied");
+                navi.isStopped = true;
+                navi.velocity = Vector3.zero;
+                navi.speed = 0;
+                isChase = false;
+                target = null;
+                Destroy(gameObject, 3);
+                StartCoroutine("Die");
             }
             anim.SetBool("isDamage", false);
-            gameObject.layer = LayerMask.NameToLayer("MonsterDied");
-            navi.isStopped = true;
-            navi.velocity = Vector3.zero;
-            navi.speed = 0;
-            isChase = false;
-            target = null;
-            Destroy(gameObject, 3);
-            StartCoroutine("Die");
+            rd.materials = normal_monster_state; //일반상태 머티리얼
         }
-        anim.SetBool("isDamage", false);
-        rd.materials = normal_monster_state; //일반상태 머티리얼
     }
     public void Stop_Fire_Dot_Damage(){
         CancelInvoke("Fire_Dot_Damage_Coroutine");
