@@ -181,7 +181,7 @@ public class Tower : MonoBehaviour
                 else if(type_num == 1) {
                     towerShoot.property_type = "F";
                     //리스트 5개 해서 하나 나오면 [1,0,0,0,0]
-                    List<int> fireCritical = new List<int> {0,0,0,0,0};
+                    List<int> fireCritical = new List<int> {0,0,0,0,0,0,0,0};
                     for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_critical;i++) fireCritical[i] = 1;
                     if(fireCritical[UnityEngine.Random.Range(0,5)]==1) {
                         type_num = 5;
@@ -196,7 +196,7 @@ public class Tower : MonoBehaviour
                 else if(type_num == 2) {
                     towerShoot.property_type = "L";
                     //리스트 5개 해서 하나 나오면 [1,0,0,0,0]
-                    List<int> lightningCritical = new List<int> {0,0,0,0,0};
+                    List<int> lightningCritical = new List<int> {0,0,0,0,0,0,0,0};
                     for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_critical;i++) lightningCritical[i] = 1;
                     if(lightningCritical[UnityEngine.Random.Range(0,5)]==1) {
                         type_num = 6;
