@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour
     public Material Normal;
     public int can_fierce;
 
+    private TrailRenderer trailRenderer;
+
 
     float stack;
     Vector3 direction;
@@ -21,8 +23,14 @@ public class Bullet : MonoBehaviour
     bool isFire;
 
     void Start(){
+        trailRenderer = GetComponent<TrailRenderer>();
         //Invoke("DestroyBullet", 1);
         if(property_type == "Fire") gameObject.GetComponent<TrailRenderer>().material = Fire;
+        else if(property_type == "FireCritical") {
+            gameObject.GetComponent<TrailRenderer>().material = Fire;
+            trailRenderer.startWidth = 3.0f;
+            trailRenderer.endWidth = 3.0f;
+        }
         else if(property_type == "Lightning") gameObject.GetComponent<TrailRenderer>().material = Lightning;
         else if(property_type == "Ice") gameObject.GetComponent<TrailRenderer>().material = Ice;
         else if(property_type == "Earth") gameObject.GetComponent<TrailRenderer>().material = Earth;

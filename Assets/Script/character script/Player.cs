@@ -250,6 +250,7 @@ public class Player : MonoBehaviour
                     for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().fire_weapon_critical;i++) fireCritical[i] = 1;
                     if(fireCritical[UnityEngine.Random.Range(0,5)]==1) {
                         bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal *2;
+                        bullet.GetComponent<Bullet>().property_type = "FireCritical";
                     }
                     else{  
                         bullet.GetComponent<Bullet>().bulletAtk = weapon_atkVal;

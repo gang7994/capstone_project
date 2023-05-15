@@ -91,12 +91,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletAtk: 20
-  property_type: Lightning
+  property_type: Fire
   Fire: {fileID: 2100000, guid: 5b5ed2babbef61f489c84a5c11abeac8, type: 2}
   Lightning: {fileID: 2100000, guid: aa552c16e4d871c49bd0ad62eec7bff3, type: 2}
   Ice: {fileID: 2100000, guid: 16d625988a0b8954ba0fbb341eaa211b, type: 2}
   Earth: {fileID: 2100000, guid: fa37badbc7fe96b458193151760c7bd7, type: 2}
   Normal: {fileID: 2100000, guid: ffc76947a32ac8040a67af5770cf79d1, type: 2}
+  FireCritical: {fileID: 2100000, guid: ecfe9811bb7a08b4892a2a74ef08f5f9, type: 2}
   can_fierce: 0
   speed: 20
 --- !u!54 &-3176919511322328685
