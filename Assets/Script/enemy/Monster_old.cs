@@ -147,6 +147,7 @@ public class Monster_old : MonoBehaviour
         if(freeze){//빙결 상태. 완전히 멈춤.
             rd.materials = freeze_monster_state;
             monster_speed = 0;
+            anim.speed = 0;
             Invoke("Unfrozen",GameObject.Find("Main Camera").GetComponent<Elemental>().ice_duration);
         }
 
@@ -156,6 +157,7 @@ public class Monster_old : MonoBehaviour
         frozen = false;
         freeze = false;
         monster_speed = 2;
+        anim.speed = 1;
 
     }
 

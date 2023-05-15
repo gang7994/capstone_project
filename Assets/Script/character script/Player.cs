@@ -451,11 +451,11 @@ public class Player : MonoBehaviour
     }
     public void ResetBtn()
     {
-        TypeIcon1.GetComponent<Image>().sprite = WhiteImage;
-        TypeIcon2.GetComponent<Image>().sprite = WhiteImage;
-        TypeIcon3.GetComponent<Image>().sprite = WhiteImage;
-        TypeIcon4.GetComponent<Image>().sprite = WhiteImage;
-        TypeIcon5.GetComponent<Image>().sprite = WhiteImage;
+        TypeIcon1.SetActive(false);
+        TypeIcon2.SetActive(false);
+        TypeIcon3.SetActive(false);
+        TypeIcon4.SetActive(false);
+        TypeIcon5.SetActive(false);
         Type[0] = 0;
         Type[1] = 0;
         Type[2] = 0;

@@ -43095,7 +43095,7 @@ PrefabInstance:
     - target: {fileID: 5085128654992022194, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
       propertyPath: WhiteImage
       value: 
-      objectReference: {fileID: 21300000, guid: d804212612e3d6a4d90a6786a05f8871, type: 3}
+      objectReference: {fileID: 21300000, guid: 69182636b3efa4063b1a80e916b2d312, type: 3}
     - target: {fileID: 5085128654992022194, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
       propertyPath: health_bar
       value: 
