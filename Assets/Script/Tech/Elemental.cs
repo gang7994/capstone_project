@@ -496,8 +496,8 @@ public class Elemental : MonoBehaviour
     }
     public void Ice_AtkSpeed_Down(){ //Function 42
         function42 += 1;
-        if(function42 == 1) ice_atk_decrease += 1.0f;
-        else if(function42 == 2) ice_atk_decrease += 1.0f;
+        if(function42 == 1) ice_atk_decrease += 0.2f;
+        else if(function42 == 2) ice_atk_decrease += 0.2f;
     }
     public void Earth_Drain(){ //Function 43
         function43 += 1;
