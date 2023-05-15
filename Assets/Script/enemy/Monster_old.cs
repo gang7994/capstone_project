@@ -143,6 +143,8 @@ public class Monster_old : MonoBehaviour
             rd.materials = ice_monster_state;
             monster_speed = 1;
             Invoke("Unfrozen",GameObject.Find("Main Camera").GetComponent<Elemental>().ice_duration);
+            anim.speed = 1-(GameObject.Find("Main Camera").GetComponent<Elemental>().ice_atk_decrease);
+            //attack_time 0.7
         }
         if(freeze){//빙결 상태. 완전히 멈춤.
             isChase = false;
@@ -349,8 +351,7 @@ public class Monster_old : MonoBehaviour
         float shock = GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_shock;
         rd.materials = lightning_monster_state; //감전상태 머티리얼
         monster_speed = 0;
-        if(shock > 0){
-            //몬스터가 공포에 걸림
+        if(shock > 0){//공포 구현해야함
         }
         yield return new WaitForSeconds(0.1f);          
         rd.materials = normal_monster_state; 
