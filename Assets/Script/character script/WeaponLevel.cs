@@ -78,7 +78,8 @@ public class WeaponLevel : MonoBehaviour
             levelText.text = "레벨 : "+SL;
             GameObject.Find("Main Camera").GetComponent<GameManager>().money -= cost;
             cost += 500;
-            goldText.text = cost.ToString();    
+            goldText.text = cost.ToString();
+            GameObject.Find("MainCharacter").GetComponent<Player>().weapon_atkVal += 10;
             if(SL == 25) levelText.text += "(최대)";
         }
 

@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     int[] Type = new int[5];
     int selectNumber;
     
-    public float weapon_atkVal = 20.0f; 
+    public float weapon_atkVal = 10.0f; 
 
 
 

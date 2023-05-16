@@ -243,7 +243,7 @@ public class Monster_old : MonoBehaviour
                 if(target.GetComponent<Player>().isInvincible == false) target.GetComponent<Player>().Health -= total_damage;
             }else if(target.gameObject.CompareTag("TowerAttack"))
             {
-                int total_damage = (int)(damage - earth_atk_decrease * target.GetComponent<Player>().earth_num);
+                int total_damage = (int)(damage - earth_atk_decrease * target.GetComponent<Tower>().earth_type_num);
                 target.GetComponentInParent<Tower>().hp -= total_damage;
                 if(GameObject.Find("Main Camera").GetComponent<Elemental>().function31 != 0 && target.GetComponentInParent<Tower>().earth_type_num>0){
                     StartCoroutine(Earth_Reflex(target));
@@ -364,7 +364,7 @@ public class Monster_old : MonoBehaviour
     
     public void Shocking_Damage_Effect(){
         InvokeRepeating("Shocking_Dot_Damage_Coroutine", 0f, 0.2f);
-        Invoke("Stop_Shocking_Dot_Damage", GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_duration);
+        Invoke("Stop_Shocking_Dot_Damage", GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_shock +GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_duration);
     }
 
     void Shocking_Dot_Damage_Coroutine(){

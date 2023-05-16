@@ -210,7 +210,7 @@ public class Tower : MonoBehaviour
                         if(earthAllBind[UnityEngine.Random.Range(0,10)]==1) {
                             StartCoroutine(Lightning_shock_all());
                             foreach(GameObject monster in allEnemys) {
-                                StartCoroutine(monster.GetComponent<Monster_old>().Lightning_Dot_Damage());
+                                monster.GetComponent<Monster_old>().Lightning_Damage_Effect();
                             } 
                         }
                     }
