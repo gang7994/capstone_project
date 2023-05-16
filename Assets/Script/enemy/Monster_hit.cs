@@ -43,7 +43,10 @@ public class Monster_hit : MonoBehaviour
                     GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_damage);
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
                     if(other.gameObject.GetComponent<Bullet>().can_fierce <  0) Destroy(other.gameObject);
-                    GetComponentInParent<Monster_old>().Lightning_Damage_Effect();
+                    List<int> ran_shock = new List<int> {0,0,0,0,0,0,0,0,0,0};
+                    for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_shock;i++) ran_shock[i] = 1;
+                    if(ran_shock[UnityEngine.Random.Range(0,10)] == 1) GetComponentInParent<Monster_old>().Shocking_Damage_Effect();
+                    else GetComponentInParent<Monster_old>().Lightning_Damage_Effect();
                     
                 }
                 else if(other.gameObject.GetComponent<Bullet>().property_type == "Ice") {
@@ -89,7 +92,10 @@ public class Monster_hit : MonoBehaviour
                     GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<TowerShoot>().towerAtk*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_damage);
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
                     other.GetComponent<TowerShoot>().DestroyBullet();
-                    GetComponentInParent<Monster_old>().Lightning_Damage_Effect();
+                    List<int> ran_shock = new List<int> {0,0,0,0,0,0,0,0,0,0};
+                    for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_shock;i++) ran_shock[i] = 1;
+                    if(ran_shock[UnityEngine.Random.Range(0,10)] == 1) GetComponentInParent<Monster_old>().Shocking_Damage_Effect();
+                    else GetComponentInParent<Monster_old>().Lightning_Damage_Effect();
                 }
                 else if(other.gameObject.GetComponent<TowerShoot>().property_type == "I") {
                     if(GetComponentInParent<Monster_old>().frozen){

@@ -73,7 +73,7 @@ public class Elemental : MonoBehaviour
     public float earth_atkDecrease = 0; //Function 39 value
     public float fire_dot_damage = 1.0f; //Function 40 value
 
-    public float lightning_shock = 0;
+    public int lightning_shock = 0;
     public float lightning_damage = 0;
     public float ice_def_decrease = 0;
     public float ice_atk_decrease = 0;
@@ -470,8 +470,8 @@ public class Elemental : MonoBehaviour
 
     public void Lightning_Shock(){ //Function 37
         function37 += 1;
-        if (function37 == 1) lightning_shock += 0.1f;
-        else if(function37 == 2) lightning_shock += 0.1f;
+        if (function37 == 1) lightning_shock += 1;
+        else if(function37 == 2) lightning_shock += 1;
     }
     public void Ice_DefDecrease(){ //Function 38
         function38 += 1;
