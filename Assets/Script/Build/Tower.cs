@@ -211,7 +211,6 @@ public class Tower : MonoBehaviour
                             StartCoroutine(Lightning_shock_all());
                             foreach(GameObject monster in allEnemys) {
                                 StartCoroutine(monster.GetComponent<Monster_old>().Lightning_Dot_Damage());
-                                monster.GetComponent<Monster_old>().curHealth -= 50;
                             } 
                         }
                     }

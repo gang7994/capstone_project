@@ -470,8 +470,8 @@ public class Elemental : MonoBehaviour
 
     public void Lightning_Shock(){ //Function 37
         function37 += 1;
-        if (function37 == 1) lightning_shock += 1.0f;
-        else if(function37 == 2) lightning_shock += 1.0f;
+        if (function37 == 1) lightning_shock += 0.1f;
+        else if(function37 == 2) lightning_shock += 0.1f;
     }
     public void Ice_DefDecrease(){ //Function 38
         function38 += 1;
