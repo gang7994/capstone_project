@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     public AudioSource audioSource;
     public GameObject MainCamera;
 
+    GameObject earthShield;
+    GameObject earthUnbreakableEffect;
     float stick_hAxis, stick_vAxis, key_hAxis, key_vAxis;
     float attackDelay;
     int[] Type = new int[5];
@@ -79,9 +81,10 @@ public class Player : MonoBehaviour
         LevelUp_UI.SetActive(false);
         TypePanel.SetActive(false);
 
-        /*Ư�� ���� ���� �⺻��*/
-       
-        
+        earthShield = transform.Find("GlowZoneGreen").gameObject;
+        earthShield.SetActive(false);   
+        earthUnbreakableEffect = transform.Find("GlowZoneWhite").gameObject;
+        earthUnbreakableEffect.SetActive(false);             
     }
 
     void Awake()
@@ -121,6 +124,12 @@ public class Player : MonoBehaviour
             //GameObject.Find("UI").GetComponent<UI>().Gameover_Panel_active();
             print("Game Over");
         }
+
+        if(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_weapon_armour!=0 && earth_num!=0) {
+            earthShield.SetActive(true);
+            earthShield.transform.localScale = new Vector3(1.0f,1.0f,(float)(earth_num*0.5));
+        }
+        else earthShield.SetActive(false);
     }
 
     public void SetValue()   // setting value
@@ -292,8 +301,8 @@ public class Player : MonoBehaviour
                         if(Health < 100) Health += (int)(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain/2);
                     }
                     if(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_weapon_unbreakable) {
-                        List<int> earthWeaponUnbreakable = new List<int> {0,0,0,0,0,0,0,0,0,1};
-                        if(earthWeaponUnbreakable[UnityEngine.Random.Range(0,10)]==1) {
+                        List<int> earthWeaponUnbreakable = new List<int> {0,0,0,0,1};
+                        if(earthWeaponUnbreakable[UnityEngine.Random.Range(0,5)]==1) {
                             StartCoroutine(Earth_Weapon_Unbreakable_Effect());
                         }
                     }
@@ -627,7 +636,9 @@ public class Player : MonoBehaviour
 
     public IEnumerator Earth_Weapon_Unbreakable_Effect(){
         isInvincible = true;
+        earthUnbreakableEffect.SetActive(true);
         yield return new WaitForSecondsRealtime(3.0f);
+        earthUnbreakableEffect.SetActive(false);
         isInvincible = false;
     }
 
