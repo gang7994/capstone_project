@@ -34,33 +34,37 @@ public class Attack_range : MonoBehaviour
         {
             if(delay > 0.3f)
             {
-                if (other.gameObject.CompareTag(GetComponentInParent<Monster_old>().target.gameObject.tag))
+                if(GetComponentInParent<Monster_old>().target != null)
                 {
-                    if (other.gameObject.CompareTag("Player"))
+                    if (other.gameObject.CompareTag(GetComponentInParent<Monster_old>().target.gameObject.tag))
                     {
-                        Debug.Log("플레이어 어택 됨");
-                        GetComponentInParent<Monster_old>().AttackOn();
-                        attack = false;
-                    }
-                    if (delay > 0.3f)
-                    {
-                        if (other.gameObject.CompareTag("TowerAttack"))
+                        if (other.gameObject.CompareTag("Player"))
                         {
-                            Debug.Log("타워 어택 됨");
+                            Debug.Log("플레이어 어택 됨");
                             GetComponentInParent<Monster_old>().AttackOn();
                             attack = false;
                         }
-                    }
-                    if (delay > 0.3f)
-                    {
-                        if (other.gameObject.CompareTag("base"))
+                        if (delay > 0.3f)
                         {
-                            Debug.Log("베이스 어택 됨");
-                            GetComponentInParent<Monster_old>().AttackOn();
-                            attack = false;
+                            if (other.gameObject.CompareTag("TowerAttack"))
+                            {
+                                Debug.Log("타워 어택 됨");
+                                GetComponentInParent<Monster_old>().AttackOn();
+                                attack = false;
+                            }
+                        }
+                        if (delay > 0.3f)
+                        {
+                            if (other.gameObject.CompareTag("base"))
+                            {
+                                Debug.Log("베이스 어택 됨");
+                                GetComponentInParent<Monster_old>().AttackOn();
+                                attack = false;
+                            }
                         }
                     }
                 }
+                
                 
             }
             

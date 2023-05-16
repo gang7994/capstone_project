@@ -10,41 +10,52 @@ public class monster_attack : MonoBehaviour
     public List<Collider> attack_list = new List<Collider>();
     // Start is called before the first frame update
     public Collider target;
+    public bool earth_stop;
+    
     void Start()
     {
         anims = GetComponentInParent<Monster_old>().anim;
         Attack_Check = false;
         target = null;
+        earth_stop = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GetComponentInParent<Monster_old>().target != null)
+        earth_stop = GetComponentInParent<Monster_old>().earth_stop;
+        if (earth_stop)
         {
-            if(target != null)
-            {
-                if (target.transform != GetComponentInParent<Monster_old>().target)
-                {
-                    target = null;
-                }
-            }
-            
+            Attack_Check = false;
         }
-        
-        if (GetComponentInParent<Monster_old>().isChase)
+        else
         {
-            if(target != null)
+            if (GetComponentInParent<Monster_old>().target != null)
             {
-                GetComponentInParent<Monster_old>().isAttack = true;
-                Attack_Check = true;
+                if (target != null)
+                {
+                    if (target.transform != GetComponentInParent<Monster_old>().target)
+                    {
+                        target = null;
+                    }
+                }
+
             }
-            else
+
+            if (GetComponentInParent<Monster_old>().isChase)
             {
-                GetComponentInParent<Monster_old>().isAttack = false;
-                Attack_Check = false; ;
+                if (target != null)
+                {
+                    GetComponentInParent<Monster_old>().isAttack = true;
+                    Attack_Check = true;
+                }
+                else
+                {
+                    GetComponentInParent<Monster_old>().isAttack = false;
+                    Attack_Check = false; ;
+                }
+
             }
-            
         }
 
         
