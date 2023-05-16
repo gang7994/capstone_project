@@ -23,6 +23,7 @@ public class Monster_old : MonoBehaviour
     public bool frozen = false;
     public bool freeze = false;
     private float earth_atk_decrease = 0;
+    public bool earth_stop = false;
     Color meshColor;
 
     public List<Collider> target_list = new List<Collider>();
@@ -140,6 +141,14 @@ public class Monster_old : MonoBehaviour
         {
             navi.isStopped = false;
         }
+        if (earth_stop)
+        {
+            navi.isStopped = true;
+        }
+        else
+        {
+            navi.isStopped = false;
+        }
         if(frozen){ // 동상 시 느려짐 구현해야 함. GameObject.Find("Main Camera").GetComponent<Elemental>().ice_atk_decrease 변수를 받아 공격속도 제어해야 함.
             rd.materials = ice_monster_state;
             monster_speed = 1;
@@ -236,29 +245,35 @@ public class Monster_old : MonoBehaviour
         Debug.Log("공격성공");
         if (isChase)
         {
-            if (target.gameObject.CompareTag("Player"))
-            {   
-                int total_damage = (int)(damage-(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_weapon_armour * target.GetComponent<Player>().earth_num)-
-                earth_atk_decrease * target.GetComponent<Player>().earth_num);
-                if(target.GetComponent<Player>().isInvincible == false) target.GetComponent<Player>().Health -= total_damage;
-            }else if(target.gameObject.CompareTag("TowerAttack"))
+           if(target != null)
             {
-                int total_damage = (int)(damage - earth_atk_decrease * target.GetComponent<Tower>().earth_type_num);
-                target.GetComponentInParent<Tower>().hp -= total_damage;
-                if(GameObject.Find("Main Camera").GetComponent<Elemental>().function31 != 0 && target.GetComponentInParent<Tower>().earth_type_num>0){
-                    StartCoroutine(Earth_Reflex(target));
+                if (target.gameObject.CompareTag("Player"))
+                {
+                    int total_damage = (int)(damage - (GameObject.Find("Main Camera").GetComponent<Elemental>().earth_weapon_armour * target.GetComponent<Player>().earth_num) -
+                    earth_atk_decrease * target.GetComponent<Player>().earth_num);
+                    if (target.GetComponent<Player>().isInvincible == false) target.GetComponent<Player>().Health -= total_damage;
                 }
-                else if(target.gameObject.GetComponentInParent<Tower>().frozen){
-                    frozen = true;
-                    //몬스터가 동상에 걸림
-                    Debug.Log("몬스터 동상");
+                else if (target.gameObject.CompareTag("TowerAttack"))
+                {
+                    int total_damage = (int)(damage - earth_atk_decrease * target.GetComponent<Tower>().earth_type_num);
+                    target.GetComponentInParent<Tower>().hp -= total_damage;
+                    if (GameObject.Find("Main Camera").GetComponent<Elemental>().function31 != 0 && target.GetComponentInParent<Tower>().earth_type_num > 0)
+                    {
+                        StartCoroutine(Earth_Reflex(target));
+                    }
+                    else if (target.gameObject.GetComponentInParent<Tower>().frozen)
+                    {
+                        frozen = true;
+                        //몬스터가 동상에 걸림
+                        Debug.Log("몬스터 동상");
+                    }
+                    Debug.Log("타워 데미지 10");
                 }
-                Debug.Log("타워 데미지 10");
-            }
-            else if(target.gameObject.CompareTag("base"))
-            {
-                target.GetComponent<Base>().hp -= damage;
-                Debug.Log("베이스 데미지 10");
+                else if (target.gameObject.CompareTag("base"))
+                {
+                    target.GetComponent<Base>().hp -= damage;
+                    Debug.Log("베이스 데미지 10");
+                }
             }
         }
     }
@@ -287,6 +302,13 @@ public class Monster_old : MonoBehaviour
     void ChaseStart()
     {
         isChase = true;
+    }
+
+    void ChaseStop()
+    {
+        isChase = false;
+        float StopTime = 2.0f;
+        Invoke("ChaseStart", StopTime);
     }
 
 
