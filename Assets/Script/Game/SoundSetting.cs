@@ -18,7 +18,7 @@ public class SoundSetting : MonoBehaviour
     }
 
     public void SetSFXVolume(){
-        audioMixer.SetFloat("SFX", Mathf.Log10(SfxSlider.value)*20);
+        audioMixer.SetFloat("SFXS", Mathf.Log10(SfxSlider.value)*20);
     }
 
     public void SetMasterVolume(){

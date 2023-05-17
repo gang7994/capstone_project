@@ -255,7 +255,7 @@ public class Monster_old : MonoBehaviour
                 }
                 else if (target.gameObject.CompareTag("TowerAttack"))
                 {
-                    int total_damage = (int)(damage - earth_atk_decrease * target.GetComponent<Tower>().earth_type_num);
+                    int total_damage = (int)(damage - earth_atk_decrease * target.GetComponentInParent<Tower>().earth_type_num);
                     target.GetComponentInParent<Tower>().hp -= total_damage;
                     if (GameObject.Find("Main Camera").GetComponent<Elemental>().function31 != 0 && target.GetComponentInParent<Tower>().earth_type_num > 0)
                     {
