@@ -13,6 +13,8 @@ TagManager:
   - MonsterAttack
   - TowerAttack
   - Gold
+  - base
+  - TowerShoot
   layers:
   - Default
   - TransparentFX

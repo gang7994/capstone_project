@@ -10,7 +10,7 @@ public class Tower : MonoBehaviour
     public float    basic_max_hp = 100.0f;
     public float    max_hp = 100.0f;
     public float    hp = 100f;
-    public float    basic_attack_val = 10.0f;
+    public float    basic_attack_val = 3.0f;
     public float    attack_val = 0;
     public float    basic_defence_val = 10.0f;
     public float    defence_val = 0;
@@ -237,6 +237,7 @@ public class Tower : MonoBehaviour
                     }
                 }
                 bullet.GetComponent<TrailRenderer>().material = ranShoot[type_num];
+                bullet.GetComponent<AudioSource>().volume *= (float)Math.Pow(0.5,(double)collEnemys.Count); 
                 towerShoot.target = go; 
    
             }
