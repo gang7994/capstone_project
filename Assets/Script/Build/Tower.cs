@@ -27,6 +27,7 @@ public class Tower : MonoBehaviour
     public Transform FirePos;
 
     public Material[] ranShoot = new Material[7];
+    public AudioSource[] shootSound;
     public Material[] frozen_tower = new Material[3];
 
     public Material[] tower_base = new Material[3];
@@ -63,6 +64,7 @@ public class Tower : MonoBehaviour
         types[4] = 0;   
         attack_Collider = GetComponent<SphereCollider>();
         timer = 0.0f;
+        shootSound = gameObject.GetComponents<AudioSource>();
     }
 
     void Update()
@@ -237,8 +239,9 @@ public class Tower : MonoBehaviour
                     }
                 }
                 bullet.GetComponent<TrailRenderer>().material = ranShoot[type_num];
-                bullet.GetComponent<AudioSource>().volume *= (float)Math.Pow(0.5,(double)collEnemys.Count); 
-                towerShoot.target = go; 
+                shootSound[type_num].Play();
+                towerShoot.target = go;
+                 
    
             }
             empty_type_num = (float)types.FindAll(n => n == 0).Count;
