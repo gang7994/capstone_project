@@ -73,7 +73,7 @@ public class Tower : MonoBehaviour
         attack_Collider.radius = GameObject.Find("Main Camera").GetComponent<Elemental>().tower_atkRange;
         timer += Time.deltaTime;
         
-        if(timer > coolTime){
+        if(timer > coolTime  && hp > 0){
 
             AutoAttack(FirePos, collEnemys);
             timer = 0.0f;
@@ -288,9 +288,6 @@ public class Tower : MonoBehaviour
         GameObject danger1 = transform.Find("SmokeDark").gameObject;
         GameObject danger2 = transform.Find("RedFire").gameObject;
 
-
-
-        
         if(hp > max_hp/2){
             warning.SetActive(false);
             danger1.SetActive(false);

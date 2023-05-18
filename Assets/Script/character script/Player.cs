@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
         Move();
         Attack();
 
-        if(Health <= 0) { //ü���� 0���ϰ� �Ǹ� ���ӿ��� �˾�â�� ��
+        if(Health <= 0) { 
             Health = 0;
             //GameObject.Find("UI").GetComponent<UI>().Gameover_Panel_active();
             print("Game Over");
