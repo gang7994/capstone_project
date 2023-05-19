@@ -264,12 +264,7 @@ public class Monster_old : MonoBehaviour
                     {
                         StartCoroutine(Earth_Reflex(target));
                     }
-                    else if (target.gameObject.GetComponentInParent<Tower>().frozen)
-                    {
-                        frozen = true;
-                        //몬스터가 동상에 걸림
-                        Debug.Log("몬스터 동상");
-                    }
+                    
                     Debug.Log("타워 데미지 10");
                 }
                 else if (target.gameObject.CompareTag("base"))
@@ -386,7 +381,6 @@ public class Monster_old : MonoBehaviour
     public void Stop_Lightning_Dot_Damage(){
         CancelInvoke("Lightning_Dot_Damage_Coroutine");
         monster_speed = 2;
-        isChase = true;
     }
     
     public void Shocking_Damage_Effect(){
@@ -410,7 +404,7 @@ public class Monster_old : MonoBehaviour
     public void Stop_Shocking_Dot_Damage(){
         CancelInvoke("Shocking_Dot_Damage_Coroutine");
         monster_speed = 2;
-        isChase = true;
+        //isChase = true;
     }
     
     
