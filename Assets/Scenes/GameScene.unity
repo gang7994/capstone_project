@@ -20881,10 +20881,10 @@ MonoBehaviour:
   FirePos: {fileID: 786160017}
   ranShoot:
   - {fileID: 2100000, guid: 5ae722f369120d142a3452d01f00628c, type: 2}
-  - {fileID: 2100000, guid: bbdd736b198c3954aa3ccb5bfa7efb45, type: 2}
-  - {fileID: 2100000, guid: 54917e90f51b49f48a77e8a0995497bb, type: 2}
-  - {fileID: 2100000, guid: bc1a9ca1bc3387145816c217ff6ec865, type: 2}
-  - {fileID: 2100000, guid: b9f281572cfa9084f8ca34860f3b502f, type: 2}
+  - {fileID: 2100000, guid: ecfe9811bb7a08b4892a2a74ef08f5f9, type: 2}
+  - {fileID: 2100000, guid: c70bd275f19e63a488093d795f46411e, type: 2}
+  - {fileID: 2100000, guid: 5e9f9502fb36dd14ba91b14b2b8a10aa, type: 2}
+  - {fileID: 2100000, guid: 8349c23995d285242b2132993ca1af13, type: 2}
   - {fileID: 2100000, guid: ebda0ea799a1edb4abc23eabf2adfc9d, type: 2}
   - {fileID: 2100000, guid: 6b118820e83244040bd5ac81ed500bac, type: 2}
   shootSound:
