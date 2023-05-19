@@ -43,7 +43,7 @@ public class TowerShoot : MonoBehaviour
         }
         */
     }
-
+    /*
     public void DestroyBullet(){
         try {
             towerScript.ReturnObject(this.gameObject);
@@ -54,5 +54,6 @@ public class TowerShoot : MonoBehaviour
         }
         
     }
+    */
 
 }

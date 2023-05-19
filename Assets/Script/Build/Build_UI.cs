@@ -153,9 +153,5 @@ public class Build_UI : MonoBehaviour
         rotate_count = 0;
         inclined = false;
         horizontal = true;
-    }
-    
-
-    
-    
+    } 
 }
