@@ -114,6 +114,7 @@ public class Build_UI : MonoBehaviour
                     fence.transform.position += new Vector3(0, 0, 0);
                     fence.name = $"fence{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
                     fence.tag = "Fence";
+                    fence.GetComponent<Fence>().inclined = true;
                     GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
                     GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Convert.ToInt32(fence.transform.position.z) / 3 + 6, Convert.ToInt32(fence.transform.position.x) / 3 + 10] = 1;
                 }
@@ -126,6 +127,8 @@ public class Build_UI : MonoBehaviour
                         fence.transform.position += new Vector3(0, 0, 0);
                         fence.name = $"fence{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
                         fence.tag = "Fence";
+                        fence.GetComponent<Fence>().inclined = false;
+                        fence.GetComponent<Fence>().horizontal = true;
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().fence_horizontal_position[Convert.ToInt32(fence.transform.position.z+1.5) / 3 + 6, Convert.ToInt32(fence.transform.position.x) / 3 + 10] = 1;
                     }
@@ -136,6 +139,8 @@ public class Build_UI : MonoBehaviour
                         fence.transform.position += new Vector3(0, 0, 0);
                         fence.name = $"fence{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
                         fence.tag = "Fence";
+                        fence.GetComponent<Fence>().inclined = false;
+                        fence.GetComponent<Fence>().horizontal = false;
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().fence_vertical_position[Convert.ToInt32(fence.transform.position.z / 3) + 6, Convert.ToInt32(fence.transform.position.x+1.5) / 3 + 10] = 1;
                     }

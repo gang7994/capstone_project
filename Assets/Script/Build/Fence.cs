@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Fence : MonoBehaviour
 {
+    public bool inclined, horizontal;
     public float max_hp = 100;
     public float hp = 100;
     
