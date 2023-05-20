@@ -47,7 +47,7 @@ public class Elemental : MonoBehaviour
     //public
     public int tower_max = 3;
     public int fence_max = 5;
-    public int tower_target = 3;
+    public int upgrade_fence = 0;
     public float tower_atkRange = 30.0f;
     public float character_speed = 5.0f;
     public float character_BulletSpeed = 20.0f;
@@ -127,7 +127,7 @@ public class Elemental : MonoBehaviour
         all_function.Add(Earth_Duration);
         all_function.Add(Public_Increase_Tower);
         all_function.Add(Public_Increase_Fence);
-        all_function.Add(Public_Increase_Target);
+        all_function.Add(Public_Upgrade_Fence);
         all_function.Add(Public_Increase_TowerRange);
         all_function.Add(Public_Increase_PlayerSpeed);
         all_function.Add(Public_Increase_BulletSpeed);
@@ -332,16 +332,16 @@ public class Elemental : MonoBehaviour
         }
     }
 
-    public void Public_Increase_Target(){  // Function 22
+    public void Public_Upgrade_Fence(){  // Function 22
         function22++;
         if(function22 == 1) {
-            tower_target += 1;
+            upgrade_fence += 50;
         }
         else if(function22 == 2) {
-            tower_target += 2;
+            upgrade_fence += 50;
         }
         else if(function22 == 3) {
-            tower_target += 3;
+            upgrade_fence += 50;
         }
     }
 
