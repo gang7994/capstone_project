@@ -7,6 +7,8 @@ public class Fence : MonoBehaviour
     public bool inclined, horizontal;
     public float max_hp = 100;
     public float hp = 100;
+
+    public GameObject buildUI;
     
     public Material[] material;
 
@@ -36,7 +38,10 @@ public class Fence : MonoBehaviour
             danger2.SetActive(false);
         }
         else if(hp <= 0) {
-            Destroy(gameObject);
+            buildUI.SetActive(true);
+            GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_Build = this.name;
+            GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().RemoveFence();
+            buildUI.SetActive(false);
         }
         else{
             warning.SetActive(false);
