@@ -71896,7 +71896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1014680514}
-  Monster: {fileID: 7489988819297804875, guid: b2e7ce7ed7e964e4ebe2b2bcdebe7295, type: 3}
+  Monster: {fileID: 3413162298526248740, guid: fe3155c989d2eaf4084cea78bd477954, type: 3}
   house: {fileID: 1744559394}
 --- !u!114 &1721208989
 MonoBehaviour:
