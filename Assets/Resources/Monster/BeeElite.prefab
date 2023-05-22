@@ -300,11 +300,14 @@ MonoBehaviour:
   isChase: 1
   isAttack: 0
   Delay: 0
+  attack_speed: 3
   attack_time: 0.7
   target_check: 0
   frozen: 0
   freeze: 0
   earth_stop: 0
+  isBoss: 0
+  Attack_Type_range: 1
   target_list: []
   normal_monster_state:
   - {fileID: 2100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
@@ -417,18 +420,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100046, guid: dfcc8081a6ce38b4ba51ac9a6c2600a6, type: 3}
   m_PrefabInstance: {fileID: 3413162298526148996}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5355181327625825028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3413162298526248778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7322192c3fec0eb4aae364cc4db79efa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &6512668007322310475
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -443,3 +434,15 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5355181327625825028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413162298526248778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7322192c3fec0eb4aae364cc4db79efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

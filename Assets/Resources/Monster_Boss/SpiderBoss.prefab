@@ -430,11 +430,14 @@ MonoBehaviour:
   isChase: 1
   isAttack: 0
   Delay: 0
+  attack_speed: 1.5
   attack_time: 0.7
   target_check: 0
   frozen: 0
   freeze: 0
   earth_stop: 0
+  isBoss: 1
+  Attack_Type_range: 0
   target_list: []
   normal_monster_state:
   - {fileID: 2100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}

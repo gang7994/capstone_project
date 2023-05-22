@@ -17,6 +17,7 @@ public class Monster_old : MonoBehaviour
     public bool isAttack;
     public float Delay;
     bool isAttackDelay;
+    public float attack_speed;
     float RoSpeed = 5;
     public float attack_time;
     public bool target_check;
@@ -24,6 +25,8 @@ public class Monster_old : MonoBehaviour
     public bool freeze = false;
     private float earth_atk_decrease = 0;
     public bool earth_stop = false;
+    public bool isBoss;
+    public bool Attack_Type_range;
     Color meshColor;
 
     public List<Collider> target_list = new List<Collider>();
@@ -100,7 +103,7 @@ public class Monster_old : MonoBehaviour
         }
         if (isAttack)  // 공격주기  Delay 시간이 몬스터 공격 속도, attackTime은 한 공격에 걸리는 시간
         {
-            if (Delay > 2.0f)
+            if (Delay > attack_speed)
             {
                 MonsterAttack();
                 Delay = 0;

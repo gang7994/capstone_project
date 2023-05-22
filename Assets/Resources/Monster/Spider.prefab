@@ -301,19 +301,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100070, guid: a6bb4a1e7614f0844999e5c6eb8ff1aa, type: 3}
   m_PrefabInstance: {fileID: 7736062941663541749}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6862505119152724369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7736062941663510291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33e64f70afaa65f4397186ec44da8067, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attack: 0
 --- !u!136 &686030319884293982
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -328,23 +315,24 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &7736062941663510299 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100078, guid: a6bb4a1e7614f0844999e5c6eb8ff1aa, type: 3}
-  m_PrefabInstance: {fileID: 7736062941663541749}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1056145338625321119
+--- !u!114 &6862505119152724369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7736062941663510299}
+  m_GameObject: {fileID: 7736062941663510291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cce39b4a3b81ba4f9bfeb940eabd533, type: 3}
+  m_Script: {fileID: 11500000, guid: 33e64f70afaa65f4397186ec44da8067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: 0
+--- !u!1 &7736062941663510299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100078, guid: a6bb4a1e7614f0844999e5c6eb8ff1aa, type: 3}
+  m_PrefabInstance: {fileID: 7736062941663541749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!136 &4471636697007798260
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -359,6 +347,18 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1056145338625321119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7736062941663510299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cce39b4a3b81ba4f9bfeb940eabd533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7736062941663510357 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: a6bb4a1e7614f0844999e5c6eb8ff1aa, type: 3}
@@ -432,11 +432,14 @@ MonoBehaviour:
   isChase: 1
   isAttack: 0
   Delay: 0
+  attack_speed: 2
   attack_time: 0.7
   target_check: 0
   frozen: 0
   freeze: 0
   earth_stop: 0
+  isBoss: 0
+  Attack_Type_range: 0
   target_list: []
   normal_monster_state:
   - {fileID: 2100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
