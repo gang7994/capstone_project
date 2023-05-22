@@ -28,7 +28,7 @@ public class MonsterSpawnManager : MonoBehaviour
     {   
         if (enableSpwan){
             for (int i = 0; i < spawnOnceNumOfMonster; i++){
-                Vector3 spawnPosition = new Vector3(Random.Range(-50, 50), 0.5f, Random.Range(-50, 50));
+                Vector3 spawnPosition = new Vector3(Random.Range(-30, 30), 0.5f, Random.Range(-30, 30));
                 GameObject enemy = Instantiate(Monster, spawnPosition, Quaternion.identity);
                 enemy.GetComponent<Monster_old>().house = house;
                 gameManager.SendMessage("ChangeMonsterNumText", 1);
@@ -54,13 +54,38 @@ public class MonsterSpawnManager : MonoBehaviour
     private void SetSpawn(int day)
     {
         int wave = 0;
-        if ( day <= 5 )  wave = 0; 
-        else if ( day <= 10) wave = 1;
+        int arrayNum = 0;
+        bool isBossRound = false;
 
-        spawnMonsterNumber = monsterInfos[wave].spawnMonsterNumber[day-1];
-        spawnOnceNumOfMonster = monsterInfos[wave].spawnOnceNumOfMonster[day-1];
-        monsterName = "Monster/" + monsterInfos[wave].name;
-        // monsterName = "Monster/BatElite";
+        switch (day) {
+            case int n when (n < 5) : 
+                wave = 0;
+                arrayNum = (n - 1) % 5;
+                break;
+            case 5 : 
+                wave = 1; 
+                isBossRound = true;
+                break;
+            case int n when (n < 10) :
+                wave = 2;
+                arrayNum = (n - 1) % 5; 
+                break;
+            case 10 : 
+                wave = 3; 
+                isBossRound = true; 
+                break;
+        }
+
+        MonsterInfo monsterInform = monsterInfos[wave];
+
+        //로직 수정 필요
+        if (!isBossRound) 
+            monsterName = "Monster/" + monsterInform.name;
+        else 
+            monsterName = "Monster_Boss/" + monsterInform.name;
+
+        spawnMonsterNumber = monsterInform.spawnMonsterNumber[arrayNum];
+        spawnOnceNumOfMonster = monsterInform.spawnOnceNumOfMonster[arrayNum]; 
         spawnDelay = 3f;
 
         Debug.Log($"{monsterName},{spawnMonsterNumber}, {spawnOnceNumOfMonster}");
