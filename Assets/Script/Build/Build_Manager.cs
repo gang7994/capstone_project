@@ -147,12 +147,14 @@ public class Build_Manager : MonoBehaviour
     }
     public void RemoveTower()
     {
-        if (current_number_of_Tower > 0){
-            Destroy(GameObject.Find(select_Build));
-            build_Position[(int)GameObject.Find(select_Build).transform.position.z / 3 + 6, (int)GameObject.Find(select_Build).transform.position.x / 3 + 10] = 0;
-            current_number_of_Tower -= 1;
-            isBuild = true;
-            Btn_Tower_Panel.SetActive(false);
+        if(GameObject.Find(select_Build).CompareTag("Tower")){
+            if (current_number_of_Tower > 0){
+                Destroy(GameObject.Find(select_Build));
+                build_Position[(int)GameObject.Find(select_Build).transform.position.z / 3 + 6, (int)GameObject.Find(select_Build).transform.position.x / 3 + 10] = 0;
+                current_number_of_Tower -= 1;
+                isBuild = true;
+                Btn_Tower_Panel.SetActive(false);
+            }
         }
     }
     public void AddFence()
@@ -161,17 +163,19 @@ public class Build_Manager : MonoBehaviour
     }
     public void RemoveFence()
     {
-        if (current_number_of_Fence > 0)
-        {
-            if(GameObject.Find(select_Build).GetComponent<Fence>().inclined) build_Position[(int)GameObject.Find(select_Build).transform.position.z / 3 + 6, (int)GameObject.Find(select_Build).transform.position.x / 3 + 10] = 0;
-            else{
-                if(GameObject.Find(select_Build).GetComponent<Fence>().horizontal) fence_horizontal_position[Convert.ToInt32(GameObject.Find(select_Build).transform.position.z+1.5) / 3 + 6, Convert.ToInt32(GameObject.Find(select_Build).transform.position.x) / 3 + 10] = 0;
-                else fence_vertical_position[Convert.ToInt32(GameObject.Find(select_Build).transform.position.z / 3) + 6, Convert.ToInt32(GameObject.Find(select_Build).transform.position.x+1.5) / 3 + 10] = 0;
+        if(GameObject.Find(select_Build).CompareTag("Fence")){
+            if (current_number_of_Fence > 0)
+            {
+                if(GameObject.Find(select_Build).GetComponent<Fence>().inclined) build_Position[(int)GameObject.Find(select_Build).transform.position.z / 3 + 6, (int)GameObject.Find(select_Build).transform.position.x / 3 + 10] = 0;
+                else{
+                    if(GameObject.Find(select_Build).GetComponent<Fence>().horizontal) fence_horizontal_position[Convert.ToInt32(GameObject.Find(select_Build).transform.position.z+1.5) / 3 + 6, Convert.ToInt32(GameObject.Find(select_Build).transform.position.x) / 3 + 10] = 0;
+                    else fence_vertical_position[Convert.ToInt32(GameObject.Find(select_Build).transform.position.z / 3) + 6, Convert.ToInt32(GameObject.Find(select_Build).transform.position.x+1.5) / 3 + 10] = 0;
+                }
+                Destroy(GameObject.Find(select_Build));
+                current_number_of_Fence -= 1;
+                isBuild = true;
+                Btn_Fence_Panel.SetActive(false);
             }
-            Destroy(GameObject.Find(select_Build));
-            current_number_of_Fence -= 1;
-            isBuild = true;
-            Btn_Fence_Panel.SetActive(false);
         }
     }
     public void GenerateMap() {

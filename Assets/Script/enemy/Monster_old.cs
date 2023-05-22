@@ -173,7 +173,6 @@ public class Monster_old : MonoBehaviour
         freeze = false;
         monster_speed = 2;
         anim.speed = 1;
-        isChase = true;
         attack_time = 0.7f;
     }
 
