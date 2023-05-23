@@ -39,4 +39,6 @@ public class UI_Manager : MonoBehaviour //StartScene�� UI �Ŵ���
         Application.Quit();
     }
 
+    
+
 }

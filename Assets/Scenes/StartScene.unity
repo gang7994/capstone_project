@@ -5690,8 +5690,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: '-
 
@@ -6194,6 +6194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 919267953}
   - component: {fileID: 919267955}
+  - component: {fileID: 919267956}
   m_Layer: 5
   m_Name: Ranking_Panel
   m_TagString: Untagged
@@ -6232,6 +6233,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919267952}
   m_CullTransparentMesh: 1
+--- !u!114 &919267956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919267952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93efaaede43d4be47b66d201f74cd110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ranking_content_1: {fileID: 1816757869}
+  ranking_content_2: {fileID: 836224861}
+  ranking_content_3: {fileID: 1095128724}
+  jsonFile: {fileID: 4900000, guid: df59b27f97f453042a6850dece2cc9a9, type: 3}
 --- !u!1 &947573164
 GameObject:
   m_ObjectHideFlags: 0
@@ -6962,8 +6979,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: '-
 
@@ -12006,8 +12023,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: '-
 
