@@ -6,7 +6,7 @@ using System;
 [Serializable]
 class MonsterInfo {
     public List<int> round;
-    public string name;
+    public List<string> name;
     public List<int> spawnMonsterNumber;
     public List<int> spawnOnceNumOfMonster;
 }
