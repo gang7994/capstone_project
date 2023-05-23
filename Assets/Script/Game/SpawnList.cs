@@ -6,7 +6,7 @@ using System;
 [Serializable]
 class MonsterInfo {
     public List<int> round;
-    public string name;
+    public List<string> name;
     public List<int> spawnMonsterNumber;
     public List<int> spawnOnceNumOfMonster;
 }
@@ -24,7 +24,6 @@ class SpawnList : MonoBehaviour
         var loadedJson = Resources.Load<TextAsset>("roundSpawn");
         data = JsonUtility.FromJson<SpawnData>(loadedJson.ToString());
         monsterInfos = data.Body;
-        Debug.Log($"{monsterInfos[0].round[0]}");
         // Debug.Log($"{data[1].name}, {data[1].round[1]}, {data[1].spawnMonsterNumber[0]}");
     }
     
