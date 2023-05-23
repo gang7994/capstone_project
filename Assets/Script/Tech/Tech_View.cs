@@ -33,7 +33,6 @@ public class Tech_View : MonoBehaviour
     public List<Text> public_text_1 = new List<Text>();
     public List<Button> public_name_2 = new List<Button>();
     public List<Text> public_text_2 = new List<Text>();
-    public List<Text> public_text_3 = new List<Text>();
 
     Button weapon_name0, weapon_name1, weapon_name2, weapon_name3, weapon_name4, weapon_name5, weapon_name6, weapon_name7, weapon_name8, weapon_name9, weapon_name10,
         weapon_name11, weapon_name12, weapon_name13;
@@ -189,9 +188,9 @@ public class Tech_View : MonoBehaviour
                 tech_image = GameObject.Find("Tech_Image").GetComponent<Image>();
                 tech_name = GameObject.Find("Tech_Name").GetComponent<Text>();
                 tech_text = GameObject.Find("Tech_Text").GetComponent<Text>();
-                if (i >= 28)
+                if (i >= 12)
                 {
-                    i -= 28;
+                    i -= 12;
                     if (tower_text_3[i].GetComponent<Text>().text != ".")
                     {
                         tech_image.sprite = Resources.Load<Sprite>(tower_text_3[i].GetComponent<Text>().text);
@@ -200,9 +199,9 @@ public class Tech_View : MonoBehaviour
                     }
                     else card_info.SetActive(false);
                 }
-                else if (i >= 16 && i <= 27)
+                else if (i >= 8 && i <= 11)
                 {
-                    i -= 16;
+                    i -= 8;
                     if (tower_text_2[i].GetComponent<Text>().text != ".")
                     {
                         tech_image.sprite = Resources.Load<Sprite>(tower_text_2[i].GetComponent<Text>().text);
@@ -273,9 +272,9 @@ public class Tech_View : MonoBehaviour
                 tech_image = GameObject.Find("Tech_Image").GetComponent<Image>();
                 tech_name = GameObject.Find("Tech_Name").GetComponent<Text>();
                 tech_text = GameObject.Find("Tech_Text").GetComponent<Text>();
-                if (i >= 28)
+                if (i >= 12)
                 {
-                    i -= 28;
+                    i -= 12;
                     if (weapon_text_3[i].GetComponent<Text>().text != ".")
                     {
                         tech_image.sprite = Resources.Load<Sprite>(weapon_text_3[i].GetComponent<Text>().text);
@@ -284,9 +283,9 @@ public class Tech_View : MonoBehaviour
                     }
                     else card_info.SetActive(false);
                 }
-                else if (i >= 16 && i <= 27)
+                else if (i >= 8 && i <= 11)
                 {
-                    i -= 16;
+                    i -= 8;
                     if (weapon_text_2[i].GetComponent<Text>().text != ".")
                     {
                         tech_image.sprite = Resources.Load<Sprite>(weapon_text_2[i].GetComponent<Text>().text);
