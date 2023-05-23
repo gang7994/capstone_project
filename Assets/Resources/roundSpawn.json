@@ -2,26 +2,32 @@
 {
     "Body" : [
         {
-            "round" : [1,2,3,4],
-            "name" : "Bat",
-            "spawnMonsterNumber" : [1,2,1,2],
-            "spawnOnceNumOfMonster" : [1,2,1,2]
+            "round" : [1],
+            "name" : ["Bat", "BeeElite", "GhostElite", "ShadowElite", "Spider"],
+            "spawnMonsterNumber" : [5],
+            "spawnOnceNumOfMonster" : [5]
+        },
+        {
+            "round" : [2,3,4],
+            "name" : ["Bat"],
+            "spawnMonsterNumber" : [1,2,1],
+            "spawnOnceNumOfMonster" : [1,2,1]
         },
         {
             "round" : [5],
-            "name" : "SpiderBoss",
+            "name" : ["SpiderBoss"],
             "spawnMonsterNumber" : [1],
             "spawnOnceNumOfMonster" : [1]
         },
         {
             "round" : [6,7,8,9],
-            "name" : "BeeElite",
+            "name" : ["BeeElite"],
             "spawnMonsterNumber" : [1,2,3,4],
             "spawnOnceNumOfMonster" : [1,2,3,4]
         },
         {
             "round" : [10],
-            "name" : "GhostBoss",
+            "name" : ["GhostBoss"],
             "spawnMonsterNumber" : [1],
             "spawnOnceNumOfMonster" : [1]
         }

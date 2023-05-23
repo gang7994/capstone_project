@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     private void CheckIsClear(){
         bool isClaer;
 
-        if (this.monsterNum == 0) isClaer = true;
+        if (this.monsterNum <= 0) isClaer = true;
         else isClaer = false;
 
         dayManager.SendMessage("SetIsClear", isClaer);
