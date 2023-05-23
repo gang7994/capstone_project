@@ -31567,10 +31567,6 @@ MonoBehaviour:
   - {fileID: 127180099}
   - {fileID: 1929618935}
   - {fileID: 684883922}
-  - {fileID: 1820130057}
-  - {fileID: 780881171}
-  - {fileID: 1461818748}
-  - {fileID: 2109160381}
   tower_name_2:
   - {fileID: 433650644}
   - {fileID: 1334814137}
@@ -31631,24 +31627,6 @@ MonoBehaviour:
   - {fileID: 98101905}
   - {fileID: 1450501253}
   - {fileID: 788247414}
-  public_name_3:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  public_text_3:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   weapon_name_1:
   - {fileID: 1855895375}
   - {fileID: 1805690503}

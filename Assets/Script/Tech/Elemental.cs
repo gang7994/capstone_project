@@ -153,8 +153,8 @@ public class Elemental : MonoBehaviour
         all_function.Add(Lightning_Tower_Shock_All);
         all_function.Add(Ice_Tower_Excution);
         all_function.Add(Earth_Tower_All_Bind);
-        all_function.Add(Fire_Weapon_Flamethrower);
-        all_function.Add(Lightning_Weapon_Mjolnir);
+        //all_function.Add(Fire_Weapon_Flamethrower);
+        //all_function.Add(Lightning_Weapon_Mjolnir);
         all_function.Add(Ice_Weapon_Blizzard);
         all_function.Add(Earth_Weapon_Unbreakable);
 
@@ -518,7 +518,7 @@ public class Elemental : MonoBehaviour
     public void Earth_Tower_All_Bind(){// Function 47
         earth_tower_all_bind = true;
     }
-
+/*
     public void Fire_Weapon_Flamethrower(){// Function 48
         fire_weapon_flamethrower = true;
     }
@@ -526,6 +526,7 @@ public class Elemental : MonoBehaviour
     public void Lightning_Weapon_Mjolnir(){// Function 49
 
     }
+    */
     public void Ice_Weapon_Blizzard(){// Function 51
         ice_blizzard = true;
     }
