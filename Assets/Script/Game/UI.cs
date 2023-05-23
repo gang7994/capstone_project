@@ -7,7 +7,7 @@ public class UI : MonoBehaviour
     public GameObject Option_Panel;
     public GameObject Gameover_Panel;
     
-
+    
     public void Option_Button_Click()
     {
         Option_Panel.SetActive(true);

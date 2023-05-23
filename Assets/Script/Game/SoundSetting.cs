@@ -24,4 +24,11 @@ public class SoundSetting : MonoBehaviour
     public void SetMasterVolume(){
         audioMixer.SetFloat("Master", Mathf.Log10(MasterSlider.value)*20);
     }
+    
+    void Awake(){
+        MasterSlider.value = GameObject.Find("SoundValue").GetComponent<BringSoundSetting>().master;
+        BgmSlider.value = GameObject.Find("SoundValue").GetComponent<BringSoundSetting>().bgm;
+        SfxSlider.value = GameObject.Find("SoundValue").GetComponent<BringSoundSetting>().sfx;
+    }
+    
 }
