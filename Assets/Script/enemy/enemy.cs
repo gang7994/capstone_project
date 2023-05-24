@@ -10,12 +10,6 @@ public class enemy : MonoBehaviour
     public Transform player;
     public Transform home;
 
-    Rigidbody rigid;
-    Collider collider;
-    Material material;
-    NavMeshAgent navi;
-    Animator animator;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +18,6 @@ public class enemy : MonoBehaviour
 
     void Awake()
     {
-        rigid = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
-        material = GetComponentInChildren<SkinnedMeshRenderer>().material;
-        navi = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame

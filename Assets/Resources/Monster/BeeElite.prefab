@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 0
+  delay: 0
 --- !u!1 &3413162298526248740 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: dfcc8081a6ce38b4ba51ac9a6c2600a6, type: 3}
@@ -281,7 +282,7 @@ MonoBehaviour:
   monster_speed: 2
   damage: 10
   house: {fileID: 0}
-  Attack_range: {fileID: 7489988819297804879, guid: 7f3b416afc8ef02408a70ea560e61e7c, type: 3}
+  Attack_range: {fileID: 3413162298526248736}
   coinPrefab: {fileID: 0}
   target: {fileID: 0}
   isChase: 1

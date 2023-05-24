@@ -43,7 +43,6 @@ public class Monster_old : MonoBehaviour
     private float ligntning_cooltime = 5.0f;
 
     Rigidbody rigid;
-    CapsuleCollider collider;
     Material materi;
     Renderer rd;
     public NavMeshAgent navi;
@@ -51,9 +50,9 @@ public class Monster_old : MonoBehaviour
     private GameManager gameManager;
     public void Awake()
     {
+        house = GameObject.Find("Baker_house");
         rd = GetComponentInChildren<SkinnedMeshRenderer>();
         rigid = GetComponent<Rigidbody>();
-        collider = GetComponent<CapsuleCollider>();
         materi = GetComponentInChildren<SkinnedMeshRenderer>().material;
         navi = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
@@ -76,6 +75,14 @@ public class Monster_old : MonoBehaviour
     }
     void Update()
     {
+        if (isAttack)
+        {
+            anim.SetBool("isMove", false);
+        }
+        else
+        {
+            anim.SetBool("isMove", true);
+        }
         monsters = GameObject.FindGameObjectsWithTag("MonsterAttack");
         Array.Sort(monsters, (monster1, monster2) => 
             Vector3.Distance(monster1.transform.position, transform.position).CompareTo(
@@ -125,7 +132,7 @@ public class Monster_old : MonoBehaviour
             if (!isAttackDelay && target != null)
             {
                 navi.SetDestination(target.position);
-                anim.SetBool("isMove", true);
+                
                 if (Delay > 0.7f)
                 {
                     Vector3 Pos = target.position - transform.position;
@@ -189,7 +196,7 @@ public class Monster_old : MonoBehaviour
         {
             reactVec = reactVec.normalized;
             reactVec += Vector3.up;
-            rigid.AddForce(reactVec * 5, ForceMode.Impulse);
+            //rigid.AddForce(reactVec * 5, ForceMode.Impulse);
             anim.SetBool("isDamage", false);
             materi.color = meshColor;
         }
