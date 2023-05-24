@@ -9101,6 +9101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 8672787908860700878, guid: a776dcf6cd6a60c40a53eb97a189d96a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8672787908860998894, guid: a776dcf6cd6a60c40a53eb97a189d96a, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -9610,6 +9614,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: 245965889d0a183438ef3478b27122c0, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 491755762}
+        m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
+        m_MethodName: Save
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -22687,6 +22703,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 491755762}
+        m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
+        m_MethodName: Load
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &520869742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23607,6 +23635,10 @@ PrefabInstance:
     - target: {fileID: 7489988819297804875, guid: 7f3b416afc8ef02408a70ea560e61e7c, type: 3}
       propertyPath: m_Name
       value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489988819297804875, guid: 7f3b416afc8ef02408a70ea560e61e7c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f3b416afc8ef02408a70ea560e61e7c, type: 3}
@@ -47728,6 +47760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeeElite
       objectReference: {fileID: 0}
+    - target: {fileID: 3413162298526248740, guid: fe3155c989d2eaf4084cea78bd477954, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3413162298526544644, guid: fe3155c989d2eaf4084cea78bd477954, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -66868,6 +66904,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spook
       objectReference: {fileID: 0}
+    - target: {fileID: 2143963233178108554, guid: bb36cf347069fb043bcc62690b08d33b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb36cf347069fb043bcc62690b08d33b, type: 3}
 --- !u!1 &1590492908
@@ -79098,6 +79138,10 @@ PrefabInstance:
     - target: {fileID: 3118294153675456976, guid: 442574e571d99b04c949ee31e532c45e, type: 3}
       propertyPath: m_Name
       value: Shade
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118294153675456976, guid: 442574e571d99b04c949ee31e532c45e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3118294153675890160, guid: 442574e571d99b04c949ee31e532c45e, type: 3}
       propertyPath: m_RootOrder
