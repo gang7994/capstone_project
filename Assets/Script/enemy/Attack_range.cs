@@ -6,7 +6,7 @@ public class Attack_range : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool attack;
-    float delay;
+    public float delay;
     bool isBoss;
     bool attack_type_range;
     void Start()
@@ -85,7 +85,7 @@ public class Attack_range : MonoBehaviour
             {
                 if (attack_type_range)  // 원거리
                 {
-
+                    attack = false;
                 }
                 else // 근거리
                 {

@@ -107,7 +107,7 @@ public class Monster_old : MonoBehaviour
             {
                 MonsterAttack();
                 Delay = 0;
-                }
+            }
             else if (Delay > attack_time)
             {
                 AttackDelay();
@@ -226,7 +226,7 @@ public class Monster_old : MonoBehaviour
         navi.speed = 0;
         isAttackDelay = true;
         Attack_range.GetComponent<Attack_range>().attack = true;
-        // Debug.Log("몬스터 공격");
+        Debug.Log("몬스터 공격");
                
     }
     void AttackDelay()   // 공격중이 아닐때
