@@ -290,6 +290,7 @@ public class Monster_old : MonoBehaviour
     private IEnumerator Die()
     {
         gameManager.SendMessage("ChangeMonsterNumText", -1);
+        gameManager.SendMessage("KillCount", 1);
         yield break;
     }
 

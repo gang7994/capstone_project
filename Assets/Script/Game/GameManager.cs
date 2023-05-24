@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private bool isNight = false;
     private int monsterNum = 0;
     private int day = 1;
+    private int kill_count = 0;
     void Start()
     {
         spawnManager = GetComponent<MonsterSpawnManager>();
@@ -79,6 +80,9 @@ public class GameManager : MonoBehaviour
 
         dayManager.SendMessage("SetIsClear", isClaer);
     }
+    public void KillCount(int i){
+        kill_count += i;
+    }
 
     public void ChangeMonsterNumText(int monsterNumber){
         this.monsterNum += monsterNumber;
@@ -90,7 +94,7 @@ public class GameManager : MonoBehaviour
     public void GameOver(){
         // need implementation
         if(!isGameover) {
-            AddRankingData(day,0);
+            AddRankingData(day,kill_count);
             isGameover = true;
         }
     }
