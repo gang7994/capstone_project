@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class UI : MonoBehaviour
 {
     public GameObject Option_Panel;
     public GameObject Gameover_Panel;
+    GameManager gm;
+
+
+    void Start(){
+        gm = GameObject.Find("Main Camera").GetComponent<GameManager>();
+    }
     
     
     public void Option_Button_Click()
@@ -21,6 +29,9 @@ public class UI : MonoBehaviour
     public void Gameover_Panel_active(){
         Paused();
         Gameover_Panel.SetActive(true);
+        int day = gm.GetDay();
+        GameObject.Find("Record_Text").GetComponent<TextMeshProUGUI>().text = $"{day}일 생존";
+        gm.GameOver();
     }
 
     public void Gameover_Panel_not_active(){
@@ -35,4 +46,12 @@ public class UI : MonoBehaviour
         Time.timeScale = 1f;
     }
     
+    public void ChangeToStartScene(){  //스타트씬으로 가는 함수
+        LoadingSceneController.LoadScene("StartScene");
+    }
+
+    public void ChangeToLoadingScene(){  //스타트씬으로 가는 함수
+        LoadingSceneController.LoadScene("StartScene");
+    }
+
 }

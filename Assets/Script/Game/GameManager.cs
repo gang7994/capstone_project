@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public int money = 1000;
     public TextAsset jsonFile;
     private RankingData rankingData;
-    
+    bool isGameover = false;
 
     private bool isNight = false;
     private int monsterNum = 0;
@@ -89,11 +89,18 @@ public class GameManager : MonoBehaviour
     
     public void GameOver(){
         // need implementation
-        //AddRankingData(day,);
+        if(!isGameover) {
+            AddRankingData(day,0);
+            isGameover = true;
+        }
     }
 
     public void Exit(){
         Application.Quit();
+    }
+
+    public int GetDay(){
+        return day;
     }
 
 

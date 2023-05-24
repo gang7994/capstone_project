@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
 
         if(Health <= 0) { 
             Health = 0;
-            //GameObject.Find("UI").GetComponent<UI>().Gameover_Panel_active();
+            GameObject.Find("UI").GetComponent<UI>().Gameover_Panel_active();
             print("Game Over");
         }
 
