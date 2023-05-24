@@ -70,7 +70,6 @@ public class Tower : MonoBehaviour
     void Update()
     {
         Level_Manager(level);
-
         
         attack_Collider.radius = GameObject.Find("Main Camera").GetComponent<Elemental>().tower_atkRange;
         timer += Time.deltaTime;
@@ -140,6 +139,7 @@ public class Tower : MonoBehaviour
             }
         }
     }
+    
 
     public void AutoAttack(Transform firePos, List<GameObject> collEnemy){
         if (collEnemy.Count != 0){
@@ -207,11 +207,14 @@ public class Tower : MonoBehaviour
                             towerShoot.towerAtk = attack_val;
                         }
                         if(GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_shock){
-                            List<int> earthAllBind = new List<int> {0,0,0,0,0,0,0,1,1,1};
-                            if(earthAllBind[UnityEngine.Random.Range(0,10)]==1) {
+                            List<int> lightningShock = new List<int> {0,0,0,0,0,0,0,1,1,1};
+                            if(lightningShock[UnityEngine.Random.Range(0,10)]==1) {
                                 StartCoroutine(Lightning_shock_all());
-                                foreach(GameObject monster in allEnemys) {
-                                    monster.GetComponent<Monster_old>().Lightning_Damage_Effect();
+                                foreach(GameObject monster in collEnemys){
+                                    if(monster != null && monster.layer == LayerMask.NameToLayer("Monster"))
+                                    {
+                                        monster.GetComponentInParent<Monster_old>().Lightning_Damage_Effect();
+                                    }
                                 } 
                             }
                         }
@@ -231,8 +234,8 @@ public class Tower : MonoBehaviour
                             List<int> earthAllBind = new List<int> {0,0,0,0,0,0,0,0,0,1};
                             if(earthAllBind[UnityEngine.Random.Range(0,10)]==1) {
                                 StartCoroutine(Earth_Effect_Active());
-                                foreach(GameObject monster in allEnemys) {
-                                    StartCoroutine(monster.GetComponent<Monster_old>().Earth_AllBind_Effect());
+                                foreach(GameObject monster in collEnemys) {
+                                    if(monster != null && monster.layer == LayerMask.NameToLayer("Monster")) StartCoroutine(monster.GetComponentInParent<Monster_old>().Earth_AllBind_Effect());
                                 } 
                             }
                         }
