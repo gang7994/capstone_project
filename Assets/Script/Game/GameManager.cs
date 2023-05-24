@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using System.Linq;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -14,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject moneyText1;
     public GameObject moneyText2;
     public int money = 1000;
+    public TextAsset jsonFile;
+    private RankingData rankingData;
     
 
     private bool isNight = false;
@@ -27,6 +31,9 @@ public class GameManager : MonoBehaviour
         monsterAmountText = GameObject.Find("MonsterAmountText");
         monsterAmount = GameObject.Find("MonsterAmount");
         monsterAmountText.SetActive(false);
+
+        string jsonText = jsonFile.text;
+        rankingData = JsonUtility.FromJson<RankingData>(jsonText);
     }
 
     void Update(){
@@ -82,9 +89,29 @@ public class GameManager : MonoBehaviour
     
     public void GameOver(){
         // need implementation
+        //AddRankingData(day,);
     }
 
     public void Exit(){
         Application.Quit();
+    }
+
+
+    private void SaveRankingData()
+    {
+        string jsonData = JsonUtility.ToJson(rankingData);
+        File.WriteAllText("Assets/Resources/RankList.json", jsonData);
+    }
+
+    public void AddRankingData(int survivalDays, int monstersKilled)
+    {
+        RankingEntry playerData = new RankingEntry
+        {
+            survivalDays = survivalDays,
+            monstersKilled = monstersKilled
+        };
+
+        rankingData.ranking.Add(playerData);
+        SaveRankingData();
     }
 }

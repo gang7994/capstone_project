@@ -45,9 +45,18 @@ public class Ranking_Manager : MonoBehaviour
         for (int i = 0; i < count && i < ranking.Count; i++)
         {
             RankingEntry entry = ranking[i];
-            if(i==0) ranking_content_1.GetComponent<Text>().text = entry.survivalDays + "   |  " + entry.monstersKilled;
-            else if(i==1) ranking_content_2.GetComponent<Text>().text = entry.survivalDays + "   |   " + entry.monstersKilled;
-            else if(i==2) ranking_content_3.GetComponent<Text>().text = entry.survivalDays + "   |   " + entry.monstersKilled;
+            if(i==0) {
+                if(entry.survivalDays !=0) ranking_content_1.GetComponent<Text>().text = entry.survivalDays + "   |  " + entry.monstersKilled;
+                else ranking_content_1.GetComponent<Text>().text = "";
+            }
+            else if(i==1) {
+                if(entry.survivalDays !=0) ranking_content_2.GetComponent<Text>().text = entry.survivalDays + "   |  " + entry.monstersKilled;
+                else ranking_content_2.GetComponent<Text>().text = "";
+            }
+            else if(i==2) {
+                if(entry.survivalDays !=0) ranking_content_3.GetComponent<Text>().text = entry.survivalDays + "   |  " + entry.monstersKilled;
+                else ranking_content_3.GetComponent<Text>().text = "";
+            }
         }
     }
 

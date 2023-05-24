@@ -112,4 +112,5 @@ public class DayManager : MonoBehaviour
     {
         this.isClear = isClear;
     }
+
 }
