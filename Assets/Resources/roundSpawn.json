@@ -3,7 +3,7 @@
     "Body" : [
         {
             "round" : [1],
-            "name" : ["Bat", "BeeElite", "GhostElite", "ShadowElite", "Spider"],
+            "name" : ["Bat", "BeeElite", "Shade", "Spook", "Spider"],
             "spawnMonsterNumber" : [5],
             "spawnOnceNumOfMonster" : [5]
         },
