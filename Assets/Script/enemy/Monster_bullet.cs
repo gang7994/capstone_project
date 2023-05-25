@@ -30,27 +30,29 @@ public class Monster_bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (monster.GetComponentInParent<Monster_old>().target != null)
-        {
-            if (other.gameObject.CompareTag(monster.GetComponentInParent<Monster_old>().target.gameObject.tag))
+        if(monster != null){
+            if (monster.GetComponentInParent<Monster_old>().target != null)
             {
-                if (other.gameObject.CompareTag("Player"))
+                if (other.gameObject.CompareTag(monster.GetComponentInParent<Monster_old>().target.gameObject.tag))
                 {
-                    Debug.Log("ÇÃ·¹ÀÌ¾î ¾îÅÃ µÊ");
-                    monster.GetComponentInParent<Monster_old>().AttackOn();
-                    Destroy(gameObject);
-                }
-                if (other.gameObject.CompareTag("TowerAttack"))
-                {
-                    Debug.Log("Å¸¿ö ¾îÅÃ µÊ");
-                    monster.GetComponentInParent<Monster_old>().AttackOn();
-                    Destroy(gameObject);
-                }
-                if (other.gameObject.CompareTag("base"))
-                {
-                    Debug.Log("º£ÀÌ½º ¾îÅÃ µÊ");
-                    monster.GetComponentInParent<Monster_old>().AttackOn();
-                    Destroy(gameObject);
+                    if (other.gameObject.CompareTag("Player"))
+                    {
+                        Debug.Log("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½");
+                        monster.GetComponentInParent<Monster_old>().AttackOn();
+                        Destroy(gameObject);
+                    }
+                    if (other.gameObject.CompareTag("TowerAttack"))
+                    {
+                        Debug.Log("Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½");
+                        monster.GetComponentInParent<Monster_old>().AttackOn();
+                        Destroy(gameObject);
+                    }
+                    if (other.gameObject.CompareTag("base"))
+                    {
+                        Debug.Log("ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½");
+                        monster.GetComponentInParent<Monster_old>().AttackOn();
+                        Destroy(gameObject);
+                    }
                 }
             }
         }

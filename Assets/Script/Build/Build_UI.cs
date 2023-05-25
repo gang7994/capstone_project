@@ -98,7 +98,7 @@ public class Build_UI : MonoBehaviour
                 tower.name = $"tower{GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num}";
                 tower.tag = "Tower";
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
-                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)tower.transform.position.z / 3) + 6,(int)tower.transform.position.x / 3 + 10] = 1;
+                GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[(int)tower.transform.position.z / 3 + 6,(int)tower.transform.position.x / 3 + 10] = 1;
                 
 
             }

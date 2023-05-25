@@ -144,107 +144,108 @@ public class Tower : MonoBehaviour
     public void AutoAttack(Transform firePos, List<GameObject> collEnemy){
         if (collEnemy.Count != 0){
             for(int n = 0; n< collEnemy.Count;n++){
-                if(collEnemy[n].GetComponentInParent<Monster_old>().curHealth <= 0) collEnemys.Remove(collEnemy[n]);
-                else {
-                    firePos.transform.LookAt(collEnemy[n].transform);
-                    empty_type_num = (float)types.FindAll(n => n == 0).Count;
-                    fire_type_num = (float)types.FindAll(n => n == 1).Count;
-                    lightning_type_num = (float)types.FindAll(n => n == 2).Count;
-                    ice_type_num = (float)types.FindAll(n => n == 3).Count;
-                    earth_type_num = (float)types.FindAll(n => n == 4).Count;
-                    
-                    if(GameObject.Find("Main Camera").GetComponent<Elemental>().function1!=0) {
-                        attack_val = basic_attack_val + (basic_attack_val/20)*fire_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_damage;
-                    }
-
-                    if(GameObject.Find("Main Camera").GetComponent<Elemental>().function3!=0) {
-                        coolTime = basic_coolTime - (basic_coolTime/20)*lightning_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_atkSpeed;
-                    }
-
-                    int type_num = Random_type_attack();
-
-                    if (bulletPool.Count == 0)
-                    {
-                        GameObject bulletObj = Instantiate(Bullet);
-                        bulletObj.SetActive(false);
-                        bulletPool.Enqueue(bulletObj);
-                    }
-                    GameObject bullet = bulletPool.Dequeue();
-                    bullet.transform.position = firePos.transform.position;
-                    bullet.transform.rotation = firePos.transform.rotation;
-                    bullet.SetActive(true);
-                    TowerShoot towerShoot = bullet.GetComponent<TowerShoot>(); 
-                    
-                    if(type_num == 0) {
-                        towerShoot.property_type = "None";
-                        towerShoot.towerAtk = attack_val;
-                    }
-                    else if(type_num == 1) {
-                        towerShoot.property_type = "F";
-                        //리스트 5개 해서 하나 나오면 [1,0,0,0,0]
-                        List<int> fireCritical = new List<int> {0,0,0,0,0,0,0,0};
-                        for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_critical;i++) fireCritical[i] = 1;
-                        if(fireCritical[UnityEngine.Random.Range(0,5)]==1) {
-                            type_num = 5;
-                            towerShoot.towerAtk = attack_val*2;
-
-
+                if(collEnemy[n]!=null){
+                    if(collEnemy[n].GetComponentInParent<Monster_old>().curHealth <= 0) collEnemys.Remove(collEnemy[n]);
+                    else {
+                        firePos.transform.LookAt(collEnemy[n].transform);
+                        empty_type_num = (float)types.FindAll(n => n == 0).Count;
+                        fire_type_num = (float)types.FindAll(n => n == 1).Count;
+                        lightning_type_num = (float)types.FindAll(n => n == 2).Count;
+                        ice_type_num = (float)types.FindAll(n => n == 3).Count;
+                        earth_type_num = (float)types.FindAll(n => n == 4).Count;
+                        
+                        if(GameObject.Find("Main Camera").GetComponent<Elemental>().function1!=0) {
+                            attack_val = basic_attack_val + (basic_attack_val/20)*fire_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_damage;
                         }
-                        else{  
+
+                        if(GameObject.Find("Main Camera").GetComponent<Elemental>().function3!=0) {
+                            coolTime = basic_coolTime - (basic_coolTime/20)*lightning_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_atkSpeed;
+                        }
+
+                        int type_num = Random_type_attack();
+
+                        if (bulletPool.Count == 0)
+                        {
+                            GameObject bulletObj = Instantiate(Bullet);
+                            bulletObj.SetActive(false);
+                            bulletPool.Enqueue(bulletObj);
+                        }
+                        GameObject bullet = bulletPool.Dequeue();
+                        bullet.transform.position = firePos.transform.position;
+                        bullet.transform.rotation = firePos.transform.rotation;
+                        bullet.SetActive(true);
+                        TowerShoot towerShoot = bullet.GetComponent<TowerShoot>(); 
+                        
+                        if(type_num == 0) {
+                            towerShoot.property_type = "None";
                             towerShoot.towerAtk = attack_val;
                         }
-                    }
-                    else if(type_num == 2) {
-                        towerShoot.property_type = "L";
-                        //리스트 5개 해서 하나 나오면 [1,0,0,0,0]
-                        List<int> lightningCritical = new List<int> {0,0,0,0,0,0,0,0};
-                        for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_critical;i++) lightningCritical[i] = 1;
-                        if(lightningCritical[UnityEngine.Random.Range(0,5)]==1) {
-                            type_num = 6;
-                            towerShoot.towerAtk = attack_val*2;
+                        else if(type_num == 1) {
+                            towerShoot.property_type = "F";
+                            //리스트 5개 해서 하나 나오면 [1,0,0,0,0]
+                            List<int> fireCritical = new List<int> {0,0,0,0,0,0,0,0};
+                            for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().fire_tower_critical;i++) fireCritical[i] = 1;
+                            if(fireCritical[UnityEngine.Random.Range(0,5)]==1) {
+                                type_num = 5;
+                                towerShoot.towerAtk = attack_val*2;
+
+
+                            }
+                            else{  
+                                towerShoot.towerAtk = attack_val;
+                            }
                         }
-                        else{  
+                        else if(type_num == 2) {
+                            towerShoot.property_type = "L";
+                            //리스트 5개 해서 하나 나오면 [1,0,0,0,0]
+                            List<int> lightningCritical = new List<int> {0,0,0,0,0,0,0,0};
+                            for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_critical;i++) lightningCritical[i] = 1;
+                            if(lightningCritical[UnityEngine.Random.Range(0,5)]==1) {
+                                type_num = 6;
+                                towerShoot.towerAtk = attack_val*2;
+                            }
+                            else{  
+                                towerShoot.towerAtk = attack_val;
+                            }
+                            if(GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_shock){
+                                List<int> lightningShock = new List<int> {0,0,0,0,0,0,0,1,1,1};
+                                if(lightningShock[UnityEngine.Random.Range(0,10)]==1) {
+                                    StartCoroutine(Lightning_shock_all());
+                                    foreach(GameObject monster in collEnemys){
+                                        if(monster != null && monster.layer == LayerMask.NameToLayer("Monster"))
+                                        {
+                                            monster.GetComponentInParent<Monster_old>().Lightning_Damage_Effect();
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                        else if(type_num == 3) {      
+                            towerShoot.property_type = "I";
                             towerShoot.towerAtk = attack_val;
                         }
-                        if(GameObject.Find("Main Camera").GetComponent<Elemental>().lightning_tower_shock){
-                            List<int> lightningShock = new List<int> {0,0,0,0,0,0,0,1,1,1};
-                            if(lightningShock[UnityEngine.Random.Range(0,10)]==1) {
-                                StartCoroutine(Lightning_shock_all());
-                                foreach(GameObject monster in collEnemys){
-                                    if(monster != null && monster.layer == LayerMask.NameToLayer("Monster"))
-                                    {
-                                        monster.GetComponentInParent<Monster_old>().Lightning_Damage_Effect();
-                                    }
-                                } 
+                        else if(type_num == 4){
+                            towerShoot.property_type = "E";
+                            towerShoot.towerAtk = attack_val;
+                            if(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain !=0) {
+                                if(hp < max_hp) hp+= GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain;
+                            }
+                            //리스트 5개 해서 하나 나오면 [1,0,0,0,0]
+                            if(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_tower_all_bind) {
+                                List<int> earthAllBind = new List<int> {0,0,0,0,0,0,0,0,0,1};
+                                if(earthAllBind[UnityEngine.Random.Range(0,10)]==1) {
+                                    StartCoroutine(Earth_Effect_Active());
+                                    foreach(GameObject monster in collEnemys) {
+                                        if(monster != null && monster.layer == LayerMask.NameToLayer("Monster")) StartCoroutine(monster.GetComponentInParent<Monster_old>().Earth_AllBind_Effect());
+                                    } 
+                                }
                             }
                         }
+                        bullet.GetComponent<TrailRenderer>().material = ranShoot[type_num];
+                        shootSound[type_num].Play();
+                        towerShoot.target = collEnemy[n];
                     }
-                    else if(type_num == 3) {      
-                        towerShoot.property_type = "I";
-                        towerShoot.towerAtk = attack_val;
-                    }
-                    else if(type_num == 4){
-                        towerShoot.property_type = "E";
-                        towerShoot.towerAtk = attack_val;
-                        if(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain !=0) {
-                            if(hp < max_hp) hp+= GameObject.Find("Main Camera").GetComponent<Elemental>().earth_drain;
-                        }
-                        //리스트 5개 해서 하나 나오면 [1,0,0,0,0]
-                        if(GameObject.Find("Main Camera").GetComponent<Elemental>().earth_tower_all_bind) {
-                            List<int> earthAllBind = new List<int> {0,0,0,0,0,0,0,0,0,1};
-                            if(earthAllBind[UnityEngine.Random.Range(0,10)]==1) {
-                                StartCoroutine(Earth_Effect_Active());
-                                foreach(GameObject monster in collEnemys) {
-                                    if(monster != null && monster.layer == LayerMask.NameToLayer("Monster")) StartCoroutine(monster.GetComponentInParent<Monster_old>().Earth_AllBind_Effect());
-                                } 
-                            }
-                        }
-                    }
-                    bullet.GetComponent<TrailRenderer>().material = ranShoot[type_num];
-                    shootSound[type_num].Play();
-                    towerShoot.target = collEnemy[n];
                 }
-                 
    
             }
             empty_type_num = (float)types.FindAll(n => n == 0).Count;
