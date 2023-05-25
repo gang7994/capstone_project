@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 100030, guid: dfcc8081a6ce38b4ba51ac9a6c2600a6, type: 3}
+      propertyPath: m_TagString
+      value: MonsterAttack
+      objectReference: {fileID: 0}
     - target: {fileID: 100032, guid: dfcc8081a6ce38b4ba51ac9a6c2600a6, type: 3}
       propertyPath: m_Layer
       value: 9
