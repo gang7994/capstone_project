@@ -51,7 +51,7 @@ public class Attack_range : MonoBehaviour
 
     private void OnTriggerStay(Collider other)   // 적이 공격 범위에 있을 시 데미지 적용
     {
-        Debug.Log("공격중");
+        
         if (attack)
         {
             if (isBoss)  // 보스 근거리
@@ -135,7 +135,7 @@ public class Attack_range : MonoBehaviour
                     }
                 }
             }
-            
+
         }
         
     }
