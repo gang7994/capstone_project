@@ -9,6 +9,7 @@ public class Attack_range : MonoBehaviour
     public float delay;
     bool isBoss;
     bool attack_type_range;
+    public GameObject bullet;
     void Start()
     {
         attack = false;
@@ -23,27 +24,39 @@ public class Attack_range : MonoBehaviour
         if (attack)
         {
             delay += Time.deltaTime;
+            if (attack_type_range) // 원거리 공격
+            {
+                if (isBoss)
+                {
+
+                }
+                else
+                {
+                    GameObject temp = Instantiate(bullet, transform.position, Quaternion.identity);
+                    temp.GetComponent<Monster_bullet>().monster = gameObject;
+                    temp.GetComponent<Monster_bullet>().fire(transform.forward);
+                    Debug.Log("원거리 공격 생성");
+                    attack = false;
+                }
+            }
         }
         else
         {
             delay = 0;
         }
+
+        
     }
 
 
     private void OnTriggerStay(Collider other)   // 적이 공격 범위에 있을 시 데미지 적용
     {
-        
+        Debug.Log("공격중");
         if (attack)
         {
-            if (isBoss)  // 보스
+            if (isBoss)  // 보스 근거리
             {
-                if (attack_type_range)
-                {
-
-                }
-                else  // 보스 근거리
-                {
+                if (!attack_type_range) {
                     if (delay > 0.3f)
                     {
                         if (GetComponentInParent<Monster_old>().target != null)
@@ -83,11 +96,7 @@ public class Attack_range : MonoBehaviour
             }
             else  // 일반몹
             {
-                if (attack_type_range)  // 원거리
-                {
-                    attack = false;
-                }
-                else // 근거리
+                if(!attack_type_range) // 근거리
                 {
                     if (delay > 0.3f)
                     {

@@ -280,7 +280,7 @@ MonoBehaviour:
   freeze: 0
   earth_stop: 0
   isBoss: 0
-  Attack_Type_range: 0
+  Attack_Type_range: 1
   target_list: []
   normal_monster_state:
   - {fileID: 2100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
@@ -1636,7 +1636,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 3
+  m_Radius: 5
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -1745,3 +1745,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: 0
   delay: 0
+  bullet: {fileID: 804069200893993269, guid: 54acc411514fd61468cc464ec3572102, type: 3}
