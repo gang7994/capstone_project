@@ -3200,6 +3200,8 @@ MonoBehaviour:
   move_button: {fileID: 527337711}
   build_button: {fileID: 695121974}
   rotate_button: {fileID: 1974775898}
+  Btn_Tower_Panel: {fileID: 1947948379}
+  Btn_Fence_Panel: {fileID: 1081050627}
   tower_base:
   - {fileID: 2002842263116201729, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
   - {fileID: -3632132094842907418, guid: 159133c609c17654598d85de3cf7dce4, type: 3}
@@ -21112,6 +21114,7 @@ MonoBehaviour:
   coolTime: 0.5
   slot_num: 0
   level: 0
+  isOn: 0
   Bullet: {fileID: 106171586205478491, guid: daa5276980872a14e80e0fb78c6f49ca, type: 3}
   poolSize: 50
   FirePos: {fileID: 786160017}
@@ -24398,7 +24401,6 @@ GameObject:
   - component: {fileID: 574898735}
   - component: {fileID: 574898734}
   - component: {fileID: 574898733}
-  - component: {fileID: 574898736}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -24470,7 +24472,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 574898736}
+      - m_Target: {fileID: 95681283}
         m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
         m_MethodName: onClick1
         m_Mode: 1
@@ -24556,31 +24558,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574898731}
   m_CullTransparentMesh: 1
---- !u!114 &574898736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574898731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5acd6e6859ec32418b097fc0b74e876, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tower_prefab: {fileID: 506174169}
-  fence_prefab: {fileID: 1032890875}
-  move_button: {fileID: 527337711}
-  build_button: {fileID: 695121974}
-  rotate_button: {fileID: 1974775898}
-  tower_base:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  fence_base: {fileID: 0}
-  inclined: 0
-  horizontal: 1
-  rotate_count: 0
 --- !u!1001 &575062500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44964,6 +44941,7 @@ MonoBehaviour:
   - {fileID: -7994216056618919638, guid: f9b057a0cb507a240a04d756f447a9a7, type: 3}
   - {fileID: 2100000, guid: 9032b96a5717836408b78f093aa0bb0f, type: 2}
   level: 0
+  isOn: 0
 --- !u!65 &1032890878
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44975,8 +44953,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 2.980001, z: 0.79999924}
-  m_Center: {x: 0, y: 1.4910004, z: 0}
+  m_Size: {x: 4, y: 15.615707, z: 0.79999924}
+  m_Center: {x: 0, y: 7.808853, z: 0}
 --- !u!54 &1032890879
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -49627,7 +49605,6 @@ GameObject:
   - component: {fileID: 1148038433}
   - component: {fileID: 1148038432}
   - component: {fileID: 1148038431}
-  - component: {fileID: 1148038434}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -49699,7 +49676,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1148038434}
+      - m_Target: {fileID: 95681283}
         m_TargetAssemblyTypeName: Build_UI, Assembly-CSharp
         m_MethodName: onClick2
         m_Mode: 1
@@ -49785,31 +49762,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148038429}
   m_CullTransparentMesh: 1
---- !u!114 &1148038434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148038429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5acd6e6859ec32418b097fc0b74e876, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tower_prefab: {fileID: 506174169}
-  fence_prefab: {fileID: 1032890875}
-  move_button: {fileID: 527337711}
-  build_button: {fileID: 695121974}
-  rotate_button: {fileID: 1974775898}
-  tower_base:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  fence_base: {fileID: 0}
-  inclined: 0
-  horizontal: 1
-  rotate_count: 0
 --- !u!1 &1148190680 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2099174123423218066, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
@@ -72139,7 +72091,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 2147483647
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3

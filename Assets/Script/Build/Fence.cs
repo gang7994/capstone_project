@@ -13,6 +13,7 @@ public class Fence : MonoBehaviour
     public Material[] material;
 
     public int level = 0;
+    public bool isOn = false;
 
     void Update()
     {

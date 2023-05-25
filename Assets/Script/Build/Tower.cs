@@ -19,6 +19,7 @@ public class Tower : MonoBehaviour
 
     public int      slot_num = 0;
     public int      level = 0;
+    public bool     isOn = false;
 
     public GameObject Bullet;
     public int poolSize = 50;

@@ -10,7 +10,8 @@ public class Build_UI : MonoBehaviour
     public GameObject move_button;
     public GameObject build_button;
     public GameObject rotate_button;
-
+    public GameObject Btn_Tower_Panel;
+    public GameObject Btn_Fence_Panel;
 
     public Material[] tower_base = new Material[3];
     public Material fence_base;
@@ -28,7 +29,8 @@ public class Build_UI : MonoBehaviour
     // Start is called before the first frame update
     public void onClick1() //Ÿ�� ������ Ȱ��ȭ
     {
-        if(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().current_number_of_Tower < GameObject.Find("Main Camera").GetComponent<Elemental>().tower_max){
+        if(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().current_number_of_Tower < GameObject.Find("Main Camera").GetComponent<Elemental>().tower_max 
+        && !Btn_Tower_Panel.activeSelf && !Btn_Fence_Panel.activeSelf){
             tower_prefab.SetActive(true);
             fence_prefab.SetActive(false);
             move_button.SetActive(true);
@@ -42,7 +44,8 @@ public class Build_UI : MonoBehaviour
 
     public void onClick2() //�潺 ������ Ȱ��ȭ
     {
-        if(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().current_number_of_Fence < GameObject.Find("Main Camera").GetComponent<Elemental>().fence_max){
+        if(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().current_number_of_Fence < GameObject.Find("Main Camera").GetComponent<Elemental>().fence_max
+        && !Btn_Tower_Panel.activeSelf && !Btn_Fence_Panel.activeSelf){
             tower_prefab.SetActive(false);
             fence_prefab.SetActive(true);
             move_button.SetActive(true);
@@ -58,7 +61,6 @@ public class Build_UI : MonoBehaviour
     {
         fence_prefab.SetActive(false);
         tower_prefab.SetActive(false);
-
     }
 
     public void onClick4() //�潺 ȸ����ư
@@ -99,7 +101,7 @@ public class Build_UI : MonoBehaviour
                 tower.tag = "Tower";
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Mathf.Abs((int)tower.transform.position.z / 3) + 6,(int)tower.transform.position.x / 3 + 10] = 1;
-                
+                tower.GetComponent<Tower>().isOn = true;
 
             }
         }
@@ -117,6 +119,7 @@ public class Build_UI : MonoBehaviour
                     fence.GetComponent<Fence>().inclined = true;
                     GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
                     GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Convert.ToInt32(fence.transform.position.z) / 3 + 6, Convert.ToInt32(fence.transform.position.x) / 3 + 10] = 1;
+                    fence.GetComponent<Fence>().isOn = true;
                 }
                 
                 else {
@@ -131,6 +134,7 @@ public class Build_UI : MonoBehaviour
                         fence.GetComponent<Fence>().horizontal = true;
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().fence_horizontal_position[Convert.ToInt32(fence.transform.position.z+1.5) / 3 + 6, Convert.ToInt32(fence.transform.position.x) / 3 + 10] = 1;
+                        fence.GetComponent<Fence>().isOn = true;
                     }
                     else{
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddFence();
@@ -143,6 +147,7 @@ public class Build_UI : MonoBehaviour
                         fence.GetComponent<Fence>().horizontal = false;
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().fence_vertical_position[Convert.ToInt32(fence.transform.position.z / 3) + 6, Convert.ToInt32(fence.transform.position.x+1.5) / 3 + 10] = 1;
+                        fence.GetComponent<Fence>().isOn = true;
                     }
                     
                 }

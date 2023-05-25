@@ -87,17 +87,17 @@ public class Build_Manager : MonoBehaviour
         {
             Ray ray = getCamera.ScreenPointToRay(Input.mousePosition);
             
-            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.CompareTag("Tower") && !Btn_Tower_Panel.activeSelf)
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.CompareTag("Tower") && !Btn_Tower_Panel.activeSelf && !Btn_Fence_Panel.activeSelf)
             {
                 select_Build = hit.collider.gameObject.name;
                 select_Build_Position = hit.collider.gameObject.transform.position;
-                Tower_Click(true);
+                if(hit.collider.gameObject.GetComponent<Tower>().isOn) Tower_Click(true);
             }
-            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.CompareTag("Fence") && !Btn_Fence_Panel.activeSelf)
+            else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.CompareTag("Fence") && !Btn_Tower_Panel.activeSelf && !Btn_Fence_Panel.activeSelf)
             {
                 select_Build = hit.collider.gameObject.name;
                 select_Build_Position = hit.collider.gameObject.transform.position;
-                Fence_Click(true);
+                if(hit.collider.gameObject.GetComponent<Fence>().isOn) Fence_Click(true);
 
             }
         }
