@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         monsterAmountText = GameObject.Find("MonsterAmountText");
         monsterAmount = GameObject.Find("MonsterAmount");
         monsterAmountText.SetActive(false);
+        Resumed();
 
         string jsonText = jsonFile.text;
         rankingData = JsonUtility.FromJson<RankingData>(jsonText);
@@ -101,6 +102,10 @@ public class GameManager : MonoBehaviour
 
     public void Exit(){
         Application.Quit();
+    }
+
+    private void Resumed() {
+        Time.timeScale = 1f;
     }
 
     public int GetDay(){
