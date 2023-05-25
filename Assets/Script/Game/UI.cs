@@ -50,7 +50,7 @@ public class UI : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
-    public void ChangeToLoadingScene(){  //로딩씬으로 가는 함수
+    public void ChangeToLoadingScene(){  //게임씬으로 가는 함수
         SceneManager.LoadScene("GameScene");
     }
 
