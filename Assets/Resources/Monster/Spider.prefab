@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8587945837029673230}
   - component: {fileID: 5192109405394657417}
+  - component: {fileID: 6894043849237782407}
   m_Layer: 0
   m_Name: range
   m_TagString: Untagged
@@ -46,6 +47,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: 0
   delay: 0
+  bullet: {fileID: 0}
+--- !u!65 &6894043849237782407
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340943293255947517}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 1, z: 1.2}
+  m_Center: {x: 0, y: 0, z: 0.5}
 --- !u!1 &3742538713713097212
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +222,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.5
+  m_Radius: 1
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

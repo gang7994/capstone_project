@@ -70,7 +70,7 @@ public class Monster_old : MonoBehaviour
         
         target = house.transform;
         navi.velocity = Vector3.zero;
-        navi.stoppingDistance = 2f;
+        navi.stoppingDistance = 1f;
         damage = 10;
     }
     void Update()
@@ -95,7 +95,33 @@ public class Monster_old : MonoBehaviour
         }
         else
         {
-            target = target_list[0].transform;
+            while (target_list.Count != 0)
+            {
+                if (target_list[0].CompareTag("TowerAttack"))
+                {
+                    if (target_list[0].GetComponentInParent<Tower>().hp < 1)
+                    {
+                        target_list.Remove(target_list[0]);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+            if (target_list.Count == 0)
+            {
+                target = house.transform;
+            }
+            else
+            {
+                target = target_list[0].transform;
+            }
         }
         Delay += Time.deltaTime;
         if (isAttack)  // 공격중일때 멈추기
