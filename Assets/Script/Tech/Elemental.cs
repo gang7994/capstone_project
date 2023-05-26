@@ -45,8 +45,8 @@ public class Elemental : MonoBehaviour
     public float ice_duration       = 3.0f;
     public float earth_duration     = 3.0f;
     //public
-    public int tower_max = 3;
-    public int fence_max = 5;
+    public int tower_max = 5;
+    public int fence_max = 10;
     public int upgrade_fence = 0;
     public float tower_atkRange = 30.0f;
     public float character_speed = 5.0f;
@@ -86,7 +86,6 @@ public class Elemental : MonoBehaviour
 
     //weapon
     public bool earth_tower_all_bind = false; //Function 47 value
-    public bool fire_weapon_flamethrower = false; //Function 48 value
     public bool lightning_tower_shock = false;
     public bool ice_excution;
     public bool ice_blizzard = false;
@@ -322,13 +321,13 @@ public class Elemental : MonoBehaviour
     public void Public_Increase_Fence(){ //Function 21
         function21++;
         if(function21 == 1) {
-            fence_max += 1;
+            fence_max += 5;
         }
         else if(function21 == 2) {
-            fence_max += 2;
+            fence_max += 10;
         }
         else if(function21 == 3) {
-            fence_max += 4;
+            fence_max += 15;
         }
     }
 
@@ -518,15 +517,7 @@ public class Elemental : MonoBehaviour
     public void Earth_Tower_All_Bind(){// Function 47
         earth_tower_all_bind = true;
     }
-/*
-    public void Fire_Weapon_Flamethrower(){// Function 48
-        fire_weapon_flamethrower = true;
-    }
 
-    public void Lightning_Weapon_Mjolnir(){// Function 49
-
-    }
-    */
     public void Ice_Weapon_Blizzard(){// Function 51
         ice_blizzard = true;
     }

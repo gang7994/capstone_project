@@ -46,15 +46,15 @@ public class Ranking_Manager : MonoBehaviour
         {
             RankingEntry entry = ranking[i];
             if(i==0) {
-                if(entry.survivalDays !=0) ranking_content_1.GetComponent<Text>().text = entry.survivalDays + "   |  " + entry.monstersKilled;
+                if(entry.survivalDays !=0) ranking_content_1.GetComponent<Text>().text = entry.survivalDays + "   |   " + entry.monstersKilled;
                 else ranking_content_1.GetComponent<Text>().text = "";
             }
             else if(i==1) {
-                if(entry.survivalDays !=0) ranking_content_2.GetComponent<Text>().text = entry.survivalDays + "   |  " + entry.monstersKilled;
+                if(entry.survivalDays !=0) ranking_content_2.GetComponent<Text>().text = entry.survivalDays + "   |   " + entry.monstersKilled;
                 else ranking_content_2.GetComponent<Text>().text = "";
             }
             else if(i==2) {
-                if(entry.survivalDays !=0) ranking_content_3.GetComponent<Text>().text = entry.survivalDays + "   |  " + entry.monstersKilled;
+                if(entry.survivalDays !=0) ranking_content_3.GetComponent<Text>().text = entry.survivalDays + "   |   " + entry.monstersKilled;
                 else ranking_content_3.GetComponent<Text>().text = "";
             }
         }
