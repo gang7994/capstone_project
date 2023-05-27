@@ -31,7 +31,7 @@ public class Elemental : MonoBehaviour
     public float earth_tower_MaxHp = 0;             //Function 7 value
 
     //weapon
-    public float fire_character_damage;
+    public float fire_character_damage = 0;
     public float lightning_character_atkSpeed;
     public float ice_character_armour;
     public float earth_character_MaxHp;

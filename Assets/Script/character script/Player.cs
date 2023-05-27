@@ -33,7 +33,8 @@ public class Player : MonoBehaviour
     int[] Type = new int[5];
     int selectNumber;
     
-    public float weapon_atkVal = 10.0f; 
+    public float weapon_defaultAtkVal = 10.0f; //디폴트
+    public float weapon_atkVal;
 
 
 
@@ -104,16 +105,7 @@ public class Player : MonoBehaviour
             isAttackReady = 0.2f < attackDelay;
             attack_time = 1.0f - MainCamera.GetComponent<Elemental>().lightning_character_atkSpeed < attackDelay;
         }
-        /**if (isSword)
-        {
-            isAttackReady = 0.4f < attackDelay;
-            attack_time = 0.7f < attackDelay;
-        }
-        else
-        {
-            isAttackReady = 0.5f < attackDelay;
-            attack_time = 1.2f < attackDelay;
-        }**/
+
         SetValue();
         GetInput();
         Move();
@@ -203,12 +195,6 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        //if (is_top)
-        //    moveVec = Vector3.zero;
-        //else
-        //{
-            
-        //}
         if (isAttackReady){
             transform.position += moveVec * GameObject.Find("Main Camera").GetComponent<Elemental>().character_speed * Time.deltaTime;
             transform.LookAt(transform.position + moveVec);
@@ -224,6 +210,7 @@ public class Player : MonoBehaviour
     {
         if(isGun)   // 총 발사
         {
+            weapon_atkVal = weapon_defaultAtkVal;
             if (isAttackKetInput && isAttackReady && attack_time)
             {
                 float all = empty_weight + fire_weight + lightning_weight + ice_weight + earth_weight;
@@ -238,6 +225,7 @@ public class Player : MonoBehaviour
                 else if (ran <= empty_weight+fire_weight)
                 {
                     bullet.GetComponent<Bullet>().property_type = "Fire";
+                    weapon_atkVal += (1*fire_damage);
                     attack_type = 1;
                     List<int> fireCritical = new List<int> {0,0,0,0,0};
                     for(int i=0; i<GameObject.Find("Main Camera").GetComponent<Elemental>().fire_weapon_critical;i++) fireCritical[i] = 1;
