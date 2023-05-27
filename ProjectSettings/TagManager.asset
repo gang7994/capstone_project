@@ -16,6 +16,9 @@ TagManager:
   - base
   - TowerShoot
   - Monster_Bullet
+  - Gold1
+  - Gold2
+  - Ghost_Bullet
   layers:
   - Default
   - TransparentFX

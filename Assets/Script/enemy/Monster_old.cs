@@ -27,6 +27,7 @@ public class Monster_old : MonoBehaviour
     public bool earth_stop = false;
     public bool isBoss;
     public bool Attack_Type_range;
+    public float droptype;
     Color meshColor;
 
     public List<Collider> target_list = new List<Collider>();
@@ -72,6 +73,7 @@ public class Monster_old : MonoBehaviour
         navi.velocity = Vector3.zero;
         navi.stoppingDistance = 1f;
         damage = 10;
+        curHealth = maxHealth;
     }
     void Update()
     {
@@ -239,8 +241,15 @@ public class Monster_old : MonoBehaviour
             target = null;
             Destroy(gameObject, 3);
             StartCoroutine("Die");
+            if(droptype == 1)
+            {
+                coinPrefab = GameObject.Find("CoinGold1");
+            }
+            else
+            {
+                coinPrefab = GameObject.Find("CoinGold2");
+            }
             
-            coinPrefab = GameObject.Find("CoinGold");
             GameObject instance = Instantiate(coinPrefab);
             Vector3 pos = this.gameObject.transform.position;
             instance.transform.position = pos;

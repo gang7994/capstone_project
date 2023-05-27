@@ -61,7 +61,15 @@ public class Monster_hit : MonoBehaviour
                     anims.SetBool("isDamage", true);
                     GetComponentInParent<Monster_old>().curHealth -= other.gameObject.GetComponent<Bullet>().bulletAtk;
                     StartCoroutine(GetComponentInParent<Monster_old>().OnDamage(reactVec));
-                    Destroy(other.gameObject);
+                    if (GetComponentInParent<Monster_old>().isBoss)  // 처형 보스 체력비례 데미지
+                    {
+                        GetComponentInParent<Monster_old>().curHealth -= (GetComponentInParent<Monster_old>().maxHealth) / 10;
+                    }
+                    else
+                    {
+                        Destroy(other.gameObject);
+                    }
+                    
                     
                     GetComponentInParent<Monster_old>().Earth_Damage_Effect();
                 }
@@ -109,7 +117,7 @@ public class Monster_hit : MonoBehaviour
                         GetComponentInParent<Monster_old>().frozen = true;
                     }
                     if(GetComponentInParent<Monster_old>().freeze && GameObject.Find("Main Camera").GetComponent<Elemental>().ice_excution){
-                        GetComponentInParent<Monster_old>().curHealth = 0;
+                        GetComponentInParent<Monster_old>().curHealth = 0;  // 얼음 처형 보스 추가해야함
                         Debug.Log("처형");
                     }
                     anims.SetBool("isDamage", true);

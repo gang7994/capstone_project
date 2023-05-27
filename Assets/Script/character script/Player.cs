@@ -596,10 +596,17 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "Gold")
+        if (collision.tag == "Gold1")
         {
             Destroy(collision.gameObject);
-            GameObject.Find("Main Camera").GetComponent<GameManager>().money += (int)(1000*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().character_moneyLuck));
+            int temp = Random.Range(0, 201) + 700;
+            GameObject.Find("Main Camera").GetComponent<GameManager>().money += (int)(temp*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().character_moneyLuck));
+        }
+        if (collision.tag == "Gold2")
+        {
+            Destroy(collision.gameObject);
+            int temp = Random.Range(0, 201) + 900;
+            GameObject.Find("Main Camera").GetComponent<GameManager>().money += (int)(temp * (1 + GameObject.Find("Main Camera").GetComponent<Elemental>().character_moneyLuck));
         }
     }
 

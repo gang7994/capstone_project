@@ -281,6 +281,7 @@ MonoBehaviour:
   earth_stop: 0
   isBoss: 0
   Attack_Type_range: 1
+  droptype: 2
   target_list: []
   normal_monster_state:
   - {fileID: 2100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
