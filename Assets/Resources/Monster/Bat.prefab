@@ -304,6 +304,7 @@ MonoBehaviour:
   earth_stop: 0
   isBoss: 0
   Attack_Type_range: 0
+  droptype: 1
   target_list: []
   normal_monster_state:
   - {fileID: 2100002, guid: 7d54c7374fa611346bbfbe7f39f1508e, type: 3}
@@ -406,3 +407,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 0
+  delay: 0
+  bullet: {fileID: 0}
