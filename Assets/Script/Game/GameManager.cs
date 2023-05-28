@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
     bool isGameover = false;
 
     private bool isNight = false;
+    
+    private AudioSource[] BGM;
+    private AudioSource Day;
+    private AudioSource Night;
+
     private int monsterNum = 0;
     private int day = 1;
     private int kill_count = 0;
@@ -36,6 +41,9 @@ public class GameManager : MonoBehaviour
 
         string jsonText = jsonFile.text;
         rankingData = JsonUtility.FromJson<RankingData>(jsonText);
+        BGM = gameObject.GetComponents<AudioSource>();
+        Day = BGM[0];
+        Night = BGM[1];
     }
 
     void Update(){
@@ -47,8 +55,16 @@ public class GameManager : MonoBehaviour
     void SetIsNight(bool isNight){
         this.isNight = isNight;
 
-        if (this.isNight == true) NightEvent();
-        else DayEvent();
+        if (this.isNight == true) {
+            NightEvent();
+            Day.Stop();
+            Night.Play();
+        }
+        else {
+            DayEvent();
+            Night.Stop();
+            Day.Play();
+        }
     }
 
     private void DayEvent()

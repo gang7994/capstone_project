@@ -11,6 +11,11 @@ public class DayManager : MonoBehaviour
     public GameObject night_text;
     public GameObject night_Number; //남은 시간 UI 텍스트
     public GameObject blizzard;
+    private AudioSource[] BGM;
+    private AudioSource Day;
+    private AudioSource Night;
+
+
 
 
     GameManager gameManager;
@@ -45,6 +50,8 @@ public class DayManager : MonoBehaviour
         GetComponent<Image>().fillAmount = 0;
         night_text.SetActive(false);
         night_Number.SetActive(false);
+        BGM = GameObject.Find("Main Camera").GetComponents<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -78,6 +85,7 @@ public class DayManager : MonoBehaviour
         GetComponent<Image>().fillAmount = 0; 
         if (isNight) // 밤일때
         {
+            
             leftTime = roundTime;
             isStop = false;
             Daylight.GetComponent<Light>().color = new Color(0, 0, 0, 255f);
@@ -89,6 +97,7 @@ public class DayManager : MonoBehaviour
         }
         else // 낮일때
         {
+            
             tech_manager.Tech_Button_Click();
             day += 1; 
             Number.GetComponent<Text>().text = day.ToString();      

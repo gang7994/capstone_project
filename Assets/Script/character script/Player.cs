@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public GameObject health_text;
     public GameObject blizzard;
     
-    public AudioSource audioSource;
+    public AudioSource[] audioSources;
     public GameObject MainCamera;
 
     GameObject earthShield;
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSources = GetComponents<AudioSource>();
         anim = GetComponentInChildren<Animator>();
     }
 
@@ -291,7 +291,7 @@ public class Player : MonoBehaviour
                     icicle2.GetComponent<Bullet>().fire(transform.forward,true);   
                 }
 
-                audioSource.Play();
+                audioSources[attack_type].Play();
                 
             }
             else if (attack_time)
