@@ -4,40 +4,45 @@ using UnityEngine;
 
 public class monster_attackcheck : MonoBehaviour
 {
+    public bool base_attack;
     // Start is called before the first frame update
     void Start()
     {
-        
+        base_attack = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        base_attack = GetComponentInParent<Monster_old>().base_attack;
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")  // 타겟이 감지범위 안에 들어왔을때 이미 리스트에 있는지 체크하고 리스트에 넣음
         {
-            if (GetComponentInParent<Monster_old>().isChase)
+            if (!base_attack)
             {
-                /**if(GetComponentInParent<Monster_old>().target == null)
+                if (GetComponentInParent<Monster_old>().isChase)
                 {
-                    GetComponentInParent<Monster_old>().isAttack = false;
-                }**/
-                bool check_temp = true;
-                foreach (Collider temp in GetComponentInParent<Monster_old>().target_list)
-                {
-                    if (other == temp)
+                    /**if(GetComponentInParent<Monster_old>().target == null)
                     {
-                        check_temp = false;
+                        GetComponentInParent<Monster_old>().isAttack = false;
+                    }**/
+                    bool check_temp = true;
+                    foreach (Collider temp in GetComponentInParent<Monster_old>().target_list)
+                    {
+                        if (other == temp)
+                        {
+                            check_temp = false;
+                        }
+                    }
+                    if (check_temp)
+                    {
+                        GetComponentInParent<Monster_old>().target_list.Add(other);
                     }
                 }
-                if (check_temp)
-                {
-                    GetComponentInParent<Monster_old>().target_list.Add(other);
-                }
             }
+            
 
         }
         if (other.transform.tag == "TowerAttack")
@@ -59,7 +64,7 @@ public class monster_attackcheck : MonoBehaviour
             }
 
         }
-        if (other.transform.tag == "base")
+        if (other.transform.tag == "FenceAttack")
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
@@ -78,6 +83,25 @@ public class monster_attackcheck : MonoBehaviour
             }
 
         }
+        /**if (other.transform.tag == "base")
+        {
+            if (GetComponentInParent<Monster_old>().isChase)
+            {
+                bool check_temp = true;
+                foreach (Collider temp in GetComponentInParent<Monster_old>().target_list)
+                {
+                    if (other == temp)
+                    {
+                        check_temp = false;
+                    }
+                }
+                if (check_temp)
+                {
+                    GetComponentInParent<Monster_old>().target_list.Add(other);
+                }
+            }
+
+        }**/
 
 
     }

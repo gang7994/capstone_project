@@ -116,7 +116,7 @@ MonoBehaviour:
   damage: 10
   bullet_speed: 7
   range: 5
-  attack_type: 0
+  attack_type: 2
   monster: {fileID: 0}
 --- !u!54 &-8063443727117800356
 Rigidbody:

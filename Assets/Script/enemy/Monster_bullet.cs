@@ -38,13 +38,23 @@ public class Monster_bullet : MonoBehaviour
         {
             if (monster != null)
             {
+                if (other.gameObject.CompareTag("Player"))
+                {
+                    other.GetComponent<Player>().boss_slow_on = true;
+                    Destroy(gameObject);
+                }
+            }
+        }else if (attack_type == 2)
+        {
+            if (monster != null)
+            {
                 if (monster.GetComponentInParent<Monster_old>().target != null)
                 {
                     if (other.gameObject.CompareTag(monster.GetComponentInParent<Monster_old>().target.gameObject.tag))
                     {
                         if (other.gameObject.CompareTag("Player"))
                         {
-                            other.GetComponent<Player>().boss_slow_on = true;
+                            monster.GetComponentInParent<Monster_old>().AttackOn();
                             Destroy(gameObject);
                         }
                     }
@@ -68,6 +78,12 @@ public class Monster_bullet : MonoBehaviour
                         if (other.gameObject.CompareTag("TowerAttack"))
                         {
                             Debug.Log("Ÿ�� ���� ��");
+                            monster.GetComponentInParent<Monster_old>().AttackOn();
+                            Destroy(gameObject);
+                        }
+                        if (other.gameObject.CompareTag("FenceAttack"))
+                        {
+                            Debug.Log("펜스공격");
                             monster.GetComponentInParent<Monster_old>().AttackOn();
                             Destroy(gameObject);
                         }

@@ -84,6 +84,15 @@ public class Attack_range : MonoBehaviour
                                 }
                                 if (delay > 0.3f)
                                 {
+                                    if (other.gameObject.CompareTag("FenceAttack"))
+                                    {
+                                        Debug.Log("∆ÊΩ∫ æÓ≈√ µ ");
+                                        GetComponentInParent<Monster_old>().AttackOn();
+                                        attack = false;
+                                    }
+                                }
+                                if (delay > 0.3f)
+                                {
                                     if (other.gameObject.CompareTag("base"))
                                     {
                                         Debug.Log("∫£¿ÃΩ∫ æÓ≈√ µ ");
@@ -119,6 +128,15 @@ public class Attack_range : MonoBehaviour
                                     if (other.gameObject.CompareTag("TowerAttack"))
                                     {
                                         Debug.Log("≈∏øˆ æÓ≈√ µ ");
+                                        GetComponentInParent<Monster_old>().AttackOn();
+                                        attack = false;
+                                    }
+                                }
+                                if (delay > 0.3f)
+                                {
+                                    if (other.gameObject.CompareTag("FenceAttack"))
+                                    {
+                                        Debug.Log("∆ÊΩ∫ æÓ≈√ µ ");
                                         GetComponentInParent<Monster_old>().AttackOn();
                                         attack = false;
                                     }

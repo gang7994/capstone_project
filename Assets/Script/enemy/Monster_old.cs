@@ -60,6 +60,7 @@ public class Monster_old : MonoBehaviour
     public GameObject boss_skil_bullet1;
     public GameObject boss_skil_bullet2;
     public int boss_type;
+    public bool base_attack;
     public void Awake()
     {
         house = GameObject.Find("Baker_house");
@@ -93,6 +94,14 @@ public class Monster_old : MonoBehaviour
     }
     void Update()
     {
+        if(target == house.transform && isAttack)
+        {
+            base_attack = true;
+        }
+        else
+        {
+            base_attack = false;
+        }
         if (!boss_skil_on)
         {
             Delay += Time.deltaTime;
@@ -153,6 +162,17 @@ public class Monster_old : MonoBehaviour
                 if (target_list[0].CompareTag("TowerAttack"))
                 {
                     if (target_list[0].GetComponentInParent<Tower>().hp < 1)
+                    {
+                        target_list.Remove(target_list[0]);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else if (target_list[0].CompareTag("FenceAttack"))
+                {
+                    if (target_list[0].GetComponentInParent<Fence>().hp < 1)
                     {
                         target_list.Remove(target_list[0]);
                     }
@@ -432,6 +452,16 @@ public class Monster_old : MonoBehaviour
                     }
                     
                     Debug.Log("타워 데미지 10");
+                }
+                else if (target.gameObject.CompareTag("FenceAttack"))
+                {
+                    if (target.GetComponentInParent<Fence>().hp - damage > 0)
+                    {
+                        target.GetComponentInParent<Fence>().hp -= damage;
+                    }
+                    else target.GetComponentInParent<Fence>().hp = 0;
+
+                    Debug.Log("펜스 데미지 10");
                 }
                 else if (target.gameObject.CompareTag("base"))
                 {
