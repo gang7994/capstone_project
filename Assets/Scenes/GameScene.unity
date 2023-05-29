@@ -71949,7 +71949,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695968011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1196154, y: 16.491096, z: -12.653911}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -87039,7 +87039,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1002011443, guid: fc5ee09f4b729c849b3e3adc9b072e0a, type: 3}
       propertyPath: boss_skil_1_time
-      value: 25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4365790775111041173, guid: fc5ee09f4b729c849b3e3adc9b072e0a, type: 3}
       propertyPath: m_Name
@@ -87047,7 +87047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4365790775111041173, guid: fc5ee09f4b729c849b3e3adc9b072e0a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4365790775111081141, guid: fc5ee09f4b729c849b3e3adc9b072e0a, type: 3}
       propertyPath: m_RootOrder

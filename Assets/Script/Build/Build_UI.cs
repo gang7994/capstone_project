@@ -54,6 +54,9 @@ public class Build_UI : MonoBehaviour
             GameObject.Find("Building_Inspector").GetComponent<Build_UI>().rotate_count = 0;
             GameObject.Find("Building_Inspector").GetComponent<Build_UI>().inclined = false;
             GameObject.Find("Building_Inspector").GetComponent<Build_UI>().horizontal = true;
+            rotate_count = 0;
+            inclined = false;
+            horizontal = true;
         }
     }
 
@@ -102,6 +105,7 @@ public class Build_UI : MonoBehaviour
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[((int)tower.transform.position.z / 3) + 6,(int)tower.transform.position.x / 3 + 10] = 1;
                 tower.GetComponent<Tower>().isOn = true;
+                tower_prefab.GetComponent<Tower_Move>().IsBuild_Tower();
             }
         }
         else if (fence_prefab.activeSelf == true)
@@ -119,6 +123,7 @@ public class Build_UI : MonoBehaviour
                     GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
                     GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[Convert.ToInt32(fence.transform.position.z) / 3 + 6, Convert.ToInt32(fence.transform.position.x) / 3 + 10] = 1;
                     fence.GetComponent<Fence>().isOn = true;
+                    fence_prefab.GetComponent<Fence_Move>().IsBuild_Fence();
                 }
                 
                 else {
@@ -134,6 +139,7 @@ public class Build_UI : MonoBehaviour
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().fence_horizontal_position[Convert.ToInt32(fence.transform.position.z+1.5) / 3 + 6, Convert.ToInt32(fence.transform.position.x) / 3 + 10] = 1;
                         fence.GetComponent<Fence>().isOn = true;
+                        fence_prefab.GetComponent<Fence_Move>().IsBuild_Fence();
                     }
                     else{
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().AddFence();
@@ -147,6 +153,8 @@ public class Build_UI : MonoBehaviour
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_num += 1;
                         GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().fence_vertical_position[Convert.ToInt32(fence.transform.position.z / 3) + 6, Convert.ToInt32(fence.transform.position.x+1.5) / 3 + 10] = 1;
                         fence.GetComponent<Fence>().isOn = true;
+                        fence_prefab.GetComponent<Fence_Move>().IsBuild_Fence();
+
                     }
                     
                 }
@@ -154,13 +162,6 @@ public class Build_UI : MonoBehaviour
             
         }
 
-        fence_prefab.SetActive(false);
-        tower_prefab.SetActive(false);
-        move_button.SetActive(false);
-        build_button.SetActive(false);
-        rotate_button.SetActive(false);
-        rotate_count = 0;
-        inclined = false;
-        horizontal = true;
+        
     } 
 }
