@@ -19,6 +19,9 @@ TagManager:
   - Gold1
   - Gold2
   - Ghost_Bullet
+  - Ghost_Skil
+  - Spider_Skil1
+  - Spider_Skil2
   layers:
   - Default
   - TransparentFX

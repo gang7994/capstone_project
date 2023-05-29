@@ -49,6 +49,14 @@ public class Monster_old : MonoBehaviour
     public NavMeshAgent navi;
     public Animator anim;
     private GameManager gameManager;
+    public float boss_skil_1;
+    public float boss_skil_2;
+    public bool boss_skil_on;
+    public float boss_skil_1_time;
+    public float boss_skil_2_time;
+    public GameObject boss_skil_bullet1;
+    public GameObject boss_skil_bullet2;
+    public int boss_type;
     public void Awake()
     {
         house = GameObject.Find("Baker_house");
@@ -59,11 +67,13 @@ public class Monster_old : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         gameManager = GameObject.Find("Main Camera").GetComponent<GameManager>();
         isAttack = false;
-        Delay = 0;
+        Delay = 2;
+        boss_skil_1 = 0;
+        boss_skil_2 = 0;
+        boss_skil_on = false;
         isAttackDelay = false;
         target_check = false;
         meshColor = materi.color;
-        
         Invoke("ChaseStart", 2);
     }
     private void Start()
@@ -77,6 +87,41 @@ public class Monster_old : MonoBehaviour
     }
     void Update()
     {
+        if (!boss_skil_on)
+        {
+            Delay += Time.deltaTime;
+        }
+        if (isBoss)
+        {
+            if (!boss_skil_on)
+            {
+                boss_skil_1 += Time.deltaTime;
+                boss_skil_2 += Time.deltaTime;
+            }
+            
+        }
+        
+        if(boss_skil_1 > boss_skil_1_time)
+        {
+            if (!boss_skil_on && !isAttackDelay)
+            {
+                boss_skil_1 = 0;
+                boss_skil_on = true;
+                Delay = 0;
+                boss_skil1();
+            }
+
+        }
+        if(boss_skil_2 > boss_skil_2_time)
+        {
+            if (!boss_skil_on && !isAttackDelay)
+            {
+                boss_skil_2 = 0;
+                boss_skil_on = true;
+                Delay = 0;
+                boss_skil2();
+            }
+        }
         if (isAttack)
         {
             anim.SetBool("isMove", false);
@@ -125,7 +170,8 @@ public class Monster_old : MonoBehaviour
                 target = target_list[0].transform;
             }
         }
-        Delay += Time.deltaTime;
+
+        
         if (isAttack)  // 공격중일때 멈추기
         {
             navi.isStopped = true;
@@ -204,6 +250,75 @@ public class Monster_old : MonoBehaviour
             navi.velocity = Vector3.zero;
         }
 
+    }
+    void boss_skil1()
+    {
+        anim.SetBool("isSkil", true);
+        if (boss_type == 1)
+        {
+            GameObject temp1 = Instantiate(boss_skil_bullet1, transform.position, Quaternion.identity);
+            temp1.GetComponent<Monster_bullet>().monster = gameObject;
+            temp1.GetComponent<Monster_bullet>().fire(transform.forward);
+        }
+        else if(boss_type == 2)
+        {
+            GameObject temp1 = Instantiate(boss_skil_bullet1, transform.position, Quaternion.identity);
+            GameObject temp2 = Instantiate(boss_skil_bullet1, transform.position, Quaternion.identity);
+            GameObject temp3 = Instantiate(boss_skil_bullet1, transform.position, Quaternion.identity);
+            GameObject temp4 = Instantiate(boss_skil_bullet1, transform.position, Quaternion.identity);
+            GameObject temp5 = Instantiate(boss_skil_bullet1, transform.position, Quaternion.identity);
+            temp1.transform.Rotate(new Vector3(0f, temp1.transform.rotation.y, 0f));
+            temp2.transform.Rotate(new Vector3(0f, temp2.transform.rotation.y + 20f, 0f));
+            temp3.transform.Rotate(new Vector3(0f, temp3.transform.rotation.y + 40f, 0f));
+            temp4.transform.Rotate(new Vector3(0f, temp4.transform.rotation.y  -20f, 0f));
+            temp5.transform.Rotate(new Vector3(0f, temp5.transform.rotation.y  -40f, 0f));
+
+            temp1.GetComponent<Monster_bullet>().monster = gameObject;
+            temp2.GetComponent<Monster_bullet>().monster = gameObject;
+            temp3.GetComponent<Monster_bullet>().monster = gameObject;
+            temp4.GetComponent<Monster_bullet>().monster = gameObject;
+            temp5.GetComponent<Monster_bullet>().monster = gameObject;
+            temp1.GetComponent<Monster_bullet>().fire(transform.forward);
+            temp2.GetComponent<Monster_bullet>().fire(transform.forward);
+            temp3.GetComponent<Monster_bullet>().fire(transform.forward);
+            temp4.GetComponent<Monster_bullet>().fire(transform.forward);
+            temp5.GetComponent<Monster_bullet>().fire(transform.forward);
+        }
+        Invoke("skil_end1", 1);
+        
+    }
+    
+    void boss_skil2()
+    {
+        anim.SetBool("isSkil", true);
+        if (boss_type == 1)
+        {
+
+            for(float i = 0;i < 360f; i += 20)
+            {
+                GameObject temp = Instantiate(boss_skil_bullet2, transform.position, Quaternion.Euler(0, i, 0));
+                temp.GetComponent<Monster_bullet>().monster = gameObject;
+                temp.GetComponent<Monster_bullet>().fire(transform.forward);
+            }
+
+        }else if(boss_type == 2)
+        {
+            GameObject.Find("MainCharacter").GetComponent<Player>().boss_skil_on = true;
+        }
+        Invoke("skil_end2", 1);
+        
+    }
+    void skil_end1()
+    {
+        anim.SetBool("isSkil", false);
+        boss_skil_1 = 0;
+        boss_skil_on = false;
+    }
+    void skil_end2()
+    {
+        anim.SetBool("isSkil", false);
+        boss_skil_2 = 0;
+        boss_skil_on = false;
     }
     void Unfrozen(){
         rd.materials = normal_monster_state;

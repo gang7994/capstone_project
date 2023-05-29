@@ -285,10 +285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fbf080e7d61d9345b944839e4119033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  curHealth: 100
+  maxHealth: 50
+  curHealth: 50
   monster_speed: 2
-  damage: 10
+  damage: 5
   house: {fileID: 0}
   Attack_range: {fileID: 7489988819297804879}
   coinPrefab: {fileID: 0}

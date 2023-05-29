@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss_Bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: eecb4f4e0bf0aee45a92a52e9dec8aeb, type: 3}
+      propertyPath: m_TagString
+      value: Ghost_Skil
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: eecb4f4e0bf0aee45a92a52e9dec8aeb, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -96,6 +100,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: eecb4f4e0bf0aee45a92a52e9dec8aeb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: eecb4f4e0bf0aee45a92a52e9dec8aeb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: eecb4f4e0bf0aee45a92a52e9dec8aeb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: eecb4f4e0bf0aee45a92a52e9dec8aeb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -163,6 +179,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: eecb4f4e0bf0aee45a92a52e9dec8aeb, type: 3}
   m_PrefabInstance: {fileID: 1100773256502227786}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &71160013865866461
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100773256502261226}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!23 &3255844803526605607
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -205,3 +235,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2484577010817788062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100773256502261226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057598758c4fde349ab02b7190f1e46e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  bullet_speed: 7
+  range: 5
+  attack_type: 0
+  monster: {fileID: 0}

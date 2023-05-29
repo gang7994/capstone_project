@@ -262,8 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fbf080e7d61d9345b944839e4119033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  curHealth: 100
+  maxHealth: 90
+  curHealth: 90
   monster_speed: 2
   damage: 10
   house: {fileID: 0}

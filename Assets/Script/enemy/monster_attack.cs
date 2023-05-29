@@ -23,39 +23,18 @@ public class monster_attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        earth_stop = GetComponentInParent<Monster_old>().earth_stop;
+        /**earth_stop = GetComponentInParent<Monster_old>().earth_stop;
         if (earth_stop)
         {
             Attack_Check = false;
+        }**/
+        if (Attack_Check)
+        {
+            GetComponentInParent<Monster_old>().isAttack = true;
         }
         else
         {
-            if (GetComponentInParent<Monster_old>().target != null)
-            {
-                if (target != null)
-                {
-                    if (target.transform != GetComponentInParent<Monster_old>().target)
-                    {
-                        target = null;
-                    }
-                }
-
-            }
-
-            if (GetComponentInParent<Monster_old>().isChase)
-            {
-                if (target != null)
-                {
-                    GetComponentInParent<Monster_old>().isAttack = true;
-                    Attack_Check = true;
-                }
-                else
-                {
-                    GetComponentInParent<Monster_old>().isAttack = false;
-                    Attack_Check = false; ;
-                }
-
-            }
+            GetComponentInParent<Monster_old>().isAttack = false;
         }
 
         
@@ -63,129 +42,130 @@ public class monster_attack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)   // 몬스터 공격 사정범위 안에 타겟이 들어왔을 경우 공격함, 현재 문제가 있음 고쳐야함
     {
-        if(other.gameObject.CompareTag("Player")|| other.gameObject.CompareTag("TowerAttack")|| other.gameObject.CompareTag("base"))
+        if (other.transform.tag == "Player")  // 타겟이 감지범위 안에 들어왔을때 이미 리스트에 있는지 체크하고 리스트에 넣음
+        {
+            bool check_temp = true;
+            foreach (Collider temp in attack_list)
+            {
+                if (other == temp)
+                {
+                    check_temp = false;
+                    break;
+                }
+            }
+            if (check_temp)
+            {
+                attack_list.Add(other);
+                if (GetComponentInParent<Monster_old>().target == other)
+                {
+                    Attack_Check = true;
+                    target = other;
+                }
+            }
+            target_check();
+
+        }
+        if (other.transform.tag == "TowerAttack")
+        {
+            bool check_temp = true;
+            foreach (Collider temp in attack_list)
+            {
+                if (other == temp)
+                {
+                    check_temp = false;
+                    break;
+                }
+            }
+            if (check_temp)
+            {
+                attack_list.Add(other);
+                if (GetComponentInParent<Monster_old>().target == other)
+                {
+                    Attack_Check = true;
+                    target = other;
+                }
+            }
+            target_check();
+
+        }
+        if (other.transform.tag == "base")
+        {
+            bool check_temp = true;
+            foreach (Collider temp in attack_list)
+            {
+                if (other == temp)
+                {
+                    check_temp = false;
+                    break;
+                }
+            }
+            if (check_temp)
+            {
+                attack_list.Add(other);
+                if (GetComponentInParent<Monster_old>().target == other)
+                {
+                    Attack_Check = true;
+                    target = other;
+                }
+            }
+            target_check();
+
+        }
+        /**if (other.gameObject.CompareTag("Player")|| other.gameObject.CompareTag("TowerAttack")|| other.gameObject.CompareTag("base"))
         {
             if(GetComponentInParent<Monster_old>().target == other.transform)
             {
                 target = other;
             }
-        }
-        
-        
-        /**if (other.gameObject.tag == "Player")
-        {
-            if (GetComponentInParent<Monster_old>().target.gameObject.tag == "Player")
-            {
-                if (GetComponentInParent<Monster_old>().isChase)
-                {
-                    GetComponentInParent<Monster_old>().isAttack = true;
-                    Attack_Check = true;
-                }
-                
-            }
-        }
-        if (other.gameObject.tag == "TowerAttack")
-        {
-            if (GetComponentInParent<Monster_old>().target.gameObject.tag == "TowerAttack")
-            {
-                if (GetComponentInParent<Monster_old>().isChase)
-                {
-                    GetComponentInParent<Monster_old>().isAttack = true;
-                    Attack_Check = true;
-                }
-            }
-        }
-        if (other.gameObject.tag == "base")
-        {
-            if (GetComponentInParent<Monster_old>().target.gameObject.tag == "base")
-            {
-                if (GetComponentInParent<Monster_old>().isChase)
-                {
-                    GetComponentInParent<Monster_old>().isAttack = true;
-                    Attack_Check = true;
-                }
-            }
         }**/
+
     }
 
-    /**private void OnTriggerStay(Collider other)
+    void target_check()
     {
-        if (other.gameObject.tag == "Player")
+        bool check_temp = false;
+        foreach(Collider temp in attack_list)
         {
-            if (GetComponentInParent<Monster_old>().target != null)
+            foreach(Collider temp2 in GetComponentInParent<Monster_old>().target_list)
             {
-                if (GetComponentInParent<Monster_old>().target.gameObject.tag == "Plyaer")
+                if(temp == temp2)
                 {
-                    if (GetComponentInParent<Monster_old>().isChase)
-                    {
-                        GetComponentInParent<Monster_old>().isAttack = true;
-                        Attack_Check = true;
-                    }
+                    check_temp = true;
+                    break;
                 }
             }
         }
-        if(other.gameObject.tag == "TowerAttack")
+        if (check_temp)
         {
-            if(GetComponentInParent<Monster_old>().target != null)
-            {
-                if (GetComponentInParent<Monster_old>().target.gameObject.tag == "TowerAttack")
-                {
-                    if (GetComponentInParent<Monster_old>().isChase)
-                    {
-                        GetComponentInParent<Monster_old>().isAttack = true;
-                        Attack_Check = true;
-                    }
-                }
-            }
-            
-
+            Attack_Check = true;
         }
-        if (other.gameObject.tag == "base")
+        else
         {
-            if (GetComponentInParent<Monster_old>().target != null)
-            {
-                if (GetComponentInParent<Monster_old>().target.gameObject.tag == "base")
-                {
-                    if (GetComponentInParent<Monster_old>().isChase)
-                    {
-                        GetComponentInParent<Monster_old>().isAttack = true;
-                        Attack_Check = true;
-                    }
-                }
-            }
-
-
+            Attack_Check = false;
         }
-    }**/
+    }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other == target)
+        foreach (Collider temp in attack_list)
+        {
+            if (other == temp)
+            {
+                attack_list.Remove(temp);
+                if(other = target)
+                {
+                    Attack_Check = false;
+                    target_check();
+                }
+                break;
+            }
+        }
+        target_check();
+        /**if (other == target)
         {
             target = null;
-        }
-        /**if (other.gameObject.tag == "Player")
-        {
-            if (GetComponentInParent<Monster_old>().target != null)
-            {
-                if (GetComponentInParent<Monster_old>().target.gameObject.tag == "Player")
-                {
-                    GetComponentInParent<Monster_old>().isAttack = false;
-                    Attack_Check = false;
-                }
-            }
-        }
-        if (other.gameObject.tag == "TowerAttack")
-        {
-            if (GetComponentInParent<Monster_old>().target != null) {
-                if (GetComponentInParent<Monster_old>().target.gameObject.tag == "TowerAttack")
-                {
-
-                    GetComponentInParent<Monster_old>().isAttack = false;
-                    Attack_Check = false;
-                }
-            }
         }**/
-        
+
+
     }
 }

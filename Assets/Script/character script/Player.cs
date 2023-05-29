@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     
     public float weapon_defaultAtkVal = 10.0f; //디폴트
     public float weapon_atkVal;
+    public bool boss_skil_on;
+    public bool boss_slow_on;
 
 
 
@@ -63,10 +65,16 @@ public class Player : MonoBehaviour
 
     Vector3 moveVec;
     Animator anim;
+    public float skil_delay;
+    public float skil_delay2;
+    public float slow_speed;
 
     void Start()
     {
-        Health = 100;
+        slow_speed = 1;
+        skil_delay = 0;
+        boss_skil_on = false;
+        Health = 500;
         Type[0] = 0;
         Type[1] = 0;
         Type[2] = 0;
@@ -97,6 +105,28 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (boss_skil_on)
+        {
+            skil_delay += Time.deltaTime;
+            if(skil_delay > 3)
+            {
+                boss_skil_on = false;
+            }
+        }
+        if (boss_slow_on)
+        {
+            skil_delay2 += Time.deltaTime;
+            if (skil_delay2 > 3)
+            {
+                boss_slow_on = false;
+            }
+            slow_speed = 0.5f;
+        }
+        else
+        {
+            slow_speed = 1;
+        }
+
         health_bar.GetComponent<Slider>().value = Health;
         health_text.GetComponent<Text>().text = Health.ToString();
         attackDelay += Time.deltaTime;
@@ -196,12 +226,25 @@ public class Player : MonoBehaviour
     void Move()
     {
         if (isAttackReady){
-            transform.position += moveVec * GameObject.Find("Main Camera").GetComponent<Elemental>().character_speed * Time.deltaTime;
-            transform.LookAt(transform.position + moveVec);
-            moveVec = stick_hAxis * Vector3.right + stick_vAxis * Vector3.forward + key_hAxis * Vector3.right + key_vAxis * Vector3.forward;
-            moveVec = moveVec.normalized;
+            if (boss_skil_on)
+            {
+                transform.position += - moveVec * GameObject.Find("Main Camera").GetComponent<Elemental>().character_speed * Time.deltaTime * slow_speed;
+                transform.LookAt(transform.position - moveVec);
+                moveVec = stick_hAxis * Vector3.right + stick_vAxis * Vector3.forward + key_hAxis * Vector3.right + key_vAxis * Vector3.forward;
+                moveVec = moveVec.normalized;
 
-            anim.SetBool("isMove", moveVec != Vector3.zero);
+                anim.SetBool("isMove", moveVec != Vector3.zero);
+            }
+            else
+            {
+                transform.position += moveVec * GameObject.Find("Main Camera").GetComponent<Elemental>().character_speed * Time.deltaTime * slow_speed;
+                transform.LookAt(transform.position + moveVec);
+                moveVec = stick_hAxis * Vector3.right + stick_vAxis * Vector3.forward + key_hAxis * Vector3.right + key_vAxis * Vector3.forward;
+                moveVec = moveVec.normalized;
+
+                anim.SetBool("isMove", moveVec != Vector3.zero);
+            }
+            
         }
         
     }

@@ -19028,6 +19028,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6415981153020859953, guid: d032f20cd8942234d8322fc2eacac245, type: 3}
+      propertyPath: boss_skil_1_time
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415981153020859953, guid: d032f20cd8942234d8322fc2eacac245, type: 3}
+      propertyPath: boss_skil_2_time
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 6500906291142131287, guid: d032f20cd8942234d8322fc2eacac245, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -19078,7 +19086,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6500906291142550135, guid: d032f20cd8942234d8322fc2eacac245, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559100938997721574, guid: d032f20cd8942234d8322fc2eacac245, type: 3}
+      propertyPath: m_Radius
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d032f20cd8942234d8322fc2eacac245, type: 3}
@@ -44163,6 +44175,10 @@ PrefabInstance:
     - target: {fileID: 5085128654992022194, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
       propertyPath: g_btn
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085128654992022194, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
+      propertyPath: Health
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5085128654992022194, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
       propertyPath: icicle
@@ -73070,7 +73086,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744559394}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 9.502298, y: 9.91815, z: 8.857442}
@@ -86369,6 +86385,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1002011443, guid: fc5ee09f4b729c849b3e3adc9b072e0a, type: 3}
+      propertyPath: boss_skil_1_time
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4365790775111041173, guid: fc5ee09f4b729c849b3e3adc9b072e0a, type: 3}
       propertyPath: m_Name
       value: SpiderBoss

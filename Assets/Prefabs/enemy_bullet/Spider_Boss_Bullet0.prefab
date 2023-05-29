@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8063443727117800356}
   m_Layer: 0
   m_Name: Spider_Boss_Bullet0
-  m_TagString: Ghost_Bullet
+  m_TagString: Spider_Skil2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057598758c4fde349ab02b7190f1e46e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 10
   bullet_speed: 7
   range: 3
   attack_type: 0

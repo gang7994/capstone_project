@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e64f70afaa65f4397186ec44da8067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
+  attack: 1
   delay: 0
   bullet: {fileID: 804069200893993269, guid: 7cc1543b589a83c4c816544253a7d558, type: 3}
 --- !u!1001 &6500906291142517975
@@ -506,7 +506,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!195 &1638606347458288288
 NavMeshAgent:
@@ -542,10 +542,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fbf080e7d61d9345b944839e4119033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 500
-  curHealth: 500
-  monster_speed: 2
-  damage: 10
+  maxHealth: 1500
+  curHealth: 1500
+  monster_speed: 3
+  damage: 30
   house: {fileID: 0}
   Attack_range: {fileID: 7655693873844963752}
   coinPrefab: {fileID: 0}
@@ -580,3 +580,11 @@ MonoBehaviour:
   monsters: []
   navi: {fileID: 0}
   anim: {fileID: 0}
+  boss_skil_1: 0
+  boss_skil_2: 0
+  boss_skil_on: 0
+  boss_skil_1_time: 5
+  boss_skil_2_time: 7
+  boss_skil_bullet1: {fileID: 1100773256502261226, guid: 7f1e8f49d3613db4ab1f4ba808b0a16b, type: 3}
+  boss_skil_bullet2: {fileID: 0}
+  boss_type: 2

@@ -21,10 +21,10 @@ public class monster_attackcheck : MonoBehaviour
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {
-                if(GetComponentInParent<Monster_old>().target == null)
+                /**if(GetComponentInParent<Monster_old>().target == null)
                 {
                     GetComponentInParent<Monster_old>().isAttack = false;
-                }
+                }**/
                 bool check_temp = true;
                 foreach (Collider temp in GetComponentInParent<Monster_old>().target_list)
                 {
@@ -41,6 +41,25 @@ public class monster_attackcheck : MonoBehaviour
 
         }
         if (other.transform.tag == "TowerAttack")
+        {
+            if (GetComponentInParent<Monster_old>().isChase)
+            {
+                bool check_temp = true;
+                foreach (Collider temp in GetComponentInParent<Monster_old>().target_list)
+                {
+                    if (other == temp)
+                    {
+                        check_temp = false;
+                    }
+                }
+                if (check_temp)
+                {
+                    GetComponentInParent<Monster_old>().target_list.Add(other);
+                }
+            }
+
+        }
+        if (other.transform.tag == "base")
         {
             if (GetComponentInParent<Monster_old>().isChase)
             {

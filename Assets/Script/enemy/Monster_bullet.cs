@@ -30,31 +30,69 @@ public class Monster_bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(monster != null){
-            if (monster.GetComponentInParent<Monster_old>().target != null)
+        if(attack_type == 1)
+        {
+            if (monster != null)
             {
-                if (other.gameObject.CompareTag(monster.GetComponentInParent<Monster_old>().target.gameObject.tag))
+                if (monster.GetComponentInParent<Monster_old>().target != null)
                 {
-                    if (other.gameObject.CompareTag("Player"))
+                    if (other.gameObject.CompareTag(monster.GetComponentInParent<Monster_old>().target.gameObject.tag))
                     {
-                        Debug.Log("�÷��̾� ���� ��");
-                        monster.GetComponentInParent<Monster_old>().AttackOn();
-                        Destroy(gameObject);
+                        if (other.gameObject.CompareTag("Player"))
+                        {
+                            other.GetComponent<Player>().boss_skil_on = true;
+                            Destroy(gameObject);
+                        }
                     }
-                    if (other.gameObject.CompareTag("TowerAttack"))
+                }
+            }
+        }else if (attack_type == 2)
+        {
+            if (monster != null)
+            {
+                if (monster.GetComponentInParent<Monster_old>().target != null)
+                {
+                    if (other.gameObject.CompareTag(monster.GetComponentInParent<Monster_old>().target.gameObject.tag))
                     {
-                        Debug.Log("Ÿ�� ���� ��");
-                        monster.GetComponentInParent<Monster_old>().AttackOn();
-                        Destroy(gameObject);
-                    }
-                    if (other.gameObject.CompareTag("base"))
-                    {
-                        Debug.Log("���̽� ���� ��");
-                        monster.GetComponentInParent<Monster_old>().AttackOn();
-                        Destroy(gameObject);
+                        if (other.gameObject.CompareTag("Player"))
+                        {
+                            other.GetComponent<Player>().boss_slow_on = true;
+                            Destroy(gameObject);
+                        }
                     }
                 }
             }
         }
+        else
+        {
+            if (monster != null)
+            {
+                if (monster.GetComponentInParent<Monster_old>().target != null)
+                {
+                    if (other.gameObject.CompareTag(monster.GetComponentInParent<Monster_old>().target.gameObject.tag))
+                    {
+                        if (other.gameObject.CompareTag("Player"))
+                        {
+                            Debug.Log("�÷��̾� ���� ��");
+                            monster.GetComponentInParent<Monster_old>().AttackOn();
+                            Destroy(gameObject);
+                        }
+                        if (other.gameObject.CompareTag("TowerAttack"))
+                        {
+                            Debug.Log("Ÿ�� ���� ��");
+                            monster.GetComponentInParent<Monster_old>().AttackOn();
+                            Destroy(gameObject);
+                        }
+                        if (other.gameObject.CompareTag("base"))
+                        {
+                            Debug.Log("���̽� ���� ��");
+                            monster.GetComponentInParent<Monster_old>().AttackOn();
+                            Destroy(gameObject);
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }
