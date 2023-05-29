@@ -7,6 +7,7 @@ public class Gold : MonoBehaviour
 {
     public Text GoldText;
     public int amount = 1000;
+    AudioSource getCoin;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class Gold : MonoBehaviour
             Destroy(gameObject);
             amount += 1000;
             GoldText.text = amount.ToString();
+            getCoin.Play();
 
         }
     }

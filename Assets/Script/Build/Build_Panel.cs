@@ -25,6 +25,7 @@ public class Build_Panel : MonoBehaviour
     private int cost_fence_repair = 100;
     private Text Upgrade_Gold, Repair_Gold;
     private int repair_gold;
+    private AudioSource levelUpSound;
     
 
     public Material[] mat = new Material[5]; 
@@ -41,6 +42,7 @@ public class Build_Panel : MonoBehaviour
         hpText = GameObject.Find("Hp_Text").GetComponent<Text>();
         Upgrade_Gold = GameObject.Find("Upgrade_Gold").GetComponent<Text>();
         Repair_Gold = GameObject.Find("Repair_Gold").GetComponent<Text>();
+        levelUpSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -107,6 +109,7 @@ public class Build_Panel : MonoBehaviour
                 GameObject.Find("Main Camera").GetComponent<GameManager>().money -= cost_tower_upgrade;
                 cost_tower_upgrade += 500;
                 Upgrade_Gold.text = cost_tower_upgrade.ToString();
+                if(GameObject.Find(objectname).GetComponent<Tower>().level % 5 == 0) levelUpSound.Play();
             }
         }
         else if (objectname.Contains("fence"))
@@ -118,6 +121,8 @@ public class Build_Panel : MonoBehaviour
                 GameObject.Find("Main Camera").GetComponent<GameManager>().money -= cost_fence_upgrade;
                 cost_fence_upgrade += 300;
                 Upgrade_Gold.text = cost_fence_upgrade.ToString();
+                if(GameObject.Find(objectname).GetComponent<Fence>().level % 5 == 0) levelUpSound.Play();
+
             }
             
         }

@@ -10,6 +10,7 @@ public class WeaponLevel : MonoBehaviour
     public GameObject TypeIcon1, TypeIcon2, TypeIcon3, TypeIcon4, TypeIcon5;
     public GameObject TypeIcon1_N, TypeIcon2_N, TypeIcon3_N, TypeIcon4_N, TypeIcon5_N;
     private int cost = 100;
+    private AudioSource levelUpSound;
 
     public int SL;
 
@@ -19,6 +20,7 @@ public class WeaponLevel : MonoBehaviour
         goldText = GameObject.Find("Upgrade_Gold_Weapon").GetComponent<Text>();
         playerInfo = GameObject.Find("Player_Info").GetComponent<Text>();
         SL = 1;
+        levelUpSound = GetComponent<AudioSource>();
 
         TypeIcon1_N.SetActive(true);
         TypeIcon2_N.SetActive(true);
@@ -83,6 +85,7 @@ public class WeaponLevel : MonoBehaviour
             goldText.text = cost.ToString();
             GameObject.Find("MainCharacter").GetComponent<Player>().weapon_atkVal += 10;
             if(SL == 25) levelText.text += "(최대)";
+            if(SL % 5 == 0) levelUpSound.Play();
         }
 
     }

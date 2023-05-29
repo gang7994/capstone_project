@@ -39,6 +39,9 @@ public class Monster_old : MonoBehaviour
     public Material[] ice_monster_state = new Material[1];
     public Material[] freeze_monster_state = new Material[1];
     public GameObject[] monsters;
+    private AudioSource[] sources;
+    private AudioSource hitSound;
+    private AudioSource dyingSound;
     
     private float fire_cooltime;
     private float ligntning_cooltime = 5.0f;
@@ -74,6 +77,9 @@ public class Monster_old : MonoBehaviour
         isAttackDelay = false;
         target_check = false;
         meshColor = materi.color;
+        sources = GetComponents<AudioSource>();
+        hitSound = sources[0];
+        dyingSound = sources[1];
         Invoke("ChaseStart", 2);
     }
     private void Start()
@@ -414,6 +420,7 @@ public class Monster_old : MonoBehaviour
                         if(target.GetComponent<Player>().Health - total_damage >0) target.GetComponent<Player>().Health -= total_damage;
                         else target.GetComponent<Player>().Health = 0;
                     }
+                    hitSound.Play();
                 }
                 else if (target.gameObject.CompareTag("TowerAttack"))
                 {
@@ -433,6 +440,7 @@ public class Monster_old : MonoBehaviour
                     }
                     else target.GetComponent<Base>().hp = 0;
                 }
+                
             }
         }
     }
@@ -441,6 +449,7 @@ public class Monster_old : MonoBehaviour
     {
         gameManager.SendMessage("ChangeMonsterNumText", -1);
         gameManager.SendMessage("KillCount", 1);
+        dyingSound.Play();
         yield break;
     }
 

@@ -644,12 +644,14 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject);
             int temp = Random.Range(0, 201) + 700;
             GameObject.Find("Main Camera").GetComponent<GameManager>().money += (int)(temp*(1+GameObject.Find("Main Camera").GetComponent<Elemental>().character_moneyLuck));
+            audioSources[5].Play();
         }
         if (collision.tag == "Gold2")
         {
             Destroy(collision.gameObject);
             int temp = Random.Range(0, 201) + 900;
             GameObject.Find("Main Camera").GetComponent<GameManager>().money += (int)(temp * (1 + GameObject.Find("Main Camera").GetComponent<Elemental>().character_moneyLuck));
+            audioSources[5].Play();
         }
     }
 
