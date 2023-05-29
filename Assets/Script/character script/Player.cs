@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
 
     GameObject earthShield;
     GameObject earthUnbreakableEffect;
+
     float stick_hAxis, stick_vAxis, key_hAxis, key_vAxis;
     float attackDelay;
     int[] Type = new int[5];
@@ -36,7 +37,9 @@ public class Player : MonoBehaviour
     public float weapon_defaultAtkVal = 10.0f; //디폴트
     public float weapon_atkVal;
     public bool boss_skil_on;
+    GameObject boss_skill;
     public bool boss_slow_on;
+    GameObject boss_slow;
 
 
 
@@ -93,7 +96,11 @@ public class Player : MonoBehaviour
         earthShield = transform.Find("GlowZoneGreen").gameObject;
         earthShield.SetActive(false);   
         earthUnbreakableEffect = transform.Find("GlowZoneWhite").gameObject;
-        earthUnbreakableEffect.SetActive(false);             
+        earthUnbreakableEffect.SetActive(false);      
+        boss_skill = transform.Find("PurpleHexagonZone2").gameObject;
+        boss_skill.SetActive(false); 
+        boss_slow = transform.Find("ModularHexagonZone2").gameObject;
+        boss_slow.SetActive(false);             
     }
 
     void Awake()
@@ -106,19 +113,23 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (boss_skil_on)
-        {
+        {   
+            boss_skill.SetActive(true); 
             skil_delay += Time.deltaTime;
             if(skil_delay > 3)
             {
                 boss_skil_on = false;
+                boss_skill.SetActive(false); 
             }
         }
         if (boss_slow_on)
         {
+            boss_slow.SetActive(true);    
             skil_delay2 += Time.deltaTime;
             if (skil_delay2 > 3)
             {
                 boss_slow_on = false;
+                boss_slow.SetActive(false);    
             }
             slow_speed = 0.5f;
         }

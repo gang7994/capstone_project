@@ -71,7 +71,7 @@ public class WeaponLevel : MonoBehaviour
             TypeIcon5_N.SetActive(false);
         }
         playerInfo.text = GameObject.Find("MainCharacter").GetComponent<Player>().Health.ToString() + "\n\n" + 
-                        GameObject.Find("MainCharacter").GetComponent<Player>().weapon_atkVal.ToString() + "\n";
+                        GameObject.Find("MainCharacter").GetComponent<Player>().weapon_defaultAtkVal.ToString() + "\n";
 
         
     }
@@ -83,7 +83,7 @@ public class WeaponLevel : MonoBehaviour
             GameObject.Find("Main Camera").GetComponent<GameManager>().money -= cost;
             cost += 500;
             goldText.text = cost.ToString();
-            GameObject.Find("MainCharacter").GetComponent<Player>().weapon_atkVal += 10;
+            GameObject.Find("MainCharacter").GetComponent<Player>().weapon_defaultAtkVal += 10;
             if(SL == 25) levelText.text += "(최대)";
             if(SL % 5 == 0) levelUpSound.Play();
         }
