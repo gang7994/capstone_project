@@ -10,7 +10,7 @@ public class ImageOpacityController : MonoBehaviour
     
     public float minOpacity = 0f; // 최소 투명도
     public float maxOpacity = 1f; // 최대 투명도
-    public float changeInterval = 2f; // 투명도 변화 간격
+    public float changeInterval = 3f; // 투명도 변화 간격
 
     private float targetOpacity0; // 목표 투명도
     private float currentOpacity0; // 현재 투명도
