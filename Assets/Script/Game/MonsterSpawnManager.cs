@@ -15,6 +15,7 @@ public class MonsterSpawnManager : MonoBehaviour
     private List<string> monsterName = new List<string>();
     private float spawnDelay;
     public GameObject house;
+    public List<Transform> spawnSpots;
     
     void Start()
     {
@@ -28,7 +29,7 @@ public class MonsterSpawnManager : MonoBehaviour
     {   
         if (enableSpwan){
             for (int i = 0; i < spawnOnceNumOfMonster; i++){
-                Vector3 spawnPosition = new Vector3(Random.Range(-30, 30), 0.5f, Random.Range(-30, 30));
+                Vector3 spawnPosition = RandomSpawn();
                 GameObject enemy = Instantiate(Monster, spawnPosition, Quaternion.identity);
                 enemy.GetComponent<Monster_old>().house = house;
                 gameManager.SendMessage("ChangeMonsterNumText", 1);
@@ -103,5 +104,12 @@ public class MonsterSpawnManager : MonoBehaviour
     {
         spawnList.JsonLoad();
         monsterInfos = spawnList.GetSpawnData();        
+    }
+
+    private Vector3 RandomSpawn()
+    {
+        int n = Random.Range(0, spawnSpots.Count);
+        Debug.Log($"{spawnSpots[n].transform.position}");
+        return spawnSpots[n].transform.position;
     }
 }
