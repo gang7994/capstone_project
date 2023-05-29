@@ -119,6 +119,7 @@ public class Player : MonoBehaviour
             if(skil_delay > 3)
             {
                 boss_skil_on = false;
+                skil_delay = 0;
                 boss_skill.SetActive(false); 
             }
         }
@@ -129,6 +130,7 @@ public class Player : MonoBehaviour
             if (skil_delay2 > 3)
             {
                 boss_slow_on = false;
+                skil_delay2 = 0;
                 boss_slow.SetActive(false);    
             }
             slow_speed = 0.5f;

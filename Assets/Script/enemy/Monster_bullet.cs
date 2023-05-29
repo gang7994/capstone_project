@@ -14,6 +14,10 @@ public class Monster_bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(attack_type == 2 || attack_type == 1)
+        {
+            transform.Translate(0, 1, 0);
+        }
 
     }
 
@@ -30,23 +34,7 @@ public class Monster_bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(attack_type == 1)
-        {
-            if (monster != null)
-            {
-                if (monster.GetComponentInParent<Monster_old>().target != null)
-                {
-                    if (other.gameObject.CompareTag(monster.GetComponentInParent<Monster_old>().target.gameObject.tag))
-                    {
-                        if (other.gameObject.CompareTag("Player"))
-                        {
-                            other.GetComponent<Player>().boss_skil_on = true;
-                            Destroy(gameObject);
-                        }
-                    }
-                }
-            }
-        }else if (attack_type == 2)
+        if (attack_type == 1)
         {
             if (monster != null)
             {
