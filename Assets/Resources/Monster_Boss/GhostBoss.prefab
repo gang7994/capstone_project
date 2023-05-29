@@ -777,6 +777,6 @@ MonoBehaviour:
   boss_skil_on: 0
   boss_skil_1_time: 5
   boss_skil_2_time: 7
-  boss_skil_bullet1: {fileID: 1100773256502261226, guid: 7f1e8f49d3613db4ab1f4ba808b0a16b, type: 3}
+  boss_skil_bullet1: {fileID: 804069200893993269, guid: c5ee69fe7a666ed4fb3984b967519899, type: 3}
   boss_skil_bullet2: {fileID: 0}
   boss_type: 2
