@@ -106,6 +106,7 @@ public class Build_UI : MonoBehaviour
                 GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().build_Position[((int)tower.transform.position.z / 3) + 6,(int)tower.transform.position.x / 3 + 10] = 1;
                 tower.GetComponent<Tower>().isOn = true;
                 tower_prefab.GetComponent<Tower_Move>().IsBuild_Tower();
+                if(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().current_number_of_Tower == GameObject.Find("Main Camera").GetComponent<Elemental>().tower_max) tower_prefab.SetActive(false);
             }
         }
         else if (fence_prefab.activeSelf == true)
@@ -158,6 +159,7 @@ public class Build_UI : MonoBehaviour
                     }
                     
                 }
+                if(GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().current_number_of_Fence == GameObject.Find("Main Camera").GetComponent<Elemental>().fence_max) fence_prefab.SetActive(false);
             }
             
         }
