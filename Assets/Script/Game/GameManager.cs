@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
     void Update(){
         moneyText1.GetComponent<TextMeshProUGUI>().text = money.ToString();
         moneyText2.GetComponent<TextMeshProUGUI>().text = money.ToString();
-
     }
 
     void SetIsNight(bool isNight){

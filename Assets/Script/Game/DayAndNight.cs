@@ -59,7 +59,6 @@ public class DayAndNight : MonoBehaviour
                 RenderSettings.fogDensity = currentFogDensity;
                 Instantiate(monsterPrefab);
             }
-            
         }
         else
         {
@@ -70,5 +69,4 @@ public class DayAndNight : MonoBehaviour
             }
         }
     }
-
 }

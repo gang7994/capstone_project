@@ -214,7 +214,6 @@ public class Tech_Manager : MonoBehaviour
     {
         if (i == "left")
         {
-            print(left);
             Select_Tech(tech_list[rand_left][0], tech_list[rand_left][1], tech_list[rand_left][2],tech_list[rand_left][3],tech_list[rand_left][4],tech_list[rand_left][5], tech_list[rand_left][6], tech_list[rand_left][7]);
             //티어, 종류, 특성, 인덱스, 이름, 내용, 초기값, 최대값
             if(tech_list[rand_left][0] == "1") {
@@ -250,7 +249,6 @@ public class Tech_Manager : MonoBehaviour
         }
         else if (i == "mid")
         {
-            print(mid);
             Select_Tech(tech_list[rand_mid][0], tech_list[rand_mid][1], tech_list[rand_mid][2],tech_list[rand_mid][3],tech_list[rand_mid][4],tech_list[rand_mid][5], tech_list[rand_mid][6], tech_list[rand_mid][7]);
             //티어, 종류, 특성, 인덱스, 이름, 내용, 초기값, 최대값
             if(tech_list[rand_mid][0] == "1") {
@@ -286,7 +284,6 @@ public class Tech_Manager : MonoBehaviour
         }
         else
         {
-            print(right);
             Select_Tech(tech_list[rand_right][0], tech_list[rand_right][1], tech_list[rand_right][2],tech_list[rand_right][3],tech_list[rand_right][4],tech_list[rand_right][5], tech_list[rand_right][6], tech_list[rand_right][7]);
             //티어, 종류, 특성, 인덱스, 이름, 내용, 초기값, 최대값
             if(tech_list[rand_right][0] == "1") {
@@ -327,6 +324,4 @@ public class Tech_Manager : MonoBehaviour
     {
         Elemental.property_memory.Add(tier+type+property+index);
     }
-    
-
 }

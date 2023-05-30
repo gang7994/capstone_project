@@ -7,12 +7,8 @@ using UnityStandardAssets.CrossPlatformInput;
 public class PlayerMove : MonoBehaviour
 {
     public float speed = 5.0f;
-    void Start()
-    {
 
-    }
 
-    // Update is called once per frame
     void Update()
     {
         float h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
@@ -25,11 +21,6 @@ public class PlayerMove : MonoBehaviour
             transform.Translate(dir * speed * Time.deltaTime);
 
             //GetComponent<Animator>().SetBool("isMove", true);
-        }
-        else
-        {
-            //GetComponent<Animator>().SetBool("isMove", false);
-        }
-        
+        }        
     }
 }

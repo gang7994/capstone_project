@@ -15,9 +15,6 @@ public class DayManager : MonoBehaviour
     private AudioSource Day;
     private AudioSource Night;
 
-
-
-
     GameManager gameManager;
     Tech_Manager tech_manager;
     public bool isNight = false;
@@ -51,7 +48,6 @@ public class DayManager : MonoBehaviour
         night_text.SetActive(false);
         night_Number.SetActive(false);
         BGM = GameObject.Find("Main Camera").GetComponents<AudioSource>();
-        
     }
 
     // Update is called once per frame

@@ -36,7 +36,6 @@ public class LoadingSceneController : MonoBehaviour
             timer += 0.001f;
             
             if(op.progress < 0.9f) {
-                print(op.progress);
                 barSlider.fillAmount = Mathf.Lerp(barSlider.fillAmount, op.progress, timer);
                 loadingText.text = $"{(int)(barSlider.fillAmount*100)} %";
                 if(barSlider.fillAmount >= op.progress) timer = 0.0f;
