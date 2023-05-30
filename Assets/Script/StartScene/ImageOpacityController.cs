@@ -35,7 +35,7 @@ public class ImageOpacityController : MonoBehaviour
         targetOpacity3 = currentOpacity3;
     }
 
-    private void Update()
+    private void Update()   
     {
         // 타이머 업데이트
         timer += Time.deltaTime;
