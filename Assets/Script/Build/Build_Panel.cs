@@ -49,7 +49,6 @@ public class Build_Panel : MonoBehaviour
     void Update()
     {
         objectname = GameObject.Find("BuildMod_UI").GetComponent<Build_Manager>().select_Build;
-        //print(objectname);
         if (objectname.Contains("tower")){
             Tower_Display_Panel(objectname);
         }

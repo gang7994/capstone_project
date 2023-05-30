@@ -10,15 +10,9 @@ public class Fence_Move : MonoBehaviour
 
     public GameObject BuildMod_UI;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
     // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
     public void init_position()
     {
         transform.position = new Vector3(0, 0, 1.5f);
