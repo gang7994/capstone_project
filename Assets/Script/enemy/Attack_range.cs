@@ -75,102 +75,106 @@ public class Attack_range : MonoBehaviour
 
     private void OnTriggerStay(Collider other)   // 적이 공격 범위에 있을 시 데미지 적용
     {
-        
-        if (attack)
+        if (GetComponentInParent<Monster_old>().isChase)
         {
-            if (isBoss)  // 보스 근거리
+            if (attack)
             {
-                if (!attack_type_range) {
-                    if (delay > 0.3f)
-                    {
-                        if (GetComponentInParent<Monster_old>().target != null)
-                        {
-                            if (other.gameObject.CompareTag(GetComponentInParent<Monster_old>().target.gameObject.tag))
-                            {
-                                if (other.gameObject.CompareTag("Player"))
-                                {
-                                    GetComponentInParent<Monster_old>().AttackOn();
-                                    attack = false;
-                                }
-                                if (delay > 0.3f)
-                                {
-                                    if (other.gameObject.CompareTag("TowerAttack"))
-                                    {
-                                        GetComponentInParent<Monster_old>().AttackOn();
-                                        attack = false;
-                                    }
-                                }
-                                if (delay > 0.3f)
-                                {
-                                    if (other.gameObject.CompareTag("FenceAttack"))
-                                    {
-                                        GetComponentInParent<Monster_old>().AttackOn();
-                                        attack = false;
-                                    }
-                                }
-                                if (delay > 0.3f)
-                                {
-                                    if (other.gameObject.CompareTag("base"))
-                                    {
-                                        GetComponentInParent<Monster_old>().AttackOn();
-                                        attack = false;
-                                    }
-                                }
-                            }
-                        }
-
-
-                    }
-                }
-            }
-            else  // 일반몹
-            {
-                if(!attack_type_range) // 근거리
+                if (isBoss)  // 보스 근거리
                 {
-                    if (delay > 0.3f)
+                    if (!attack_type_range)
                     {
-                        if (GetComponentInParent<Monster_old>().target != null)
+                        if (delay > 0.3f)
                         {
-                            if (other.gameObject.CompareTag(GetComponentInParent<Monster_old>().target.gameObject.tag))
+                            if (GetComponentInParent<Monster_old>().target != null)
                             {
-                                if (other.gameObject.CompareTag("Player"))
+                                if (other.gameObject.CompareTag(GetComponentInParent<Monster_old>().target.gameObject.tag))
                                 {
-                                    GetComponentInParent<Monster_old>().AttackOn();
-                                    attack = false;
-                                }
-                                if (delay > 0.3f)
-                                {
-                                    if (other.gameObject.CompareTag("TowerAttack"))
+                                    if (other.gameObject.CompareTag("Player"))
                                     {
                                         GetComponentInParent<Monster_old>().AttackOn();
                                         attack = false;
                                     }
-                                }
-                                if (delay > 0.3f)
-                                {
-                                    if (other.gameObject.CompareTag("FenceAttack"))
+                                    if (delay > 0.3f)
                                     {
-                                        GetComponentInParent<Monster_old>().AttackOn();
-                                        attack = false;
+                                        if (other.gameObject.CompareTag("TowerAttack"))
+                                        {
+                                            GetComponentInParent<Monster_old>().AttackOn();
+                                            attack = false;
+                                        }
                                     }
-                                }
-                                if (delay > 0.3f)
-                                {
-                                    if (other.gameObject.CompareTag("base"))
+                                    if (delay > 0.3f)
                                     {
-                                        GetComponentInParent<Monster_old>().AttackOn();
-                                        attack = false;
+                                        if (other.gameObject.CompareTag("FenceAttack"))
+                                        {
+                                            GetComponentInParent<Monster_old>().AttackOn();
+                                            attack = false;
+                                        }
+                                    }
+                                    if (delay > 0.3f)
+                                    {
+                                        if (other.gameObject.CompareTag("base"))
+                                        {
+                                            GetComponentInParent<Monster_old>().AttackOn();
+                                            attack = false;
+                                        }
                                     }
                                 }
                             }
+
+
                         }
-
-
                     }
                 }
-            }
+                else  // 일반몹
+                {
+                    if (!attack_type_range) // 근거리
+                    {
+                        if (delay > 0.3f)
+                        {
+                            if (GetComponentInParent<Monster_old>().target != null)
+                            {
+                                if (other.gameObject.CompareTag(GetComponentInParent<Monster_old>().target.gameObject.tag))
+                                {
+                                    if (other.gameObject.CompareTag("Player"))
+                                    {
+                                        GetComponentInParent<Monster_old>().AttackOn();
+                                        attack = false;
+                                    }
+                                    if (delay > 0.3f)
+                                    {
+                                        if (other.gameObject.CompareTag("TowerAttack"))
+                                        {
+                                            GetComponentInParent<Monster_old>().AttackOn();
+                                            attack = false;
+                                        }
+                                    }
+                                    if (delay > 0.3f)
+                                    {
+                                        if (other.gameObject.CompareTag("FenceAttack"))
+                                        {
+                                            GetComponentInParent<Monster_old>().AttackOn();
+                                            attack = false;
+                                        }
+                                    }
+                                    if (delay > 0.3f)
+                                    {
+                                        if (other.gameObject.CompareTag("base"))
+                                        {
+                                            GetComponentInParent<Monster_old>().AttackOn();
+                                            attack = false;
+                                        }
+                                    }
+                                }
+                            }
 
+
+                        }
+                    }
+                }
+
+            }
         }
+        
         
     }
 }
