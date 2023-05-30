@@ -27,11 +27,11 @@ public class monster_attack : MonoBehaviour
     void Update()
     {
         base_attack = GetComponentInParent<Monster_old>().base_attack;
-        /**earth_stop = GetComponentInParent<Monster_old>().earth_stop;
+        earth_stop = GetComponentInParent<Monster_old>().earth_stop;
         if (earth_stop)
         {
             Attack_Check = false;
-        }**/
+        }
         target_check();
         if(GetComponentInParent<Monster_old>().target_list.Count == 0)
         {
