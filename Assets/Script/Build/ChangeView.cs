@@ -13,27 +13,18 @@ public class ChangeView : MonoBehaviour
 
     [SerializeField]
     private GameObject go_TopCamera;
+    [SerializeField]
+    private GameObject Character;
 
     public GameObject TopScene;
 
     public GameObject FrontScene;
 
+
     void Start(){
         TopScene.SetActive(false);
     }
-    /*
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            Topview();
-        }
-        
-        viewBtn.onClick.AddListener(Topview);
-
-    }
-    */
     public void Topview()
     {
         if(!isTopview)
@@ -51,6 +42,7 @@ public class ChangeView : MonoBehaviour
         go_TopCamera.SetActive(true);
         TopScene.SetActive(true);
         FrontScene.SetActive(false);
+        Character.SetActive(false);
     }
     public void go_Isometricview()
     {
@@ -58,6 +50,7 @@ public class ChangeView : MonoBehaviour
         go_TopCamera.SetActive(false);
         TopScene.SetActive(false);
         FrontScene.SetActive(true);
+        Character.SetActive(true);
     }
 
 }

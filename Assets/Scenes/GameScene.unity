@@ -240,7 +240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: -170.99994}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2047617
@@ -3438,13 +3438,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &98101906
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4397,13 +4397,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &117142300
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4958,7 +4958,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &127180100
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5132,7 +5132,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &130445932
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6116,7 +6116,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &163007397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6895,7 +6895,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &190901693
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7177,13 +7177,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &197103803
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7753,7 +7753,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &210311625
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7895,7 +7895,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &213641850
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8362,13 +8362,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &225211246
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8897,7 +8897,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &238957425
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9453,7 +9453,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &250720209
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10755,7 +10755,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &278619186
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15352,7 +15352,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &404292849
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16150,13 +16150,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &423111344
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18298,7 +18298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 250}
+  m_AnchoredPosition: {x: 0, y: 129.00006}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &452213039
@@ -19140,7 +19140,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &467321988
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19681,7 +19681,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &477431690
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23183,13 +23183,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &528369206
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24031,7 +24031,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &547590657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26649,7 +26649,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &616307925
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28907,7 +28907,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 640, y: 250}
+  m_AnchoredPosition: {x: 640, y: 129.00006}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &666144618
@@ -29773,7 +29773,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &684883923
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31287,13 +31287,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &719480269
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31662,13 +31662,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &731079024
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33324,7 +33324,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &780881172
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33693,13 +33693,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &788247415
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35265,7 +35265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -640, y: 250}
+  m_AnchoredPosition: {x: -640, y: 129.00006}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &817491381
@@ -36434,7 +36434,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &846212373
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37232,7 +37232,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &870904777
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -38601,7 +38601,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &900019909
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -39393,7 +39393,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &908853130
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41497,7 +41497,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.00061035156}
-  m_SizeDelta: {x: 1750, y: 2372.599}
+  m_SizeDelta: {x: 1750, y: 2072.599}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &961126548
 MonoBehaviour:
@@ -45268,6 +45268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd8281ff343fe8409ec60b11d68c35a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
+  coolTime: 0
   is_up_down: 0
   is_down_down: 0
   is_left_down: 0
@@ -45599,7 +45601,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1042206310
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -51295,13 +51297,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1165382716
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -52602,7 +52604,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1187705902
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -53887,7 +53889,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1217256386
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -54283,6 +54285,7 @@ GameObject:
   - component: {fileID: 1240633310}
   - component: {fileID: 1240633298}
   - component: {fileID: 1240633311}
+  - component: {fileID: 1240633312}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -54551,6 +54554,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Option_Panel: {fileID: 516359835}
   Gameover_Panel: {fileID: 1802952968}
+--- !u!114 &1240633312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230961214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 1
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &1242923419
 GameObject:
   m_ObjectHideFlags: 0
@@ -58969,12 +58995,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -59423,7 +59449,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1382304710
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -59573,7 +59599,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1387747797
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -60015,7 +60041,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -320, y: 250}
+  m_AnchoredPosition: {x: -320, y: 129}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1401595176
@@ -62232,13 +62258,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1450501254
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -62495,7 +62521,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1461818749
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -62574,13 +62600,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1469957091
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -63655,7 +63681,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1492720139
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -66153,7 +66179,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1551049434
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -69684,13 +69710,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1646394553
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -72601,13 +72627,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1710916998
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -72970,6 +72996,7 @@ MonoBehaviour:
   isTopview: 0
   viewBtn: {fileID: 789633388}
   go_TopCamera: {fileID: 850559038}
+  Character: {fileID: 1475632683}
   TopScene: {fileID: 1365002083}
   FrontScene: {fileID: 1230961214}
 --- !u!114 &1721208986
@@ -77148,7 +77175,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1820130058
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -79465,13 +79492,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1885456223
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -80773,8 +80800,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 875, y: -1727.599}
-  m_SizeDelta: {x: 1750, y: 1200}
+  m_AnchoredPosition: {x: 875, y: -1577.599}
+  m_SizeDelta: {x: 1750, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1912153697
 MonoBehaviour:
@@ -81023,7 +81050,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1915781039
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -81798,7 +81825,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &1929618936
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -83647,7 +83674,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -320, y: -50}
+  m_AnchoredPosition: {x: -320, y: -170.99994}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1984661283
@@ -84365,7 +84392,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 320, y: 250}
+  m_AnchoredPosition: {x: 320, y: 129.00006}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2007099419
@@ -87561,7 +87588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -640, y: -50}
+  m_AnchoredPosition: {x: -640, y: -170.99994}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2093858959
@@ -88324,7 +88351,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &2106085881
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -88404,7 +88431,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &2109160382
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -88909,7 +88936,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &2118274961
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -89030,7 +89057,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &2120196197
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -89534,7 +89561,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: .
+  m_Text: 
 --- !u!222 &2140893797
 CanvasRenderer:
   m_ObjectHideFlags: 0

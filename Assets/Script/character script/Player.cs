@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         slow_speed = 1;
         skil_delay = 0;
         boss_skil_on = false;
-        Health = 500;
+        Health = 100;
         Type[0] = 0;
         Type[1] = 0;
         Type[2] = 0;
