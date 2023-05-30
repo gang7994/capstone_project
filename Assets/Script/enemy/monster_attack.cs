@@ -169,7 +169,7 @@ public class monster_attack : MonoBehaviour
 
     }
 
-    void target_check()
+    public void target_check()
     {
         bool check_temp = false;
         foreach(Collider temp in attack_list)

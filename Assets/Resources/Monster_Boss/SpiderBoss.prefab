@@ -50,6 +50,7 @@ MonoBehaviour:
   attack_list: []
   target: {fileID: 0}
   earth_stop: 0
+  base_attack: 0
 --- !u!136 &4299217318657109844
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -109,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7322192c3fec0eb4aae364cc4db79efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  base_attack: 0
 --- !u!136 &5910985933812527460
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -862,11 +864,12 @@ MonoBehaviour:
   boss_skil_1: 0
   boss_skil_2: 0
   boss_skil_on: 0
-  boss_skil_1_time: 25
-  boss_skil_2_time: 10
+  boss_skil_1_time: 8
+  boss_skil_2_time: 15
   boss_skil_bullet1: {fileID: 804069200893993269, guid: 1fd3547570abdcb429c4726da1e5c5d0, type: 3}
   boss_skil_bullet2: {fileID: 804069200893993269, guid: 90dc5c09f861a21409dc07aad0ce8839, type: 3}
   boss_type: 1
+  base_attack: 0
 --- !u!195 &1002011446
 NavMeshAgent:
   m_ObjectHideFlags: 0

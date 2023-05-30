@@ -31,7 +31,6 @@ public class Attack_range : MonoBehaviour
                     GameObject temp = Instantiate(bullet, transform.position, Quaternion.identity);
                     temp.GetComponent<Monster_bullet>().monster = gameObject;
                     temp.GetComponent<Monster_bullet>().fire(transform.forward);
-                    Debug.Log("원거리 공격 생성");
                     attack = false;
                 }
                 else
@@ -39,7 +38,6 @@ public class Attack_range : MonoBehaviour
                     GameObject temp = Instantiate(bullet, transform.position, Quaternion.identity);
                     temp.GetComponent<Monster_bullet>().monster = gameObject;
                     temp.GetComponent<Monster_bullet>().fire(transform.forward);
-                    Debug.Log("원거리 공격 생성");
                     attack = false;
                 }
             }
@@ -69,7 +67,6 @@ public class Attack_range : MonoBehaviour
                             {
                                 if (other.gameObject.CompareTag("Player"))
                                 {
-                                    Debug.Log("플레이어 어택 됨");
                                     GetComponentInParent<Monster_old>().AttackOn();
                                     attack = false;
                                 }
@@ -77,7 +74,6 @@ public class Attack_range : MonoBehaviour
                                 {
                                     if (other.gameObject.CompareTag("TowerAttack"))
                                     {
-                                        Debug.Log("타워 어택 됨");
                                         GetComponentInParent<Monster_old>().AttackOn();
                                         attack = false;
                                     }
@@ -86,7 +82,6 @@ public class Attack_range : MonoBehaviour
                                 {
                                     if (other.gameObject.CompareTag("FenceAttack"))
                                     {
-                                        Debug.Log("펜스 어택 됨");
                                         GetComponentInParent<Monster_old>().AttackOn();
                                         attack = false;
                                     }
@@ -95,7 +90,6 @@ public class Attack_range : MonoBehaviour
                                 {
                                     if (other.gameObject.CompareTag("base"))
                                     {
-                                        Debug.Log("베이스 어택 됨");
                                         GetComponentInParent<Monster_old>().AttackOn();
                                         attack = false;
                                     }
@@ -119,7 +113,6 @@ public class Attack_range : MonoBehaviour
                             {
                                 if (other.gameObject.CompareTag("Player"))
                                 {
-                                    Debug.Log("플레이어 어택 됨");
                                     GetComponentInParent<Monster_old>().AttackOn();
                                     attack = false;
                                 }
@@ -127,7 +120,6 @@ public class Attack_range : MonoBehaviour
                                 {
                                     if (other.gameObject.CompareTag("TowerAttack"))
                                     {
-                                        Debug.Log("타워 어택 됨");
                                         GetComponentInParent<Monster_old>().AttackOn();
                                         attack = false;
                                     }
@@ -136,7 +128,6 @@ public class Attack_range : MonoBehaviour
                                 {
                                     if (other.gameObject.CompareTag("FenceAttack"))
                                     {
-                                        Debug.Log("펜스 어택 됨");
                                         GetComponentInParent<Monster_old>().AttackOn();
                                         attack = false;
                                     }
@@ -145,7 +136,6 @@ public class Attack_range : MonoBehaviour
                                 {
                                     if (other.gameObject.CompareTag("base"))
                                     {
-                                        Debug.Log("베이스 어택 됨");
                                         GetComponentInParent<Monster_old>().AttackOn();
                                         attack = false;
                                     }
