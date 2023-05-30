@@ -16,6 +16,7 @@ public class MonsterSpawnManager : MonoBehaviour
     private float spawnDelay;
     public GameObject house;
     public List<Transform> spawnSpots;
+    public int day_temp;
     
     void Start()
     {
@@ -30,7 +31,7 @@ public class MonsterSpawnManager : MonoBehaviour
         if (enableSpwan){
             for (int i = 0; i < spawnMonsterNumber[num]; i++){
                 Vector3 spawnPosition = RandomSpawn();
-                GameObject enemy = Instantiate(Monster, spawnPosition, Quaternion.identity);
+                GameObject enemy = Instantiate(Monster, spawnPosition, Quaternion.identity);               
                 enemy.GetComponent<Monster_old>().house = house;
             }
         }
@@ -43,7 +44,8 @@ public class MonsterSpawnManager : MonoBehaviour
             Monster = Resources.Load<GameObject>(monName);
             int spawnNumber = monsterName.Count;
             enableSpwan = true;
-            
+            Monster.GetComponent<Monster_old>().maxHealth = Monster.GetComponent<Monster_old>().maxHealth * (1 + day / 10);
+            Monster.GetComponent<Monster_old>().curHealth = Monster.GetComponent<Monster_old>().curHealth * (1 + day / 10);
             yield return new WaitForSeconds(spawnDelay);
             SpawnMonster(i);
             
