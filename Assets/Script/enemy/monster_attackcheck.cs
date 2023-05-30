@@ -42,6 +42,27 @@ public class monster_attackcheck : MonoBehaviour
                     }
                 }
             }
+            else if(GetComponentInParent<Monster_old>().isBoss){
+                if (GetComponentInParent<Monster_old>().isChase)
+                {
+                    /**if(GetComponentInParent<Monster_old>().target == null)
+                    {
+                        GetComponentInParent<Monster_old>().isAttack = false;
+                    }**/
+                    bool check_temp = true;
+                    foreach (Collider temp in GetComponentInParent<Monster_old>().target_list)
+                    {
+                        if (other == temp)
+                        {
+                            check_temp = false;
+                        }
+                    }
+                    if (check_temp)
+                    {
+                        GetComponentInParent<Monster_old>().target_list.Add(other);
+                    }
+                }
+            }
             
 
         }

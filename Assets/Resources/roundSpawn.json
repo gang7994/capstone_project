@@ -2,34 +2,42 @@
 {
     "Body" : [
         {
-            "round" : [1],
-            "name" : ["Bat", "BeeElite", "Shade", "Spook", "Spider"],
-            "spawnMonsterNumber" : [5],
-            "spawnOnceNumOfMonster" : [5]
-        },
-        {
-            "round" : [2,3,4],
-            "name" : ["Bat"],
-            "spawnMonsterNumber" : [1,2,1],
-            "spawnOnceNumOfMonster" : [1,2,1]
+            "round" : [1, 2, 3, 4],
+            "name" : ["Bat", "BeeElite", "Spider"],
+            "spawnMonsterNumber" : {
+                "number1" : [5, 5, 5],
+                "number2" : [10, 5, 5],
+                "number3" : [10, 10, 5],
+                "number4" : [10, 10, 10]
+            },
+            "spawnOnceNumOfMonster" : [5, 5, 5, 5]
         },
         {
             "round" : [5],
-            "name" : ["SpiderBoss"],
-            "spawnMonsterNumber" : [1],
-            "spawnOnceNumOfMonster" : [1]
+            "name" : ["Bat", "BeeElite", "Spider", "SpiderBoss"],
+            "spawnMonsterNumber" : {
+                "number1" : [10, 10, 10, 1]
+            },
+            "spawnOnceNumOfMonster" : [10]
         },
         {
-            "round" : [6,7,8,9],
-            "name" : ["BeeElite"],
-            "spawnMonsterNumber" : [1,2,3,4],
-            "spawnOnceNumOfMonster" : [1,2,3,4]
+            "round" : [6, 7, 8, 9],
+            "name" : ["Bat", "BeeElite", "Spider", "Shade", "Spook"],
+            "spawnMonsterNumber" : {
+                "number1" : [5, 5, 5, 10, 10],
+                "number2" : [6, 6, 6, 11, 11],
+                "number3" : [7, 7, 7, 12, 12],
+                "number4" : [8, 8, 8, 13, 13]
+            },
+            "spawnOnceNumOfMonster" : [5, 6, 7, 8]
         },
         {
             "round" : [10],
-            "name" : ["GhostBoss"],
-            "spawnMonsterNumber" : [1],
-            "spawnOnceNumOfMonster" : [1]
+            "name" : ["Bat", "BeeElite", "Spider", "Shade", "Spook", "GhostBoss"],
+            "spawnMonsterNumber" : {
+                "number1" : [8, 8, 8, 13, 13, 1]
+            },
+            "spawnOnceNumOfMonster" : [8]
         }
     ]
 }

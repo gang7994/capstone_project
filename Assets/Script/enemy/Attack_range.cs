@@ -46,9 +46,11 @@ public class Attack_range : MonoBehaviour
             {
                 if (isBoss)
                 {
-                    GameObject temp = Instantiate(bullet, transform.position, Quaternion.identity);
-                    temp.GetComponent<Monster_bullet>().monster = gameObject;
-                    temp.GetComponent<Monster_bullet>().fire(transform.forward);
+                    bullet_delay = 0;
+                    monster_bullet.SetActive(true);
+                    monster_bullet.transform.position = transform.position;
+                    monster_bullet.GetComponent<Monster_bullet>().monster = gameObject;
+                    monster_bullet.GetComponent<Monster_bullet>().fire(transform.forward);
                     attack = false;
                 }
                 else

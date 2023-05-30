@@ -29,6 +29,10 @@ public class Monster_bullet : MonoBehaviour
     public void fire(Vector3 dir)
     {
         direction = new Vector3(dir.x, 0, dir.z);
+        if(attack_type != 0)
+        {
+            Destroy(gameObject, 3);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

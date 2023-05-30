@@ -9,11 +9,11 @@ public class MonsterSpawnManager : MonoBehaviour
     private GameManager gameManager;
     private SpawnList spawnList;
     private List<MonsterInfo> monsterInfos;
+    private MonsterInfo monsterInform;
     private bool enableSpwan = false;
-    private int spawnMonsterNumber; //최종 몬스터 수
-    private int spawnOnceNumOfMonster; //한번에 스폰할 몬스터 갯수
+    private List<int> spawnMonsterNumber; //최종 몬스터 수
     private List<string> monsterName = new List<string>();
-    private float spawnDelay;
+    private float spawnDelay = 10f;
     public GameObject house;
     public List<Transform> spawnSpots;
     
@@ -25,10 +25,10 @@ public class MonsterSpawnManager : MonoBehaviour
         SetSpawnData(); 
     }
 
-    private void SpawnMonster()
+    private void SpawnMonster(int num)
     {   
         if (enableSpwan){
-            for (int i = 0; i < spawnOnceNumOfMonster; i++){
+            for (int i = 0; i < spawnMonsterNumber[num]; i++){
                 Vector3 spawnPosition = RandomSpawn();
                 GameObject enemy = Instantiate(Monster, spawnPosition, Quaternion.identity);
                 enemy.GetComponent<Monster_old>().house = house;
@@ -39,16 +39,16 @@ public class MonsterSpawnManager : MonoBehaviour
 
     public IEnumerator SpawnManage(int day){
         SetSpawn(day);
-        
+        int i = 0;
         foreach (string monName in monsterName) {
             Monster = Resources.Load<GameObject>(monName);
-            int spawnNumber = spawnMonsterNumber / spawnOnceNumOfMonster;
+            int spawnNumber = monsterName.Count;
             enableSpwan = true;
-
-            for (int i = 0; i < spawnNumber; i++){
-                yield return new WaitForSeconds(spawnDelay);
-                SpawnMonster();
-            }
+            
+            yield return new WaitForSeconds(spawnDelay);
+            SpawnMonster(i);
+            
+            i++;
         }
         enableSpwan = false;
         yield break;
@@ -56,48 +56,17 @@ public class MonsterSpawnManager : MonoBehaviour
 
     private void SetSpawn(int day)
     {
-        int wave = 0;
-        int arrayNum = 0;
-        bool isBossRound = false;
-
-        switch (day) {
-            case 1 :
-                wave = 0;
-                break;
-            case int n when (n < 5) : 
-                wave = 1;
-                arrayNum = (n - 2) % 5;
-                break;
-            case 5 : 
-                wave = 2; 
-                isBossRound = true;
-                break;
-            case int n when (n < 10) :
-                wave = 3;
-                arrayNum = (n - 1) % 5; 
-                break;
-            case 10 : 
-                wave = 4; 
-                isBossRound = true; 
-                break;
-        }
-
-        MonsterInfo monsterInform = monsterInfos[wave];
+        bool isBossRound = SetSpawnMonsterNumber(day);
         monsterName = new List<string>();
-
-        //로직 수정 필요
+        
         if (!isBossRound) 
             foreach (string monName in monsterInform.name){
                 monsterName.Add("Monster/" + monName);
             }
         else 
-            monsterName.Add("Monster_Boss/" + monsterInform.name);
+            // monsterName.Add("Monster_Boss/" + monsterInform.name);
 
-        spawnMonsterNumber = monsterInform.spawnMonsterNumber[arrayNum];
-        spawnOnceNumOfMonster = monsterInform.spawnOnceNumOfMonster[arrayNum]; 
-        spawnDelay = 3f;
-
-        Debug.Log($"{monsterName[0]},{spawnMonsterNumber}, {spawnOnceNumOfMonster}");
+        spawnDelay = 10f;
     }
 
     private void SetSpawnData()
@@ -109,7 +78,51 @@ public class MonsterSpawnManager : MonoBehaviour
     private Vector3 RandomSpawn()
     {
         int n = Random.Range(0, spawnSpots.Count);
-        Debug.Log($"{spawnSpots[n].transform.position}");
         return spawnSpots[n].transform.position;
+    }
+
+    private bool SetSpawnMonsterNumber(int day)
+    {
+        int wave = 0;
+        int arrayNum = 0;
+        bool isBossRound = false;
+
+        switch (day) {
+            case int n when (n < 5) : 
+                wave = 0;
+                arrayNum = (n - 1) % 5;
+                break;
+            case 5 : 
+                wave = 1; 
+                isBossRound = true;
+                break;
+            case int n when (n < 10) :
+                wave = 2;
+                arrayNum = (n - 1) % 5; 
+                break;
+            case 10 : 
+                wave = 3; 
+                isBossRound = true; 
+                break;
+        }
+
+        monsterInform = monsterInfos[wave];
+        
+        switch (arrayNum){
+            case 0:
+                spawnMonsterNumber = monsterInform.spawnMonsterNumber.number1;
+                break;
+            case 1:
+                spawnMonsterNumber = monsterInform.spawnMonsterNumber.number1;
+                break;
+            case 2:
+                spawnMonsterNumber = monsterInform.spawnMonsterNumber.number1;
+                break;
+            case 3:
+                spawnMonsterNumber = monsterInform.spawnMonsterNumber.number1;
+                break;
+        }
+
+        return isBossRound;
     }
 }
