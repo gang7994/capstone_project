@@ -361,7 +361,7 @@ public class Monster_old : MonoBehaviour
     {
         materi.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        if (curHealth > 1)
+        if (curHealth > 0)
         {
             reactVec = reactVec.normalized;
             reactVec += Vector3.up;
