@@ -61,6 +61,7 @@ public class Monster_old : MonoBehaviour
     public GameObject boss_skil_bullet2;
     public int boss_type;
     public bool base_attack;
+    bool chase_check;
     public void Awake()
     {
         house = GameObject.Find("Baker_house");
@@ -82,6 +83,7 @@ public class Monster_old : MonoBehaviour
         hitSound = sources[0];
         dyingSound = sources[1];
         Invoke("ChaseStart", 2);
+        chase_check = true;
     }
     private void Start()
     {
@@ -94,6 +96,11 @@ public class Monster_old : MonoBehaviour
     }
     void Update()
     {
+        if(!isChase && chase_check)
+        {
+            StartCoroutine("Die");
+            chase_check = false;
+        }
         if(target == house.transform && isAttack)
         {
             base_attack = true;
