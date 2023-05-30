@@ -13,7 +13,7 @@ public class MonsterSpawnManager : MonoBehaviour
     private bool enableSpwan = false;
     private List<int> spawnMonsterNumber; //최종 몬스터 수
     private List<string> monsterName = new List<string>();
-    private float spawnDelay = 10f;
+    private float spawnDelay;
     public GameObject house;
     public List<Transform> spawnSpots;
     
@@ -47,6 +47,7 @@ public class MonsterSpawnManager : MonoBehaviour
             yield return new WaitForSeconds(spawnDelay);
             SpawnMonster(i);
             
+            spawnDelay = 10f;
             i++;
         }
         enableSpwan = false;
@@ -62,10 +63,11 @@ public class MonsterSpawnManager : MonoBehaviour
             foreach (string monName in monsterInform.name){
                 monsterName.Add("Monster/" + monName);
             }
-        else 
+        else
+            {}
             // monsterName.Add("Monster_Boss/" + monsterInform.name);
 
-        spawnDelay = 10f;
+        spawnDelay = 3f;
 
         int monsterSum = 0;
         foreach (int value in spawnMonsterNumber){
