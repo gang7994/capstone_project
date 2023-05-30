@@ -32,7 +32,6 @@ public class MonsterSpawnManager : MonoBehaviour
                 Vector3 spawnPosition = RandomSpawn();
                 GameObject enemy = Instantiate(Monster, spawnPosition, Quaternion.identity);
                 enemy.GetComponent<Monster_old>().house = house;
-                gameManager.SendMessage("ChangeMonsterNumText", 1);
             }
         }
     }
@@ -67,6 +66,12 @@ public class MonsterSpawnManager : MonoBehaviour
             // monsterName.Add("Monster_Boss/" + monsterInform.name);
 
         spawnDelay = 10f;
+
+        int monsterSum = 0;
+        foreach (int value in spawnMonsterNumber){
+            monsterSum += value;
+        }
+        gameManager.SendMessage("ChangeMonsterNumText", monsterSum);
     }
 
     private void SetSpawnData()
