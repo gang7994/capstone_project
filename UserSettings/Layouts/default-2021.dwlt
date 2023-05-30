@@ -519,9 +519,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 42760000
+      m_SelectedIDs: 02100000
       m_LastClickedID: 0
-      m_ExpandedIDs: 7cc1ffffa4d80000
+      m_ExpandedIDs: 52e4ffffea800000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -803,7 +803,7 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.1423316, y: 1.6309674, z: -1.9308628}
+    m_Target: {x: 0, y: 0.64366114, z: -0.04217708}
     speed: 2
     m_Value: {x: 0.04592982, y: 0.6062619, z: 0.3708112}
   m_RenderMode: 0
@@ -852,11 +852,11 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+    m_Target: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
     speed: 2
     m_Value: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_Size:
-    m_Target: 2.2002332
+    m_Target: 5.040116
     speed: 2
     m_Value: 3.8088193
   m_Ortho:
@@ -952,23 +952,23 @@ MonoBehaviour:
     m_DrawArea:
       serializedVersion: 2
       x: 0
-      y: 0
+      y: 21
       width: 1133
-      height: 614
-    m_Scale: {x: 0.5685185, y: 0.5685185}
-    m_Translation: {x: 566.5, y: 307}
+      height: 593
+    m_Scale: {x: 0.54907405, y: 0.54907405}
+    m_Translation: {x: 566.5, y: 296.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -996.4495
+      x: -1031.7369
       y: -540
-      width: 1992.899
+      width: 2063.4739
       height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.5685185
+  m_defaultScale: 0.54907405
   m_LastWindowPixelSize: {x: 1133, y: 614}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -1057,21 +1057,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Monster
+    - Assets/Script/Game
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets/Resources/Monster
+  - Assets/Script/Game
   m_LastFoldersGridSize: 71
   m_LastProjectPath: D:\github\capstone_project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 368}
-    m_SelectedIDs: 7c7b0000
-    m_LastClickedID: 31612
+    scrollPos: {x: 0, y: 428}
+    m_SelectedIDs: 887b0000
+    m_LastClickedID: 31624
     m_ExpandedIDs: 000000000c7b00000e7b0000107b0000127b0000147b0000167b0000187b00001a7b00001c7b00001e7b0000207b0000227b0000247b0000267b0000287b00002a7b00002c7b00002e7b0000307b0000327b0000347b0000367b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0

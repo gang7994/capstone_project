@@ -264,8 +264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fbf080e7d61d9345b944839e4119033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 90
-  curHealth: 90
+  maxHealth: 100
+  curHealth: 100
   monster_speed: 2
   damage: 10
   house: {fileID: 0}
@@ -302,6 +302,15 @@ MonoBehaviour:
   monsters: []
   navi: {fileID: 0}
   anim: {fileID: 0}
+  boss_skil_1: 0
+  boss_skil_2: 0
+  boss_skil_on: 0
+  boss_skil_1_time: 0
+  boss_skil_2_time: 0
+  boss_skil_bullet1: {fileID: 0}
+  boss_skil_bullet2: {fileID: 0}
+  boss_type: 0
+  base_attack: 0
 --- !u!195 &4699958691645980792
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1821,6 +1830,7 @@ MonoBehaviour:
   attack_list: []
   target: {fileID: 0}
   earth_stop: 0
+  base_attack: 0
 --- !u!136 &6299300711941830756
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1880,6 +1890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7322192c3fec0eb4aae364cc4db79efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  base_attack: 0
 --- !u!136 &3505824344441862295
 CapsuleCollider:
   m_ObjectHideFlags: 0
