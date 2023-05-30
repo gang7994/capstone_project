@@ -11,7 +11,7 @@ public class Attack_range : MonoBehaviour
     bool attack_type_range;
     public GameObject bullet;
     GameObject monster_bullet;
-    public float bullet_delay;
+    float bullet_delay;
     void Start()
     {
         attack = false;
@@ -24,7 +24,7 @@ public class Attack_range : MonoBehaviour
             monster_bullet.SetActive(false);
             bullet_delay = 0;
         }
-        
+
     }
 
     // Update is called once per frame
@@ -41,34 +41,29 @@ public class Attack_range : MonoBehaviour
 
         if (GetComponentInParent<Monster_old>().isChase)
         {
-            delay += Time.deltaTime;
-            if (attack_type_range) // ���Ÿ� ����
+            if (attack)
             {
                 delay += Time.deltaTime;
                 if (attack_type_range) // ���Ÿ� ����
                 {
-                    if (attack)
+                    if (isBoss)
                     {
-                        if (isBoss)
-                        {
-                            bullet_delay = 0;
-                            monster_bullet.SetActive(true);
-                            monster_bullet.transform.position = transform.position;
-                            monster_bullet.GetComponent<Monster_bullet>().monster = gameObject;
-                            monster_bullet.GetComponent<Monster_bullet>().fire(transform.forward);
-                            attack = false;
-                        }
-                        else
-                        {
-                            bullet_delay = 0;
-                            monster_bullet.SetActive(true);
-                            monster_bullet.transform.position = transform.position;
-                            monster_bullet.GetComponent<Monster_bullet>().monster = gameObject;
-                            monster_bullet.GetComponent<Monster_bullet>().fire(transform.forward);
-                            attack = false;
-                        }
+                        bullet_delay = 0;
+                        monster_bullet.SetActive(true);
+                        monster_bullet.transform.position = transform.position;
+                        monster_bullet.GetComponent<Monster_bullet>().monster = gameObject;
+                        monster_bullet.GetComponent<Monster_bullet>().fire(transform.forward);
+                        attack = false;
                     }
-                    
+                    else
+                    {
+                        bullet_delay = 0;
+                        monster_bullet.SetActive(true);
+                        monster_bullet.transform.position = transform.position;
+                        monster_bullet.GetComponent<Monster_bullet>().monster = gameObject;
+                        monster_bullet.GetComponent<Monster_bullet>().fire(transform.forward);
+                        attack = false;
+                    }
                 }
             }
             else
@@ -76,64 +71,19 @@ public class Attack_range : MonoBehaviour
                 delay = 0;
             }
         }
-        
 
-        
+
+
     }
 
 
     private void OnTriggerStay(Collider other)   // ���� ���� ������ ���� �� ������ ����
     {
-        if (GetComponentInParent<Monster_old>().isChase && attack)
+        if (GetComponentInParent<Monster_old>().isChase)
         {
-            if (isBoss)  // ���� �ٰŸ�
+            if (attack)
             {
-                if (!attack_type_range) {
-                    if (delay > 0.3f)
-                    {
-                        if (GetComponentInParent<Monster_old>().target != null)
-                        {
-                            if (other.gameObject.CompareTag(GetComponentInParent<Monster_old>().target.gameObject.tag))
-                            {
-                                if (other.gameObject.CompareTag("Player"))
-                                {
-                                    GetComponentInParent<Monster_old>().AttackOn();
-                                    attack = false;
-                                }
-                                if (delay > 0.3f)
-                                {
-                                    if (other.gameObject.CompareTag("TowerAttack"))
-                                    {
-                                        GetComponentInParent<Monster_old>().AttackOn();
-                                        attack = false;
-                                    }
-                                }
-                                if (delay > 0.3f)
-                                {
-                                    if (other.gameObject.CompareTag("FenceAttack"))
-                                    {
-                                        GetComponentInParent<Monster_old>().AttackOn();
-                                        attack = false;
-                                    }
-                                }
-                                if (delay > 0.3f)
-                                {
-                                    if (other.gameObject.CompareTag("base"))
-                                    {
-                                        GetComponentInParent<Monster_old>().AttackOn();
-                                        attack = false;
-                                    }
-                                }
-                            }
-                        }
-
-
-                    }
-                }
-            }
-            else  // �Ϲݸ�
-            {
-                if(!attack_type_range) // �ٰŸ�
+                if (isBoss)  // ���� �ٰŸ�
                 {
                     if (!attack_type_range)
                     {
@@ -228,7 +178,7 @@ public class Attack_range : MonoBehaviour
 
             }
         }
-        
-        
+
+
     }
 }
