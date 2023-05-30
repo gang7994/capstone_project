@@ -70,6 +70,14 @@ public class GameManager : MonoBehaviour
     {
         day += 1;
         Debug.Log("now day is " + day);
+        if(GameObject.Find("MainCharacter").GetComponent<Player>().Health > 90)
+        {
+            GameObject.Find("MainCharacter").GetComponent<Player>().Health = 100;
+        }
+        else
+        {
+            GameObject.Find("MainCharacter").GetComponent<Player>().Health += 10;
+        }
         UIEnable(true);
     }
 

@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 5522610314949435881}
   m_Layer: 0
   m_Name: hit
-  m_TagString: Untagged
+  m_TagString: MonsterAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
