@@ -14,7 +14,7 @@
         },
         {
             "round" : [5],
-            "name" : ["Bat", "BeeElite", "Spider", "SpiderBoss"],
+            "name" : ["Bat", "BeeElite", "Spider"],
             "spawnMonsterNumber" : {
                 "number1" : [10, 10, 10, 1]
             },
@@ -33,7 +33,7 @@
         },
         {
             "round" : [10],
-            "name" : ["Bat", "BeeElite", "Spider", "Shade", "Spook", "GhostBoss"],
+            "name" : ["Bat", "BeeElite", "Spider", "Shade", "Spook"],
             "spawnMonsterNumber" : {
                 "number1" : [8, 8, 8, 13, 13, 1]
             },
