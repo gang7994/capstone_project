@@ -78,6 +78,14 @@ public class GameManager : MonoBehaviour
         {
             GameObject.Find("MainCharacter").GetComponent<Player>().Health += 10;
         }
+        if (GameObject.Find("Baker_house").GetComponent<Base>().hp > 900)
+        {
+            GameObject.Find("Baker_house").GetComponent<Base>().hp = 1000;
+        }
+        else
+        {
+            GameObject.Find("Baker_house").GetComponent<Base>().hp += 100;
+        }
         UIEnable(true);
     }
 
