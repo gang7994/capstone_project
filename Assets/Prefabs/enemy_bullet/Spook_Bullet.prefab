@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  bullet_speed: 5
-  range: 3
+  bullet_speed: 8
+  range: 2
   attack_type: 0
   monster: {fileID: 0}
 --- !u!54 &-8063443727117800356
