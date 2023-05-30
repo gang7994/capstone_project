@@ -38,36 +38,40 @@ public class Attack_range : MonoBehaviour
             }
             bullet_delay += Time.deltaTime;
         }
-        
-        if (attack)
+
+        if (GetComponentInParent<Monster_old>().isChase)
         {
-            delay += Time.deltaTime;
-            if (attack_type_range) // 원거리 공격
+            if (attack)
             {
-                if (isBoss)
+                delay += Time.deltaTime;
+                if (attack_type_range) // 원거리 공격
                 {
-                    bullet_delay = 0;
-                    monster_bullet.SetActive(true);
-                    monster_bullet.transform.position = transform.position;
-                    monster_bullet.GetComponent<Monster_bullet>().monster = gameObject;
-                    monster_bullet.GetComponent<Monster_bullet>().fire(transform.forward);
-                    attack = false;
-                }
-                else
-                {
-                    bullet_delay = 0;
-                    monster_bullet.SetActive(true);
-                    monster_bullet.transform.position = transform.position;
-                    monster_bullet.GetComponent<Monster_bullet>().monster = gameObject;
-                    monster_bullet.GetComponent<Monster_bullet>().fire(transform.forward);
-                    attack = false;
+                    if (isBoss)
+                    {
+                        bullet_delay = 0;
+                        monster_bullet.SetActive(true);
+                        monster_bullet.transform.position = transform.position;
+                        monster_bullet.GetComponent<Monster_bullet>().monster = gameObject;
+                        monster_bullet.GetComponent<Monster_bullet>().fire(transform.forward);
+                        attack = false;
+                    }
+                    else
+                    {
+                        bullet_delay = 0;
+                        monster_bullet.SetActive(true);
+                        monster_bullet.transform.position = transform.position;
+                        monster_bullet.GetComponent<Monster_bullet>().monster = gameObject;
+                        monster_bullet.GetComponent<Monster_bullet>().fire(transform.forward);
+                        attack = false;
+                    }
                 }
             }
+            else
+            {
+                delay = 0;
+            }
         }
-        else
-        {
-            delay = 0;
-        }
+        
 
         
     }
