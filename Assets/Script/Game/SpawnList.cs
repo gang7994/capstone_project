@@ -24,8 +24,6 @@ class SpawnList : MonoBehaviour
         var loadedJson = Resources.Load<TextAsset>("roundSpawn");
         data = JsonUtility.FromJson<SpawnData>(loadedJson.ToString());
         monsterInfos = data.Body;
-        Debug.Log($"출력{monsterInfos[0].round[0]}");
-        // Debug.Log($"{data[1].name}, {data[1].round[1]}, {data[1].spawnMonsterNumber[0]}");
     }
     
     public List<MonsterInfo> GetSpawnData()
