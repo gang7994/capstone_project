@@ -71,25 +71,21 @@ public class Monster_bullet : MonoBehaviour
                     {
                         if (other.gameObject.CompareTag("Player"))
                         {
-                            Debug.Log("�÷��̾� ���� ��");
                             monster.GetComponentInParent<Monster_old>().AttackOn();
                             Destroy(gameObject);
                         }
                         if (other.gameObject.CompareTag("TowerAttack"))
                         {
-                            Debug.Log("Ÿ�� ���� ��");
                             monster.GetComponentInParent<Monster_old>().AttackOn();
                             Destroy(gameObject);
                         }
                         if (other.gameObject.CompareTag("FenceAttack"))
                         {
-                            Debug.Log("펜스공격");
                             monster.GetComponentInParent<Monster_old>().AttackOn();
                             Destroy(gameObject);
                         }
                         if (other.gameObject.CompareTag("base"))
                         {
-                            Debug.Log("���̽� ���� ��");
                             monster.GetComponentInParent<Monster_old>().AttackOn();
                             Destroy(gameObject);
                         }

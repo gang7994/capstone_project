@@ -397,7 +397,6 @@ public class Monster_old : MonoBehaviour
             instance.transform.Translate(new Vector3(0f, 1f, 0f), Space.World);
             
 
-            // Debug.Log("몬스터 사망2");
         }
         
     }
@@ -409,7 +408,6 @@ public class Monster_old : MonoBehaviour
         navi.speed = 0;
         isAttackDelay = true;
         Attack_range.GetComponent<Attack_range>().attack = true;
-        Debug.Log("몬스터 공격");
                
     }
     void AttackDelay()   // 공격중이 아닐때
@@ -427,7 +425,7 @@ public class Monster_old : MonoBehaviour
 
     public void AttackOn()   // 몬스터의 공격에 피해를 입히는 부분
     {
-        Debug.Log("공격성공");
+
         if (isChase)
         {
            if(target != null)
@@ -451,7 +449,6 @@ public class Monster_old : MonoBehaviour
                         StartCoroutine(Earth_Reflex(target));
                     }
                     
-                    Debug.Log("타워 데미지 10");
                 }
                 else if (target.gameObject.CompareTag("FenceAttack"))
                 {
@@ -460,8 +457,6 @@ public class Monster_old : MonoBehaviour
                         target.GetComponentInParent<Fence>().hp -= damage;
                     }
                     else target.GetComponentInParent<Fence>().hp = 0;
-
-                    Debug.Log("펜스 데미지 10");
                 }
                 else if (target.gameObject.CompareTag("base"))
                 {
