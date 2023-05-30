@@ -65,8 +65,8 @@ public class MonsterSpawnManager : MonoBehaviour
             monsterName.Add("Monster/" + monName);
         }
         if (isBossRound) {
-            if (day == 5) monsterName.Add("Monster_Boss/SpiderBoss");
-            else if (day == 10) monsterName.Add("Monster_Boss/GhostBoss");
+            if (day % 10 == 5) monsterName.Add("Monster_Boss/SpiderBoss");
+            else if (day % 10 == 0) monsterName.Add("Monster_Boss/GhostBoss");
         }
     
         spawnDelay = 3f;
@@ -97,23 +97,23 @@ public class MonsterSpawnManager : MonoBehaviour
         bool isBossRound = false;
 
         switch (day) {
-            case int n when (n < 5) : 
+            case int n when (n % 10 == 0) : 
+                wave = 3; 
+                isBossRound = true; 
+                arrayNum = 0;
+                break;
+            case int n when (n % 10 < 5) : 
                 wave = 0;
                 arrayNum = (n - 1) % 5;
                 break;
-            case 5 : 
+            case int n when (n % 10 == 5) : 
                 wave = 1; 
                 isBossRound = true;
                 arrayNum = 0;
                 break;
-            case int n when (n < 10) :
+            case int n when (n % 10 < 10) :
                 wave = 2;
                 arrayNum = (n - 1) % 5; 
-                break;
-            case 10 : 
-                wave = 3; 
-                isBossRound = true; 
-                arrayNum = 0;
                 break;
         }
 
