@@ -44,8 +44,8 @@ public class MonsterSpawnManager : MonoBehaviour
             Monster = Resources.Load<GameObject>(monName);
             int spawnNumber = monsterName.Count;
             enableSpwan = true;
-            Monster.GetComponent<Monster_old>().maxHealth = Monster.GetComponent<Monster_old>().maxHealth * (1 + day / 10);
-            Monster.GetComponent<Monster_old>().curHealth = Monster.GetComponent<Monster_old>().curHealth * (1 + day / 10);
+            Monster.GetComponent<Monster_old>().maxHealth = Monster.GetComponent<Monster_old>().maxHealth * (1 + (day-1) / 10);
+            Monster.GetComponent<Monster_old>().curHealth = Monster.GetComponent<Monster_old>().curHealth * (1 + (day-1) / 10);
             yield return new WaitForSeconds(spawnDelay);
             SpawnMonster(i);
             

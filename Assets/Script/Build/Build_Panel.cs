@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using System;
 
 
 public class Build_Panel : MonoBehaviour
@@ -19,10 +20,7 @@ public class Build_Panel : MonoBehaviour
 
     private Text levelText;
     private Text hpText;
-    private int cost_tower_upgrade = 100;
-    private int cost_tower_repair = 100;
-    private int cost_fence_upgrade = 100;
-    private int cost_fence_repair = 100;
+    
     private Text Upgrade_Gold, Repair_Gold;
     private int repair_gold;
     private AudioSource levelUpSound;
@@ -97,7 +95,8 @@ public class Build_Panel : MonoBehaviour
     {
         if (objectname.Contains("tower"))
         {
-            if (GameObject.Find(objectname).GetComponent<Tower>().level < 25 && GameObject.Find("Main Camera").GetComponent<GameManager>().money - cost_tower_upgrade >= 0)//돈 부족할 경우 조건문 넣어놔야함
+            int cost = GameObject.Find(objectname).GetComponent<Tower>().level*500+100;
+            if (GameObject.Find(objectname).GetComponent<Tower>().level < 25 && GameObject.Find("Main Camera").GetComponent<GameManager>().money - cost >= 0)//돈 부족할 경우 조건문 넣어놔야함
             {
                 GameObject.Find(objectname).GetComponent<Tower>().level += 1;
                 GameObject.Find(objectname).GetComponent<Tower>().max_hp += 10;
@@ -105,21 +104,19 @@ public class Build_Panel : MonoBehaviour
                 GameObject.Find(objectname).GetComponent<Tower>().hp += 10;
                 GameObject.Find(objectname).GetComponent<Tower>().attack_val += 1;
                 GameObject.Find(objectname).GetComponent<Tower>().basic_attack_val += 1;
-                GameObject.Find("Main Camera").GetComponent<GameManager>().money -= cost_tower_upgrade;
-                cost_tower_upgrade += 500;
-                Upgrade_Gold.text = cost_tower_upgrade.ToString();
+                GameObject.Find("Main Camera").GetComponent<GameManager>().money -= cost;
                 if(GameObject.Find(objectname).GetComponent<Tower>().level % 5 == 0) levelUpSound.Play();
             }
         }
         else if (objectname.Contains("fence"))
         {
-            if (GameObject.Find(objectname).GetComponent<Fence>().level < 30 && GameObject.Find("Main Camera").GetComponent<GameManager>().money - cost_fence_upgrade >= 0){//돈 부족할 경우 조건문 넣어놔야함
+            int cost = GameObject.Find(objectname).GetComponent<Fence>().level*300+100;
+            if (GameObject.Find(objectname).GetComponent<Fence>().level < 30 && GameObject.Find("Main Camera").GetComponent<GameManager>().money - cost >= 0){//돈 부족할 경우 조건문 넣어놔야함
                 GameObject.Find(objectname).GetComponent<Fence>().level += 1;
                 GameObject.Find(objectname).GetComponent<Fence>().max_hp += 10;
                 GameObject.Find(objectname).GetComponent<Fence>().hp += 10;
-                GameObject.Find("Main Camera").GetComponent<GameManager>().money -= cost_fence_upgrade;
-                cost_fence_upgrade += 300;
-                Upgrade_Gold.text = cost_fence_upgrade.ToString();
+                GameObject.Find("Main Camera").GetComponent<GameManager>().money -= cost;
+                Upgrade_Gold.text = cost.ToString();
                 if(GameObject.Find(objectname).GetComponent<Fence>().level % 5 == 0) levelUpSound.Play();
 
             }
@@ -178,7 +175,7 @@ public class Build_Panel : MonoBehaviour
         hpText.text = hp + " / " + max_hp; 
         levelText.text = "타워 레벨 :   " + level.ToString();
         Upgrade_Gold.text = (level*500+100).ToString();
-        repair_gold = (level+1) * 1000;
+        repair_gold = Convert.ToInt32((level+1) * 1000 * (1-hp/max_hp));
         Repair_Gold.text = repair_gold.ToString();
         hpBar.value = (float) hp / (float) max_hp;
 
@@ -237,7 +234,7 @@ public class Build_Panel : MonoBehaviour
         levelText.text = "펜스 레벨 :   " + level.ToString();
         hpBar.value = (float) hp / (float) max_hp;
         Upgrade_Gold.text = (level*300+100).ToString();
-        repair_gold = (level+1) * 500;
+        repair_gold = Convert.ToInt32((level+1) * 500 * (1-hp/max_hp));
         Repair_Gold.text = repair_gold.ToString();
     }
     

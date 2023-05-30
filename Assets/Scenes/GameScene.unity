@@ -29358,6 +29358,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681472159}
   m_CullTransparentMesh: 0
+--- !u!114 &683879345 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3425448558061905696, guid: 177c4863454224e01a23390bf69afc12, type: 3}
+  m_PrefabInstance: {fileID: 1885479774}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &684664412
 GameObject:
   m_ObjectHideFlags: 0
@@ -48722,7 +48733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3767630532b9a6d41b09e57d28235a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpBar: {fileID: 2030147581}
+  hpBar: {fileID: 683879345}
   Tower_Panel: {fileID: 1652233785}
   Fence_Panel: {fileID: 1131300290}
   TechUI_Panel: {fileID: 69815355}
