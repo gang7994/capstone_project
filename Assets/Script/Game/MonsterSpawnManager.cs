@@ -120,13 +120,13 @@ public class MonsterSpawnManager : MonoBehaviour
                 spawnMonsterNumber = monsterInform.spawnMonsterNumber.number1;
                 break;
             case 1:
-                spawnMonsterNumber = monsterInform.spawnMonsterNumber.number1;
+                spawnMonsterNumber = monsterInform.spawnMonsterNumber.number2;
                 break;
             case 2:
-                spawnMonsterNumber = monsterInform.spawnMonsterNumber.number1;
+                spawnMonsterNumber = monsterInform.spawnMonsterNumber.number3;
                 break;
             case 3:
-                spawnMonsterNumber = monsterInform.spawnMonsterNumber.number1;
+                spawnMonsterNumber = monsterInform.spawnMonsterNumber.number4;
                 break;
         }
 
