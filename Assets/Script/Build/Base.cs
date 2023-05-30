@@ -12,10 +12,7 @@ public class Base : MonoBehaviour
     public GameObject base_health_text;
 
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -27,7 +24,6 @@ public class Base : MonoBehaviour
         if(hp <= 0) { //체력이 0이하가 되면 게임오버 팝업창이 뜸
             hp = 0;
             GameObject.Find("UI").GetComponent<UI>().Gameover_Panel_active();
-            print("Game Over!");
         }
     }
 
