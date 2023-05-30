@@ -84,7 +84,7 @@ public class Tower : MonoBehaviour
             defence_val = basic_defence_val + (basic_defence_val/20)*ice_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().ice_tower_armour;
         }
         if(GameObject.Find("Main Camera").GetComponent<Elemental>().function7!=0) {
-            max_hp = basic_max_hp + (basic_attack_val/20)*earth_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().earth_tower_MaxHp;
+            max_hp = basic_max_hp + (basic_max_hp/20)*earth_type_num*GameObject.Find("Main Camera").GetComponent<Elemental>().earth_tower_MaxHp;
         }
         check_tower();         
     }
