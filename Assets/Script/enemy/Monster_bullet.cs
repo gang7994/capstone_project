@@ -29,7 +29,6 @@ public class Monster_bullet : MonoBehaviour
     public void fire(Vector3 dir)
     {
         direction = new Vector3(dir.x, 0, dir.z);
-        Destroy(gameObject, range);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -41,7 +40,7 @@ public class Monster_bullet : MonoBehaviour
                 if (other.gameObject.CompareTag("Player"))
                 {
                     other.GetComponent<Player>().boss_slow_on = true;
-                    Destroy(gameObject);
+                    gameObject.SetActive(false);
                 }
             }
         }else if (attack_type == 2)
@@ -55,7 +54,7 @@ public class Monster_bullet : MonoBehaviour
                         if (other.gameObject.CompareTag("Player"))
                         {
                             monster.GetComponentInParent<Monster_old>().AttackOn();
-                            Destroy(gameObject);
+                            gameObject.SetActive(false);
                         }
                     }
                 }
@@ -72,22 +71,22 @@ public class Monster_bullet : MonoBehaviour
                         if (other.gameObject.CompareTag("Player"))
                         {
                             monster.GetComponentInParent<Monster_old>().AttackOn();
-                            Destroy(gameObject);
+                            gameObject.SetActive(false);
                         }
                         if (other.gameObject.CompareTag("TowerAttack"))
                         {
                             monster.GetComponentInParent<Monster_old>().AttackOn();
-                            Destroy(gameObject);
+                            gameObject.SetActive(false);
                         }
                         if (other.gameObject.CompareTag("FenceAttack"))
                         {
                             monster.GetComponentInParent<Monster_old>().AttackOn();
-                            Destroy(gameObject);
+                            gameObject.SetActive(false);
                         }
                         if (other.gameObject.CompareTag("base"))
                         {
                             monster.GetComponentInParent<Monster_old>().AttackOn();
-                            Destroy(gameObject);
+                            gameObject.SetActive(false);
                         }
                     }
                 }
