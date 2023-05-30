@@ -19162,7 +19162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6415981153020859953, guid: d032f20cd8942234d8322fc2eacac245, type: 3}
       propertyPath: boss_skil_2_time
-      value: 35
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6500906291142131287, guid: d032f20cd8942234d8322fc2eacac245, type: 3}
       propertyPath: m_RootOrder
@@ -44438,7 +44438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5085128654992022194, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
       propertyPath: Health
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5085128654992022194, guid: 4e500ff8a6aff89479e1bedf5e6f6da6, type: 3}
       propertyPath: icicle
@@ -45268,12 +45268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd8281ff343fe8409ec60b11d68c35a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
-  coolTime: 0
-  is_up_down: 0
-  is_down_down: 0
-  is_left_down: 0
-  is_right_down: 0
 --- !u!4 &1032890886 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f9b057a0cb507a240a04d756f447a9a7, type: 3}
