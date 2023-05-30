@@ -931,7 +931,7 @@ MonoBehaviour:
   maxHealth: 1500
   curHealth: 1500
   monster_speed: 3
-  damage: 30
+  damage: 50
   house: {fileID: 0}
   Attack_range: {fileID: 7655693873844963752}
   coinPrefab: {fileID: 0}

@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7322192c3fec0eb4aae364cc4db79efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  base_attack: 0
 --- !u!1 &4046458326935742189
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +244,7 @@ MonoBehaviour:
   attack_list: []
   target: {fileID: 0}
   earth_stop: 0
+  base_attack: 0
 --- !u!1 &8672787908860700800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,7 +1573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   curHealth: 50
-  monster_speed: 2
+  monster_speed: 3
   damage: 5
   house: {fileID: 0}
   Attack_range: {fileID: 340943293255947517}
@@ -1607,6 +1609,15 @@ MonoBehaviour:
   monsters: []
   navi: {fileID: 0}
   anim: {fileID: 0}
+  boss_skil_1: 0
+  boss_skil_2: 0
+  boss_skil_on: 0
+  boss_skil_1_time: 0
+  boss_skil_2_time: 0
+  boss_skil_bullet1: {fileID: 0}
+  boss_skil_bullet2: {fileID: 0}
+  boss_type: 0
+  base_attack: 0
 --- !u!54 &55678792316374213
 Rigidbody:
   m_ObjectHideFlags: 0

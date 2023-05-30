@@ -1209,8 +1209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 800
   curHealth: 800
-  monster_speed: 3
-  damage: 30
+  monster_speed: 5
+  damage: 40
   house: {fileID: 0}
   Attack_range: {fileID: 9030979342215349850}
   coinPrefab: {fileID: 0}
