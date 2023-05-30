@@ -393,7 +393,6 @@ public class Monster_old : MonoBehaviour
             isChase = false;
             target = null;
             Destroy(gameObject, 3);
-            StartCoroutine("Die");
             if(droptype == 1)
             {
                 coinPrefab = GameObject.Find("CoinGold1");
@@ -557,7 +556,6 @@ public class Monster_old : MonoBehaviour
                 isChase = false;
                 target = null;
                 Destroy(gameObject, 3);
-                StartCoroutine("Die");
             }
             anim.SetBool("isDamage", false);
             rd.materials = normal_monster_state; //일반상태 머티리얼
@@ -631,7 +629,6 @@ public class Monster_old : MonoBehaviour
             isChase = false;
             target = null;
             Destroy(gameObject, 3);
-            StartCoroutine("Die");
         }
         anim.SetBool("isDamage", false);
         rd.materials = normal_monster_state; //일반상태 머티리얼
