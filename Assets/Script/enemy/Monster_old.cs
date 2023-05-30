@@ -81,7 +81,7 @@ public class Monster_old : MonoBehaviour
         meshColor = materi.color;
         sources = GetComponents<AudioSource>();
         hitSound = sources[0];
-        dyingSound = sources[1];
+        dyingSound = sources[1];          
         Invoke("ChaseStart", 2);
         chase_check = true;
     }
@@ -96,6 +96,7 @@ public class Monster_old : MonoBehaviour
     }
     void Update()
     {
+        if(target == null) target = house.transform;
         if(!isChase && chase_check)
         {
             StartCoroutine("Die");
