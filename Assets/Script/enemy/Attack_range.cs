@@ -41,10 +41,11 @@ public class Attack_range : MonoBehaviour
 
         if (GetComponentInParent<Monster_old>().isChase)
         {
-            if (attack)
+            delay += Time.deltaTime;
+            if (attack_type_range) // ï¿½ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½
             {
                 delay += Time.deltaTime;
-                if (attack_type_range) // ¿ø°Å¸® °ø°Ý
+                if (attack_type_range) // ï¿½ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½
                 {
                     if (isBoss)
                     {
@@ -77,13 +78,58 @@ public class Attack_range : MonoBehaviour
     }
 
 
-    private void OnTriggerStay(Collider other)   // ÀûÀÌ °ø°Ý ¹üÀ§¿¡ ÀÖÀ» ½Ã µ¥¹ÌÁö Àû¿ë
+    private void OnTriggerStay(Collider other)   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         if (GetComponentInParent<Monster_old>().isChase)
         {
-            if (attack)
+            if (isBoss)  // ï¿½ï¿½ï¿½ï¿½ ï¿½Ù°Å¸ï¿½
             {
-                if (isBoss)  // º¸½º ±Ù°Å¸®
+                if (!attack_type_range) {
+                    if (delay > 0.3f)
+                    {
+                        if (GetComponentInParent<Monster_old>().target != null)
+                        {
+                            if (other.gameObject.CompareTag(GetComponentInParent<Monster_old>().target.gameObject.tag))
+                            {
+                                if (other.gameObject.CompareTag("Player"))
+                                {
+                                    GetComponentInParent<Monster_old>().AttackOn();
+                                    attack = false;
+                                }
+                                if (delay > 0.3f)
+                                {
+                                    if (other.gameObject.CompareTag("TowerAttack"))
+                                    {
+                                        GetComponentInParent<Monster_old>().AttackOn();
+                                        attack = false;
+                                    }
+                                }
+                                if (delay > 0.3f)
+                                {
+                                    if (other.gameObject.CompareTag("FenceAttack"))
+                                    {
+                                        GetComponentInParent<Monster_old>().AttackOn();
+                                        attack = false;
+                                    }
+                                }
+                                if (delay > 0.3f)
+                                {
+                                    if (other.gameObject.CompareTag("base"))
+                                    {
+                                        GetComponentInParent<Monster_old>().AttackOn();
+                                        attack = false;
+                                    }
+                                }
+                            }
+                        }
+
+
+                    }
+                }
+            }
+            else  // ï¿½Ï¹Ý¸ï¿½
+            {
+                if(!attack_type_range) // ï¿½Ù°Å¸ï¿½
                 {
                     if (!attack_type_range)
                     {
@@ -129,9 +175,9 @@ public class Attack_range : MonoBehaviour
                         }
                     }
                 }
-                else  // ÀÏ¹Ý¸÷
+                else  // ï¿½Ï¹Ý¸ï¿½
                 {
-                    if (!attack_type_range) // ±Ù°Å¸®
+                    if (!attack_type_range) // ï¿½Ù°Å¸ï¿½
                     {
                         if (delay > 0.3f)
                         {

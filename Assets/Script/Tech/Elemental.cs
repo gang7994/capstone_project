@@ -45,7 +45,7 @@ public class Elemental : MonoBehaviour
     public float ice_duration       = 3.0f;
     public float earth_duration     = 3.0f;
     //public
-    public int tower_max = 5;
+    public int tower_max = 4;
     public int fence_max = 10;
     public int upgrade_fence = 0;
     public float tower_atkRange = 30.0f;

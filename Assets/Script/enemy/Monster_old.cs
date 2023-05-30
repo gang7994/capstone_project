@@ -285,6 +285,7 @@ public class Monster_old : MonoBehaviour
             GameObject temp1 = Instantiate(boss_skil_bullet1, transform.position, Quaternion.identity);
             temp1.GetComponent<Monster_bullet>().monster = gameObject;
             temp1.GetComponent<Monster_bullet>().fire(transform.forward);
+            sources[2].Play();
         }
         else if(boss_type == 2)
         {
@@ -309,6 +310,7 @@ public class Monster_old : MonoBehaviour
             temp3.GetComponent<Monster_bullet>().fire(transform.forward);
             temp4.GetComponent<Monster_bullet>().fire(transform.forward);
             temp5.GetComponent<Monster_bullet>().fire(transform.forward);
+            sources[2].Play();
         }
         Invoke("skil_end1", 1);
         
@@ -326,10 +328,13 @@ public class Monster_old : MonoBehaviour
                 temp.GetComponent<Monster_bullet>().monster = gameObject;
                 temp.GetComponent<Monster_bullet>().fire(transform.forward);
             }
+            sources[3].Play();
+
 
         }else if(boss_type == 2)
         {
             GameObject.Find("MainCharacter").GetComponent<Player>().boss_skil_on = true;
+            sources[3].Play();
         }
         Invoke("skil_end2", 1);
         
@@ -474,7 +479,7 @@ public class Monster_old : MonoBehaviour
     {
         gameManager.SendMessage("ChangeMonsterNumText", -1);
         gameManager.SendMessage("KillCount", 1);
-        dyingSound.Play();
+       dyingSound.Play();
         yield break;
     }
 

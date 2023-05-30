@@ -77,7 +77,7 @@ public class WeaponLevel : MonoBehaviour
     }
     public void LevelUp_Sword()
     {
-        if(SL < 25){
+        if(SL < 25 && GameObject.Find("Main Camera").GetComponent<GameManager>().money - cost >= 0){
             SL++;
             levelText.text = "레벨 : "+SL;
             GameObject.Find("Main Camera").GetComponent<GameManager>().money -= cost;
