@@ -11,7 +11,7 @@ public class Attack_range : MonoBehaviour
     bool attack_type_range;
     public GameObject bullet;
     GameObject monster_bullet;
-    float bullet_delay;
+    public float bullet_delay;
     void Start()
     {
         attack = false;
@@ -47,24 +47,28 @@ public class Attack_range : MonoBehaviour
                 delay += Time.deltaTime;
                 if (attack_type_range) // ���Ÿ� ����
                 {
-                    if (isBoss)
+                    if (attack)
                     {
-                        bullet_delay = 0;
-                        monster_bullet.SetActive(true);
-                        monster_bullet.transform.position = transform.position;
-                        monster_bullet.GetComponent<Monster_bullet>().monster = gameObject;
-                        monster_bullet.GetComponent<Monster_bullet>().fire(transform.forward);
-                        attack = false;
+                        if (isBoss)
+                        {
+                            bullet_delay = 0;
+                            monster_bullet.SetActive(true);
+                            monster_bullet.transform.position = transform.position;
+                            monster_bullet.GetComponent<Monster_bullet>().monster = gameObject;
+                            monster_bullet.GetComponent<Monster_bullet>().fire(transform.forward);
+                            attack = false;
+                        }
+                        else
+                        {
+                            bullet_delay = 0;
+                            monster_bullet.SetActive(true);
+                            monster_bullet.transform.position = transform.position;
+                            monster_bullet.GetComponent<Monster_bullet>().monster = gameObject;
+                            monster_bullet.GetComponent<Monster_bullet>().fire(transform.forward);
+                            attack = false;
+                        }
                     }
-                    else
-                    {
-                        bullet_delay = 0;
-                        monster_bullet.SetActive(true);
-                        monster_bullet.transform.position = transform.position;
-                        monster_bullet.GetComponent<Monster_bullet>().monster = gameObject;
-                        monster_bullet.GetComponent<Monster_bullet>().fire(transform.forward);
-                        attack = false;
-                    }
+                    
                 }
             }
             else
@@ -80,7 +84,7 @@ public class Attack_range : MonoBehaviour
 
     private void OnTriggerStay(Collider other)   // ���� ���� ������ ���� �� ������ ����
     {
-        if (GetComponentInParent<Monster_old>().isChase)
+        if (GetComponentInParent<Monster_old>().isChase && attack)
         {
             if (isBoss)  // ���� �ٰŸ�
             {
