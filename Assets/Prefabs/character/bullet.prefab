@@ -97,9 +97,8 @@ MonoBehaviour:
   Ice: {fileID: 2100000, guid: 16d625988a0b8954ba0fbb341eaa211b, type: 2}
   Earth: {fileID: 2100000, guid: fa37badbc7fe96b458193151760c7bd7, type: 2}
   Normal: {fileID: 2100000, guid: ffc76947a32ac8040a67af5770cf79d1, type: 2}
-  FireCritical: {fileID: 2100000, guid: ecfe9811bb7a08b4892a2a74ef08f5f9, type: 2}
   can_fierce: 0
-  speed: 20
+  speed: 25
 --- !u!54 &-3176919511322328685
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,7 +125,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.49999997
+  m_Radius: 5
   m_Height: 5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
